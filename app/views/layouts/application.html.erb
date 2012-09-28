@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Lijentandotcom</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
 
-<%= yield %>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="alternate" type="application/atom+xml" title="My Weblog feed" href="/feed/" />
+    <title>lijentan.com</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <script src="modernizr.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js></script>
+    <![endif]-->
+  </head>
 
-</body>
+  <body>
+    <%= yield %>
+  </body>
+
+  <footer>
+  </footer>
+
 </html>

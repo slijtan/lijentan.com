@@ -45,3 +45,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "factory_girl_rails", "~> 4.0"
+
+gem 'forgery', '0.5.0'

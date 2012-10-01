@@ -5,4 +5,5 @@ FactoryGirl.define do
     title { generate(:random_string) }
     body { generate(:random_string) }
   end
+
 end

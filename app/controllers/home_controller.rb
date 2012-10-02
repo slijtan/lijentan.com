@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.where(published: true).order(:date_published)
+    @posts = Post.where(published: true).order('date_published DESC')
   end
 end

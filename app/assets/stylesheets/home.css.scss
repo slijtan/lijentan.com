@@ -138,6 +138,9 @@ article.two-column-text div.body {
               -moz-column-count: 2; /* Firefox */
               -webkit-column-count: 2; /* Safari and Chrome */
               column-count: 2;
+              -moz-column-gap: 35px; /* Firefox */
+              -webkit-column-gap: 35px; /* Safari and Chrome */
+              column-gap: 35px;
 }
 
 /* Post Image Formats */

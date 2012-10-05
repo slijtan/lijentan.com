@@ -23,11 +23,12 @@ ActiveRecord::Schema.define(:version => 20121005003433) do
     t.string   "title"
     t.text     "body"
     t.string   "background_url"
-    t.boolean  "published",      :default => false
+    t.boolean  "shifting_background"
+    t.boolean  "published",           :default => false
     t.datetime "date_published"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.string   "type",           :default => "text", :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.string   "type",                :default => "text", :null => false
   end
 
 end

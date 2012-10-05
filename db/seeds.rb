@@ -1,5 +1,20 @@
 # -*- coding: utf-8 -*-
 Post.delete_all
+
+p = Post.create(title: 'Multiple Backgrounds for Simple Parallax Effect',
+            body:
+            %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other like layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. The basic premise is, while a user is scrolling through a post, the background image will also scroll from top to bottom within the post. I thought this looked pretty cool as a first run, but then I had the idea to add an additional layer to the background so that I can use 2 layers of scrolling backgrounds. If the top layer has a greater height, then it will scroll faster than the bottom layer, which esentially creates a simple parallax effect. That's the effect that I used to get these falling sheep! css -> background-image: url(big-falling-sheep.png), url(small-falling-sheep.png); background-position: 50% 0%; <-- and I just simply adjust the background position from 50% 0% to 50% 100% using javascript as the user scrolls along the page},
+            background_url: 'posts/painting/painting-bg.png',
+            foreground_url: 'posts/painting/painting-fg.png',
+            shifting_background: true,
+            published: true,
+            type: 'series',
+            date_published: DateTime.new(2012, 10, 5, 15, 3))
+
+Image.create(url: 'posts/painting/painting-1.png',
+             post_id: p.id)
+
+
 p = Post.create(title: 'Object In Nature - Session 1',
             body:
             %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (http://www.larryrobinson.net/). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. Its a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
@@ -15,8 +30,6 @@ Image.create(url: 'posts/painting/painting-1.png',
 p = Post.create(title: 'Object In Nature - Session 2',
             body:
             %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O) (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. Its very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
-            background_url: 'posts/painting/painting-bg.png',
-            shifting_background: true,
             published: true,
             type: 'series',
             date_published: DateTime.new(2012, 10, 2, 14, 43))

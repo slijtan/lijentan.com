@@ -1,4 +1,5 @@
 body {
+     font-family: 'Arbutus Slab', serif;
      background-position: top center;
      background-repeat: repeat;
      margin: 0;
@@ -20,45 +21,87 @@ header#main {
     background-size: 100% 600px;
     background-repeat: no-repeat;
     width: 100%;
-    height: 600px;
-    padding: 0 20px;
+    height: 580px;
     margin: 0;
+    padding: 0;
 
     ul li {
-	display: inline;
+        display: inline;
     }
 
     hgroup {
-	font-weight: normal;
-	color: #FFFFFF;
+        font-family: 'Londrina Outline', cursive;
+        font-weight: normal;
+        margin-left: 20px;
 
-	h1 {
-	   font-size: 160px;
-	   margin: 0 auto;
-	   }
+        h1 {
+           font-size: 160px;
+           margin: 0 auto;
+           color: #FFFFFF;
+           }
 
-	h2 {
-	   font-size: 100px;
-	   margin-top: 10px;
-	   width: 700px;
-	   }
+        h2 {
+           font-size: 100px;
+           margin-top: 10px;
+           width: 700px;
+           color: #F7F7F7;
+           }
     }
 }
 
 nav, ul {
-     float: right;
-     clear: both;
      display: none;
 }
 
 
 article {
-	background: url(divider.png) repeat-x 50% 0;
-	padding: 5px 20px 20px 20px;
-	margin: 0 auto;
-	width: 100%;
+        background: url(divider.png) repeat-x 50% 0;
+        padding: 30px 0 40px 0;
+        margin: 0 auto;
+        width: 100%;
 
-	header {
-	text-align: center;
-	}
+        header {
+            text-align: center;
+            margin: 0 auto 0;
+            border-bottom: solid 1px #DEDEDE;
+            width: 960px;
+
+            h1 {
+               display: inline;
+               padding: 0 10px 0 0;
+            }
+        }
+
+
+        time {
+            display: block;
+            color: #A1A1A1;
+            width: 960px;
+            margin: 0 auto;
+            padding: 0 0 10px 0;
+            text-align: right;
+        }
+
+        div {
+            margin: 0 auto;
+            width: 960px;
+            text-align: justify;
+        }
+
+        ul {
+           display: block;
+           margin: 30px auto 10px;
+           width: 960px;
+           text-align: center;
+
+           img {
+               width: 300px;
+               border-radius: 5px;
+               border-top: solid 10px #FFFFFF;
+               border-left: solid 10px #FFFFFF;
+               border-right: solid 10px #FFFFFF;
+               border-bottom: solid 60px #FFFFFF;
+               box-shadow: 2px 2px 0 #A1A1A1;
+           }
+        }
 }

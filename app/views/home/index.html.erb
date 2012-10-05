@@ -14,14 +14,21 @@
   </ul>
 </nav>
 
-<section id="posts">
+<section>
   <% @posts.each do |post| %>
-  <article>
+  <article<% unless post.background_url.blank?  %> style="background-image: url(<%= asset_path(post.background_url) %>)"<% end %>>
     <header>
-      <h1><a href="#"><%= post.title %></a></h1>
-      <time datetime="2009-10-22" pubdate><%= post.date_published %></time>
+      <h1><%= post.title %></h1>
     </header>
-    <p><%= post.body %></p>
+    <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
+    <div><%= post.body %></div>
+    <% unless post.images.blank? %>
+    <ul>
+      <% post.images.each do |image| %>
+      <li><a href="#"><%= image_tag(image.url) %></a></li>
+      <% end %>
+    </ul>
+    <% end %>
   </article>
   <% end %>
 </section>

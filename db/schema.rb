@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928080545) do
+ActiveRecord::Schema.define(:version => 20121005003433) do
+
+  create_table "images", :force => true do |t|
+    t.string  "url"
+    t.integer "post_id"
+    t.integer "sequence", :default => 1
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -19,8 +25,9 @@ ActiveRecord::Schema.define(:version => 20120928080545) do
     t.string   "background_url"
     t.boolean  "published",      :default => false
     t.datetime "date_published"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.string   "type",           :default => "text", :null => false
   end
 
 end

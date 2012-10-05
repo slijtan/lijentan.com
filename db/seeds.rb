@@ -5,50 +5,64 @@ p = Post.create(title: 'Object In Nature - Session 1',
             %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (http://www.larryrobinson.net/). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. Its a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
             background_url: 'http://stuffpoint.com/gamesrocks/image/13260-gamesrocks-superman.jpg',
             published: true,
-            type: :series,
+            type: 'series',
             date_published: DateTime.new(2012, 9, 25, 14, 43))
 
-Image.create(url: 'posts/painting1.png',
+Image.create(url: 'posts/painting/painting-1.png',
              post_id: p.id)
 
 p = Post.create(title: 'Object In Nature - Session 2',
             body:
             %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O) (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. Its very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
-            background_url: 'http://3.bp.blogspot.com/-xcYzbROP7gE/T8yFqiykjAI/AAAAAAAAAfM/mDZ23lq-Rhk/s1600/The_Batman_II_by_ErikVonLehmann.jpg',
             published: true,
-            type: :series,
+            type: 'series',
             date_published: DateTime.new(2012, 10, 2, 14, 43))
 
-Image.create(url: 'posts/painting2.jpg',
+Image.create(url: 'posts/painting/painting-2.jpg',
              post_id: p.id)
 
 p = Post.create(title: 'Object In Nature - Session 3',
             body:
             %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the bikers vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!},
+            background_url: 'posts/painting/painting-3.jpg',
             published: true,
-            type: :series,
+            type: 'series',
             date_published: DateTime.new(2012, 10, 5, 14, 43))
 
-Image.create(url: 'posts/painting3.jpg',
+Image.create(url: 'posts/painting/painting-3.jpg',
              post_id: p.id)
 
+p = Post.create(title: 'Iceland, Germany, and Amsterdam',
+            body:
+            %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.},
+            background_url: 'posts/eu/eu-bg.jpg',
+            published: true,
+            type: 'album',
+            date_published: DateTime.new(2012, 7, 15, 14, 43))
+
+(1..28).each { |num| Image.create(url: "posts/eu/eu-#{num}.jpg", post_id: p.id) }
 
 Post.create(title: 'Norway',
             body:
             %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has its price, and Norway was well worth every penny.},
             published: true,
-            type: :series,
+            type: 'album',
             date_published: DateTime.new(2012, 9, 24, 14, 43))
 
 
-Post.create(title: 'The Tac Cup',
+p = Post.create(title: 'The Tac Cup',
             body:
             %{So recently Steven decided to start officially keeping track of our beer pong records and to set up a ladder ranking system to finally figure out who's the best of the best. We are using the Elo Ranking system, which is the system that is used for chess rankings as well as a whole bunch of different ladder systems (we used it on Wasteland Empires for our leaderboard). We also got a trophy that works kinda like a championship belt. Whoever is at the top of the ladder gets to hold onto it, and it will change hands as the top ranked player gets dethroned. We decided to call it the "Canuto Tacderan Cup" after our landlord, Tac, because we've played the majority of beer pong games in this apartment and the apartment downstairs. And why the pig you ask? Well, I'd like to answer your question with another question… why not?},
-            background_url: 'posts/tac.jpg',
+            background_url: 'posts/tac/tac-bg.jpg',
             published: true,
-            type: :series,
+            type: 'photos',
             date_published: DateTime.new(2012, 10, 4, 14, 43))
 
+Image.create(url: 'posts/tac/tac-1.jpg',
+             post_id: p.id)
+
+Image.create(url: 'posts/tac/tac-2.jpg',
+             post_id: p.id)
 
 Post.create(title: 'Harvard Psychology 1504 - History and Introduction to Positive Psychology',
             body:
@@ -118,7 +132,7 @@ this course = rigor (academia) + fun/accessibility (self help movement)
 
 Topics for lectures will include: science of positive thinking, question of focus, external vs internal, how to change perspective and interpretations, can we change? yes we can change, the mind body connection, importance of sleep, perfectionism, humor, relationships},
             published: true,
-            type: :text,
+            type: 'text',
             date_published: DateTime.new(2012, 7, 11, 14, 43))
 
 
@@ -197,5 +211,5 @@ Active Agent
 
 "The message of the positive psychology movement is to remind our field that it has been deformed. Psych is not just the study of disease, weakness, and damage.  It also is the study of strength and virtue.  Treatment is not just fixing what is wrong, it also is building what is right. Psychology is not just about illness or health, it is about work, education, insight, love, growth, and play. And in this quest for what is best, PP does not rely on wishful thinking, self-deception or hand-waving. Instead it tries to adapt what is best in the scientific method to the unique problems that human behavior presents in all its complexity." - Martin Seligman},
             published: true,
-            type: :series,
+            type: 'series',
             date_published: DateTime.new(2012, 7, 24, 14, 43))

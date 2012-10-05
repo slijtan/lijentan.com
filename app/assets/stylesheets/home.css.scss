@@ -1,3 +1,5 @@
+/* Defaults */
+
 body {
      font-family: 'Arbutus Slab', serif;
      background-position: top center;
@@ -15,10 +17,12 @@ a, a:visited {
     color: #000000;
 }
 
+/* Header & Nav */
+
 header#main {
-    background-image: url(header.jpg);
+    background-image: url(headers/header1.jpg);
     background-attachment: fixed;
-    background-size: 100% 600px;
+    background-size: 100% 750px;
     background-repeat: no-repeat;
     width: 100%;
     height: 580px;
@@ -54,8 +58,9 @@ nav, ul {
 }
 
 
+/* Global Post Formatting */
+
 article {
-        background: url(divider.png) repeat-x 50% 0;
         padding: 30px 0 40px 0;
         margin: 0 auto;
         width: 100%;
@@ -64,7 +69,7 @@ article {
             text-align: center;
             margin: 0 auto 0;
             border-bottom: solid 1px #DEDEDE;
-            width: 960px;
+            width: 750px;
 
             h1 {
                display: inline;
@@ -76,32 +81,60 @@ article {
         time {
             display: block;
             color: #A1A1A1;
-            width: 960px;
+            width: 750px;
             margin: 0 auto;
-            padding: 0 0 10px 0;
+            padding: 0 0 20px 0;
             text-align: right;
         }
 
-        div {
+        .body {
             margin: 0 auto;
-            width: 960px;
+            width: 750px;
             text-align: justify;
+            padding: 0 30px;
         }
 
-        ul {
-           display: block;
+        .images {
            margin: 30px auto 10px;
            width: 960px;
            text-align: center;
+           overflow: auto;
 
-           img {
-               width: 300px;
+           img { margin: 20px; }
+        }
+
+}
+
+/* Post Specific Formats */
+article.midground {
+                  background: url(layout/divider-midground-top.png) repeat-x center top, url(layout/divider-midground-bottom.png) repeat-x center bottom, #FDFDFD;
+}
+
+article.foreground {
+                  background: #FFFFFF;
+}
+
+
+/* Post Image Formats */
+
+       article.series div.images img {
                border-radius: 5px;
                border-top: solid 10px #FFFFFF;
                border-left: solid 10px #FFFFFF;
                border-right: solid 10px #FFFFFF;
                border-bottom: solid 60px #FFFFFF;
                box-shadow: 2px 2px 0 #A1A1A1;
-           }
-        }
-}
+               width: 300px;
+       }
+
+       article.photos div.images img, article.album div.images img {
+               width: auto;
+               height: auto;
+               max-height: 200px;
+               margin-bottom: 10px;
+       }
+
+        article.album div.images img{
+               margin: 0;
+               max-height: 150px;
+       }

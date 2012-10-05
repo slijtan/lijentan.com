@@ -16,19 +16,43 @@
 
 <section>
   <% @posts.each do |post| %>
-  <article<% unless post.background_url.blank?  %> style="background-image: url(<%= asset_path(post.background_url) %>)"<% end %>>
+  <article id="post-<%= post.id %>" class="<%= post.type %> <%= cycle('midground', 'foreground', 'background', name: "space") %>"<% unless post.background_url.blank?  %> style="background-image: url(<%= asset_path(post.background_url) %>);background-position:50% 0%;"<% reset_cycle("space") %><% end %>>
     <header>
       <h1><%= post.title %></h1>
     </header>
     <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
-    <div><%= post.body %></div>
+    <div class="body"><%= post.body %></div>
     <% unless post.images.blank? %>
-    <ul>
+    <div class="images">
       <% post.images.each do |image| %>
-      <li><a href="#"><%= image_tag(image.url) %></a></li>
+      <a href="#"><%= image_tag(image.url) %></a>
       <% end %>
-    </ul>
+    </div>
     <% end %>
   </article>
   <% end %>
 </section>
+
+<div id="asdf" style="position:fixed;top:0;right:0;color:black;background-color:white;">The current position is: </div>
+
+
+<script>
+  $(window).scroll(function () {
+  return;
+    var pig_id = <%= @tac_cup.id %>;
+    var div_height = $("#post-" + pig_id).innerHeight();
+    var top_height = $('#post-' + pig_id).offset().top;
+    var bottom_height = top_height + div_height;
+    var top_position = $(this).scrollTop();
+    var bottom_position = top_position + div_height;
+    var screen_height = $(window).height();
+
+    if(top_position <= bottom_height && bottom_position >= top_height){
+      var position_offset = (bottom_position - bottom_height) * 100 / (div_height + screen_height);
+      $("#post-" + pig_id).css("background-position", "50% " + position_offset + "%");
+    }
+
+    $('#asdf').html("top height: " + top_height + " <br />bottom height: " + bottom_height + "<br />top position: " + top_position + "<br />bottom position: " + bottom_position + "<br />position offset: " + position_offset + "<br />screen height: " + screen_height + "<br />bottom position - top position: " + (bottom_position - top_position) + "<br />div height: " + div_height);
+
+  });
+</script>

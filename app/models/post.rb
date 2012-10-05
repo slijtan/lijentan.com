@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
 
   attr_accessible :background_url, :foreground_url, :shifting_background, :body, :date_published, :published, :title, :type
   validates :title, presence: true
-  validates_inclusion_of :type, :in => ['text', 'series', 'photos', 'album', 'quote', 'video', 'notes']
+  validates_inclusion_of :type, :in => ['one-column-text', 'two-column-text', 'series', 'photos', 'album', 'quote', 'video', 'notes']
 
   has_many :images, dependent: :destroy
 end

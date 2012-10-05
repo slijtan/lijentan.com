@@ -21,7 +21,7 @@
       <h1><%= post.title %></h1>
     </header>
     <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
-    <div class="body"><%= post.body %></div>
+    <div class="body"><%= raw(post.body) %></div>
     <% unless post.images.blank? %>
     <div class="images">
       <% post.images.each do |image| %>

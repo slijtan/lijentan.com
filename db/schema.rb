@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20121005003433) do
     t.string   "background_url"
     t.string   "foreground_url"
     t.boolean  "shifting_background"
+    t.string   "space"
     t.boolean  "published",           :default => false
     t.datetime "date_published"
     t.datetime "created_at",                              :null => false

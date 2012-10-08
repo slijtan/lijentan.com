@@ -16,7 +16,7 @@
 
 <section>
   <% @posts.each do |post| %>
-  <article id="post-<%= post.id %>" class="<%= post.type %> <%= cycle('midground', 'foreground', 'background', name: "space") %> <%= post.shifting_background ? 'bg-shifting' : 'bg-fixed' %>"<% unless post.background_url.blank?  %> style="background-image: <% unless post.foreground_url.blank? %>url(<%= asset_path(post.foreground_url) %>), <% end %>url(<%= asset_path(post.background_url) %>);background-position: 50% 0%;"<% reset_cycle("space") %><% end %>>
+  <article id="post-<%= post.id %>" class="<%= post.type %> <%= post.space == "auto" ? cycle('midground', 'foreground', 'background', name: "space") : post.space %> <%= post.shifting_background ? 'bg-shifting' : 'bg-fixed' %>"<% unless post.background_url.blank?  %> style="background-image: <% unless post.foreground_url.blank? %>url(<%= asset_path(post.foreground_url) %>), <% end %>url(<%= asset_path(post.background_url) %>);background-position: 50% 0%;"<% reset_cycle("space") %><% end %>>
     <header>
       <h1><%= post.title %></h1>
     </header>

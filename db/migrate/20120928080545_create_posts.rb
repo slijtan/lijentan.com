@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :background_url, required: false
       t.string :foreground_url, required: false
       t.boolean :shifting_background, required: false, default: nil
+      t.string :space, required: false
       t.boolean :published, default: false
       t.datetime :date_published, required: false, default: nil
 

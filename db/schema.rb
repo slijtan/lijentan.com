@@ -22,15 +22,18 @@ ActiveRecord::Schema.define(:version => 20121005003433) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
+    t.string   "background_color"
     t.string   "background_url"
     t.string   "foreground_url"
+    t.string   "background_quote"
+    t.string   "background_quote_author"
     t.boolean  "shifting_background"
     t.string   "space"
-    t.boolean  "published",           :default => false
+    t.boolean  "published",               :default => false
     t.datetime "date_published"
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
-    t.string   "type",                :default => "text", :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.string   "type",                    :default => "text", :null => false
   end
 
 end

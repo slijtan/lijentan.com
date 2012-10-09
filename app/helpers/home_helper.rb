@@ -2,7 +2,7 @@ module HomeHelper
   def post_class(post)
     classes = []
     classes << post.type
-    classes << post.space == "auto" ? cycle('midground', 'foreground', 'background', name: "space") : post.space
+    classes << (post.space == "auto" ? cycle('midground', 'foreground', 'background', name: "space") : post.space)
     classes << (post.shifting_background ? 'bg-shifting' : 'bg-fixed')
 
     "class='" + classes.join(" ") + "'"
@@ -18,6 +18,10 @@ module HomeHelper
 
       styles << bg_style
       styles << "background-position: 50% 0%"
+    end
+
+    unless post.background_color.blank?
+      styles << "background-color: #{post.background_color}"
     end
 
     if styles.empty?

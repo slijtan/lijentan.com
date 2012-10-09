@@ -21,10 +21,13 @@
       <h1><%= post.title %></h1>
     </header>
     <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
+    <% unless post.background_quote.blank? %>
+      <blockquote>"<%= post.background_quote %>" - <cite><%= post.background_quote_author %></cite></blockquote>
+    <% end %>
     <div class="body"><%= raw(post.body) %></div>
     <% unless post.images.blank? %>
     <div class="images">
-      <% post.images.each do |image| %>
+      <% post.images.order(:sequence).each do |image| %>
       <a href="#"><%= image_tag(image.url) %></a>
       <% end %>
     </div>
@@ -33,7 +36,7 @@
   <% end %>
 </section>
 
-<div id="asdf" style="position:fixed;top:0;right:0;color:black;background-color:white;">The current position is: </div>
+<div id="asdf" style="display:none;position:fixed;top:0;right:0;color:black;background-color:white;">The current position is: </div>
 <div id="green-zone" style="display:none;position:fixed;top:0;left:0;color:black;background-color:white;">Green Zone</div>
 
 

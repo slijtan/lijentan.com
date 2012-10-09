@@ -78,6 +78,19 @@ article {
 	margin: 0 auto;
 	width: 100%;
 
+	blockquote {
+	    font-family: 'Francois One', sans-serif;
+	    font-size: 120px;
+	    font-style: italic;
+	    letter-spacing: -3px;
+	    word-spacing: -3px;
+	    line-height: 120px;
+	    text-align: center;
+	    color: #FFFFFF;
+	    text-shadow: none;
+	    margin: 0 50px;
+	}
+
 	header {
 	    text-align: center;
 	    margin: 0 auto 0;
@@ -109,9 +122,10 @@ article {
 
 	.images {
 	   margin: 30px auto 10px;
-	   width: 750px;
+	   width: 80%;
 	   text-align: center;
 	   overflow: auto;
+	   z-index: 1;
 
 	   img { margin: 20px; }
 	}
@@ -126,9 +140,11 @@ article.midground {
 }
 
 article.foreground {
-     background: #FFFFFF;
+     background: url(layout/divider-foreground-top.png) repeat-x center top, url(layout/divider-foreground-bottom.png) repeat-x center bottom, #FFFFFF;
      color: #000000;
      text-shadow: 1px 1px 0.1em #FFFFFF;
+
+     header { border-bottom: solid 1px #000000; }
 }
 
 article.background {

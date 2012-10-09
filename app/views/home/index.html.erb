@@ -22,7 +22,7 @@
     </header>
     <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
     <% unless post.background_quote.blank? %>
-      <blockquote>"<%= post.background_quote %>" - <cite><%= post.background_quote_author %></cite></blockquote>
+      <blockquote>"<%= post.background_quote %>"<% unless post.background_quote_author.blank? %> <cite>&nbsp;-&nbsp;<%= post.background_quote_author %></cite><% end %></blockquote>
     <% end %>
     <div class="body"><%= raw(post.body) %></div>
     <% unless post.images.blank? %>

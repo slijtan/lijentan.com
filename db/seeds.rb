@@ -8,16 +8,17 @@ p = Post.create(title: 'The Blue Angels',
 	    background_quote: 'Multiply the best roller coaster you can imagine by 100',
 	    background_quote_author: 'Navy Lt. C.J. Simonsen',
 	    background_color: '#F0EACD',
+	    shifting_background: false,
 	    published: true,
 	    type: 'album',
 	    date_published: DateTime.new(2012, 10, 8, 16, 9))
 
-(1..12).each { |i| Image.create(url: "posts/blue-angels/blue-angels-#{i}-th.jpg", post_id: p.id) }
+(1..12).each { |i| Image.create(url: "posts/blue-angels/blue-angels-#{i}-th.jpg", post_id: p.id, sequence: i) }
 
 
 p = Post.create(title: 'Summatime in the SFC',
 	    body:
-	    %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.<img src="/assets/posts/oct6-weekend/oct6-2.jpg" /> Saturday was our good friends Michelle and Adam's wedding - It was amazing!<img src="/assets/posts/oct6-weekend/oct6-3.jpg" /> It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.<img src="/assets/posts/oct6-weekend/oct6-4.jpg" />And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.<img src="/assets/posts/oct6-weekend/oct6-5.jpg" /> Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.<img src="/assets/posts/oct6-weekend/oct6-6.jpg" /> Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a beautiful concert in the park while seeing jets do fly-bys overhead?<img src="/assets/posts/oct6-weekend/oct6-7.jpg" /> We finished with a super chill sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from social which made the weekend even better.<img src="/assets/posts/oct6-weekend/oct6-1.jpg" /> <b>It was truly a weekend to remember!</b>},
+	    %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.<img src="/assets/posts/oct6-weekend/oct6-2.jpg" /> Saturday was our good friends Michelle and Adam's wedding - It was amazing!<img src="/assets/posts/oct6-weekend/oct6-3.jpg" /> It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.<img src="/assets/posts/oct6-weekend/oct6-4.jpg" />And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.<img src="/assets/posts/oct6-weekend/oct6-5.jpg" /> Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.<img src="/assets/posts/oct6-weekend/oct6-6.jpg" /> Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a beautiful concert in the park while seeing jets do fly-bys overhead?<img src="/assets/posts/oct6-weekend/oct6-7.jpg" /> We finished with a super chill sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.<img src="/assets/posts/oct6-weekend/oct6-1.jpg" /> <b>It was truly a weekend to remember!</b>},
 	    background_url: 'posts/oct6-weekend/oct6-bg.jpg',
 	    space: 'background',
 	    published: true,
@@ -40,8 +41,6 @@ p = Post.create(title: 'Levitating Sheep - Multiple Backgrounds for Simple Paral
 p = Post.create(title: 'Object In Nature - Session 1',
 	    body:
 	    %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (http://www.larryrobinson.net/). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. Its a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
-	    background_url: 'http://stuffpoint.com/gamesrocks/image/13260-gamesrocks-superman.jpg',
-	    shifting_background: false,
 	    published: true,
 	    space: 'midground',
 	    type: 'series',
@@ -49,6 +48,18 @@ p = Post.create(title: 'Object In Nature - Session 1',
 
 Image.create(url: 'posts/painting/painting-1.png',
 	     post_id: p.id)
+
+Post.create(title: 'Just a Thought...',
+	    body:
+	    %{},
+	    background_url: 'http://stuffpoint.com/gamesrocks/image/13260-gamesrocks-superman.jpg',
+	    shifting_background: false,
+	    background_quote: 'This Is How You Make Me Feel',
+	    space: 'auto',
+	    published: true,
+	    type: 'one-column-text',
+	    date_published: DateTime.new(2012, 10, 1, 14, 43))
+
 
 p = Post.create(title: 'Object In Nature - Session 2',
 	    body:
@@ -71,8 +82,7 @@ p = Post.create(title: 'Object In Nature - Session 3',
 	    type: 'series',
 	    date_published: DateTime.new(2012, 10, 5, 14, 43))
 
-Image.create(url: 'posts/painting/painting-3.jpg',
-	     post_id: p.id)
+Image.create(url: 'posts/painting/painting-3.jpg', post_id: p.id)
 
 p = Post.create(title: 'Iceland, Germany, and Amsterdam',
 	    body:
@@ -84,16 +94,19 @@ p = Post.create(title: 'Iceland, Germany, and Amsterdam',
 	    type: 'album',
 	    date_published: DateTime.new(2012, 7, 15, 14, 43))
 
-(1..28).each { |i| Image.create(url: "posts/eu/eu-#{i}-th.jpg", post_id: p.id) }
+(1..28).each { |i| Image.create(url: "posts/eu/eu-#{i}-th.jpg", post_id: p.id, sequence: i) }
 
-Post.create(title: 'Norway',
+p = Post.create(title: 'Norway',
 	    body:
 	    %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has its price, and Norway was well worth every penny.},
 	    published: true,
 	    space: 'midground',
+	    background_url: 'posts/norway/norway-bg.jpg',
+	    shifting_background: true,
 	    type: 'album',
 	    date_published: DateTime.new(2012, 9, 24, 14, 43))
 
+(1..17).each { |i| Image.create(url: "posts/norway/norway-#{i}-th.jpg", post_id: p.id, sequence: i) }
 
 p = Post.create(title: 'The Tac Cup',
 	    body:
@@ -131,11 +144,11 @@ Week 1 Results:
 	    type: 'photos',
 	    date_published: DateTime.new(2012, 10, 4, 14, 43))
 
-Image.create(url: 'posts/tac/tac-1.jpg', post_id: p.id, sequence: 1)
+Image.create(url: 'posts/tac/tac-1-th.jpg', post_id: p.id, sequence: 1)
 
-Image.create(url: 'posts/tac/tac-2.jpg', post_id: p.id, sequence: 3)
+Image.create(url: 'posts/tac/tac-2-th.jpg', post_id: p.id, sequence: 3)
 
-Image.create(url: 'posts/tac/tac-3.jpg', post_id: p.id, sequence: 2)
+Image.create(url: 'posts/tac/tac-3-th.jpg', post_id: p.id, sequence: 2)
 
 Post.create(title: 'Harvard Psychology 1504 - History and Introduction to Positive Psychology',
 	    body:

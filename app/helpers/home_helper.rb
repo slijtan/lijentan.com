@@ -5,7 +5,7 @@ module HomeHelper
     classes << post.space == "auto" ? cycle('midground', 'foreground', 'background', name: "space") : post.space
     classes << (post.shifting_background ? 'bg-shifting' : 'bg-fixed')
 
-    classes.join(" ")
+    "class='" + classes.join(" ") + "'"
   end
 
   def post_style(post)

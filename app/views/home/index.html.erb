@@ -27,7 +27,7 @@
     <div class="body"><%= raw(post.body) %></div>
     <% unless post.images.blank? %>
     <div class="images">
-      <% post.images.order(:sequence).each do |image| %>
+      <% post.images.order(:position).each do |image| %>
       <a href="#"><%= image_tag(image.url) %></a>
       <% end %>
     </div>

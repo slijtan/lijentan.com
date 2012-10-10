@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20121005003433) do
   create_table "images", :force => true do |t|
     t.string  "url"
     t.integer "post_id"
-    t.integer "sequence", :default => 1
+    t.integer "position", :default => 1
   end
 
   create_table "posts", :force => true do |t|
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20121005003433) do
     t.string   "background_quote"
     t.string   "background_quote_author"
     t.boolean  "shifting_background"
-    t.string   "space"
+    t.string   "space",                   :default => "auto"
     t.boolean  "published",               :default => false
     t.datetime "date_published"
     t.datetime "created_at",                                  :null => false

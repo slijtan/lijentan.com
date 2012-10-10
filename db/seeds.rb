@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 Post.delete_all
+Image.delete_all
 
 p = Post.create(title: 'The Blue Angels',
 	    body:
@@ -13,7 +14,7 @@ p = Post.create(title: 'The Blue Angels',
 	    type: 'album',
 	    date_published: DateTime.new(2012, 10, 8, 16, 9))
 
-(1..12).each { |i| Image.create(url: "posts/blue-angels/blue-angels-#{i}-th.jpg", post_id: p.id, sequence: i) }
+(1..12).each { |i| Image.create(url: "posts/blue-angels/blue-angels-#{i}-th.jpg", post_id: p.id, position: i) }
 
 
 p = Post.create(title: 'Summatime in the SFC',
@@ -94,7 +95,7 @@ p = Post.create(title: 'Iceland, Germany, and Amsterdam',
 	    type: 'album',
 	    date_published: DateTime.new(2012, 7, 15, 14, 43))
 
-(1..28).each { |i| Image.create(url: "posts/eu/eu-#{i}-th.jpg", post_id: p.id, sequence: i) }
+(1..28).each { |i| Image.create(url: "posts/eu/eu-#{i}-th.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: 'Norway',
 	    body:
@@ -106,7 +107,7 @@ p = Post.create(title: 'Norway',
 	    type: 'album',
 	    date_published: DateTime.new(2012, 9, 24, 14, 43))
 
-(1..17).each { |i| Image.create(url: "posts/norway/norway-#{i}-th.jpg", post_id: p.id, sequence: i) }
+(1..17).each { |i| Image.create(url: "posts/norway/norway-#{i}-th.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: 'The Tac Cup',
 	    body:
@@ -144,11 +145,11 @@ Week 1 Results:
 	    type: 'photos',
 	    date_published: DateTime.new(2012, 10, 4, 14, 43))
 
-Image.create(url: 'posts/tac/tac-1-th.jpg', post_id: p.id, sequence: 1)
+Image.create(url: 'posts/tac/tac-1-th.jpg', post_id: p.id, position: 1)
 
-Image.create(url: 'posts/tac/tac-2-th.jpg', post_id: p.id, sequence: 3)
+Image.create(url: 'posts/tac/tac-2-th.jpg', post_id: p.id, position: 3)
 
-Image.create(url: 'posts/tac/tac-3-th.jpg', post_id: p.id, sequence: 2)
+Image.create(url: 'posts/tac/tac-3-th.jpg', post_id: p.id, position: 2)
 
 Post.create(title: 'Harvard Psychology 1504 - History and Introduction to Positive Psychology',
 	    body:

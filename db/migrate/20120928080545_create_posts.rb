@@ -9,7 +9,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :background_quote, required: false
       t.string :background_quote_author, required: false
       t.boolean :shifting_background, required: false, default: nil
-      t.string :space, required: false
+      t.string :space, required: true, default: "auto"
       t.boolean :published, default: false
       t.datetime :date_published, required: false, default: nil
 

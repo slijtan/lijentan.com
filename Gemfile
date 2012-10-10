@@ -54,6 +54,7 @@ gem 'forgery', '0.5.0'
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem 'cucumber-rails', :require => false
+  gem 'webrat'
 
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'

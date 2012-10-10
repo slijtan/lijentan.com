@@ -1,0 +1,64 @@
+<header id="main">
+  <hgroup>
+    <h1>Lijen's Blog</h1>
+    <h2>A place on the web for all my stuff...</h2>
+  </hgroup>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#">RSS</a></li>
+    <li><a href="#">Filter By Tag</a></li>
+    <li><a href="#">FB</a></li>
+    <li><input type="search" placeholder="search" /></li>
+  </ul>
+</nav>
+
+<section>
+  <% for post in @posts %>
+  <article id="post-<%= post.id %>" <%= post_class(post) %> <%= post_style(post) %>>
+    <header>
+      <h1><%= post.title %></h1>
+    </header>
+    <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
+    <% unless post.background_quote.blank? %>
+      <blockquote>"<%= post.background_quote %>"<% unless post.background_quote_author.blank? %> <cite>&nbsp;-&nbsp;<%= post.background_quote_author %></cite><% end %></blockquote>
+    <% end %>
+    <div class="body"><%= raw(post.body) %></div>
+    <% unless post.images.blank? %>
+    <div class="images">
+      <% post.images.order(:position).each do |image| %>
+      <a href="#"><%= image_tag(image.url) %></a>
+      <% end %>
+    </div>
+    <% end %>
+  </article>
+  <% end %>
+</section>
+
+<div id="asdf" style="display:none;position:fixed;top:0;right:0;color:black;background-color:white;">The current position is: </div>
+<div id="green-zone" style="display:none;position:fixed;top:0;left:0;color:black;background-color:white;">Green Zone</div>
+
+
+<script>
+  $(window).scroll(function () {
+    var pig_id = <%= @tac_cup.id %>;
+    var div_height = $("#post-" + pig_id).innerHeight();
+    var screen_height = $(window).height();
+    var top_height = $('#post-' + pig_id).offset().top;
+    var bottom_height = top_height + div_height;
+    var top_position = $(this).scrollTop();
+    var bottom_position = top_position + screen_height;
+
+    $('#green-zone').hide();
+
+    if(top_position <= bottom_height && bottom_position >= top_height){
+      var position_offset = (bottom_position - top_height) * 100 / (div_height + screen_height);
+      $("#post-" + pig_id).css("background-position", "50% " + position_offset + "%");
+      $('#green-zone').show();
+    }
+
+    $('#asdf').html("top y: " + top_height + " <br />bottom y: " + bottom_height + "<br />top position: " + top_position + "<br />bottom position: " + bottom_position + "<br />position offset: " + position_offset + "<br />screen height: " + screen_height + "<br />bottom position - top position: " + (bottom_position - top_position) + "<br />div height: " + div_height);
+
+  });
+</script>

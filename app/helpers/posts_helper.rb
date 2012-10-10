@@ -1,4 +1,4 @@
-module HomeHelper
+module PostsHelper
   def post_class(post)
     classes = []
     classes << post.type

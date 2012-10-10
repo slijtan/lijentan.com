@@ -6,6 +6,6 @@ Feature: Visitor browses posts
   Scenario: Browsing a list of posts
     Given a post with the title "The Blue Angels"
     Given a post with the title "Summatime in the SFC"
-    When I am on the posts page
+    When I am on the homepage
     Then I should see "The Blue Angels"
     And I should see "Summatime in the SFC"

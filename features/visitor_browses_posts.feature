@@ -18,18 +18,9 @@ Feature: Visitor browses posts
     Given a post published on 2012-10-12 with the title "12th Post"
     When I am on the homepage
     Then I should see 10 posts
+    And I should see posts in this order: 12th Post, 11th Post, 10th Post, 9th Post, 8th Post, 7th Post, 6th Post, 5th Post, 4th Post, 3rd Post
     And I should not see "1st Post"
     And I should not see "2nd Post"
-    And I should see "3rd Post"
-    And I should see "4th Post"
-    And I should see "5th Post"
-    And I should see "6th Post"
-    And I should see "7th Post"
-    And I should see "8th Post"
-    And I should see "9th Post"
-    And I should see "10th Post"
-    And I should see "11th Post"
-    And I should see "12th Post"
 
   Scenario: Browsing a list of 2 posts
     Given a post published on 2012-10-2 with the title "1st Post"
@@ -37,6 +28,5 @@ Feature: Visitor browses posts
     Given an unpublished post with the title "Hidden Post"
     When I am on the homepage
     Then I should see 2 posts
-    And I should see "1st Post"
-    And I should see "2nd Post"
+    And I should see posts in this order: 1st Post, 2nd Post
     And I should not see "Hidden Post"

@@ -21,3 +21,7 @@ end
 Then /^I should not see "(.*)"$/ do |text|
   page.should_not have_content(text)
 end
+
+Then /^I should see posts in this order: (.*)$/ do |post_names|
+  page.body.should =~ Regexp.new(post_names.split(", ").join("(.|\n)*"))
+end

@@ -19,19 +19,28 @@
   <article id="post-<%= post.id %>" <%= post_class(post) %> <%= post_style(post) %>>
     <header>
       <h1><%= post.title %></h1>
+      <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
     </header>
-    <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
-    <% unless post.background_quote.blank? %>
-      <blockquote>"<%= post.background_quote %>"<% unless post.background_quote_author.blank? %> <cite>&nbsp;-&nbsp;<%= post.background_quote_author %></cite><% end %></blockquote>
+
+    <% if post.quote %>
+    <figure class="quote">
+      <blockquote>"<%= post.quote %>"</blockquote>
+      <% unless post.quote_source.blank? %><figcaption>&nbsp;-&nbsp;<%= post.quote_source %></figcaption><% end %>
+    </figure>
     <% end %>
+
+    <% if post.body %>
     <div class="body"><%= raw(post.body) %></div>
-    <% unless post.images.blank? %>
+    <% end %>
+
+    <% unless post.images.empty? %>
     <div class="images">
       <% post.images.order(:position).each do |image| %>
       <a href="#"><%= image_tag(image.url) %></a>
       <% end %>
     </div>
     <% end %>
+
   </article>
   <% end %>
 </section>

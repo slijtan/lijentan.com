@@ -2,16 +2,13 @@
 Post.delete_all
 Image.delete_all
 
-p = Post.create(title: 'The Blue Angels',
-	    body:
-	    %{},
-	    space: 'foreground',
-	    background_quote: 'Multiply the best roller coaster you can imagine by 100',
-	    background_quote_author: 'Navy Lt. C.J. Simonsen',
-	    background_color: '#F0EACD',
-	    shifting_background: false,
+p = Post.create(space: 'foreground',
+	    quote: 'Multiply the best roller coaster you can imagine by 100',
+	    quote_source: 'Navy Lt. C.J. Simonsen',
+	    style: 'quote-big',
+	    bg_color: '#F0EACD',
 	    published: true,
-	    type: 'album',
+	    type: 'quote',
 	    date_published: DateTime.new(2012, 10, 8, 16, 9))
 
 (1..12).each { |i| Image.create(url: "posts/blue-angels/blue-angels-#{i}-th.jpg", post_id: p.id, position: i) }
@@ -20,7 +17,7 @@ p = Post.create(title: 'The Blue Angels',
 p = Post.create(title: 'Summatime in the SFC',
 	    body:
 	    %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.<img src="/assets/posts/oct6-weekend/oct6-2.jpg" /> Saturday was our good friends Michelle and Adam's wedding - It was amazing!<img src="/assets/posts/oct6-weekend/oct6-3.jpg" /> It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.<img src="/assets/posts/oct6-weekend/oct6-4.jpg" />And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.<img src="/assets/posts/oct6-weekend/oct6-5.jpg" /> Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.<img src="/assets/posts/oct6-weekend/oct6-6.jpg" /> Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a beautiful concert in the park while seeing jets do fly-bys overhead?<img src="/assets/posts/oct6-weekend/oct6-7.jpg" /> We finished with a super chill sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.<img src="/assets/posts/oct6-weekend/oct6-1.jpg" /> <b>It was truly a weekend to remember!</b>},
-	    background_url: 'posts/oct6-weekend/oct6-bg.jpg',
+	    bg_img_fixed: 'posts/oct6-weekend/oct6-bg.jpg',
 	    space: 'background',
 	    published: true,
 	    type: 'two-column-text',
@@ -30,9 +27,8 @@ p = Post.create(title: 'Summatime in the SFC',
 p = Post.create(title: 'Levitating Sheep - Multiple Backgrounds for Simple Parallax Effect',
 	    body:
 	    %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). <img src="/assets/posts/parallax/sheep.jpg" /> The basic premise is, as a user is scrolling through a post, a background image will also scroll from top to bottom within the post's background. I thought this looked pretty cool as a first run with only one background image, but then I had the idea to add an additional background image layer so that I can use 2 layers of scrolling backgrounds. If the top layer's image has a greater height, then it will scroll faster than the bottom layer's image, which esentially creates a simple parallax effect. That's the effect that I used to get these levitating sheep, with some being farther away and some being closer. Heres the simplified css: <code>background-image: url(big-falling-sheep.png), url(small-falling-sheep.png);<br />background-position: 50% 0%;</code> To get it to work, I just simply adjust the background-position from 50% 0% to 50% 100% using javascript as the user scrolls along the page.},
-	    background_url: 'posts/parallax/parallax-bg.png',
-	    foreground_url: 'posts/parallax/parallax-fg.png',
-	    shifting_background: true,
+	    bg_img_shift_down_1: 'posts/parallax/parallax-fg.png',
+	    bg_img_shift_down_2: 'posts/parallax/parallax-bg.png',
 	    space: 'foreground',
 	    published: true,
 	    type: 'two-column-text',
@@ -43,29 +39,24 @@ p = Post.create(title: 'Object In Nature - Session 1',
 	    body:
 	    %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (http://www.larryrobinson.net/). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. Its a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
 	    published: true,
-	    space: 'midground',
 	    type: 'series',
 	    date_published: DateTime.new(2012, 9, 25, 14, 43))
 
 Image.create(url: 'posts/painting/painting-1.png',
 	     post_id: p.id)
 
-Post.create(title: 'Just a Thought...',
-	    body:
-	    %{},
-	    background_url: 'http://stuffpoint.com/gamesrocks/image/13260-gamesrocks-superman.jpg',
-	    shifting_background: false,
-	    background_quote: 'This Is How You Make Me Feel',
-	    space: 'auto',
+Post.create(bg_img_fixed: 'http://stuffpoint.com/gamesrocks/image/13260-gamesrocks-superman.jpg',
+	    quote: 'This Is How You Make Me Feel',
+	    space: 'foreground',
+	    type: 'quote',
+	    style: 'quote-big',
 	    published: true,
-	    type: 'one-column-text',
 	    date_published: DateTime.new(2012, 10, 1, 14, 43))
 
 
 p = Post.create(title: 'Object In Nature - Session 2',
 	    body:
 	    %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O) (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. Its very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
-	    space: 'auto',
 	    published: true,
 	    type: 'series',
 	    date_published: DateTime.new(2012, 10, 2, 14, 43))
@@ -76,8 +67,7 @@ Image.create(url: 'posts/painting/painting-2.jpg',
 p = Post.create(title: 'Object In Nature - Session 3',
 	    body:
 	    %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the bikers vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!},
-	    background_url: 'posts/painting/painting-3.jpg',
-	    shifting_background: true,
+	    bg_img_shift_down_1: 'posts/painting/painting-3.jpg',
 	    space: 'midground',
 	    published: true,
 	    type: 'series',
@@ -88,11 +78,11 @@ Image.create(url: 'posts/painting/painting-3.jpg', post_id: p.id)
 p = Post.create(title: 'Iceland, Germany, and Amsterdam',
 	    body:
 	    %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.},
-	    background_url: 'posts/eu/eu-bg.jpg',
-	    shifting_background: false,
+	    bg_img_fixed: 'posts/eu/eu-bg.jpg',
 	    space: 'background',
 	    published: true,
 	    type: 'album',
+	    style: 'album-thumbnails',
 	    date_published: DateTime.new(2012, 7, 15, 14, 43))
 
 (1..28).each { |i| Image.create(url: "posts/eu/eu-#{i}-th.jpg", post_id: p.id, position: i) }
@@ -102,9 +92,9 @@ p = Post.create(title: 'Norway',
 	    %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has its price, and Norway was well worth every penny.},
 	    published: true,
 	    space: 'midground',
-	    background_url: 'posts/norway/norway-bg.jpg',
-	    shifting_background: true,
+	    bg_img_fixed: 'posts/norway/norway-bg.jpg',
 	    type: 'album',
+	    style: 'album-thumbnails',
 	    date_published: DateTime.new(2012, 9, 24, 14, 43))
 
 (1..17).each { |i| Image.create(url: "posts/norway/norway-#{i}-th.jpg", post_id: p.id, position: i) }
@@ -138,11 +128,10 @@ Week 1 Results:
 <li>Norman: 1170.863960480068</li>
 <li>Total Number of Games Recorded: 35</li>
 </ol>},
-	    background_url: 'posts/tac/tac-bg.jpg',
-	    shifting_background: true,
+	    bg_img_shift_down_1: 'posts/tac/tac-bg.jpg',
 	    published: true,
 	    space: 'midground',
-	    type: 'photos',
+	    type: 'single-column-text',
 	    date_published: DateTime.new(2012, 10, 4, 14, 43))
 
 Image.create(url: 'posts/tac/tac-1-th.jpg', post_id: p.id, position: 1)
@@ -219,7 +208,6 @@ this course = rigor (academia) + fun/accessibility (self help movement)
 
 Topics for lectures will include: science of positive thinking, question of focus, external vs internal, how to change perspective and interpretations, can we change? yes we can change, the mind body connection, importance of sleep, perfectionism, humor, relationships},
 	    published: true,
-	    space: 'auto',
 	    type: 'notes',
 	    date_published: DateTime.new(2012, 7, 11, 14, 43))
 
@@ -299,7 +287,6 @@ Active Agent
 
 "The message of the positive psychology movement is to remind our field that it has been deformed. Psych is not just the study of disease, weakness, and damage.  It also is the study of strength and virtue.  Treatment is not just fixing what is wrong, it also is building what is right. Psychology is not just about illness or health, it is about work, education, insight, love, growth, and play. And in this quest for what is best, PP does not rely on wishful thinking, self-deception or hand-waving. Instead it tries to adapt what is best in the scientific method to the unique problems that human behavior presents in all its complexity." - Martin Seligman},
 	    published: true,
-	    space: 'auto',
 	    type: 'notes',
 	    date_published: DateTime.new(2012, 7, 24, 14, 43))
 
@@ -378,6 +365,5 @@ What if I dont want to join a project of this size?  One can make a difference..
 
 The problem is that most people dont understand how change occurs. For example, smiles. If one person smiles, and each person that sees it smiles at 3 other people.  Its only 20 degrees of separation to affect every person in the world. Or how about giving a general compliment to someone else? We underestimate our capacity to effect change because we underestimate the growth of an exponential function. This becomes a self-fulfilling prophecy, “who am I to change the world?”},
 	    published: true,
-	    space: 'auto',
 	    type: 'notes',
 	    date_published: DateTime.new(2012, 10, 9, 0, 9))

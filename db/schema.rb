@@ -20,20 +20,21 @@ ActiveRecord::Schema.define(:version => 20121005003433) do
   end
 
   create_table "posts", :force => true do |t|
+    t.string   "type"
+    t.string   "space",               :default => "auto"
+    t.string   "style"
+    t.boolean  "published",           :default => false
+    t.datetime "date_published"
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.string   "bg_color"
+    t.string   "bg_img_fixed"
+    t.string   "bg_img_shift_down_1"
+    t.string   "bg_img_shift_down_2"
     t.string   "title"
     t.text     "body"
-    t.string   "background_color"
-    t.string   "background_url"
-    t.string   "foreground_url"
-    t.string   "background_quote"
-    t.string   "background_quote_author"
-    t.boolean  "shifting_background"
-    t.string   "space",                   :default => "auto"
-    t.boolean  "published",               :default => false
-    t.datetime "date_published"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
-    t.string   "type",                    :default => "text", :null => false
+    t.text     "quote"
+    t.string   "quote_source"
   end
 
 end

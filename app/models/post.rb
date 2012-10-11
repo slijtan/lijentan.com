@@ -1,13 +1,25 @@
 class Post < ActiveRecord::Base
   self.inheritance_column = nil
 
-  @@valid_types = ['one-column-text', 'two-column-text', 'series', 'photos', 'album', 'video', 'notes']
-  attr_accessible :background_color, :background_url, :foreground_url, :background_quote, :background_quote_author, :shifting_background, :space, :body, :date_published, :published, :title, :type
+  @@valid_types = ['single-column-text', 'two-column-text', 'series', 'album', 'video', 'notes', 'quote']
+  @@valid_styles = [
+		    'album-thumbails', 'album-carousel', 'album-flipbook', #album styles
+		    'quote-big' #quote styles
+		   ]
+
+  attr_accessible :type, :space, :style, :published, :date_published, :bg_color, :bg_img_fixed, :bg_img_shift_down_1, :bg_img_shift_down_2, :title, :body, :quote, :quote_source
   cattr_reader :valid_types
 
-  validates :title, presence: true
   validates_inclusion_of :type, :in => @@valid_types
   validates_inclusion_of :space, :in => ['foreground', 'background', 'midground', 'auto']
 
   has_many :images, dependent: :destroy
+
+  def has_shifting_background?
+    bg_img_shift_down_1 || bg_img_shift_down_2
+  end
+
+  def has_background?
+    bg_img_fixed || has_shifting_background?
+  end
 end

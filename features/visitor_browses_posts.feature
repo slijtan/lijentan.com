@@ -45,7 +45,6 @@ Feature: Visitor can view posts
     And I should see a "title" tag without a "h1" tag
     And I should see a "title" tag without a "time" tag
 
-  @wip
   Scenario: Browsing a post with a shifting background
     Given the following post records
     | title               | date_published | published | bg_img_shift_down_1 | bg_img_fixed |
@@ -53,8 +52,8 @@ Feature: Visitor can view posts
     | Fixed Background    |      2012-10-2 | true      |                     | my_img.jpg   |
     When I am on the homepage
     Then I should see 2 posts
-    And I should see "Shifting Background" with a shifting background
-    And I should see "Fixed Background"
+    And I should see a "article" tag with the class "bg-shifting"
+    And I should see a "article" tag with the class "bg-fixed"
 
   @wip
   Scenario: Browsing a post with a colored background

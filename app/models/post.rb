@@ -16,10 +16,10 @@ class Post < ActiveRecord::Base
   has_many :images, dependent: :destroy
 
   def has_shifting_background?
-    bg_img_shift_down_1 || bg_img_shift_down_2
+    !bg_img_shift_down_1.blank? || !bg_img_shift_down_2.blank?
   end
 
   def has_background?
-    bg_img_fixed || has_shifting_background?
+    !bg_img_fixed.blank? || has_shifting_background?
   end
 end

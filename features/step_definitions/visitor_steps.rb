@@ -1,9 +1,7 @@
-Given /^a post published on (.*) with the title "(.+)"$/ do |date_published, title|
-  FactoryGirl.create(:post, title: title, published: true, date_published: date_published)
-end
-
-Given /^an unpublished post with the title "(.+)"$/ do |title|
-  FactoryGirl.create(:post, title: title, published: false)
+Given /^the following (.+) records?$/ do |factory_name, table|
+  table.hashes.each do |hash|
+    FactoryGirl.create(factory_name, hash)
+  end
 end
 
 Given /^I am on the homepage$/ do

@@ -4,18 +4,20 @@ Feature: Visitor browses posts
   I want to be able to browse through the most recent posts as I scroll down the page
 
   Scenario: Browsing a list of 12 posts, only the most recent 10 posts should be displayed
-    Given a post published on 2012-10-1 with the title "1st Post"
-    Given a post published on 2012-10-2 with the title "2nd Post"
-    Given a post published on 2012-10-3 with the title "3rd Post"
-    Given a post published on 2012-10-4 with the title "4th Post"
-    Given a post published on 2012-10-5 with the title "5th Post"
-    Given a post published on 2012-10-6 with the title "6th Post"
-    Given a post published on 2012-10-7 with the title "7th Post"
-    Given a post published on 2012-10-8 with the title "8th Post"
-    Given a post published on 2012-10-9 with the title "9th Post"
-    Given a post published on 2012-10-10 with the title "10th Post"
-    Given a post published on 2012-10-11 with the title "11th Post"
-    Given a post published on 2012-10-12 with the title "12th Post"
+    Given the following post records
+    | title     | date_published | published |
+    | 1st Post  |      2012-10-1 | true      |
+    | 2nd Post  |      2012-10-2 | true      |
+    | 3rd Post  |      2012-10-3 | true      |
+    | 4th Post  |      2012-10-4 | true      |
+    | 5th Post  |      2012-10-5 | true      |
+    | 6th Post  |      2012-10-6 | true      |
+    | 7th Post  |      2012-10-7 | true      |
+    | 8th Post  |      2012-10-8 | true      |
+    | 9th Post  |      2012-10-9 | true      |
+    | 10th Post |     2012-10-10 | true      |
+    | 11th Post |     2012-10-11 | true      |
+    | 12th Post |     2012-10-12 | true      |
     When I am on the homepage
     Then I should see 10 posts
     And I should see posts in this order: 12th Post, 11th Post, 10th Post, 9th Post, 8th Post, 7th Post, 6th Post, 5th Post, 4th Post, 3rd Post
@@ -23,65 +25,80 @@ Feature: Visitor browses posts
     And I should not see "2nd Post"
 
   Scenario: Browsing a list of 2 posts
-    Given a post published on 2012-10-2 with the title "1st Post"
-    Given a post published on 2012-10-1 with the title "2nd Post"
-    Given an unpublished post with the title "Hidden Post"
+    Given the following post records
+    | title       | date_published | published |
+    | 1st Post    |      2012-10-2 | true      |
+    | 2nd Post    |      2012-10-1 | true      |
+    | Hidden Post |                | false     |
     When I am on the homepage
     Then I should see 2 posts
     And I should see posts in this order: 1st Post, 2nd Post
     And I should not see "Hidden Post"
 
+  Scenario: Browsing a post that is a quote
+    Given the following post record
+    | date_published | published | type  | style     |
+    |      2012-10-2 | true      | quote | quote-big |
+    When I am on the homepage
+    Then I should see 1 post
+    And I should see a blockquote tag with the class "quote-big"
+    And the title should not have a h1 tag
+    And the title should not have a time tag
+
+  @wip
   Scenario: Browsing a post with a shifting background
-    Given a post with a shifting background and the title "Shifting Background"
-    Given a post with the title "Fixed Background"
+    Given the following post records
+    | title               | date_published | published | bg_img_shift_down_1 | bg_img_fixed |
+    | Shifting Background |      2012-10-2 | true      | my_img.jpg          |              |
+    | Fixed Background    |      2012-10-2 | true      |                     | my_img.jpg   |
     When I am on the homepage
     Then I should see 2 posts
     And I should see "Shifting Background" with a shifting background
     And I should see "Fixed Background"
 
+  @wip
   Scenario: Browsing a post with a colored background
-    Given a post with a colored background and the title "Colored Background"
-    Given a post with the title "Fixed Background"
+    Given the following post records
+    | title              | date_published | published | bg_color | bg_img_fixed |
+    | Colored Background |      2012-10-2 | true      | #A1A1A1  |              |
+    | Fixed Background   |      2012-10-2 | true      |          | my_img.jpg   |
     When I am on the homepage
     Then I should see 2 posts
     And I should see "Colored Background" with a colored background
     And I should see "Fixed Background"
 
-  Scenario: Browsing a post that is a quote
-    Given a post with a quote and the style quote-big
-    When I am on the homepage
-    Then I should see 1 post
-    And I should see a blockquote tag with the class "quote-big"
-
+  @wip
   Scenario: Browsing multiple posts with "auto" space and no background images
-    Given a post published on 2012-10-5 with the title "1st Post"
-    Given a post published on 2012-10-4 with the title "2nd Post"
-    Given a post published on 2012-10-3 with the title "3rd Post"
-    Given a post published on 2012-10-2 with the title "4th Post"
+    Given the following post records
+    | title    | date_published |
+    | 1st Post |      2012-10-5 |
+    | 2nd Post |      2012-10-4 |
+    | 3rd Post |      2012-10-3 |
+    | 4th Post |      2012-10-2 |
     When I am on the homepage
-    The post titled "1st Post" should have a "midground" space
-    The post titled "2nd Post" should have a "foreground" space
-    The post titled "3rd Post" should have a "background" space
-    The post titled "4th Post" should have a "midground" space
+    And the post titled "1st Post" should have a "midground" space
+    And the post titled "2nd Post" should have a "foreground" space
+    And the post titled "3rd Post" should have a "background" space
+    And the post titled "4th Post" should have a "midground" space
 
-
-
-
+  @wip
   Scenario: Any post that doesnt have an "auto" space should set the next post up with an "auto" correctly in the space cycle
-    Given a post published on 2012-10-5 with the title "1st Post" with "auto" space
-    Given a post published on 2012-10-4 with the title "2nd Post" with "background" space
-    Given a post published on 2012-10-3 with the title "3rd Post" with "auto" space
-    Given a post published on 2012-10-2 with the title "4th Post" with "auto" space
-    Given a post published on 2012-10-1 with the title "5th Post" with "foreground" space
-    Given a post published on 2012-09-30 with the title "6th Post" with "auto" space
-    Given a post published on 2012-09-29 with the title "7th Post" with "midground" space
-    Given a post published on 2012-09-28 with the title "8th Post" with "auto" space
+    Given the following post records
+    | title    | date_published | space      |
+    | 1st Post |      2012-10-5 | auto       |
+    | 2nd Post |      2012-10-4 | background |
+    | 3rd Post |      2012-10-3 | auto       |
+    | 4th Post |      2012-10-2 | auto       |
+    | 5th Post |      2012-10-1 | foreground |
+    | 6th Post |     2012-09-30 | auto       |
+    | 7th Post |     2012-09-29 | midground  |
+    | 8th Post |     2012-09-28 | auto       |
     When I am on the homepage
-    The post titled "1st Post" should have a "midground" space
-    The post titled "2nd Post" should have a "background" space
-    The post titled "3rd Post" should have a "midground" space
-    The post titled "4th Post" should have a "foreground" space
-    The post titled "5th Post" should have a "foreground" space
-    The post titled "6th Post" should have a "background" space
-    The post titled "7th Post" should have a "midground" space
-    The post titled "8th Post" should have a "foreground" space
+    And the post titled "1st Post" should have a "midground" space
+    And the post titled "2nd Post" should have a "background" space
+    And the post titled "3rd Post" should have a "midground" space
+    And the post titled "4th Post" should have a "foreground" space
+    And the post titled "5th Post" should have a "foreground" space
+    And the post titled "6th Post" should have a "background" space
+    And the post titled "7th Post" should have a "midground" space
+    And the post titled "8th Post" should have a "foreground" space

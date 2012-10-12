@@ -18,12 +18,14 @@
   <% for post in @posts %>
   <article id="post-<%= post.id %>" <%= post_class(post) %> <%= post_style(post) %>>
     <header>
+      <% if post.title %>
       <h1><%= post.title %></h1>
       <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
+      <% end %>
     </header>
 
     <% if post.quote %>
-    <figure class="quote">
+    <figure <%= post_quote_class(post) %>>
       <blockquote>"<%= post.quote %>"</blockquote>
       <% unless post.quote_source.blank? %><figcaption>&nbsp;-&nbsp;<%= post.quote_source %></figcaption><% end %>
     </figure>

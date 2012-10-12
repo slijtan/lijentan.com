@@ -86,30 +86,6 @@ article {
     width: 100%;
     min-height: 500px;
 
-    figure.quote {
-	font-family: 'Francois One', sans-serif;
-	font-style: italic;
-	letter-spacing: -3px;
-	word-spacing: -3px;
-	text-align: center;
-	color: #FFFFFF;
-	text-shadow: none;
-
-	blockquote {
-	    display: inline;
-	    font-size: 200px;
-	    line-height: 200px;
-	    margin-top: 50px;
-	}
-
-	figcaption {
-	    display: inline;
-	    font-size: 75px;
-	    line-height: 75px;
-	    margin: 0;
-	}
-    }
-
     header {
 	text-align: center;
 	margin: 0 auto 0;
@@ -198,10 +174,38 @@ article.notes div.body {
 }
 
 
+
+/* ----------------------
+   Figure Formats
+   -------------------------*/
+article.quote figure.quote-big {
+    font-family: 'Francois One', sans-serif;
+    font-style: italic;
+    letter-spacing: -3px;
+    word-spacing: -3px;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: none;
+
+    blockquote {
+	display: inline;
+	font-size: 200px;
+	line-height: 200px;
+	margin-top: 50px;
+    }
+
+    figcaption {
+	display: inline;
+	font-size: 75px;
+	line-height: 75px;
+	margin: 0;
+    }
+}
+
+
 /* ----------------------
    Image Formats
    -------------------------*/
-
 article.two-column-text div.body img {
     display: block;
     margin: 10px auto;

@@ -8,7 +8,7 @@ Given /^I am on the homepage$/ do
   visit '/'
 end
 
-Then /^I should see ([0-9]+) posts$/ do |count|
+Then /^I should see ([0-9]+) posts?$/ do |count|
   all('article').count.should == count.to_i
 end
 
@@ -22,4 +22,8 @@ end
 
 Then /^I should see posts in this order: (.*)$/ do |post_names|
   page.body.should =~ Regexp.new(post_names.split(", ").join("(.|\n)*"))
+end
+
+Then /^I should see a "(.*)" tag with the class "(.*)"$/ do |tag_name, class_name|
+  page.should have_selector("#{tag_name}.#{class_name}")
 end

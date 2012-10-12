@@ -1,4 +1,4 @@
-Feature: Visitor browses posts
+Feature: Visitor can view posts
   In order to read blog posts
   As a visitor
   I want to be able to browse through the most recent posts as I scroll down the page
@@ -41,7 +41,7 @@ Feature: Visitor browses posts
     |      2012-10-2 | true      | quote | quote-big |
     When I am on the homepage
     Then I should see 1 post
-    And I should see a blockquote tag with the class "quote-big"
+    And I should see a "figure" tag with the class "quote-big"
     And the title should not have a h1 tag
     And the title should not have a time tag
 

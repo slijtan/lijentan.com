@@ -7,6 +7,7 @@ p = Post.create(space: 'foreground',
 	    quote_source: 'Navy Lt. C.J. Simonsen',
 	    style: 'quote-big',
 	    bg_color: '#F0EACD',
+	    bg_img_shift_down_1: 'posts/blue-angels/blue-angels-bg.png',
 	    published: true,
 	    type: 'quote',
 	    date_published: DateTime.new(2012, 10, 8, 16, 9))

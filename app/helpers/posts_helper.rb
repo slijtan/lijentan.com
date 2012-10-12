@@ -8,6 +8,13 @@ module PostsHelper
     raw("class=\"#{classes.join(" ")}\"")
   end
 
+  def post_quote_class(post)
+    classes = []
+    classes << post.style if post.type == "quote"
+
+    raw("class=\"#{classes.join(" ")}\"")
+  end
+
   def post_style(post)
     styles = []
 

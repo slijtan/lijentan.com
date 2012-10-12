@@ -46,30 +46,3 @@
   </article>
   <% end %>
 </section>
-
-<div id="asdf" style="display:none;position:fixed;top:0;right:0;color:black;background-color:white;">The current position is: </div>
-<div id="green-zone" style="display:none;position:fixed;top:0;left:0;color:black;background-color:white;">Green Zone</div>
-
-
-<script>
-  $(window).scroll(function () {
-    var pig_id = <%= @tac_cup.id %>;
-    var div_height = $("#post-" + pig_id).innerHeight();
-    var screen_height = $(window).height();
-    var top_height = $('#post-' + pig_id).offset().top;
-    var bottom_height = top_height + div_height;
-    var top_position = $(this).scrollTop();
-    var bottom_position = top_position + screen_height;
-
-    $('#green-zone').hide();
-
-    if(top_position <= bottom_height && bottom_position >= top_height){
-      var position_offset = (bottom_position - top_height) * 100 / (div_height + screen_height);
-      $("#post-" + pig_id).css("background-position", "50% " + position_offset + "%");
-      $('#green-zone').show();
-    }
-
-    $('#asdf').html("top y: " + top_height + " <br />bottom y: " + bottom_height + "<br />top position: " + top_position + "<br />bottom position: " + bottom_position + "<br />position offset: " + position_offset + "<br />screen height: " + screen_height + "<br />bottom position - top position: " + (bottom_position - top_position) + "<br />div height: " + div_height);
-
-  });
-</script>

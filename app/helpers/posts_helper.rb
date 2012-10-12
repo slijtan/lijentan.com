@@ -38,7 +38,7 @@ module PostsHelper
       ""
     else
       reset_cycle("space")
-      raw("style=\"#{styles.join(";")}\"")
+      raw("style=\"#{styles.join(";")};\"")
     end
   end
 end

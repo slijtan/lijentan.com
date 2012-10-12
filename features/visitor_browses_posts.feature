@@ -37,13 +37,13 @@ Feature: Visitor can view posts
 
   Scenario: Browsing a post that is a quote
     Given the following post record
-    | date_published | published | type  | style     |
-    |      2012-10-2 | true      | quote | quote-big |
+    | date_published | published | type  | style     | quote                             |
+    |      2012-10-2 | true      | quote | quote-big | Love aint a thing, love is a verb |
     When I am on the homepage
     Then I should see 1 post
     And I should see a "figure" tag with the class "quote-big"
-    And the title should not have a h1 tag
-    And the title should not have a time tag
+    And I should see a "title" tag without a "h1" tag
+    And I should see a "title" tag without a "time" tag
 
   @wip
   Scenario: Browsing a post with a shifting background

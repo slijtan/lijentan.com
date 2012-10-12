@@ -27,3 +27,8 @@ end
 Then /^I should see a "(.*)" tag with the class "(.*)"$/ do |tag_name, class_name|
   page.should have_selector("#{tag_name}.#{class_name}")
 end
+
+Then /^I should see a "(.*)" tag without a "(.*)" tag$/ do |outer_tag, inner_tag|
+  page.should have_selector(outer_tag)
+  page.should_not have_selector("#{outer_tag} #{inner_tag}")
+end

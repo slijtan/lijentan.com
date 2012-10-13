@@ -1,5 +1,4 @@
 adjust_shifting_background = (element) ->
-        console.log("%o", element);
         div_height = element.innerHeight()
         screen_height = $(window).height()
         top_height = element.offset().top

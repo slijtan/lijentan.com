@@ -55,7 +55,6 @@ Feature: Visitor can view posts
     And I should see a "article" tag with the class "bg-shifting"
     And I should see a "article" tag with the class "bg-fixed"
 
-  @wip
   Scenario: Browsing a post with a colored background
     Given the following post records
     | title              | date_published | published | bg_color | bg_img_fixed |
@@ -63,8 +62,9 @@ Feature: Visitor can view posts
     | Fixed Background   |      2012-10-2 | true      |          | my_img.jpg   |
     When I am on the homepage
     Then I should see 2 posts
-    And I should see "Colored Background" with a colored background
-    And I should see "Fixed Background"
+    And I should print the page HTML
+    And the post titled "Colored Background" should have the style "background-color: #A1A1A1"
+    And the post titled "Fixed Background" should not have the style "background-color"
 
   @wip
   Scenario: Browsing multiple posts with "auto" space and no background images

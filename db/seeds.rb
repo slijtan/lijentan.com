@@ -2,107 +2,157 @@
 Post.delete_all
 Image.delete_all
 
+p = Post.create(title: 'Object In Nature - Session 4',
+            body:
+            %{In this session I'm starting to use colors that I want the final painting to have. The sky is now blue, the sand is now brown, and the fence is now white. It's still a work in progress, and from here on out the process is pretty straight forward; I'm progressively using thicker and thicker paints and painting in more details and tones with darks and whites to give the painting space while making it look more realistic. I honestly really feel like I am fighting with the painting a lot, and I really didn't remember how hard it was to paint, but I also remember Larry teaching us that the process of painting is a curve, where at some point in the process we will hit a low where we don't like our painting and we feel lost. If we fight through that low, its all uphill from there and we will eventually discover the painting and figure out a way to make it work, and we will grow to like our painting more and more. It's like problem solving, except instead of a math problem, its a visual problem.},
+            bg_img_shift_down_1: 'posts/painting/painting-4.jpg',
+            space: 'midground',
+            published: true,
+            type: 'series',
+            date_published: DateTime.new(2012, 10, 12, 13, 43))
+
+Image.create(url: 'posts/painting/painting-4.jpg', post_id: p.id)
+
+p = Post.create(title: 'HTML5 and quotes with attribution',
+            body:
+            %{
+So I did my first couple quote posts (see the Blue Angels post and the Superman post), but while I was doing them I had to research about what the proper semantic HTML is for displaying a quote with an author or source. Sounds pretty straight forward right? That's what I thought, but for some reason this was a little more complicated that I had anticipated... I thought I'd share what I found in case anyone else runs into this issue. I ended up using the following markup with the figure and figcaption tags to represent a quote with attribution. If you're curious why I chose this option, and what considerations there were for the other options, feel free to follow the links below to dive deeper.
+
+<code>
+&lt;figure&gt;<br />
+&lt;blockquote&gt;Quote goes here&lt;/blockquote&gt;<br />
+&lt;figcaption&gt;Author of quote goes here&lt;/figcaption&gt;<br />
+&lt;/figure&gt;<br />
+</code>
+<small>source: <a href="http://html5doctor.com/the-figure-figcaption-elements/" target=_blank>html5doctor.com</a></small><br /><br />
+
+And here were some of the other options that other people suggested, but they felt hackish to me... The first is a solution that uses the footer tag within a blockquote. This doesn't make sense because technically, the source is not a part of the quote:
+<code>
+&lt;blockquote&gt;<br />
+Quote goes here<br />
+&lt;footer&gt;Author of quote goes here&lt;/footer&gt;<br />
+&lt;/blockquote&gt;<br />
+</code>
+
+<small>source: <a href="http://html5doctor.com/blockquote-q-cite/" target=_blank>html5doctor.com</a></small><br /><br />
+
+And another solution that uses the small tag. I didn't like this because the small tag seems a little too broad for such a specific reference:
+<code>
+&lt;blockquote&gt;Quote goes here&lt;/blockquote&gt;<br />
+&lt;small&gt;Author of quote goes here&lt;/small&gt;<br />
+</code>
+<small>source: <a href="http://blog.neilpie.co.uk/web-dev/html5-quote-attribution" target=_blank>blog.neilpie.co.uk</a></small><br /><br />
+
+I'm still not super happy with this solution, so if you know of a better way to do this semantically, let me know!
+},
+            space: 'auto',
+            published: true,
+            type: 'single-column-text',
+            date_published: DateTime.new(2012, 10, 12, 1, 13))
+
+
+
 p = Post.create(space: 'foreground',
-	    quote: 'Multiply the best roller coaster you can imagine by 100',
-	    quote_source: 'Navy Lt. C.J. Simonsen',
-	    style: 'quote-big',
-	    bg_color: '#F0EACD',
-	    bg_img_shift_down_1: 'posts/blue-angels/blue-angels-bg.png',
-	    published: true,
-	    type: 'quote',
-	    date_published: DateTime.new(2012, 10, 8, 16, 9))
+            quote: 'Multiply the best roller coaster you can imagine by 100',
+            quote_source: 'Navy Lt. C.J. Simonsen',
+            style: 'quote-big',
+            bg_color: '#F0EACD',
+            bg_img_shift_down_1: 'posts/blue-angels/blue-angels-bg.png',
+            published: true,
+            type: 'quote',
+            date_published: DateTime.new(2012, 10, 8, 16, 9))
 
 (1..12).each { |i| Image.create(url: "posts/blue-angels/blue-angels-#{i}-th.jpg", post_id: p.id, position: i) }
 
 
 p = Post.create(title: 'Summatime in the SFC',
-	    body:
-	    %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.<img src="/assets/posts/oct6-weekend/oct6-2.jpg" /> Saturday was our good friends Michelle and Adam's wedding - It was amazing!<img src="/assets/posts/oct6-weekend/oct6-3.jpg" /> It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.<img src="/assets/posts/oct6-weekend/oct6-4.jpg" />And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.<img src="/assets/posts/oct6-weekend/oct6-5.jpg" /> Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.<img src="/assets/posts/oct6-weekend/oct6-6.jpg" /> Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a beautiful concert in the park while seeing jets do fly-bys overhead?<img src="/assets/posts/oct6-weekend/oct6-7.jpg" /> We finished with a super chill sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.<img src="/assets/posts/oct6-weekend/oct6-1.jpg" /> <b>It was truly a weekend to remember!</b>},
-	    bg_img_fixed: 'posts/oct6-weekend/oct6-bg.jpg',
-	    space: 'background',
-	    published: true,
-	    type: 'two-column-text',
-	    date_published: DateTime.new(2012, 10, 7, 15, 3))
+            body:
+            %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.<img src="/assets/posts/oct6-weekend/oct6-2.jpg" /> Saturday was our good friends Michelle and Adam's wedding - It was amazing!<img src="/assets/posts/oct6-weekend/oct6-3.jpg" /> It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.<img src="/assets/posts/oct6-weekend/oct6-4.jpg" />And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.<img src="/assets/posts/oct6-weekend/oct6-5.jpg" /> Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.<img src="/assets/posts/oct6-weekend/oct6-6.jpg" /> Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a beautiful concert in the park while seeing jets do fly-bys overhead?<img src="/assets/posts/oct6-weekend/oct6-7.jpg" /> We finished with a super chill sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.<img src="/assets/posts/oct6-weekend/oct6-1.jpg" /> <b>It was truly a weekend to remember!</b>},
+            bg_img_fixed: 'posts/oct6-weekend/oct6-bg.jpg',
+            space: 'background',
+            published: true,
+            type: 'two-column-text',
+            date_published: DateTime.new(2012, 10, 7, 15, 3))
 
 
 p = Post.create(title: 'Levitating Sheep - Multiple Backgrounds for Simple Parallax Effect',
-	    body:
-	    %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). <img src="/assets/posts/parallax/sheep.jpg" /> The basic premise is, as a user is scrolling through a post, a background image will also scroll from top to bottom within the post's background. I thought this looked pretty cool as a first run with only one background image, but then I had the idea to add an additional background image layer so that I can use 2 layers of scrolling backgrounds. If the top layer's image has a greater height, then it will scroll faster than the bottom layer's image, which esentially creates a simple parallax effect. That's the effect that I used to get these levitating sheep, with some being farther away and some being closer. Heres the simplified css: <code>background-image: url(big-falling-sheep.png), url(small-falling-sheep.png);<br />background-position: 50% 0%;</code> To get it to work, I just simply adjust the background-position from 50% 0% to 50% 100% using javascript as the user scrolls along the page.},
-	    bg_img_shift_down_1: 'posts/parallax/parallax-fg.png',
-	    bg_img_shift_down_2: 'posts/parallax/parallax-bg.png',
-	    space: 'foreground',
-	    published: true,
-	    type: 'two-column-text',
-	    date_published: DateTime.new(2012, 10, 5, 15, 3))
+            body:
+            %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). <img src="/assets/posts/parallax/sheep.jpg" /> The basic premise is, as a user is scrolling through a post, a background image will also scroll from top to bottom within the post's background. I thought this looked pretty cool as a first run with only one background image, but then I had the idea to add an additional background image layer so that I can use 2 layers of scrolling backgrounds. If the top layer's image has a greater height, then it will scroll faster than the bottom layer's image, which esentially creates a simple parallax effect. That's the effect that I used to get these levitating sheep, with some being farther away and some being closer. Heres the simplified css: <code>background-image: url(big-falling-sheep.png), url(small-falling-sheep.png);<br />background-position: 50% 0%;</code> To get it to work, I just simply adjust the background-position from 50% 0% to 50% 100% using javascript as the user scrolls along the page.},
+            bg_img_shift_down_1: 'posts/parallax/parallax-fg.png',
+            bg_img_shift_down_2: 'posts/parallax/parallax-bg.png',
+            space: 'foreground',
+            published: true,
+            type: 'two-column-text',
+            date_published: DateTime.new(2012, 10, 5, 15, 3))
 
 
 p = Post.create(title: 'Object In Nature - Session 1',
-	    body:
-	    %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (http://www.larryrobinson.net/). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. Its a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
-	    published: true,
-	    type: 'series',
-	    date_published: DateTime.new(2012, 9, 25, 14, 43))
+            body:
+            %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (http://www.larryrobinson.net/). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. Its a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
+            published: true,
+            type: 'series',
+            date_published: DateTime.new(2012, 9, 25, 14, 43))
 
 Image.create(url: 'posts/painting/painting-1.png',
-	     post_id: p.id)
+             post_id: p.id)
 
 Post.create(bg_img_fixed: 'http://stuffpoint.com/gamesrocks/image/13260-gamesrocks-superman.jpg',
-	    quote: 'This Is How You Make Me Feel',
-	    space: 'foreground',
-	    type: 'quote',
-	    style: 'quote-big',
-	    published: true,
-	    date_published: DateTime.new(2012, 10, 1, 14, 43))
+            quote: 'This Is How You Make Me Feel',
+            space: 'foreground',
+            type: 'quote',
+            style: 'quote-big',
+            published: true,
+            date_published: DateTime.new(2012, 10, 1, 14, 43))
 
 
 p = Post.create(title: 'Object In Nature - Session 2',
-	    body:
-	    %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O) (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. Its very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
-	    published: true,
-	    type: 'series',
-	    date_published: DateTime.new(2012, 10, 2, 14, 43))
+            body:
+            %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O) (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. Its very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
+            published: true,
+            type: 'series',
+            date_published: DateTime.new(2012, 10, 2, 14, 43))
 
 Image.create(url: 'posts/painting/painting-2.jpg',
-	     post_id: p.id)
+             post_id: p.id)
 
 p = Post.create(title: 'Object In Nature - Session 3',
-	    body:
-	    %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the bikers vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!},
-	    bg_img_shift_down_1: 'posts/painting/painting-3.jpg',
-	    space: 'midground',
-	    published: true,
-	    type: 'series',
-	    date_published: DateTime.new(2012, 10, 5, 14, 43))
+            body:
+            %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the biker's vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!},
+            bg_img_shift_down_1: 'posts/painting/painting-3.jpg',
+            space: 'background',
+            published: true,
+            type: 'series',
+            date_published: DateTime.new(2012, 10, 5, 14, 43))
 
 Image.create(url: 'posts/painting/painting-3.jpg', post_id: p.id)
 
 p = Post.create(title: 'Iceland, Germany, and Amsterdam',
-	    body:
-	    %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.},
-	    bg_img_fixed: 'posts/eu/eu-bg.jpg',
-	    space: 'background',
-	    published: true,
-	    type: 'album',
-	    style: 'album-thumbnails',
-	    date_published: DateTime.new(2012, 7, 15, 14, 43))
+            body:
+            %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.},
+            bg_img_fixed: 'posts/eu/eu-bg.jpg',
+            space: 'background',
+            published: true,
+            type: 'album',
+            style: 'album-thumbnails',
+            date_published: DateTime.new(2012, 7, 15, 14, 43))
 
 (1..28).each { |i| Image.create(url: "posts/eu/eu-#{i}-th.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: 'Norway',
-	    body:
-	    %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has its price, and Norway was well worth every penny.},
-	    published: true,
-	    space: 'midground',
-	    bg_img_fixed: 'posts/norway/norway-bg.jpg',
-	    type: 'album',
-	    style: 'album-thumbnails',
-	    date_published: DateTime.new(2012, 9, 24, 14, 43))
+            body:
+            %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has its price, and Norway was well worth every penny.},
+            published: true,
+            space: 'midground',
+            bg_img_fixed: 'posts/norway/norway-bg.jpg',
+            type: 'album',
+            style: 'album-thumbnails',
+            date_published: DateTime.new(2012, 9, 24, 14, 43))
 
 (1..17).each { |i| Image.create(url: "posts/norway/norway-#{i}-th.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: 'The Tac Cup',
-	    body:
-	    %{So recently Steven decided to start officially keeping track of our beer pong records and to set up a ladder ranking system to finally figure out who's the best of the best. We are using the Elo Ranking system, which is the system that is used for chess rankings as well as a whole bunch of different ladder systems (we used it on Wasteland Empires for our leaderboard). We also got a trophy that works kinda like a championship belt. Whoever is at the top of the ladder gets to hold onto it, and it will change hands as the top ranked player gets dethroned from season to season. We decided to call it the "Canuto Tacderan Cup" after our landlord, Tac, because we've played the majority of beer pong games in this apartment and the apartment downstairs. And why the pig you ask? Well, I'd like to answer your question with another question… why not?<br /><br />
+            body:
+            %{So recently Steven decided to start officially keeping track of our beer pong records and to set up a ladder ranking system to finally figure out who's the best of the best. We are using the Elo Ranking system, which is the system that is used for chess rankings as well as a whole bunch of different ladder systems (we used it on Wasteland Empires for our leaderboard). We also got a trophy that works kinda like a championship belt. Whoever is at the top of the ladder gets to hold onto it, and it will change hands as the top ranked player gets dethroned from season to season. We decided to call it the "Canuto Tacderan Cup" after our landlord, Tac, because we've played the majority of beer pong games in this apartment and the apartment downstairs. And why the pig you ask? Well, I'd like to answer your question with another question… why not?<br /><br />
 Week 1 Results:
 <ol>
 <li>Eiki: 1246.3987116397748</li>
@@ -129,11 +179,11 @@ Week 1 Results:
 <li>Norman: 1170.863960480068</li>
 <li>Total Number of Games Recorded: 35</li>
 </ol>},
-	    bg_img_shift_down_1: 'posts/tac/tac-bg.jpg',
-	    published: true,
-	    space: 'midground',
-	    type: 'single-column-text',
-	    date_published: DateTime.new(2012, 10, 4, 14, 43))
+            bg_img_fixed: 'posts/tac/tac-bg.jpg',
+            published: true,
+            space: 'midground',
+            type: 'single-column-text',
+            date_published: DateTime.new(2012, 10, 4, 14, 43))
 
 Image.create(url: 'posts/tac/tac-1-th.jpg', post_id: p.id, position: 1)
 
@@ -142,8 +192,8 @@ Image.create(url: 'posts/tac/tac-2-th.jpg', post_id: p.id, position: 3)
 Image.create(url: 'posts/tac/tac-3-th.jpg', post_id: p.id, position: 2)
 
 Post.create(title: 'Harvard Psychology 1504 - History and Introduction to Positive Psychology',
-	    body:
-	    %{The first 3 lectures are to get a sense of what the class is about to see if its something for you, might not be for everybody.  This class is “applied” and “strength” psychology (aka “positive” psychology).
+            body:
+            %{The first 3 lectures are to get a sense of what the class is about to see if its something for you, might not be for everybody.  This class is “applied” and “strength” psychology (aka “positive” psychology).
 
 I. History of Positive Psychology
 Positive psychology took the world on in a storm, and many classes became offered very recently.  Humanistic psychology, which is a group of psychologists like Abraham Maslow, Rolo May, Carl Rogers, started it in the 50s.  They were considered the 3rd force of psychology, the 1st was behavioralism and the 2nd was psychoanalysis.
@@ -208,14 +258,14 @@ We will be studying ourselves and others, which is a great way to learn.  It tak
 this course = rigor (academia) + fun/accessibility (self help movement)
 
 Topics for lectures will include: science of positive thinking, question of focus, external vs internal, how to change perspective and interpretations, can we change? yes we can change, the mind body connection, importance of sleep, perfectionism, humor, relationships},
-	    published: true,
-	    type: 'notes',
-	    date_published: DateTime.new(2012, 7, 11, 14, 43))
+            published: true,
+            type: 'notes',
+            date_published: DateTime.new(2012, 7, 11, 14, 43))
 
 
 Post.create(title: 'Harvard Psychology 1504 - Why is Positive Psychology So Important?',
-	    body:
-	    %{This past week the prof was really sick and was sent to the ER.  In the process he asked himself "what do I want to do with my life".  Spend time with family, but more specifically, professionally?  What does he want to get out of this year?  He wants to leave a coherent document for others to understand his view of PP. Ultimately it was a false alarm.
+            body:
+            %{This past week the prof was really sick and was sent to the ER.  In the process he asked himself "what do I want to do with my life".  Spend time with family, but more specifically, professionally?  What does he want to get out of this year?  He wants to leave a coherent document for others to understand his view of PP. Ultimately it was a false alarm.
 
 So why is PP so important? Why did the grandparents and parents think this had to be its own community of psychology instead of as part of the whole?
 
@@ -287,13 +337,13 @@ Active Agent
 - forgive/forget
 
 "The message of the positive psychology movement is to remind our field that it has been deformed. Psych is not just the study of disease, weakness, and damage.  It also is the study of strength and virtue.  Treatment is not just fixing what is wrong, it also is building what is right. Psychology is not just about illness or health, it is about work, education, insight, love, growth, and play. And in this quest for what is best, PP does not rely on wishful thinking, self-deception or hand-waving. Instead it tries to adapt what is best in the scientific method to the unique problems that human behavior presents in all its complexity." - Martin Seligman},
-	    published: true,
-	    type: 'notes',
-	    date_published: DateTime.new(2012, 7, 24, 14, 43))
+            published: true,
+            type: 'notes',
+            date_published: DateTime.new(2012, 7, 24, 14, 43))
 
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
-	    body:
-	    %{Think of education as a spiral.  You revisit points and ideas at different points in time, but higher up in the spiral.  This class is the bottom of the spiral.
+            body:
+            %{Think of education as a spiral.  You revisit points and ideas at different points in time, but higher up in the spiral.  This class is the bottom of the spiral.
 
 Premises of PP:
 1) Bridge building VS division and separation - This class will go against a lot of traditional psych with demarkation and division, and instead will break bridges
@@ -365,6 +415,6 @@ What if I dont want to join a project of this size?  One can make a difference..
 “Never doubt that a small group of thoughtful, committed citizens can change the world. Indeed, it is the only thing that ever has.” - Margaret Mead
 
 The problem is that most people dont understand how change occurs. For example, smiles. If one person smiles, and each person that sees it smiles at 3 other people.  Its only 20 degrees of separation to affect every person in the world. Or how about giving a general compliment to someone else? We underestimate our capacity to effect change because we underestimate the growth of an exponential function. This becomes a self-fulfilling prophecy, “who am I to change the world?”},
-	    published: true,
-	    type: 'notes',
-	    date_published: DateTime.new(2012, 10, 9, 0, 9))
+            published: false,
+            type: 'notes',
+            date_published: DateTime.new(2012, 10, 9, 0, 9))

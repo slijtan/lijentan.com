@@ -32,7 +32,7 @@ module PostsHelper
       styles << "background-position: 50% 0%" if post.has_shifting_background?
     end
 
-    styles << "background-color: #{post.bg_color}" if post.bg_color
+    styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
 
     if styles.empty?
       ""

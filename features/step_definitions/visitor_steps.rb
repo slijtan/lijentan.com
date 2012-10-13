@@ -1,3 +1,10 @@
+############# Some Helpers
+Then /^I should print the page HTML$/ do
+  p page.html
+end
+
+############# Given
+
 Given /^the following (.+) records?$/ do |factory_name, table|
   table.hashes.each do |hash|
     FactoryGirl.create(factory_name, hash)
@@ -8,8 +15,18 @@ Given /^I am on the homepage$/ do
   visit '/'
 end
 
+############# Then
+
 Then /^I should see ([0-9]+) posts?$/ do |count|
   all('article').count.should == count.to_i
+end
+
+Then /^the post titled "(.*)" should have the style "(.*)"$/ do |title, style|
+  page.should have_selector(:xpath, "//h1[text()=\"#{title}\"]/ancestor::article[contains(@style,\"#{style}\")]")
+end
+
+Then /^the post titled "(.*)" should not have the style "(.*)"$/ do |title, style|
+  page.should_not have_selector(:xpath, "//h1[text()=\"#{title}\"]/ancestor::article[contains(@style,\"#{style}\")]")
 end
 
 Then /^I should see "(.*)"$/ do |text|
@@ -24,11 +41,23 @@ Then /^I should see posts in this order: (.*)$/ do |post_names|
   page.body.should =~ Regexp.new(post_names.split(", ").join("(.|\n)*"))
 end
 
-Then /^I should see a "(.*)" tag with the class "(.*)"$/ do |tag_name, class_name|
+Then /^I should see an? "(.*)" tag with the class "(.*)"$/ do |tag_name, class_name|
   page.should have_selector("#{tag_name}.#{class_name}")
 end
 
-Then /^I should see a "(.*)" tag without a "(.*)" tag$/ do |outer_tag, inner_tag|
+Then /^I should see an? "(.*)" tag without a "(.*)" tag$/ do |outer_tag, inner_tag|
   page.should have_selector(outer_tag)
   page.should_not have_selector("#{outer_tag} #{inner_tag}")
+end
+
+Then /^I should see an? "(.*)" tag with the style "(.*)"$/ do |tag_name, style|
+  page.should have_selector(tag_name, :style => style)
+end
+
+Then /^I should see an? "(.*)" tag without the style "(.*)"$/ do |tag_name, style|
+  tag_found = false
+  style_regexp = Regexp.new(style)
+
+  all('article').each { |article| tag_found = true if article[:style] !=~ style_regexp }
+  assert tag_found
 end

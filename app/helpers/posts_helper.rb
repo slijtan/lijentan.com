@@ -1,8 +1,17 @@
 module PostsHelper
   def post_class(post)
     classes = []
+    spaces = ['midground', 'foreground', 'background']
+
     classes << post.type
-    classes << (post.space == "auto" ? cycle('midground', 'foreground', 'background', name: "space") : post.space)
+
+    if post.space == "auto"
+      classes << cycle(*spaces, name: "space")
+    else
+      classes << post.space
+      skip_to_cycle(post.space, spaces, "space")
+    end
+
     classes << (post.has_shifting_background? ? 'bg-shifting' : 'bg-fixed')
 
     raw("class=\"#{classes.join(" ")}\"")
@@ -37,8 +46,15 @@ module PostsHelper
     if styles.empty?
       ""
     else
-      reset_cycle("space")
       raw("style=\"#{styles.join(";")};\"")
+    end
+  end
+
+  private
+
+  def skip_to_cycle(set_to, cycle_values, cycle_name)
+    until current_cycle(cycle_name) == set_to
+      cycle(*cycle_values, :name => cycle_name)
     end
   end
 end

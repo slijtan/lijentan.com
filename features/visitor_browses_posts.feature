@@ -62,42 +62,39 @@ Feature: Visitor can view posts
     | Fixed Background   |      2012-10-2 | true      |          | my_img.jpg   |
     When I am on the homepage
     Then I should see 2 posts
-    And I should print the page HTML
     And the post titled "Colored Background" should have the style "background-color: #A1A1A1"
     And the post titled "Fixed Background" should not have the style "background-color"
 
-  @wip
   Scenario: Browsing multiple posts with "auto" space and no background images
     Given the following post records
-    | title    | date_published |
-    | 1st Post |      2012-10-5 |
-    | 2nd Post |      2012-10-4 |
-    | 3rd Post |      2012-10-3 |
-    | 4th Post |      2012-10-2 |
+    | title    | date_published | published |
+    | 1st Post |      2012-10-5 | true      |
+    | 2nd Post |      2012-10-4 | true      |
+    | 3rd Post |      2012-10-3 | true      |
+    | 4th Post |      2012-10-2 | true      |
     When I am on the homepage
-    And the post titled "1st Post" should have a "midground" space
-    And the post titled "2nd Post" should have a "foreground" space
-    And the post titled "3rd Post" should have a "background" space
-    And the post titled "4th Post" should have a "midground" space
+    And the post titled "1st Post" should have the class "midground"
+    And the post titled "2nd Post" should have the class "foreground"
+    And the post titled "3rd Post" should have the class "background"
+    And the post titled "4th Post" should have the class "midground"
 
-  @wip
   Scenario: Any post that doesnt have an "auto" space should set the next post up with an "auto" correctly in the space cycle
     Given the following post records
-    | title    | date_published | space      |
-    | 1st Post |      2012-10-5 | auto       |
-    | 2nd Post |      2012-10-4 | background |
-    | 3rd Post |      2012-10-3 | auto       |
-    | 4th Post |      2012-10-2 | auto       |
-    | 5th Post |      2012-10-1 | foreground |
-    | 6th Post |     2012-09-30 | auto       |
-    | 7th Post |     2012-09-29 | midground  |
-    | 8th Post |     2012-09-28 | auto       |
+    | title    | date_published | space      | published |
+    | 1st Post |      2012-10-5 | auto       | true      |
+    | 2nd Post |      2012-10-4 | background | true      |
+    | 3rd Post |      2012-10-3 | auto       | true      |
+    | 4th Post |      2012-10-2 | auto       | true      |
+    | 5th Post |      2012-10-1 | foreground | true      |
+    | 6th Post |     2012-09-30 | auto       | true      |
+    | 7th Post |     2012-09-29 | midground  | true      |
+    | 8th Post |     2012-09-28 | auto       | true      |
     When I am on the homepage
-    And the post titled "1st Post" should have a "midground" space
-    And the post titled "2nd Post" should have a "background" space
-    And the post titled "3rd Post" should have a "midground" space
-    And the post titled "4th Post" should have a "foreground" space
-    And the post titled "5th Post" should have a "foreground" space
-    And the post titled "6th Post" should have a "background" space
-    And the post titled "7th Post" should have a "midground" space
-    And the post titled "8th Post" should have a "foreground" space
+    And the post titled "1st Post" should have the class "midground"
+    And the post titled "2nd Post" should have the class "background"
+    And the post titled "3rd Post" should have the class "midground"
+    And the post titled "4th Post" should have the class "foreground"
+    And the post titled "5th Post" should have the class "foreground"
+    And the post titled "6th Post" should have the class "background"
+    And the post titled "7th Post" should have the class "midground"
+    And the post titled "8th Post" should have the class "foreground"

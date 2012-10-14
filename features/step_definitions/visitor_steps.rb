@@ -21,12 +21,12 @@ Then /^I should see ([0-9]+) posts?$/ do |count|
   all('article').count.should == count.to_i
 end
 
-Then /^the post titled "(.*)" should have the style "(.*)"$/ do |title, style|
-  page.should have_selector(:xpath, "//h1[text()=\"#{title}\"]/ancestor::article[contains(@style,\"#{style}\")]")
+Then /^the post titled "(.*)" should have the (.*) "(.*)"$/ do |title, attribute, value|
+  page.should have_selector(:xpath, "//h1[text()=\"#{title}\"]/ancestor::article[contains(@#{attribute},\"#{value}\")]")
 end
 
-Then /^the post titled "(.*)" should not have the style "(.*)"$/ do |title, style|
-  page.should_not have_selector(:xpath, "//h1[text()=\"#{title}\"]/ancestor::article[contains(@style,\"#{style}\")]")
+Then /^the post titled "(.*)" should not have the (.*) "(.*)"$/ do |title, attribute, value|
+  page.should_not have_selector(:xpath, "//h1[text()=\"#{title}\"]/ancestor::article[contains(@#{attribute},\"#{value}\")]")
 end
 
 Then /^I should see "(.*)"$/ do |text|

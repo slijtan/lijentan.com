@@ -32,7 +32,7 @@
     <% end %>
 
     <% if post.body %>
-    <div class="body"><%= raw(post.body) %></div>
+    <div class="body"><%= markdown(post.body) %></div>
     <% end %>
 
     <% unless post.images.empty? %>

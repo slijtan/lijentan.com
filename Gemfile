@@ -52,6 +52,8 @@ gem 'forgery', '0.5.0'
 
 gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 
+gem "redcarpet"
+
 group :test do
   gem 'cucumber-rails', :require => false
   gem 'capybara'

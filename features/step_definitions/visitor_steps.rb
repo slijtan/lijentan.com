@@ -21,6 +21,10 @@ Then /^I should see ([0-9]+) posts?$/ do |count|
   all('article').count.should == count.to_i
 end
 
+Then /^the post titled "(.*?)" should have a body with content "(.*?)"$/ do |title, body_content|
+  find(:xpath, "//h1[text()=\"#{title}\"]/ancestor::article[1]/div[@class='body']").should have_content(body_content)
+end
+
 Then /^the post titled "(.*)" should have the (.*) "(.*)"$/ do |title, attribute, value|
   page.should have_selector(:xpath, "//h1[text()=\"#{title}\"]/ancestor::article[contains(@#{attribute},\"#{value}\")]")
 end

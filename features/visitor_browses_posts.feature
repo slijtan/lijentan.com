@@ -99,7 +99,6 @@ Feature: Visitor can view posts
     And the post titled "7th Post" should have the class "midground"
     And the post titled "8th Post" should have the class "foreground"
 
-  @focus
   Scenario: Post content is formatted using Markdown
     Given the following post record
     | title        | body                       | date_published | published |
@@ -107,13 +106,12 @@ Feature: Visitor can view posts
     When I am on the homepage
     And the post titled "Mark Me Down" should have a body with content "<p><strong>this is</strong> using<br>markdown</p><p>now</p>"
 
-  @focus
-  Scenario: Code blocks have syntax highlighting in markdown
+  Scenario: Code blocks have syntax highlighting in markdown and coderay
     Given the following post record
     | title        | body                                                             | date_published | published |
     | Highlight Me | ```ruby\nhighlight = me + 'is awesome'\n```          |      2012-10-5 | true      |
     When I am on the homepage
-    Then the post titled "Highlight Me" should have a body with content "<pre><code class="ruby">highlight = me + 'is awesome'</code></pre>"
+    Then the post titled "Highlight Me" should have a body with content "<table class="CodeRay"><tr><td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre><a href="#n1" name="n1">1</a></pre></td>  <td class="code"><pre>highlight = me + <span class="string"><span class="delimiter">'</span><span class="content">is awesome</span><span class="delimiter">'</span></span></pre></td></tr></table>"
 
   @wip
   Scenario: Post content has can be aligned with a right span using red carpet

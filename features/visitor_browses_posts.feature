@@ -99,14 +99,21 @@ Feature: Visitor can view posts
     And the post titled "7th Post" should have the class "midground"
     And the post titled "8th Post" should have the class "foreground"
 
-  @focus
   Scenario: Post content is formatted using Markdown
     Given the following post record
     | title        | body                       | date_published | published |
     | Mark Me Down | **this is** using markdown |      2012-10-5 | true      |
     When I am on the homepage
-    And I should print the page HTML
-    Then the post titled "Mark Me Down" should have a body with content "<p><strong>this is</strong> using markdown</p>"
+    Then I should print the page HTML
+    And the post titled "Mark Me Down" should have a body with content "<p><strong>this is</strong> using markdown</p>"
+
+  @focus
+  Scenario: Code blocks have syntax highlighting in markdown
+    Given the following post record
+    | title        | body          | date_published | published |
+    | Highlight Me | **test** asdf |      2012-10-5 | true      |
+    When I am on the homepage
+    Then the post titled "Highlight Me" should have a body with content "<p><code>highlight=me<br />awesome = highlight + 'is awesome'</p>"
 
   @wip
   Scenario: Post content has can be aligned with a right span using red carpet
@@ -115,11 +122,3 @@ Feature: Visitor can view posts
     | Align Me Right | r*align me right*r should be in a span with class right |      2012-10-5 | true      |
     When I am on the homepage
     Then the post titled "Align Me Right" should have a body with content '<p><span class="right">align me right</span> should be in a span with class right</p>'
-
-  @wip
-  Scenario: Code blocks have syntax highlighting in markdown
-    Given the following post record
-    | title        | body                                                             | date_published | published |
-    | Highlight Me | ---ruby\nhighlight = me\nawesome = highlight + "is awesome"\n--- |      2012-10-5 | true      |
-    When I am on the homepage
-    Then the post titled "Highlight Me" should have a body with content '<p><code>highlight=me<br />awesome = highlight + "is awesome"<br /></p>'

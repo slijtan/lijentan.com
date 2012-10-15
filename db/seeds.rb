@@ -18,30 +18,34 @@ p = Post.create(title: 'HTML5 and quotes with attribution',
             %{
 So I did my first couple quote posts (see the Blue Angels post and the Superman post), but while I was doing them I had to research about what the proper semantic HTML is for displaying a quote with an author or source. Sounds pretty straight forward right? That's what I thought, but for some reason this was a little more complicated that I had anticipated... I thought I'd share what I found in case anyone else runs into this issue. I ended up using the following markup with the figure and figcaption tags to represent a quote with attribution. If you're curious why I chose this option, and what considerations there were for the other options, feel free to follow the links below to dive deeper.
 
-<code>
-&lt;figure&gt;<br />
-&lt;blockquote&gt;Quote goes here&lt;/blockquote&gt;<br />
-&lt;figcaption&gt;Author of quote goes here&lt;/figcaption&gt;<br />
-&lt;/figure&gt;<br />
-</code>
-<small>source: <a href="http://html5doctor.com/the-figure-figcaption-elements/" target=_blank>html5doctor.com</a></small><br /><br />
+```html
+<figure>
+<blockquot>Quote goes here</blockquote>
+<figcaption>Author of quote goes here</figcaption>
+</figure>
+```
+<small>source: <a href="http://html5doctor.com/the-figure-figcaption-elements/" target=_blank>html5doctor.com</a></small>
+
 
 And here were some of the other options that other people suggested, but they felt hackish to me... The first is a solution that uses the footer tag within a blockquote. This doesn't make sense because technically, the source is not a part of the quote:
-<code>
-&lt;blockquote&gt;<br />
-Quote goes here<br />
-&lt;footer&gt;Author of quote goes here&lt;/footer&gt;<br />
-&lt;/blockquote&gt;<br />
-</code>
 
-<small>source: <a href="http://html5doctor.com/blockquote-q-cite/" target=_blank>html5doctor.com</a></small><br /><br />
+```html
+<blockquote>
+Quote goes here
+<footer>Author of quote goes here</footer>
+</blockquote>
+```
+<small>source: <a href="http://html5doctor.com/blockquote-q-cite/" target=_blank>html5doctor.com</a></small>
+
 
 And another solution that uses the small tag. I didn't like this because the small tag seems a little too broad for such a specific reference:
-<code>
-&lt;blockquote&gt;Quote goes here&lt;/blockquote&gt;<br />
-&lt;small&gt;Author of quote goes here&lt;/small&gt;<br />
-</code>
-<small>source: <a href="http://blog.neilpie.co.uk/web-dev/html5-quote-attribution" target=_blank>blog.neilpie.co.uk</a></small><br /><br />
+
+```html
+<blockquote>Quote goes here</blockquote>
+<small>Author of quote goes here</small>
+```
+<small>source: <a href="http://blog.neilpie.co.uk/web-dev/html5-quote-attribution" target=_blank>blog.neilpie.co.uk</a></small>
+
 
 I'm still not super happy with this solution, so if you know of a better way to do this semantically, let me know!
 },

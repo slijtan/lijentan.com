@@ -22,7 +22,7 @@ Then /^I should see ([0-9]+) posts?$/ do |count|
 end
 
 Then /^the post titled "(.*?)" should have a body with content "(.*?)"$/ do |title, body_content|
-  find(:xpath, "//h1[text()=\"#{title}\"]/ancestor::article[1]/div[@class='body']").native.inner_html.should =~ Regexp.new(body_content)
+  find(:xpath, "//h1[text()=\"#{title}\"]/ancestor::article[1]/div[@class='body']").native.inner_html.delete("\n").strip.should == body_content
 end
 
 Then /^the post titled "(.*)" should have the (.*) "(.*)"$/ do |title, attribute, value|

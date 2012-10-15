@@ -53,6 +53,8 @@ gem 'forgery', '0.5.0'
 gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 
 gem "redcarpet"
+gem 'nokogiri'
+gem 'coderay'
 
 group :test do
   gem 'cucumber-rails', :require => false
@@ -61,3 +63,5 @@ group :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
 end
+
+gem 'quiet_assets', :group => :development

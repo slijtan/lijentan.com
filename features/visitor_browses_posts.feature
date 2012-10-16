@@ -120,11 +120,3 @@ Feature: Visitor can view posts
     When I am on the homepage
     Then I should see "Dont hide me"
     Then I should not see "Hide me"
-
-  @focus
-  Scenario: Post content has can be aligned with a right span using red carpet
-    Given the following post record
-    | title          | body                                                    | date_published | published |
-    | Align Me Right | *r*align me right*r* should be in a span with class right |      2012-10-5 | true      |
-    When I am on the homepage
-    Then the post titled "Align Me Right" should have a body with content '<p><span class="right">align me right</span> should be in a span with class right</p>'

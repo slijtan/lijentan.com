@@ -32,12 +32,12 @@ Selected Achievements:
     - Coded in php and Ruby On Rails using MySQL, MongoDB, and Redis storage engines
     - Refactored code bases to support localization for 4 product launches in Japan
 
-#### vDream Inc (Oakland, CA | <a href="http://www.facebook.com/vdream" target=_blank>www.facebook.com/vdream</a>)
+#### vDream Inc (Oakland, CA)
 *Co-founder and CEO (March 2007 - December 2011):  Developed a social game and virtual marketplace for over 50,000 daily car enthusiasts. Responsibilities in both business and technology*
 Technology:
 
 - Coding in Ruby on Rails at the model, view, and controller levels; database design; writing client-side Javascript with AJAX support; writing unit and functional tests; writing deployment scripts; and server and source control (Subversion) administration
-- Single-handedly managed a database of over 2M user accounts
+- Single-handedly managed a database of over 2M user accounts. Managed the migration of database through 3 different hosting companies, and a simultaneous primary and backup hard drive failure
 - Developing applications on Facebook, Myspace, Bebo, and Tagged social networks with RoR and RESTful web services
 - Designed, implemented, and optimized a complex image rendering engine
 - Developed a comprehensive back-end that is used to manage a large quantity of car-related data content
@@ -64,7 +64,13 @@ Selected Achievements:
 - Created official websites for high profile clients such as Linkin Park, UFC, Green Day, and Criss Angel.
 - Designed and implemented multi-tier, data-warehouse reporting application.
 
-#### IsACatch.com (San Francisco, CA | www.IsACatch.com)
+#### Man Made It LLC (San Francisco, CA | <a href="http://www.manmadeit.com/products" target=_blank>manmadeit.com</a>)
+*Co-founder and CTO (May 2012 – Current): Sole engineer working in a team of 4 for an e-commerce site that offers high-quality, local, hand-made products to urbanites. Lead in product strategy, product development and product design. Involved in planning fulfillment strategy, branding, and marketing.*
+
+#### Love For Design (San Francisco, CA)
+*Co-founder and CTO (May 2010 – May 2011): Backend engineer for side-project that was focused on making great wedding websites for couples. Implemented and launched 3 wedding websites on a platform written in Rails 3 that sourced content from 3rd party APIs such as Facebook, Twitter, Google, and Flickr.*
+
+#### IsACatch.com (San Francisco, CA)
 *Co-founder and CTO (January 2007 – July 2009): Sole engineer working in a team of 4 for a social networking site that takes a novel approach to online dating. Involved at all levels of product development including feature development, user interface design, marketing, and programming. Technical responsibilities include coding in Ruby on Rails, server administration, database design, and code optimization.*
 
 ### EDUCATION
@@ -72,7 +78,7 @@ Selected Achievements:
 B.S. in Electrical Engineering and Computer Science (May 2004), GPA: 3.5
 
 ### PERSONAL
-Fluent speaker of Mandarin, Chinese, knowledgeable in Spanish. In my free time I like to play recreational sports including roller hockey, volleyball, basketball, and boxing. I also enjoy music, playing the guitar, and taking art classes. When I have vacation time I use it to travel and backpack for extended periods of time.
+I am a fluent speaker of Mandarin and knowledgeable in Spanish. In my free time I like to play sports including roller hockey, volleyball, basketball, boxing, running, biking, and swimming. I'm a huge Niners and Sharks fan. I also enjoy music, playing the guitar, and trying to do art. When I have vacation time I like to go backpacking.
 },
 	    space: 'midground',
 	    published: true,

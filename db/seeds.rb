@@ -77,6 +77,7 @@ Fluent speaker of Mandarin, Chinese, knowledgeable in Spanish. In my free time I
 	    space: 'auto',
 	    published: true,
 	    type: 'notes',
+	    show_header: false,
 	    date_published: DateTime.new(2012, 10, 15, 15, 31))
 
 

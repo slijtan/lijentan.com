@@ -3,11 +3,11 @@ class Post < ActiveRecord::Base
 
   @@valid_types = ['single-column-text', 'two-column-text', 'series', 'album', 'video', 'notes', 'quote']
   @@valid_styles = [
-		    'album-thumbails', 'album-carousel', 'album-flipbook', #album styles
-		    'quote-big' #quote styles
-		   ]
+                    'album-thumbails', 'album-carousel', 'album-flipbook', #album styles
+                    'quote-big' #quote styles
+                   ]
 
-  attr_accessible :type, :space, :style, :published, :date_published, :bg_color, :bg_img_fixed, :bg_img_shift_down_1, :bg_img_shift_down_2, :title, :body, :quote, :quote_source
+  attr_accessible :type, :space, :style, :published, :date_published, :bg_color, :bg_img_fixed, :bg_img_shift_down_1, :bg_img_shift_down_2, :title, :body, :quote, :quote_source, :show_header
   cattr_reader :valid_types
 
   validates_inclusion_of :type, :in => @@valid_types

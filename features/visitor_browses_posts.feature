@@ -113,6 +113,14 @@ Feature: Visitor can view posts
     When I am on the homepage
     Then the post titled "Highlight Me" should have a body with content "<table class="CodeRay"><tr><td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre><a href="#n1" name="n1">1</a></pre></td>  <td class="code"><pre>highlight = me + <span class="string"><span class="delimiter">'</span><span class="content">is awesome</span><span class="delimiter">'</span></span></pre></td></tr></table>"
 
+  Scenario: Posts can have hidden titles
+    Given the following post record
+    | title   | body         | date_published | published | show_header |
+    | Hide me | Dont hide me |      2012-10-5 | true      | false       |
+    When I am on the homepage
+    Then I should see "Dont hide me"
+    Then I should not see "Hide me"
+
   @focus
   Scenario: Post content has can be aligned with a right span using red carpet
     Given the following post record

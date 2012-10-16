@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005003433) do
+ActiveRecord::Schema.define(:version => 20121016063636) do
 
   create_table "images", :force => true do |t|
     t.string  "url"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20121005003433) do
     t.text     "body"
     t.text     "quote"
     t.string   "quote_source"
+    t.boolean  "show_header",         :default => true
   end
 
 end

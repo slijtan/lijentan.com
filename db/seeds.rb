@@ -16,7 +16,7 @@ Post.create(title: 'My Resume',
 
 ### WORK EXPERIENCE
 #### Crowdstar Inc (Burlingame, CA | <a href="http://www.facebook.com/wastelandempiresgame" target=_blank>www.facebook.com/wastelandempiresgame</a>)
-Sr. Backend Engineer (July 2010 - May 2012): Developed backend for popular Facebook game Wasteland Empires
+*Sr. Backend Engineer (July 2010 - May 2012): Developed backend for popular Facebook game Wasteland Empires*
 Selected Achievements:
 
 - Developed core backend infrastructure and led backend development for Wasteland Empires (80K DAU, 620K MAU, 1.6M installs at peak) in a team of over 20 individuals
@@ -33,7 +33,7 @@ Selected Achievements:
     - Refactored code bases to support localization for 4 product launches in Japan
 
 #### vDream Inc (Oakland, CA | <a href="http://www.facebook.com/vdream" target=_blank>www.facebook.com/vdream</a>)
-Co-founder and CEO (March 2007 - December 2011):  Developed a social game and virtual marketplace for over 50,000 daily car enthusiasts. Responsibilities in both business and technology
+*Co-founder and CEO (March 2007 - December 2011):  Developed a social game and virtual marketplace for over 50,000 daily car enthusiasts. Responsibilities in both business and technology*
 Technology:
 
 - Coding in Ruby on Rails at the model, view, and controller levels; database design; writing client-side Javascript with AJAX support; writing unit and functional tests; writing deployment scripts; and server and source control (Subversion) administration
@@ -49,7 +49,7 @@ Business
 - Managing product priorities and delegating to both internal and outsourced engineering and artistic teams
 
 ####Sparkart LLC (Emeryville, CA | <a href="http://www.sparkart.com" target=_blank>www.sparkart.com</a>)
-Engineering Team Manager (October 2006 – March 2007): Managed a team of 8 engineers (3 international) with a high level of involvement in product design, development, and architecture. Interfaced with user experience, accounting, fulfillment, and project management teams to achieve product development and scheduling goals.
+*Engineering Team Manager (October 2006 – March 2007): Managed a team of 8 engineers (3 international) with a high level of involvement in product design, development, and architecture. Interfaced with user experience, accounting, fulfillment, and project management teams to achieve product development and scheduling goals.*
 
 Selected Achievements:
 
@@ -57,7 +57,7 @@ Selected Achievements:
 - Led the establishment of a customized, XP agile development process to relieve a chaotic, non-structured development working environment
 - Designed and programmed an internal XP project management web-application using Ruby on Rails.
 
-Software Development Engineer (July 2004 – Feb 2006): Worked in teams of 2 to 4 engineers. Coded in LAMP and utilized AJAX technology built on top of MVC frameworks to create dynamic applications. Built CMS web applications for high-profile celebrities and bands within a highly creative environment. Interfaced with third party development teams to design technical solutions to user and customer requirements.
+*Software Development Engineer (July 2004 – Feb 2006): Worked in teams of 2 to 4 engineers. Coded in LAMP and utilized AJAX technology built on top of MVC frameworks to create dynamic applications. Built CMS web applications for high-profile celebrities and bands within a highly creative environment. Interfaced with third party development teams to design technical solutions to user and customer requirements.*
 
 Selected Achievements:
 
@@ -65,7 +65,7 @@ Selected Achievements:
 - Designed and implemented multi-tier, data-warehouse reporting application.
 
 #### IsACatch.com (San Francisco, CA | www.IsACatch.com)
-Co-founder and CTO (January 2007 – July 2009): Sole engineer working in a team of 4 for a social networking site that takes a novel approach to online dating. Involved at all levels of product development including feature development, user interface design, marketing, and programming. Technical responsibilities include coding in Ruby on Rails, server administration, database design, and code optimization.
+*Co-founder and CTO (January 2007 – July 2009): Sole engineer working in a team of 4 for a social networking site that takes a novel approach to online dating. Involved at all levels of product development including feature development, user interface design, marketing, and programming. Technical responsibilities include coding in Ruby on Rails, server administration, database design, and code optimization.*
 
 ### EDUCATION
 **University of California, Berkeley**
@@ -74,17 +74,17 @@ B.S. in Electrical Engineering and Computer Science (May 2004), GPA: 3.5
 ### PERSONAL
 Fluent speaker of Mandarin, Chinese, knowledgeable in Spanish. In my free time I like to play recreational sports including roller hockey, volleyball, basketball, and boxing. I also enjoy music, playing the guitar, and taking art classes. When I have vacation time I use it to travel and backpack for extended periods of time.
 },
-	    space: 'auto',
+	    space: 'midground',
 	    published: true,
 	    type: 'notes',
 	    show_header: false,
-	    date_published: DateTime.new(2012, 10, 15, 15, 31))
+	    date_published: DateTime.new(2012, 10, 16, 0, 3))
 
 
 Post.create(title: 'Markdown Support',
 	    body:
 	    %{
-I worked in some better formatting options for posts in the last few days. It was hard for me to decide at first what to use, my main consideration was between a text-to-HTML converter like markdown or textitle, or a WYSIWYG tool such as Mercury Editor. I decided to go with <a href="http://github.github.com/github-flavored-markdown/" target=_blank>Github Flavored Markdown</a> with <a href="https://github.com/vmg/redcarpet" target=_blank>Redcarpet</a> because it's the fastest to implement, and I can always move toward a heavier solution with a WYSIWYG later down the line. I would definitely consider using a WYSIWYG built on top of markdown, which would be fully extensible with my current setup, or one that saves raw HTML for the most flexibility. I also included <a href="http://coderay.rubychan.de/" target=_blank>CodeRay</a> support for nicely formatted code blocks. I'm planning on adding my own extensions to markdown so that I can have some additional shortcuts for common formatting that I would like to use on this blog.  I know some of the styles look jenky... I have to work on styling a lot of elements still, I will progressively add styles as I use them in my posts. Here are some examples below of the types of tags that I can use in my Posts as of now:
+I worked in some better formatting options for posts in the last few days. It was hard for me to decide at first what to use, my main consideration was between a text-to-HTML converter like markdown or textitle, or a WYSIWYG tool such as Mercury Editor. I decided to go with <a href="http://github.github.com/github-flavored-markdown/" target=_blank>Github Flavored Markdown</a> with <a href="https://github.com/vmg/redcarpet" target=_blank>Redcarpet</a> because it's the fastest to implement, and I can always move toward a heavier solution with a WYSIWYG later down the line. I would definitely consider using a WYSIWYG built on top of markdown, which would be fully extensible with my current setup, or one that saves raw HTML for the most flexibility. I also included <a href="http://coderay.rubychan.de/" target=_blank>CodeRay</a> support for nicely formatted code blocks. I know some of the styles look jenky... I have to work on styling a lot of elements still, I will progressively add styles as I use them in my posts. Here are some examples below of the types of tags that I can use in my Posts as of now:
 
 # This is an H1
 ## This is an H2

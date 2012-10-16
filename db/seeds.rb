@@ -2,6 +2,84 @@
 Post.delete_all
 Image.delete_all
 
+Post.create(title: 'My Resume',
+	    body:
+	    %{
+
+<div style="text-align: center">
+<h2 style="margin:0;">Lijen Tan</h2>
+<span style="color:868585;">349 Divisadero St, San Francisco, CA 94117</span><br>
+<span style="color:868585;">Phone: (510)410-1855 / Email: lijentan@gmail.com</span>
+</div>
+
+<hr style="border:dashed #868585 1px;">
+
+### WORK EXPERIENCE
+#### Crowdstar Inc (Burlingame, CA | <a href="http://www.facebook.com/wastelandempiresgame" target=_blank>www.facebook.com/wastelandempiresgame</a>)
+Sr. Backend Engineer (July 2010 - May 2012): Developed backend for popular Facebook game Wasteland Empires
+Selected Achievements:
+
+- Developed core backend infrastructure and led backend development for Wasteland Empires (80K DAU, 620K MAU, 1.6M installs at peak) in a team of over 20 individuals
+    - Collaborated closely with producer, game & economy designers, and art team to design, track, and optimize game features, monetization, engagement and performance
+    - Designed, architected, and implemented re-usable systems for questing, achievements, content & progression locking, a/b testing, and multi-player ladder
+    - Created first BDD process at company, with full unit testing suite
+- Created full-featured Redis ORM in php used in all subsequent Redis deployments company-wide
+    - Provided scalable, vertically and horizontally sharded infrastructure
+    - Enabled rapid development via schemaless, key-value datastore
+    - Supported indexing of data for rapid searches, and has many/belongs to relationships between model objects
+    - Performance optimizations include request pipelining to reduce request latency and short key generation to increase memory efficiency
+- Worked in codebase of 7 different games, including It Girl, Happy Island, Happy Aquarium, Happy Pets, and Pop Boom
+    - Coded in php and Ruby On Rails using MySQL, MongoDB, and Redis storage engines
+    - Refactored code bases to support localization for 4 product launches in Japan
+
+#### vDream Inc (Oakland, CA | <a href="http://www.facebook.com/vdream" target=_blank>www.facebook.com/vdream</a>)
+Co-founder and CEO (March 2007 - December 2011):  Developed a social game and virtual marketplace for over 50,000 daily car enthusiasts. Responsibilities in both business and technology
+Technology:
+
+- Coding in Ruby on Rails at the model, view, and controller levels; database design; writing client-side Javascript with AJAX support; writing unit and functional tests; writing deployment scripts; and server and source control (Subversion) administration
+- Single-handedly managed a database of over 2M user accounts
+- Developing applications on Facebook, Myspace, Bebo, and Tagged social networks with RoR and RESTful web services
+- Designed, implemented, and optimized a complex image rendering engine
+- Developed a comprehensive back-end that is used to manage a large quantity of car-related data content
+
+Business
+
+- Creating business development materials such as investor decks to engage potential funders
+- Developing business strategies by conducting market and competitive analysis and building financial models
+- Managing product priorities and delegating to both internal and outsourced engineering and artistic teams
+
+####Sparkart LLC (Emeryville, CA | <a href="http://www.sparkart.com" target=_blank>www.sparkart.com</a>)
+Engineering Team Manager (October 2006 – March 2007): Managed a team of 8 engineers (3 international) with a high level of involvement in product design, development, and architecture. Interfaced with user experience, accounting, fulfillment, and project management teams to achieve product development and scheduling goals.
+
+Selected Achievements:
+
+- Successfully delivered a web platform that currently supports over 20 various niche social networks and over a half million users on a 3-month timeline to meet business needs.
+- Led the establishment of a customized, XP agile development process to relieve a chaotic, non-structured development working environment
+- Designed and programmed an internal XP project management web-application using Ruby on Rails.
+
+Software Development Engineer (July 2004 – Feb 2006): Worked in teams of 2 to 4 engineers. Coded in LAMP and utilized AJAX technology built on top of MVC frameworks to create dynamic applications. Built CMS web applications for high-profile celebrities and bands within a highly creative environment. Interfaced with third party development teams to design technical solutions to user and customer requirements.
+
+Selected Achievements:
+
+- Created official websites for high profile clients such as Linkin Park, UFC, Green Day, and Criss Angel.
+- Designed and implemented multi-tier, data-warehouse reporting application.
+
+#### IsACatch.com (San Francisco, CA | www.IsACatch.com)
+Co-founder and CTO (January 2007 – July 2009): Sole engineer working in a team of 4 for a social networking site that takes a novel approach to online dating. Involved at all levels of product development including feature development, user interface design, marketing, and programming. Technical responsibilities include coding in Ruby on Rails, server administration, database design, and code optimization.
+
+### EDUCATION
+**University of California, Berkeley**
+B.S. in Electrical Engineering and Computer Science (May 2004), GPA: 3.5
+
+### PERSONAL
+Fluent speaker of Mandarin, Chinese, knowledgeable in Spanish. In my free time I like to play recreational sports including roller hockey, volleyball, basketball, and boxing. I also enjoy music, playing the guitar, and taking art classes. When I have vacation time I use it to travel and backpack for extended periods of time.
+},
+	    space: 'auto',
+	    published: true,
+	    type: 'notes',
+	    date_published: DateTime.new(2012, 10, 15, 15, 31))
+
+
 Post.create(title: 'Markdown Support',
 	    body:
 	    %{

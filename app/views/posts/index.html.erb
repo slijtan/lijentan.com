@@ -7,10 +7,9 @@
 
 <nav>
   <ul>
-    <li><a href="#">RSS</a></li>
-    <li><a href="#">Filter By Tag</a></li>
-    <li><a href="#">FB</a></li>
-    <li><input type="search" placeholder="search" /></li>
+    <% for post in @posts %>
+    <li><a href="#"><%= post.title %></a><time><%= post.date_published.to_formatted_s(:post_title)  %></time></li>
+    <% end %>
   </ul>
 </nav>
 

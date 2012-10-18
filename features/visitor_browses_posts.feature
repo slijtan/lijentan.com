@@ -120,3 +120,31 @@ Feature: Visitor can view posts
     When I am on the homepage
     Then I should see "Dont hide me"
     Then I should not see "Hide me"
+
+  @wip
+  Scenario: More posts will load as the user reaches the bottom of the page
+    Given 30 posts that were published in order with title format "Post #"
+    When I am on the homepage
+    And I scroll down to "Post 5"
+    Then I should see 15 posts
+    And I should see 15 posts in the navigation
+
+
+  @wip
+  Scenario: Even more posts will load as the user reaches the bottom of the page
+    Given 30 posts that were published in order with title format "Post #"
+    When I am on the homepage
+    And I scroll down to "Post 5"
+    And I scroll down to "Post 10"
+    Then I should see 15 posts
+    And I should see 20 posts in the navigation
+
+  @wip
+  Scenario: User scrolls to the final page of posts
+    Given 23 posts that were published in order with title format "Post #"
+    When I am on the homepage
+    And I scroll down to "Post 5"
+    And I scroll down to "Post 10"
+    And I scroll down to "Post 15"
+    Then I should see 15 posts
+    And I should see 23 posts in the navigation

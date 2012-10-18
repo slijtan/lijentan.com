@@ -15,6 +15,14 @@ Given /^I am on the homepage$/ do
   visit '/'
 end
 
+Given /^(\d+) posts that were published in order with title format "(.*?)"$/ do |total_posts, title_template|
+  total_posts.to_i.times do |count|
+    title = title_template.sub(/#/, (count + 1).to_s)
+    date_published = Date.today + count
+    FactoryGirl.create(:post, title: title, published: true, date_published: date_published)
+  end
+end
+
 ############# Then
 
 Then /^I should see ([0-9]+) posts?$/ do |count|
@@ -64,4 +72,13 @@ Then /^I should see an? "(.*)" tag without the style "(.*)"$/ do |tag_name, styl
 
   all('article').each { |article| tag_found = true if article[:style] !=~ style_regexp }
   assert tag_found
+end
+
+Then /^I should see a nav bar with posts in this order: (.*)/ do |post_names|
+  find('nav').text.should =~ Regexp.new(post_names.split(", ").join("(.|\n)*"))
+end
+
+
+Then /^I should see in the nav bar "(.*?)"$/ do |text|
+  find("nav").should have_content(text)
 end

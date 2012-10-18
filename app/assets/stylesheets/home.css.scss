@@ -47,26 +47,26 @@ header#main {
     padding: 0;
 
     ul li {
-	display: inline;
+        display: inline;
     }
 
     hgroup {
-	font-family: 'Londrina Outline', cursive;
-	font-weight: normal;
-	margin-left: 20px;
+        font-family: 'Londrina Outline', cursive;
+        font-weight: normal;
+        margin-left: 20px;
 
-	h1 {
-	    font-size: 160px;
-	    margin: 0 auto;
-	    color: #FFFFFF;
-	}
+        h1 {
+            font-size: 160px;
+            margin: 0 auto;
+            color: #FFFFFF;
+        }
 
-	h2 {
-	    font-size: 100px;
-	    margin-top: 10px;
-	    width: 700px;
-	    color: #F7F7F7;
-	}
+        h2 {
+            font-size: 100px;
+            margin-top: 10px;
+            width: 700px;
+            color: #F7F7F7;
+        }
     }
 }
 
@@ -74,7 +74,7 @@ header#main {
    Nav
    -------------------------*/
 nav ul {
-    display: none;
+
 }
 
 
@@ -89,47 +89,47 @@ article {
     min-height: 500px;
 
     header {
-	text-align: center;
-	margin: 0 auto 0;
-	width: 750px;
+        text-align: center;
+        margin: 0 auto 0;
+        width: 750px;
 
-	h1 {
-	    padding: 0 10px 0 0;
-	    margin-bottom: -3px;
-	}
+        h1 {
+            padding: 0 10px 0 0;
+            margin-bottom: -3px;
+        }
 
-	time {
-	    display: block;
-	    color: #A1A1A1;
-	    width: 750px;
-	    margin: 0 auto;
-	    padding: 0 0 10px 0;
-	    text-align: right;
-	    border-top: solid 1px #DEDEDE;
-	}
+        time {
+            display: block;
+            color: #A1A1A1;
+            width: 750px;
+            margin: 0 auto;
+            padding: 0 0 10px 0;
+            text-align: right;
+            border-top: solid 1px #DEDEDE;
+        }
     }
 
     .body {
-	margin: 0 auto;
-	width: 750px;
-	text-align: justify;
-	padding: 0 30px;
+        margin: 0 auto;
+        width: 750px;
+        text-align: justify;
+        padding: 0 30px;
     }
 
     .images {
-	margin: 30px auto 10px;
-	width: 80%;
-	text-align: center;
-	overflow: auto;
-	z-index: 1;
+        margin: 30px auto 10px;
+        width: 80%;
+        text-align: center;
+        overflow: auto;
+        z-index: 1;
 
-	img {
-	    margin: 0px;
-	    width: auto;
-	    height: auto;
-	    max-height: 200px;
-	    margin-bottom: 10px;
-	}
+        img {
+            margin: 0px;
+            width: auto;
+            height: auto;
+            max-height: 200px;
+            margin-bottom: 10px;
+        }
     }
 }
 
@@ -235,17 +235,17 @@ article.quote figure.quote-big {
     text-shadow: none;
 
     blockquote {
-	display: inline;
-	font-size: 200px;
-	line-height: 200px;
-	margin-top: 50px;
+        display: inline;
+        font-size: 200px;
+        line-height: 200px;
+        margin-top: 50px;
     }
 
     figcaption {
-	display: inline;
-	font-size: 75px;
-	line-height: 75px;
-	margin: 0;
+        display: inline;
+        font-size: 75px;
+        line-height: 75px;
+        margin: 0;
     }
 }
 

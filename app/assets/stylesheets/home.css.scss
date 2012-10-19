@@ -126,14 +126,16 @@ nav {
                 margin-right: 10px;
 
                 a {
-                    font-size: 16px;
+                    display: block;
+                    font-size: 15px;
+                    line-height: 13px;
+                    max-height: 9px;
                 }
 
                 time {
                     display: block;
-                    font-size: 14px;
+                    font-size: 13px;
                     color: $midground-txt-light;
-                    font-weight: bold;
                     max-height: 10px;
                 }
             }

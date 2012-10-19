@@ -172,7 +172,7 @@ nav {
                 border-bottom: none;
             }
 
-            &.current {
+            &.current, &.hover {
                 a.bullet {
                     color: $midground-txt;
                 }

@@ -29,6 +29,12 @@ remove_nav_item_current = ->
         $(this).parent().removeClass('hover')
         hide_nav_items()
 
+scroll_to_post = (event) ->
+        event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+
+
 $ ->
         hide_nav_items()
         $('nav li a.bullet').hover(add_nav_item_current, remove_nav_item_current)
+        $('nav li a.bullet').click(scroll_to_post)

@@ -135,14 +135,9 @@ nav {
                     font-size: 15px;
                     text-align: center;
                     vertical-align: middle;
-                    background-color: $midground-bg-dark;
-                    color: $midground-txt-light;
-                    border-bottom: 1px $midground-txt-light dashed;
+                    background-color: rgba(173, 169, 169, 0.75);
+                    color: #666666;
                     box-shadow: 1px 1px 1px #000000;
-                /*  comment in to hide spades
-                    text-indent: 100%;
-                    white-space: nowrap;
-                    overflow: hidden;*/
                 }
             }
 

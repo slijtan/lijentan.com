@@ -28,6 +28,10 @@ scroll_to_post = (event) ->
         $(this).parent().addClass('current')
         hide_nav_items()
 
+find_focused_article = ->
+        screen_height = $(window).height()
+        top_position = $(window).scrollTop()
+        doc_view_bottom = top_position + screen_height
 
 $ ->
         hide_nav_items()

@@ -1,2 +1,2 @@
-Time::DATE_FORMATS[:post_title] = "%b %e, %Y"
-Time::DATE_FORMATS[:nav] = "%B %e"
+Time::DATE_FORMATS[:post_title] = "%B %e, %Y"
+Time::DATE_FORMATS[:nav] = "%b %e"

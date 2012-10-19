@@ -219,7 +219,7 @@ p = Post.create(title: 'Summatime in the SFC',
             date_published: DateTime.new(2012, 10, 7, 15, 3))
 
 
-p = Post.create(title: 'Levitating Sheep - Multiple Backgrounds for Simple Parallax Effect',
+p = Post.create(title: 'Levitating Sheep',
             body:
             %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). ![A Poor Sheep](/assets/posts/parallax/sheep.jpg)
 

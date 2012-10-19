@@ -8,7 +8,11 @@
 <nav>
   <ul>
     <% for post in @posts %>
-    <li<% if post == @posts.first %> class="current"<% end %>><a href="#post-<%= post.id %>" class="bullet">&spades;</a><span><a href="#"><%= post.title %></a><time><%= post.date_published.to_formatted_s(:nav)  %></time></span></li>
+    <li<% if post == @posts.first %> class="current"<% end %>>
+      <a href="#post-<%= post.id %>" class="bullet"><%= post.date_published.to_formatted_s(:nav)  %></a>
+      <a href="#" class="title"><%= post.title %></a>
+<!--        <time><%= post.date_published.to_formatted_s(:nav)  %></time>  -->
+    </li>
     <% end %>
   </ul>
 </nav>

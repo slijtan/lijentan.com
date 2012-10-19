@@ -21,20 +21,26 @@ hide_nav_items = ->
                 else
                         $(this).find('span').hide()
 
-add_nav_item_current = ->
+add_nav_item_hover = ->
         $(this).parent().addClass('hover')
         hide_nav_items()
 
-remove_nav_item_current = ->
+remove_nav_item_hover = ->
         $(this).parent().removeClass('hover')
         hide_nav_items()
 
+add_nav_item_current = ->
+        $(this).parent('ul').find('li.current').removeClass('current')
+        $(this).parent().addClass('current')
+        hide_nav_items()
+
 scroll_to_post = (event) ->
-        event.preventDefault();
-        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+        event.preventDefault()
+        post = $(this.hash)
+        $('html,body').animate({scrollTop:post.offset().top}, 500)
 
 
 $ ->
         hide_nav_items()
-        $('nav li a.bullet').hover(add_nav_item_current, remove_nav_item_current)
+        $('nav li a.bullet').hover(add_nav_item_hover, remove_nav_item_hover)
         $('nav li a.bullet').click(scroll_to_post)

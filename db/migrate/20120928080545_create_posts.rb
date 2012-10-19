@@ -7,12 +7,12 @@ class CreatePosts < ActiveRecord::Migration
       t.boolean :published, required: true, default: false
       t.datetime :date_published, required: false
       t.timestamps
+      t.string :title, required: true
 
       t.string :bg_color, required: false
       t.string :bg_img_fixed, required: false
       t.string :bg_img_shift_down_1, required: false
       t.string :bg_img_shift_down_2, required: false
-      t.string :title, required: false
       t.text :body, required: false
       t.text :quote, required: false
       t.string :quote_source, required: false

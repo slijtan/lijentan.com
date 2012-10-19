@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(:version => 20121016063636) do
     t.datetime "date_published"
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
+    t.string   "title"
     t.string   "bg_color"
     t.string   "bg_img_fixed"
     t.string   "bg_img_shift_down_1"
     t.string   "bg_img_shift_down_2"
-    t.string   "title"
     t.text     "body"
     t.text     "quote"
     t.string   "quote_source"

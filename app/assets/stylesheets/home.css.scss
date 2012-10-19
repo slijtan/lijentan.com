@@ -1,6 +1,44 @@
+@mixin rounded-top($radius: 5px) {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
+}
+
+@mixin rounded-bottom($radius: 5px) {
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+}
+
+$header-txt: #FFFFFF;
+$header-txt-sub: #F7F7F7;
+
+$background-bg: #333333;
+$background-bg-dark: #000000;
+
+$midground-bg: #ECE5E5;
+$midground-bg-dark: #ADA9A9;
+
+$foreground-bg: #FFFFFF;
+$foreground-bg-dark: #FDFDFD;
+
+$background-txt: #FDFDFD;
+$background-txt-light: #FFFFFF;
+$background-txt-shadow: 1px 1px 0.1em #000000;
+$background-txt-link: #A1A1A1;
+
+$midground-txt: #000000;
+$midground-txt-light: #868585;
+$midground-txt-shadow: 1px 1px 0.1em #FFFFFF;
+$midground-txt-link: #566DE6;
+
+$foreground-txt: #000000;
+$foreground-txt-light: #A1A1A1;
+$foreground-txt-shadow: 1px 1px 0.1em #FFFFFF;
+$foreground-txt-link: #566DE6;
+
 /* ----------------------
 Defaults
 -------------------------*/
+
 body {
     font-family: 'Arbutus Slab', serif;
     background-position: top center;
@@ -46,10 +84,6 @@ header#main {
     margin: 0;
     padding: 0;
 
-    ul li {
-        display: inline;
-    }
-
     hgroup {
         font-family: 'Londrina Outline', cursive;
         font-weight: normal;
@@ -58,14 +92,14 @@ header#main {
         h1 {
             font-size: 160px;
             margin: 0 auto;
-            color: #FFFFFF;
+            color: $header-txt;
         }
 
         h2 {
             font-size: 100px;
             margin-top: 10px;
             width: 700px;
-            color: #F7F7F7;
+            color: $header-txt-sub;
         }
     }
 }
@@ -73,11 +107,76 @@ header#main {
 /* ----------------------
    Nav
    -------------------------*/
-nav ul {
+nav {
+    position: fixed;
+    right: 40px;
+    top: 10px;
 
+    ul {
+        font-family: 'Open Sans Condensed', Arial, Arial, Helvetica, sans-serif;
+
+        li {
+            list-style-type: none;
+
+            span {
+                display: block;
+                float: right;
+                text-align: right;
+                max-height: 23px;
+                margin-right: 10px;
+
+                a {
+                    font-size: 16px;
+                }
+
+                time {
+                    display: block;
+                    font-size: 14px;
+                    color: $midground-txt-light;
+                    font-weight: bold;
+                    max-height: 10px;
+                }
+            }
+
+            a.bullet {
+                background-color: $midground-bg-dark;
+                width: 20px;
+                height: 20px;
+                float: right;
+                clear: both;
+                color: $midground-txt-light;
+                border-bottom: 1px $midground-txt-light dashed;
+                height: 100%;
+                text-align: center;
+                vertical-align: middle;
+                box-shadow: 1px 1px 1px #000000;
+            /*  comment in to hide spades
+                text-indent: 100%;
+                white-space: nowrap;
+                overflow: hidden;*/
+            }
+
+            a.bullet:hover {
+                color: $midground-txt;
+            }
+
+            &:first-child a.bullet {
+                @include rounded-top(5px);
+            }
+
+            &:last-child a.bullet {
+                @include rounded-bottom(5px);
+                border-bottom: none;
+            }
+
+            &.current {
+                a.bullet {
+                    color: $midground-txt;
+                }
+            }
+        }
+    }
 }
-
-
 
 /* ----------------------
    Global Post Format
@@ -100,12 +199,12 @@ article {
 
         time {
             display: block;
-            color: #A1A1A1;
+            color: $foreground-txt-light;
             width: 750px;
             margin: 0 auto;
             padding: 0 0 10px 0;
             text-align: right;
-            border-top: solid 1px #DEDEDE;
+            border-top: solid 1px $foreground-txt-light;
         }
     }
 
@@ -136,46 +235,48 @@ article {
 /* ----------------------
    Space Formats
    -------------------------*/
-
 article.midground {
-    background: url(layout/divider-midground-top.png) repeat-x center top, url(layout/divider-midground-bottom.png) repeat-x center bottom, #ECE5E5;
-    color: #000000;
-    text-shadow: 1px 1px 0.1em #FFFFFF;
-}
+    background: url(layout/divider-midground-top.png) repeat-x center top, url(layout/divider-midground-bottom.png) repeat-x center bottom, $midground-bg;
+    color: $midground-txt;
+    text-shadow: $midground-txt-shadow;
 
-article.midground time {
-    color: #868585;
-    border-color: #868585;
-}
+    time {
+        color: $midground-txt-light;
+        border-color: $midground-txt-light;
+    }
 
-article.midground a {
-    color: #566DE6;
+    a {
+        color: $midground-txt-link;
+    }
 }
-
 
 article.foreground {
-    background: url(layout/divider-foreground-top.png) repeat-x center top, url(layout/divider-foreground-bottom.png) repeat-x center bottom, #FFFFFF;
-    color: #000000;
-    text-shadow: 1px 1px 0.1em #FFFFFF;
+    background: url(layout/divider-foreground-top.png) repeat-x center top, url(layout/divider-foreground-bottom.png) repeat-x center bottom, $foreground-bg;
+    color: $foreground-txt;
+    text-shadow: $foreground-txt-shadow;
 
-    header time { border-top: solid 1px #000000; }
-}
+    time {
+        border-color: $foreground-txt;
+    }
 
-article.foreground a {
-    color: #566DE6;
+    a {
+        color: $foreground-txt-link;
+    }
 }
 
 article.background {
-    background: url(layout/divider-background-top.png) repeat-x center top, url(layout/divider-background-bottom.png) repeat-x center bottom, #333333;
-    color: #FDFDFD;
-    text-shadow: 1px 1px 0.1em #000000;
+    background: url(layout/divider-background-top.png) repeat-x center top, url(layout/divider-background-bottom.png) repeat-x center bottom, $background-bg;
+    color: $background-txt;
+    text-shadow: $background-txt-shadow;
+
+    a {
+        color: $background-txt-link;
+    }
+
+    time {
+        border-color: $background-txt;
+    }
 }
-
-article.background a {
-    color: #A1A1A1;
-}
-
-
 
 /* ----------------------
    Title Formats
@@ -183,7 +284,9 @@ article.background a {
 article.notes header {
     width: 960px;
 
-    time { width: 960px; }
+    time {
+        width: 960px;
+    }
 }
 
 
@@ -231,7 +334,7 @@ article.quote figure.quote-big {
     letter-spacing: -3px;
     word-spacing: -3px;
     text-align: center;
-    color: #FFFFFF;
+    color: $background-txt;
     text-shadow: none;
 
     blockquote {

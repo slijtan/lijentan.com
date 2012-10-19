@@ -14,7 +14,7 @@ Feature: Visitor can navigate posts
     | This is the title | 2012-10-1 10:10:10 | true      |
     When I am on the homepage
     Then I should see in the nav bar "This is the title"
-    And I should see in the nav bar "Oct 1, 2012"
+    And I should see in the nav bar "October 1"
 
   @wip
   Scenario: Posts with hidden headers display properly in nav

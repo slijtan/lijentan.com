@@ -15,7 +15,6 @@ Image.create(url: 'posts/painting/painting-5.jpg', post_id: p.id)
 Post.create(title: 'My Resume',
             body:
             %{
-
 <div style="text-align: center">
 <h2 style="margin:0;">Lijen Tan</h2>
 <span style="color:868585;">349 Divisadero St, San Francisco, CA 94117</span><br>
@@ -197,6 +196,7 @@ I'm still not super happy with this solution, so if you know of a better way to 
 
 
 p = Post.create(space: 'foreground',
+            title: "The Blue Angels",
             quote: 'Multiply the best roller coaster you can imagine by 100',
             quote_source: 'Navy Lt. C.J. Simonsen',
             style: 'quote-big',

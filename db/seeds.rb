@@ -204,6 +204,7 @@ p = Post.create(space: 'foreground',
             bg_img_shift_down_1: 'posts/blue-angels/blue-angels-bg.png',
             published: true,
             type: 'quote',
+            show_header: false,
             date_published: DateTime.new(2012, 10, 8, 16, 9))
 
 (1..12).each { |i| Image.create(url: "posts/blue-angels/blue-angels-#{i}-th.jpg", post_id: p.id, position: i) }

@@ -17,30 +17,26 @@ $(window).scroll -> $('.bg-shifting').each -> adjust_shifting_background $(this)
 hide_nav_items = ->
         $('nav li').each ->
                 if $(this).hasClass('current') || $(this).hasClass('hover')
-                        $(this).find('span').show()
+                        $(this).find('a.title').fadeIn(200)
                 else
-                        $(this).find('span').hide()
-
-add_nav_item_hover = ->
-        $(this).parent().addClass('hover')
-        hide_nav_items()
-
-remove_nav_item_hover = ->
-        $(this).parent().removeClass('hover')
-        hide_nav_items()
-
-add_nav_item_current = ->
-        $(this).parent('ul').find('li.current').removeClass('current')
-        $(this).parent().addClass('current')
-        hide_nav_items()
+                        $(this).find('a.title').fadeOut(200)
 
 scroll_to_post = (event) ->
         event.preventDefault()
-        post = $(this.hash)
-        $('html,body').animate({scrollTop:post.offset().top}, 500)
+        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500)
+        $(this).closest('ul').find('li.current').removeClass('current')
+        $(this).parent().addClass('current')
+        hide_nav_items()
 
 
 $ ->
         hide_nav_items()
-        $('nav li a.bullet').hover(add_nav_item_hover, remove_nav_item_hover)
-        $('nav li a.bullet').click(scroll_to_post)
+        $('nav a.bullet').hover(
+                ->
+                        $(this).parent().addClass('hover')
+                        hide_nav_items()
+                ->
+                        $(this).parent().removeClass('hover')
+                        hide_nav_items()
+                )
+        $('nav a.bullet').click(scroll_to_post)

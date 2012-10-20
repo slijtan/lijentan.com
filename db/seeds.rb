@@ -6,12 +6,12 @@ p = Post.create(title: 'A Day Trip to the Russian River',
             body:
             %{Jas and I were lucky enough to take a random Wednesday trip to the Russian River to do some canoeing and fishing. We caught a lot of things (most of which were inanimate) but we also managed to catch a foot long Steelhead Trout! We called it Ol' Greg; cooked 'em up real good for dinner. We also saw a family of seals swimming in the river, they caught themselves a big ass trout and were munchin' on it for lunch. Can't wait to go back! },
             published: true,
-            bg_img_shift_down_1: 'posts/russian-river/russian-river-bg.jpg',
+            bg_img_shift_down_1: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg',
             space: 'midground',
             type: 'album',
             date_published: DateTime.new(2012, 10, 19, 17, 28))
 
-(1..27).each { |i| Image.create(url: "posts/russian-river/russian-river-#{i}-th.jpg", post_id: p.id) }
+(1..27).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-#{i}-th.jpg", post_id: p.id) }
 
 
 p = Post.create(title: 'Object In Nature - Session 5',
@@ -21,13 +21,13 @@ p = Post.create(title: 'Object In Nature - Session 5',
             type: 'series',
             date_published: DateTime.new(2012, 10, 18, 15, 10))
 
-Image.create(url: 'posts/painting/painting-5.jpg', post_id: p.id)
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-5.jpg', post_id: p.id)
 
 
 p = Post.create(title: 'EGO',
             type: 'quote',
             bg_color: '#F0EACD',
-            bg_img_fixed: 'posts/ego/ego-bg.jpg',
+            bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/ego/ego-bg.jpg',
             quote: "There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self",
             quote_source: "Ernest Hemingway",
             style: 'quote-big',
@@ -168,13 +168,13 @@ This is [an example](http://example.com/ "Title") inline link. You got me feelin
 p = Post.create(title: 'Object In Nature - Session 4',
             body:
             %{In this session I'm starting to use colors that I want the final painting to have. The sky is now blue, the sand is now brown, and the fence is now white. It's still a work in progress, and from here on out the process is pretty straight forward; I'm progressively using thicker and thicker paints and painting in more details and tones with darks and whites to give the painting space while making it look more realistic. I honestly really feel like I am fighting with the painting a lot, and I really didn't remember how hard it was to paint, but I also remember Larry teaching us that the process of painting is a curve, where at some point in the process we will hit a low where we don't like our painting and we feel lost. If we fight through that low, it's all uphill from there and we will eventually discover the painting and figure out a way to make it work, and we will grow to like our painting more and more. It's like problem solving, except instead of a math problem, it's a visual problem.},
-            bg_img_fixed: 'posts/painting/painting-4.jpg',
+            bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg',
             space: 'midground',
             published: true,
             type: 'series',
             date_published: DateTime.new(2012, 10, 12, 13, 43))
 
-Image.create(url: 'posts/painting/painting-4.jpg', post_id: p.id)
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', post_id: p.id)
 
 p = Post.create(title: 'HTML5 and quotes with attribution',
             body:
@@ -225,20 +225,20 @@ p = Post.create(
             quote_source: 'Navy Lt. C.J. Simonsen',
             style: 'quote-big',
             bg_color: '#F0EACD',
-            bg_img_shift_down_1: 'posts/blue-angels/blue-angels-bg.png',
+            bg_img_shift_down_1: 'http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-bg.png',
             published: true,
             type: 'quote',
             space: 'background',
             show_header: false,
             date_published: DateTime.new(2012, 10, 8, 16, 9))
 
-(1..12).each { |i| Image.create(url: "posts/blue-angels/blue-angels-#{i}-th.jpg", post_id: p.id, position: i) }
+(1..12).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-#{i}-th.jpg", post_id: p.id, position: i) }
 
 
 p = Post.create(title: 'Summatime in the SFC',
             body:
-            %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.![Steven's 30th Birthday Cake](/assets/posts/oct6-weekend/oct6-2.jpg) Saturday was our good friends Michelle and Adam's wedding - It was amazing!![Mich's Wedding Dress](/assets/posts/oct6-weekend/oct6-3.jpg) It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.![Doing the Hora](/assets/posts/oct6-weekend/oct6-4.jpg)And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.![Dance Floor Lights](/assets/posts/oct6-weekend/oct6-5.jpg) Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.![Blue Angels](/assets/posts/oct6-weekend/oct6-6.jpg) Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a super chill concert in the park while seeing jets do fly-bys overhead?![Hardly Strictly Blue Grass Festival](/assets/posts/oct6-weekend/oct6-7.jpg) We finished with a relaxing sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.![Bryan Takes a Picture](/assets/posts/oct6-weekend/oct6-1.jpg) *It was truly a weekend to remember!*},
-            bg_img_fixed: 'posts/oct6-weekend/oct6-bg.jpg',
+            %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.![Steven's 30th Birthday Cake](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-2.jpg) Saturday was our good friends Michelle and Adam's wedding - It was amazing!![Mich's Wedding Dress](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-3.jpg) It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.![Doing the Hora](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-4.jpg)And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.![Dance Floor Lights](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-5.jpg) Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.![Blue Angels](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-6.jpg) Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a super chill concert in the park while seeing jets do fly-bys overhead?![Hardly Strictly Blue Grass Festival](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-7.jpg) We finished with a relaxing sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.![Bryan Takes a Picture](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-1.jpg) *It was truly a weekend to remember!*},
+            bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-bg.jpg',
             space: 'background',
             published: true,
             type: 'two-column-text',
@@ -247,7 +247,7 @@ p = Post.create(title: 'Summatime in the SFC',
 
 p = Post.create(title: 'Levitating Sheep',
             body:
-            %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). ![A Poor Sheep](/assets/posts/parallax/sheep.jpg)
+            %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). ![A Poor Sheep](http://dl.dropbox.com/u/4893047/posts/parallax/sheep.jpg)
 
 The basic premise is, as a user is scrolling through a post, a background image will also scroll from top to bottom within the post's background. I thought this looked pretty cool as a first run with only one background image, but then I had the idea to add an additional background image layer so that I can use 2 layers of scrolling backgrounds. If the top layer's image has a greater height, then it will scroll faster than the bottom layer's image, which esentially creates a simple parallax effect. That's the effect that I used to get these levitating sheep, with some being farther away and some being closer. Heres the simplified css:
 
@@ -257,8 +257,8 @@ background-position: 50% 0%;
 ```
 
 To get it to work, I just simply adjust the background-position from "50% 0%" to "50% 100%" using javascript as the user scrolls along the page.},
-            bg_img_shift_down_1: 'posts/parallax/parallax-fg.png',
-            bg_img_shift_down_2: 'posts/parallax/parallax-bg.png',
+            bg_img_shift_down_1: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-fg.png',
+            bg_img_shift_down_2: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-bg.png',
             space: 'foreground',
             published: true,
             type: 'two-column-text',
@@ -272,8 +272,7 @@ p = Post.create(title: 'Object In Nature - Session 1',
             type: 'series',
             date_published: DateTime.new(2012, 9, 25, 14, 43))
 
-Image.create(url: 'posts/painting/painting-1.png',
-             post_id: p.id)
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png', post_id: p.id)
 
 Post.create(bg_img_fixed: 'http://stuffpoint.com/gamesrocks/image/13260-gamesrocks-superman.jpg',
             quote: 'This Is How You Make Me Feel',
@@ -292,19 +291,18 @@ p = Post.create(title: 'Object In Nature - Session 2',
             space: 'midground',
             date_published: DateTime.new(2012, 10, 2, 14, 43))
 
-Image.create(url: 'posts/painting/painting-2.jpg',
-             post_id: p.id)
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg', post_id: p.id)
 
 p = Post.create(title: 'Object In Nature - Session 3',
             body:
             %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the biker's vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!},
-            bg_img_fixed: 'posts/painting/painting-3.jpg',
+            bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg',
             space: 'background',
             published: true,
             type: 'series',
             date_published: DateTime.new(2012, 10, 5, 14, 43))
 
-Image.create(url: 'posts/painting/painting-3.jpg', post_id: p.id)
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', post_id: p.id)
 
 p = Post.create(title: 'Iceland, Germany, and Amsterdam',
             body:

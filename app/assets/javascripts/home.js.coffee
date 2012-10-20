@@ -20,14 +20,6 @@ hide_nav_items = ->
                 else
                         $(this).find('a.title').fadeOut(200)
 
-###scroll_to_post = (event) ->
-        event.preventDefault()
-        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500)
-        $(this).closest('ul').find('li.current').removeClass('current')
-        $(this).parent().addClass('current')
-        hide_nav_items()
-###
-
 scroll_to_post = (post) ->
         $('html,body').animate({scrollTop:post.offset().top}, 500)
         make_post_current(post)
@@ -57,7 +49,6 @@ find_focused_article = ->
 
 update_nav_with_focused_article = ->
         article = find_focused_article()
-#        alert(article.attr('id')) if Math.random() > 0.99
         make_post_current(article)
 
 

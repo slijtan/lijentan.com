@@ -1,5 +1,5 @@
 Lijentandotcom::Application.routes.draw do
-  get "posts/index"
+  match 'posts/index(/:items_per_page)' => 'posts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

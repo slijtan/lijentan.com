@@ -307,26 +307,26 @@ Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg
 p = Post.create(title: 'Iceland, Germany, and Amsterdam',
             body:
             %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.},
-            bg_img_fixed: 'posts/eu/eu-bg.jpg',
+            bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/eu/eu-bg.jpg',
             space: 'background',
             published: true,
             type: 'album',
             style: 'album-thumbnails',
             date_published: DateTime.new(2012, 7, 15, 14, 43))
 
-(1..28).each { |i| Image.create(url: "posts/eu/eu-#{i}-th.jpg", post_id: p.id, position: i) }
+(1..28).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/eu/eu-#{i}-th.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: 'Norway',
             body:
             %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has it's price, and Norway was well worth every penny.},
             published: true,
             space: 'midground',
-            bg_img_fixed: 'posts/norway/norway-bg.jpg',
+            bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/norway/norway-bg.jpg',
             type: 'album',
             style: 'album-thumbnails',
             date_published: DateTime.new(2012, 9, 24, 14, 43))
 
-(1..17).each { |i| Image.create(url: "posts/norway/norway-#{i}-th.jpg", post_id: p.id, position: i) }
+(1..17).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/norway/norway-#{i}-th.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: 'The Tac Cup',
             body:
@@ -357,17 +357,17 @@ Week 1 Results:
 22. Norman: 1170.863960480068
 23. Total Number of Games Recorded: 35
 },
-            bg_img_fixed: 'posts/tac/tac-bg.jpg',
+            bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-bg.jpg',
             published: true,
             space: 'midground',
             type: 'single-column-text',
             date_published: DateTime.new(2012, 10, 4, 14, 43))
 
-Image.create(url: 'posts/tac/tac-1-th.jpg', post_id: p.id, position: 1)
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-1-th.jpg', post_id: p.id, position: 1)
 
-Image.create(url: 'posts/tac/tac-2-th.jpg', post_id: p.id, position: 3)
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-2-th.jpg', post_id: p.id, position: 3)
 
-Image.create(url: 'posts/tac/tac-3-th.jpg', post_id: p.id, position: 2)
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-3-th.jpg', post_id: p.id, position: 2)
 
 Post.create(title: 'Harvard Psychology 1504 - History and Introduction to Positive Psychology',
             body:

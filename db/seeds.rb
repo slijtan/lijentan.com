@@ -2,6 +2,18 @@
 Post.delete_all
 Image.delete_all
 
+p = Post.create(title: 'A Day Trip to the Russian River',
+            body:
+            %{Jas and I were lucky enough to take a random Wednesday trip to the Russian River to do some canoeing and fishing. We caught a lot of things (most of which were inanimate) but we also managed to catch a foot long Steelhead Trout! We called it Ol' Greg; cooked 'em up real good for dinner. We also saw a family of seals swimming in the river, they caught themselves a big ass trout and were munchin' on it for lunch. Can't wait to go back! },
+            published: true,
+            bg_img_shift_down_1: 'posts/russian-river/russian-river-bg.jpg',
+            space: 'midground',
+            type: 'album',
+            date_published: DateTime.new(2012, 10, 19, 17, 28))
+
+(1..27).each { |i| Image.create(url: "posts/russian-river/russian-river-#{i}-th.jpg", post_id: p.id) }
+
+
 p = Post.create(title: 'Object In Nature - Session 5',
             body:
             %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there},
@@ -11,6 +23,18 @@ p = Post.create(title: 'Object In Nature - Session 5',
 
 Image.create(url: 'posts/painting/painting-5.jpg', post_id: p.id)
 
+
+p = Post.create(title: 'Nobility',
+            type: 'quote',
+            bg_color: '#F0EACD',
+            bg_img_fixed: 'posts/ego/ego-bg.jpg',
+            quote: "There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self",
+            quote_source: "Ernest Hemingway",
+            style: 'quote-big',
+            space: 'midground',
+            published: true,
+            show_header: false,
+            date_published: DateTime.new(2012, 10, 17, 10, 25))
 
 Post.create(title: 'My Resume',
             body:
@@ -195,7 +219,7 @@ I'm still not super happy with this solution, so if you know of a better way to 
 
 
 
-p = Post.create(space: 'foreground',
+p = Post.create(
             title: "The Blue Angels",
             quote: 'Multiply the best roller coaster you can imagine by 100',
             quote_source: 'Navy Lt. C.J. Simonsen',
@@ -204,6 +228,7 @@ p = Post.create(space: 'foreground',
             bg_img_shift_down_1: 'posts/blue-angels/blue-angels-bg.png',
             published: true,
             type: 'quote',
+            space: 'background',
             show_header: false,
             date_published: DateTime.new(2012, 10, 8, 16, 9))
 

@@ -319,7 +319,6 @@ article.quote figure.quote-big {
     letter-spacing: -3px;
     word-spacing: -3px;
     text-align: center;
-    color: $background-txt;
     text-shadow: none;
 
     blockquote {
@@ -335,6 +334,18 @@ article.quote figure.quote-big {
         line-height: 75px;
         margin: 0;
     }
+}
+
+article.foreground.quote {
+    color: $foreground-txt;
+}
+
+article.midground.quote {
+    color: $midground-txt;
+}
+
+article.background.quote {
+    color: $background-txt;
 }
 
 

@@ -24,7 +24,7 @@ p = Post.create(title: 'Object In Nature - Session 5',
 Image.create(url: 'posts/painting/painting-5.jpg', post_id: p.id)
 
 
-p = Post.create(title: 'Nobility',
+p = Post.create(title: 'EGO',
             type: 'quote',
             bg_color: '#F0EACD',
             bg_img_fixed: 'posts/ego/ego-bg.jpg',
@@ -69,17 +69,17 @@ Selected Achievements:
 *Co-founder and CEO (March 2007 - December 2011):  Developed a social game and virtual marketplace for over 50,000 daily car enthusiasts. Responsibilities in both business and technology*
 Technology:
 
-- Coding in Ruby on Rails at the model, view, and controller levels; database design; writing client-side Javascript with AJAX support; writing unit and functional tests; writing deployment scripts; and server and source control (Subversion) administration
+- Coded in Ruby on Rails at the model, view, and controller levels; database design; wrote client-side Javascript with AJAX support; wrote unit and functional tests; wrote deployment scripts; and server and source control (Subversion) administration
 - Single-handedly managed a database of over 2M user accounts. Managed the migration of database through 3 different hosting companies, and a simultaneous primary and backup hard drive failure
-- Developing applications on Facebook, Myspace, Bebo, and Tagged social networks with RoR and RESTful web services
+- Developed applications on Facebook, Myspace, Bebo, and Tagged social networks with RoR and RESTful web services
 - Designed, implemented, and optimized a complex image rendering engine
-- Developed a comprehensive back-end that is used to manage a large quantity of car-related data content
+- Developed a comprehensive back-end that was used to manage a large quantity of car-related data content
 
 Business
 
-- Creating business development materials such as investor decks to engage potential funders
-- Developing business strategies by conducting market and competitive analysis and building financial models
-- Managing product priorities and delegating to both internal and outsourced engineering and artistic teams
+- Created business development materials such as investor decks to engage potential funders
+- Developed business strategies by conducting market and competitive analysis and building financial models
+- Managed product priorities and delegating to both internal and outsourced engineering and artistic teams
 
 ####Sparkart LLC (Emeryville, CA | <a href="http://www.sparkart.com" target=_blank>www.sparkart.com</a>)
 *Engineering Team Manager (October 2006 – March 2007): Managed a team of 8 engineers (3 international) with a high level of involvement in product design, development, and architecture. Interfaced with user experience, accounting, fulfillment, and project management teams to achieve product development and scheduling goals.*

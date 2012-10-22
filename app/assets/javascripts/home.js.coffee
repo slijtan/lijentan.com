@@ -1,3 +1,5 @@
+focused_article = null
+
 #handle shifting backgrounds
 adjust_shifting_background = (element) ->
 	div_height = element.innerHeight()
@@ -43,14 +45,14 @@ find_focused_article = ->
 		primary_article = $(this) if my_position >= hit_area_top && my_position <= hit_area_bottom
 		secondary_article = $(this) if my_position <= hit_area_bottom
 
-	if primary_article
-		return primary_article
-	else
-		return secondary_article
+	focused_article = primary_article || secondary_article
+
 
 update_nav_with_focused_article = ->
 	make_post_current(find_focused_article())
 
+load_more_posts_if_necessary = ->
+	alert "checking if we need to load more posts"
 
 $ ->
 	hide_nav_items()
@@ -66,5 +68,7 @@ $ ->
 		event.preventDefault()
 		scroll_to_post($(this.hash))
 
-	$(window).scroll -> $('.bg-shifting').each -> adjust_shifting_background($(this))
-	$(window).scroll -> update_nav_with_focused_article()
+	$(window).scroll ->
+		$('.bg-shifting').each -> adjust_shifting_background($(this))
+		update_nav_with_focused_article()
+		load_more_posts_if_necessary() if Math.random() > 0.8 #only run this 20% of the time

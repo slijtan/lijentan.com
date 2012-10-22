@@ -13,38 +13,12 @@
       <a href="#" class="title"><%= post.title %></a>
     </li>
     <% end %>
+    <li id="nav-post-loading" style="display:none">
+      <a class="bullet">&#8226;</a>
+    </li>
   </ul>
 </nav>
 
 <section>
-  <% for post in @posts %>
-  <article id="post-<%= post.id %>" <%= post_class(post) %> <%= post_style(post) %>>
-    <header>
-      <% if post.show_header %>
-      <h1><%= post.title %></h1>
-      <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
-      <% end %>
-    </header>
-
-    <% if post.quote %>
-    <figure <%= post_quote_class(post) %>>
-      <blockquote>"<%= post.quote %>"</blockquote>
-      <% unless post.quote_source.blank? %><figcaption>&nbsp;-&nbsp;<%= post.quote_source %></figcaption><% end %>
-    </figure>
-    <% end %>
-
-    <% if post.body %>
-    <div class="body"><%= markdown(post.body) %></div>
-    <% end %>
-
-    <% unless post.images.empty? %>
-    <div class="images">
-      <% post.images.order(:position).each do |image| %>
-      <a href="#"><%= image_tag(image.url) %></a>
-      <% end %>
-    </div>
-    <% end %>
-
-  </article>
-  <% end %>
+  <%= render(@posts) %>
 </section>

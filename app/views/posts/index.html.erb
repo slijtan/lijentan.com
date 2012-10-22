@@ -6,12 +6,9 @@
 </header>
 
 <nav>
-  <ul>
+  <ul id="posts-nav">
     <% for post in @posts %>
-    <li id="nav-post-<%= post.id %>">
-      <a href="#post-<%= post.id %>" class="bullet"><%= post.date_published.to_formatted_s(:nav)  %></a>
-      <a href="#" class="title"><%= post.title %></a>
-    </li>
+    <%= render partial: 'post_nav', locals: { post: post } %>
     <% end %>
     <li id="nav-post-loading" style="display:none">
       <a class="bullet">&#8226;</a>

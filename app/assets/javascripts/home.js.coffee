@@ -1,4 +1,7 @@
 focused_article = null
+total_articles_on_page = null
+loading_more_posts = null
+eof = null
 
 #handle shifting backgrounds
 adjust_shifting_background = (element) ->
@@ -51,10 +54,58 @@ find_focused_article = ->
 update_nav_with_focused_article = ->
 	make_post_current(find_focused_article())
 
-load_more_posts_if_necessary = ->
-	alert "checking if we need to load more posts"
+should_load_more_posts = ->
+	return false if loading_more_posts || eof
+
+	current_article_index = 0
+	current_article_found = false
+	$('article').each ->
+		if $(this).attr('id') == focused_article.attr('id')
+			current_article_found = true
+		else if !current_article_found
+			current_article_index++
+
+	current_article_index >= total_articles_on_page - 5
+
+load_more_posts = (count = 5) ->
+	console.log("Loading " + count + " more posts")
+	loading_more_posts = true
+	$('#nav-post-loading').fadeIn(200)
+	animate_nav_post_loading()
+	$.ajax '/',
+		type: 'GET'
+		dataType: 'script'
+		data:
+			items_per_page: count
+			offset: total_articles_on_page
+		success: completed_loading_more_posts
+
+completed_loading_more_posts = ->
+	loading_more_posts = false
+	$('#nav-post-loading').fadeOut(200)
+	previous_total_articles = total_articles_on_page
+	calculate_total_articles_on_page()
+	eof = true if previous_total_articles == total_articles_on_page
+
+
+
+animate_nav_post_loading = ->
+	console.log("animate_nav_post_loading")
+	loading_tag = $('#nav-post-loading a.bullet')
+	if(loading_tag.html() == "•")
+		loading_tag.html("&bull;&bull;")
+	else if(loading_tag.html() == "••")
+		loading_tag.html("&bull;&bull;&bull;")
+	else if(loading_tag.html() == "•••")
+		loading_tag.html("&bull;")
+
+	setTimeout(animate_nav_post_loading, 1000) if loading_more_posts
+
+calculate_total_articles_on_page = ->
+	total_articles_on_page = $('article').length
 
 $ ->
+	calculate_total_articles_on_page()
 	hide_nav_items()
 	$('nav a.bullet').hover(
 		->
@@ -64,11 +115,11 @@ $ ->
 			$(this).parent().removeClass('hover')
 			hide_nav_items()
 		)
-	$('nav a.bullet').click -> #(scroll_to_post)
+	$('nav a.bullet').click ->
 		event.preventDefault()
 		scroll_to_post($(this.hash))
 
 	$(window).scroll ->
 		$('.bg-shifting').each -> adjust_shifting_background($(this))
 		update_nav_with_focused_article()
-		load_more_posts_if_necessary() if Math.random() > 0.8 #only run this 20% of the time
+		load_more_posts() if Math.random() > 0.8 && should_load_more_posts() #only run this 20% of the time

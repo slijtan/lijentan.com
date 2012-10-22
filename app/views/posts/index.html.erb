@@ -7,9 +7,7 @@
 
 <nav>
   <ul id="posts-nav">
-    <% for post in @posts %>
-    <%= render partial: 'post_nav', locals: { post: post } %>
-    <% end %>
+    <%= render partial: 'post_nav', collection: @posts, as: :post  %>
     <li id="nav-post-loading" style="display:none">
       <a class="bullet">&#8226;</a>
     </li>

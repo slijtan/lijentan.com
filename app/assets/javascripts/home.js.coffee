@@ -81,11 +81,14 @@ load_more_posts = (count = 5) ->
 		success: completed_loading_more_posts
 
 completed_loading_more_posts = ->
-	loading_more_posts = false
-	$('#nav-post-loading').fadeOut(200)
 	previous_total_articles = total_articles_on_page
 	calculate_total_articles_on_page()
 	eof = true if previous_total_articles == total_articles_on_page
+
+	loader = $('#nav-post-loading').fadeOut(200).detach()
+	loader.appendTo('#posts-nav')
+	loading_more_posts = false
+
 
 
 

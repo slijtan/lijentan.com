@@ -11,7 +11,7 @@ p = Post.create(title: 'A Day Trip to the Russian River',
             type: 'album',
             date_published: DateTime.new(2012, 10, 19, 17, 28))
 
-(1..27).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-#{i}-th.jpg", post_id: p.id) }
+(1..27).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-#{i}-th.jpg", post_id: p.id, position: i) }
 
 
 p = Post.create(title: 'Object In Nature - Session 5',

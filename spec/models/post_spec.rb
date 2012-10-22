@@ -19,21 +19,21 @@ describe Post do
   describe "baground images" do
     it "should be able to detect if a background image is present" do
       FactoryGirl.create(:post,
-			 bg_img_fixed: "#{Forgery(:internet).domain_name}/test.jpg"
-			 ).has_background?.should be_true
+                         bg_img_fixed: "#{Forgery(:internet).domain_name}/test.jpg")
+        .has_background?.should be_true
 
       FactoryGirl.create(:post,
-			 bg_img_shift_down_1: "#{Forgery(:internet).domain_name}/test.jpg"
-			 ).has_background?.should be_true
+                         bg_img_shift_down_1: "#{Forgery(:internet).domain_name}/test.jpg").has_background?
+        .should be_true
 
       FactoryGirl.create(:post,
-			 bg_img_shift_down_2: "#{Forgery(:internet).domain_name}/test.jpg"
-			 ).has_background?.should be_true
+                         bg_img_shift_down_2: "#{Forgery(:internet).domain_name}/test.jpg")
+        .has_background?.should be_true
 
       FactoryGirl.create(:post,
-			 bg_img_shift_down_1: "#{Forgery(:internet).domain_name}/test.jpg",
-			 bg_img_shift_down_2: "#{Forgery(:internet).domain_name}/test.jpg"
-			 ).has_background?.should be_true
+                         bg_img_shift_down_1: "#{Forgery(:internet).domain_name}/test.jpg",
+                         bg_img_shift_down_2: "#{Forgery(:internet).domain_name}/test.jpg")
+        .has_background?.should be_true
     end
 
     it "should be able to detect if a background image is not present" do
@@ -42,8 +42,8 @@ describe Post do
 
     it "should be able to detect the background is shifting" do
       FactoryGirl.create(:post,
-			 bg_img_shift_down_1: "#{Forgery(:internet).domain_name}/test.jpg"
-			 ).has_shifting_background?.should be_true
+                         bg_img_shift_down_1: "#{Forgery(:internet).domain_name}/test.jpg")
+        .has_shifting_background?.should be_true
     end
 
     it "should be able to detect if the background is fixed" do

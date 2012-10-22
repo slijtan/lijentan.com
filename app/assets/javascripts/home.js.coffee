@@ -15,7 +15,7 @@ adjust_shifting_background = (element) ->
 #hide nav items that arent current
 hide_nav_items = ->
 	$('nav li').each ->
-		if $(this).hasClass('current') || $(this).hasClass('hover')
+		if $(this).hasClass('hover') || $(this).hasClass('current')
 			$(this).find('a.title').fadeIn(200)
 		else
 			$(this).find('a.title').fadeOut(200)

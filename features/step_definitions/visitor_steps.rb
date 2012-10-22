@@ -78,7 +78,6 @@ Then /^I should see a nav bar with posts in this order: (.*)/ do |post_names|
   find('nav').text.should =~ Regexp.new(post_names.split(", ").join("(.|\n)*"))
 end
 
-
 Then /^I should see in the nav bar "(.*?)"$/ do |text|
   find("nav").should have_content(text)
 end

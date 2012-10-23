@@ -111,6 +111,7 @@ nav {
     position: fixed;
     right: 20px;
     top: 10px;
+    z-index: 10000;
 
     ul {
 	font-family: 'Open Sans Condensed', Arial, Arial, Helvetica, sans-serif;
@@ -172,6 +173,7 @@ article {
     margin: 0 auto;
     width: 100%;
     min-height: 500px;
+    position: relative;
 
     header {
 	text-align: center;
@@ -308,6 +310,19 @@ article.notes div.body blockquote:before, article.single-column-text div.body bl
     left: 22px;
     top: -12px;
     color: #A1A1A1;
+}
+
+
+article.video {
+    padding: 0px;
+    margin-bottom: -4px;
+    min-height: 0px;
+
+    header {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+    }
 }
 
 

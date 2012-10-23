@@ -54,7 +54,7 @@ find_focused_article = ->
 update_nav_with_focused_article = ->
 	make_post_current(find_focused_article())
 
-should_load_more_posts = ->
+should_load_more_posts = (trigger_at = 5) ->
 	return false if loading_more_posts || eof
 
 	current_article_index = 0
@@ -65,7 +65,8 @@ should_load_more_posts = ->
 		else if !current_article_found
 			current_article_index++
 
-	current_article_index >= total_articles_on_page - 5
+	console.log("should load more posts? " + current_article_index + " , " + total_articles_on_page)
+	current_article_index >= total_articles_on_page - trigger_at
 
 load_more_posts = (count = 5) ->
 	console.log("Loading " + count + " more posts")
@@ -85,12 +86,10 @@ completed_loading_more_posts = ->
 	calculate_total_articles_on_page()
 	eof = true if previous_total_articles == total_articles_on_page
 
+	load_video_iframes()
 	loader = $('#nav-post-loading').fadeOut(200).detach()
 	loader.appendTo('#posts-nav')
 	loading_more_posts = false
-
-
-
 
 animate_nav_post_loading = ->
 	console.log("animate_nav_post_loading")
@@ -107,9 +106,24 @@ animate_nav_post_loading = ->
 calculate_total_articles_on_page = ->
 	total_articles_on_page = $('article').length
 
+load_video_iframes = ->
+	$('video').each ->
+		url = $(this).attr('src')
+		$(this).replaceWith('<iframe id="ytplayer" type="text/html" src="' + url + '" frameborder="0" />')
+
+set_video_sizes = ->
+	ratio = 600/400
+	width = $(window).width()
+	height = width / ratio
+	$('article.video iframe').attr('width', width)
+	$('article.video iframe').attr('height', height)
+
 $ ->
 	calculate_total_articles_on_page()
 	hide_nav_items()
+	load_video_iframes()
+	set_video_sizes()
+
 	$('nav a.bullet').hover(
 		->
 			$(this).parent().addClass('hover')
@@ -118,9 +132,20 @@ $ ->
 			$(this).parent().removeClass('hover')
 			hide_nav_items()
 		)
+
 	$('nav a.bullet').click ->
 		event.preventDefault()
 		scroll_to_post($(this.hash))
+
+	$(window).resize ->
+		set_video_sizes()
+
+	$('article.video').hover(
+		->
+			$(this).find('header').fadeOut(1300)
+		->
+			$(this).find('header').fadeIn(1300)
+		)
 
 	$(window).scroll ->
 		$('.bg-shifting').each -> adjust_shifting_background($(this))

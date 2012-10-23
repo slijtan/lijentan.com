@@ -17,6 +17,14 @@
   <div class="body"><%= markdown(post.body) %></div>
   <% end %>
 
+  <% unless post.videos.empty? %>
+  <div class="videos <%= post.style %>">
+    <% post.videos.order(:position).each do |video| %>
+    <video src="http://www.youtube.com/embed/<%= video.video_id %>?autohide=1&controls=0&modestbranding=1&rel=0&showinfo=0&fs=1"></video>
+    <% end %>
+  </div>
+  <% end %>
+
   <% unless post.images.empty? %>
   <div class="images">
     <% post.images.order(:position).each do |image| %>

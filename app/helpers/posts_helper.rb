@@ -42,6 +42,7 @@ module PostsHelper
     end
 
     styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
+    styles << "color: #{post.text_color}" unless post.text_color.blank?
 
     if styles.empty?
       ""

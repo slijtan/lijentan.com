@@ -3,9 +3,9 @@ Post.delete_all
 Image.delete_all
 Video.delete_all
 
-p = Post.create(title: 'Roll On Bears',
+p = Post.create(title: 'The Big Game',
 	    published: true,
-	    bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/big-game/big-game-bg.jpg',
+	    bg_img_shift_down_1: 'http://dl.dropbox.com/u/4893047/posts/big-game/big-game-bg.jpg',
 	    space: 'background',
 	    type: 'album',
 	    date_published: DateTime.new(2012, 10, 22, 10, 16))
@@ -293,11 +293,13 @@ p = Post.create(title: 'Object In Nature - Session 1',
 
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png', post_id: p.id)
 
-Post.create(bg_img_fixed: 'http://stuffpoint.com/gamesrocks/image/13260-gamesrocks-superman.jpg',
+Post.create(bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg',
+	    title: 'Like Superman',
 	    quote: 'This Is How You Make Me Feel',
-	    space: 'foreground',
+	    space: 'background',
 	    type: 'quote',
 	    style: 'quote-big',
+	    show_header: false,
 	    published: true,
 	    date_published: DateTime.new(2012, 10, 1, 14, 43))
 

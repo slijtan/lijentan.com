@@ -114,7 +114,7 @@ load_video_iframes = ->
 set_video_sizes = ->
 	ratio = 600/400
 	width = $(window).width()
-	height = width / ratio
+	height = Math.min(width / ratio, $(window).height())
 	$('article.video iframe').attr('width', width)
 	$('article.video iframe').attr('height', height)
 

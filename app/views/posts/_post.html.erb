@@ -28,7 +28,7 @@
   <% unless post.images.empty? %>
   <div class="images">
     <% post.images.order(:position).each do |image| %>
-    <a href="#"><%= image_tag(image.url) %></a>
+    <a href="#" data-full-size-url="<%= image.url %>"><%= image_tag(image.thumbnail_url) %></a>
     <% end %>
   </div>
   <% end %>

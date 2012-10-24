@@ -3,6 +3,18 @@ Post.delete_all
 Image.delete_all
 Video.delete_all
 
+=begin
+Post.create(bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg',
+            title: '50 Ways to Say Goodbye',
+            quote: "Some day I'll find a love like yours. She'll think I'm Superman. Not super minivan",
+            quote_source: "Patrick Monahan",
+            space: 'background',
+            type: 'quote',
+            style: 'quote-big',
+            show_header: false,
+            published: true,
+            date_published: DateTime.new(2012, 10, 24, 14, 43))
+=end
 
 p = Post.create(title: 'Two Door Cinema Club',
             type: 'quote',
@@ -306,16 +318,6 @@ p = Post.create(title: 'Object In Nature - Session 1',
             date_published: DateTime.new(2012, 9, 25, 14, 43))
 
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png', post_id: p.id)
-
-Post.create(bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg',
-            title: 'Like Superman',
-            quote: 'This Is How You Make Me Feel',
-            space: 'background',
-            type: 'quote',
-            style: 'quote-big',
-            show_header: false,
-            published: true,
-            date_published: DateTime.new(2012, 10, 1, 14, 43))
 
 
 p = Post.create(title: 'Object In Nature - Session 2',

@@ -124,9 +124,12 @@ loading =
         setup: ->
                 @loading = $('
 <div id="loading">
-<div id="circleG_1" class="circleG"></div>
-<div id="circleG_2" class="circleG"></div>
-<div id="circleG_3" class="circleG"></div>
+<div id="bowl_ringG">
+<div class="ball_holderG">
+<div class="ballG">
+</div>
+</div>
+</div>
 </div>')
                 @loading.hide()
                 $('body').append(@loading)

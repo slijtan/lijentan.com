@@ -3,7 +3,21 @@ Post.delete_all
 Image.delete_all
 Video.delete_all
 
-p = Post.create(title: 'The Big Game',
+
+p = Post.create(title: 'Two Door Cinema Club',
+	    type: 'quote',
+	    bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-bg.jpg',
+	    quote: "Cause if this is the life, this is the life, this is the life, this is the life, this is the life, then who'd argue?",
+	    quote_source: "Alex Trimble",
+	    style: 'quote-big',
+	    space: 'midground',
+	    published: true,
+	    show_header: false,
+	    date_published: DateTime.new(2012, 10, 24, 2, 13))
+
+(1..9).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-#{i}-th.jpg", post_id: p.id, position: i) }
+
+p = Post.create(title: 'Roll On You Bears',
 	    published: true,
 	    bg_img_shift_down_1: 'http://dl.dropbox.com/u/4893047/posts/big-game/big-game-bg.jpg',
 	    space: 'background',

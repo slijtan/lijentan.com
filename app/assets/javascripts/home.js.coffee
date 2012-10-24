@@ -75,7 +75,7 @@ load_more_posts = (count = 5) ->
         loading_more_posts = true
         $('#nav-post-loading').fadeIn(200)
         animate_nav_post_loading()
-        $.ajax '/',
+        $.ajax '/posts/index.js',
                 type: 'GET'
                 dataType: 'script'
                 data:

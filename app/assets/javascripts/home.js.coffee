@@ -122,39 +122,20 @@ set_video_sizes = ->
 
 loading =
         setup: ->
-                @loading = $('<div id="loading">loading</div>')
+                @loading = $('
+<div id="loading">
+<div id="circleG_1" class="circleG"></div>
+<div id="circleG_2" class="circleG"></div>
+<div id="circleG_3" class="circleG"></div>
+</div>')
                 @loading.hide()
-                @is_loading = false
                 $('body').append(@loading)
 
         start: ->
                 @loading.fadeIn(200)
-                @start_animation()
 
         stop: ->
                 @loading.fadeOut(200)
-                @stop_animation()
-
-        start_animation: ->
-                @is_loading = true
-                @animate()
-
-        stop_animation: ->
-                @is_loading = false
-
-        animate: ->
-                console.log("loader animating")
-                if(@loading.html() == "loading")
-                        @loading.html("loading.")
-                else if(@loading.html() == "loading.")
-                        @loading.html("loading..")
-                else if(@loading.html() == "loading..")
-                        @loading.html("loading...")
-                else if(@loading.html() == "loading...")
-                        @loading.html("loading")
-
-                me = this
-                delay 1000, -> me.animate() if @is_loading
 
 modal =
         setup: ->
@@ -181,8 +162,6 @@ modal =
                 left = Math.max($(window).width() - @modal.outerWidth(), 0) / 2
 
                 @modal.css(top:top + $(window).scrollTop(), left:left + $(window).scrollLeft())
-                console.log(@modal.outerWidth());
-                console.log(@modal.outerHeight());
 
         open_image: (event_obj) ->
                 console.log("opening modal")

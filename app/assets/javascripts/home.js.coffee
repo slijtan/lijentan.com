@@ -88,8 +88,9 @@ completed_loading_more_posts = ->
         calculate_total_articles_on_page()
         eof = true if previous_total_articles == total_articles_on_page
 
-        load_video_iframes()
         setup_nav()
+        setup_images()
+        setup_videos()
 
         loader = $('#nav-post-loading').fadeOut(200).detach()
         loader.appendTo('#posts-nav')
@@ -110,10 +111,41 @@ animate_nav_post_loading = ->
 calculate_total_articles_on_page = ->
         total_articles_on_page = $('article').length
 
-load_video_iframes = ->
+setup_nav = ->
+        $('nav a.bullet').hover(
+                ->
+                        $(this).parent().addClass('hover')
+                        hide_nav_items()
+                ->
+                        $(this).parent().removeClass('hover')
+                        hide_nav_items()
+                )
+
+        $('nav a.bullet').click ->
+                event.preventDefault()
+                scroll_to_post($(this.hash))
+
+                hide_nav_items()
+
+setup_images = ->
+        #MAKE IMAGES CLICKABLE
+        $('div.images a').click -> modal.open_image($(this))
+
+setup_videos = ->
+        #Replace video tags with iframes
         $('video').each ->
                 url = $(this).attr('src')
                 $(this).replaceWith('<iframe id="ytplayer" type="text/html" src="' + url + '" frameborder="0" />')
+
+        #Video headers fade out on rollover
+        $('article.video').hover(
+                ->
+                        $(this).find('header').fadeOut(1300)
+                ->
+                        $(this).find('header').fadeIn(1300)
+                )
+
+        set_video_sizes()
 
 set_video_sizes = ->
         ratio = 600/400
@@ -121,6 +153,7 @@ set_video_sizes = ->
         height = Math.min(width / ratio, $(window).height())
         $('article.video iframe').attr('width', width)
         $('article.video iframe').attr('height', height)
+
 
 loading =
         setup: ->
@@ -196,44 +229,18 @@ modal =
 
                 $('body').css({ overflow: 'visible' })
                 false
-setup_nav = ->
-        $('nav a.bullet').hover(
-                ->
-                        $(this).parent().addClass('hover')
-                        hide_nav_items()
-                ->
-                        $(this).parent().removeClass('hover')
-                        hide_nav_items()
-                )
-
-        $('nav a.bullet').click ->
-                event.preventDefault()
-                scroll_to_post($(this.hash))
 
 
 $ ->
         modal.setup()
         loading.setup()
-        setup_nav()
-
-        #MAKE IMAGES CLICKABLE
-        $('div.images a').click -> modal.open_image($(this))
 
         #INITIALIZERS
         calculate_total_articles_on_page()
-        hide_nav_items()
-        load_video_iframes()
-        set_video_sizes()
+        setup_nav()
+        setup_videos()
+        setup_images()
 
-        #VIDEO HEADERS FADE OUT ON ROLLOVER
-        $('article.video').hover(
-                ->
-                        $(this).find('header').fadeOut(1300)
-                ->
-                        $(this).find('header').fadeIn(1300)
-                )
-
-        #WINDOW EVENT HANDLERS
         $(window).resize ->
                 set_video_sizes()
 

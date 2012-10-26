@@ -89,6 +89,8 @@ completed_loading_more_posts = ->
         eof = true if previous_total_articles == total_articles_on_page
 
         load_video_iframes()
+        setup_nav()
+
         loader = $('#nav-post-loading').fadeOut(200).detach()
         loader.appendTo('#posts-nav')
         loading_more_posts = false
@@ -194,23 +196,7 @@ modal =
 
                 $('body').css({ overflow: 'visible' })
                 false
-
-
-$ ->
-        modal.setup()
-        loading.setup()
-
-        #MAKE IMAGES CLICKABLE
-        $('div.images a').click -> modal.open_image($(this))
-
-
-        #INITIALIZERS
-        calculate_total_articles_on_page()
-        hide_nav_items()
-        load_video_iframes()
-        set_video_sizes()
-
-        #NAV HOVER EFFECTS
+setup_nav = ->
         $('nav a.bullet').hover(
                 ->
                         $(this).parent().addClass('hover')
@@ -224,6 +210,21 @@ $ ->
                 event.preventDefault()
                 scroll_to_post($(this.hash))
 
+
+$ ->
+        modal.setup()
+        loading.setup()
+        setup_nav()
+
+        #MAKE IMAGES CLICKABLE
+        $('div.images a').click -> modal.open_image($(this))
+
+        #INITIALIZERS
+        calculate_total_articles_on_page()
+        hide_nav_items()
+        load_video_iframes()
+        set_video_sizes()
+
         #VIDEO HEADERS FADE OUT ON ROLLOVER
         $('article.video').hover(
                 ->
@@ -231,7 +232,6 @@ $ ->
                 ->
                         $(this).find('header').fadeIn(1300)
                 )
-
 
         #WINDOW EVENT HANDLERS
         $(window).resize ->

@@ -3,6 +3,31 @@ Post.delete_all
 Image.delete_all
 Video.delete_all
 
+
+
+p = Post.create(title: "It's Time - Imagine Dragons",
+            published: true,
+            space: 'background',
+            type: 'video',
+            style: 'video-big',
+            published: true,
+            date_published: DateTime.new(2012, 10, 26, 13, 5))
+
+Video.create(video_id: "49-wNRvJwjk", post_id: p.id, host: 'youtube')
+
+
+p = Post.create(title: 'Object In Nature - Session 6',
+            body:
+            %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!},
+            space: 'midground',
+            published: true,
+            type: 'series',
+            date_published: DateTime.new(2012, 10, 25, 14, 43))
+
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg', post_id: p.id)
+
+
+
 Post.create(bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg',
             title: '50 Ways to Say Goodbye',
             quote: "Some day I'll find a love like yours. She'll think I'm Superman. Not super minivan",
@@ -46,15 +71,14 @@ p = Post.create(title: '30th Anniversary of "The Play"',
 
 Video.create(video_id: "0fZCCAqoSwY", post_id: p.id, host: 'youtube')
 
-p = Post.create(title: 'Object In Nature - Session 6',
+p = Post.create(title: 'Object In Nature - Session 5',
             body:
-            %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!},
-            space: 'midground',
+            %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there},
             published: true,
             type: 'series',
-            date_published: DateTime.new(2012, 10, 21, 14, 43))
+            date_published: DateTime.new(2012, 10, 20, 15, 10))
 
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg', post_id: p.id)
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-5.jpg', post_id: p.id)
 
 
 p = Post.create(title: 'A Day Trip to the Russian River',
@@ -68,15 +92,6 @@ p = Post.create(title: 'A Day Trip to the Russian River',
 
 (1..27).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-#{i}.jpg", post_id: p.id, position: i) }
 
-
-p = Post.create(title: 'Object In Nature - Session 5',
-            body:
-            %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there},
-            published: true,
-            type: 'series',
-            date_published: DateTime.new(2012, 10, 18, 15, 10))
-
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-5.jpg', post_id: p.id)
 
 
 p = Post.create(title: 'EGO',

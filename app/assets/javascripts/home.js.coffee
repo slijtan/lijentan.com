@@ -122,15 +122,7 @@ set_video_sizes = ->
 
 loading =
         setup: ->
-                @loading = $('
-<div id="loading">
-<div id="bowl_ringG">
-<div class="ball_holderG">
-<div class="ballG">
-</div>
-</div>
-</div>
-</div>')
+                @loading = $('<div id="loading"><div id="bowl_ringG"><div class="ball_holderG"><div class="ballG"></div></div></div></div>')
                 @loading.hide()
                 $('body').append(@loading)
 

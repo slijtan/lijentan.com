@@ -3,7 +3,6 @@ Post.delete_all
 Image.delete_all
 Video.delete_all
 
-=begin
 Post.create(bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg',
             title: '50 Ways to Say Goodbye',
             quote: "Some day I'll find a love like yours. She'll think I'm Superman. Not super minivan",
@@ -12,9 +11,8 @@ Post.create(bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/superman/superm
             type: 'quote',
             style: 'quote-big',
             show_header: false,
-            published: true,
+            published: false,
             date_published: DateTime.new(2012, 10, 24, 14, 43))
-=end
 
 p = Post.create(title: 'Two Door Cinema Club',
             type: 'quote',
@@ -43,9 +41,21 @@ p = Post.create(title: '30th Anniversary of "The Play"',
             space: 'background',
             type: 'video',
             style: 'video-big',
+            published: false,
             date_published: DateTime.new(2012, 10, 22, 10, 10))
 
 Video.create(video_id: "0fZCCAqoSwY", post_id: p.id, host: 'youtube')
+
+p = Post.create(title: 'Object In Nature - Session 6',
+            body:
+            %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!},
+            space: 'midground',
+            published: true,
+            type: 'series',
+            date_published: DateTime.new(2012, 10, 21, 14, 43))
+
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg', post_id: p.id)
+
 
 p = Post.create(title: 'A Day Trip to the Russian River',
             body:

@@ -10,4 +10,8 @@ class PostsController < ApplicationController
       format.js # index.js.coffee
     end
   end
+
+  def show
+    @post = Post.find(params[:id])
+  end
 end

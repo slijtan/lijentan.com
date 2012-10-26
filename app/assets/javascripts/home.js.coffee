@@ -75,7 +75,7 @@ load_more_posts = (count = 5) ->
         loading_more_posts = true
         $('#nav-post-loading').fadeIn(200)
         animate_nav_post_loading()
-        $.ajax '/posts/index.js',
+        $.ajax '/posts.js',
                 type: 'GET'
                 dataType: 'script'
                 data:
@@ -150,7 +150,7 @@ setup_videos = ->
 set_video_sizes = ->
         ratio = 600/400
         width = $(window).width()
-        height = Math.min(width / ratio, $(window).height())
+        height = Math.min(width / ratio, $(window).height()) * 0.80 #leaves some margins on top & bottom
         $('article.video iframe').attr('width', width)
         $('article.video iframe').attr('height', height)
 
@@ -245,6 +245,6 @@ $ ->
                 set_video_sizes()
 
         $(window).scroll ->
-                $('.bg-shifting').each -> adjust_shifting_background($(this))
+#                $('.bg-shifting').each -> adjust_shifting_background($(this))
                 update_nav_with_focused_article()
                 load_more_posts() if Math.random() > 0.8 && should_load_more_posts() #only run this 20% of the time

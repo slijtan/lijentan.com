@@ -1,6 +1,8 @@
 Lijentandotcom::Application.routes.draw do
   root :to => 'posts#index'
-  get "posts/index"
+
+  resources :posts, :only => [:index, :show]
+#  get "posts/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

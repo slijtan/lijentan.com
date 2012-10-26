@@ -3,8 +3,6 @@ Post.delete_all
 Image.delete_all
 Video.delete_all
 
-
-
 p = Post.create(title: "It's Time - Imagine Dragons",
             published: true,
             space: 'background',
@@ -25,8 +23,6 @@ p = Post.create(title: 'Object In Nature - Session 6',
             date_published: DateTime.new(2012, 10, 25, 14, 43))
 
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg', post_id: p.id)
-
-
 
 Post.create(bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg',
             title: '50 Ways to Say Goodbye',
@@ -98,10 +94,11 @@ p = Post.create(title: 'EGO',
             type: 'quote',
             bg_color: '#F0EACD',
             bg_img_fixed: 'http://dl.dropbox.com/u/4893047/posts/ego/ego-bg.jpg',
+            text_color: '#000000',
             quote: "There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self",
             quote_source: "Ernest Hemingway",
             style: 'quote-big',
-            space: 'midground',
+            space: 'background',
             published: true,
             show_header: false,
             date_published: DateTime.new(2012, 10, 17, 10, 25))

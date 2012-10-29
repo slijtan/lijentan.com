@@ -14,30 +14,18 @@ module PostsHelper
     end
 
     classes << space
-    classes << (post.has_shifting_background? ? 'bg-shifting' : 'bg-fixed')
+    classes << background_class(post)
 
     html_classes = "class=\"#{classes.join(" ")}\""
 
     #AND NOW STYLES
     styles = []
 
-    #layers go bg_img_fixed, :bg_img_shift_down_1, :bg_img_shift_down_2
     if post.has_background?
       bg_urls = []
       bg_urls << bg_urls_for_space(space)
-      bg_urls << "url(#{ asset_path(post.bg_img_fixed) }) no-repeat top left" if post.bg_img_fixed
-      bg_urls << "url(#{ asset_path(post.bg_img_shift_down_1) }) no-repeat top left" if post.bg_img_shift_down_1
-      bg_urls << "url(#{ asset_path(post.bg_img_shift_down_2) }) no-repeat top left" if post.bg_img_shift_down_2
-
-      #styles << "background-image: #{bg_urls.join(', ')}"
+      bg_urls << background_css(post)
       styles << "background: #{bg_urls.join(', ')}"
-
-      #this needs to be made more specific to support different combos of fixed, shifting up to down, down to up, and side to side...
-      bg_position = ["center top", "center bottom"]
-      bg_position << "50% 0%" if post.has_shifting_background?
-      #styles << "background-position: #{bg_position.join(', ')}"
-
-      #styles << "background-repeat: repeat-x, repeat-x"
     end
 
     styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
@@ -85,4 +73,22 @@ module PostsHelper
 
   end
 
+  def background_class(post)
+    post.background_images.empty? ? "bg-none" : (["bg"] << post.background_images.map {|image| image.type }).join("-")
+  end
+
+  def background_css(post)
+    post.background_images.map do |background_image|
+      case background_image.type
+      when 'fixed', 'shift_up'
+	"url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} center top"
+      when 'shift_down'
+	"url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} center bottom"
+      end
+    end
+  end
+
+  def background_image_repeat_css(background_image)
+    background_image.tile ? "repeat" : "no-repeat"
+  end
 end

@@ -12,17 +12,23 @@ class Post < ActiveRecord::Base
   cattr_reader :valid_types
 
   validates_presence_of :title
-  validates_inclusion_of :type, :in => @@valid_types
-  validates_inclusion_of :space, :in => ['foreground', 'background', 'midground', 'auto']
+  validates_inclusion_of :type, in: @@valid_types
+  validates_inclusion_of :space, in: ['foreground', 'background', 'midground', 'auto']
 
   has_many :images, dependent: :destroy
   has_many :videos, dependent: :destroy
+  has_many :background_images, dependent: :destroy, order: 'z_index DESC'
 
   def has_shifting_background?
-    !bg_img_shift_down_1.blank? || !bg_img_shift_down_2.blank?
+    for background_image in background_images
+      return true if background_image.is_shifting?
+    end
+
+    false
   end
 
   def has_background?
-    !bg_img_fixed.blank? || has_shifting_background?
+    !background_images.empty?
   end
+
 end

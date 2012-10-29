@@ -74,7 +74,7 @@ h4, h5, h6 {
    Header
    -------------------------*/
 header#main {
-    background-image: url(headers/header2.jpg);
+    background-image: url(headers/header4.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -85,22 +85,22 @@ header#main {
     padding: 0;
 
     hgroup {
-        font-family: 'Londrina Outline', cursive;
-        font-weight: normal;
-        margin-left: 20px;
+	font-family: 'Londrina Outline', cursive;
+	font-weight: normal;
+	margin-left: 20px;
 
-        h1 {
-            font-size: 160px;
-            margin: 0 auto;
-            color: $header-txt;
-        }
+	h1 {
+	    font-size: 160px;
+	    margin: 0 auto;
+	    color: $header-txt;
+	}
 
-        h2 {
-            font-size: 100px;
-            margin-top: 10px;
-            width: 700px;
-            color: $header-txt-sub;
-        }
+	h2 {
+	    font-size: 100px;
+	    margin-top: 10px;
+	    width: 700px;
+	    color: $header-txt-sub;
+	}
     }
 }
 
@@ -114,54 +114,54 @@ nav {
     z-index: 10000;
 
     ul {
-        font-family: 'Open Sans Condensed', Arial, Arial, Helvetica, sans-serif;
+	font-family: 'Open Sans Condensed', Arial, Arial, Helvetica, sans-serif;
 
-        li {
-            list-style-type: none;
+	li {
+	    list-style-type: none;
 
-            a {
-                display: block;
-                float: right;
+	    a {
+		display: block;
+		float: right;
 
-                &.title {
-                    margin-right: 10px;
-                    font-size: 16px;
-                    text-shadow: 0.1em 0 0 $midground-txt-light;
-                }
+		&.title {
+		    margin-right: 10px;
+		    font-size: 16px;
+		    text-shadow: 0.1em 0 0 $midground-txt-light;
+		}
 
-                &.bullet {
-                    clear: both;
-                    width: 37px;
-                    height: 20px;
-                    font-size: 15px;
-                    text-align: center;
-                    vertical-align: middle;
-                    background-color: rgba(173, 169, 169, 0.75);
-                    color: #666666;
-                    box-shadow: 1px 1px 1px #000000;
-                }
-            }
+		&.bullet {
+		    clear: both;
+		    width: 37px;
+		    height: 20px;
+		    font-size: 15px;
+		    text-align: center;
+		    vertical-align: middle;
+		    background-color: rgba(173, 169, 169, 0.75);
+		    color: #666666;
+		    box-shadow: 1px 1px 1px #000000;
+		}
+	    }
 
-            &:first-child a.bullet {
-                @include rounded-top(5px);
-            }
+	    &:first-child a.bullet {
+		@include rounded-top(5px);
+	    }
 
-            &:last-child a.bullet {
-                @include rounded-bottom(5px);
-                border-bottom: none;
-            }
+	    &:last-child a.bullet {
+		@include rounded-bottom(5px);
+		border-bottom: none;
+	    }
 
-            a.bullet:hover {
-                color: #ADA9A9;
-            }
+	    a.bullet:hover {
+		color: #ADA9A9;
+	    }
 
-            &.current, &.hover {
-                a.bullet {
-                    background-color: rgba(0, 0, 0, 0.5);
-                    color: #ADA9A9;
-                }
-            }
-        }
+	    &.current, &.hover {
+		a.bullet {
+		    background-color: rgba(0, 0, 0, 0.5);
+		    color: #ADA9A9;
+		}
+	    }
+	}
     }
 }
 
@@ -176,47 +176,47 @@ article {
     position: relative;
 
     header {
-        text-align: center;
-        margin: 0 auto 0;
-        width: 750px;
+	text-align: center;
+	margin: 0 auto 0;
+	width: 750px;
 
-        h1 {
-            padding: 0 10px 0 0;
-            margin-bottom: -3px;
-        }
+	h1 {
+	    padding: 0 10px 0 0;
+	    margin-bottom: -3px;
+	}
 
-        time {
-            display: block;
-            color: $foreground-txt-light;
-            width: 750px;
-            margin: 0 auto;
-            padding: 0 0 10px 0;
-            text-align: right;
-            border-top: solid 1px $foreground-txt-light;
-        }
+	time {
+	    display: block;
+	    color: $foreground-txt-light;
+	    width: 750px;
+	    margin: 0 auto;
+	    padding: 0 0 10px 0;
+	    text-align: right;
+	    border-top: solid 1px $foreground-txt-light;
+	}
     }
 
     .body {
-        margin: 0 auto;
-        width: 750px;
-        text-align: justify;
-        padding: 0 30px;
+	margin: 0 auto;
+	width: 750px;
+	text-align: justify;
+	padding: 0 30px;
     }
 
     .images {
-        margin: 30px auto 10px;
-        width: 80%;
-        text-align: center;
-        overflow: auto;
-        z-index: 1;
+	margin: 30px auto 10px;
+	width: 80%;
+	text-align: center;
+	overflow: auto;
+	z-index: 1;
 
-        img {
-            margin: 0px;
-            width: auto;
-            height: auto;
-            max-height: 200px;
-            margin-bottom: 10px;
-        }
+	img {
+	    margin: 0px;
+	    width: auto;
+	    height: auto;
+	    max-height: 200px;
+	    margin-bottom: 10px;
+	}
     }
 }
 
@@ -229,12 +229,12 @@ article.midground {
     text-shadow: $midground-txt-shadow;
 
     time {
-        color: $midground-txt-light;
-        border-color: $midground-txt-light;
+	color: $midground-txt-light;
+	border-color: $midground-txt-light;
     }
 
     a {
-        color: $midground-txt-link;
+	color: $midground-txt-link;
     }
 }
 
@@ -244,11 +244,11 @@ article.foreground {
     text-shadow: $foreground-txt-shadow;
 
     time {
-        border-color: $foreground-txt;
+	border-color: $foreground-txt;
     }
 
     a {
-        color: $foreground-txt-link;
+	color: $foreground-txt-link;
     }
 }
 
@@ -258,11 +258,11 @@ article.background {
     text-shadow: $background-txt-shadow;
 
     a {
-        color: $background-txt-link;
+	color: $background-txt-link;
     }
 
     time {
-        border-color: $background-txt;
+	border-color: $background-txt;
     }
 }
 
@@ -273,7 +273,7 @@ article.notes header {
     width: 960px;
 
     time {
-        width: 960px;
+	width: 960px;
     }
 }
 
@@ -319,9 +319,9 @@ article.video {
     min-height: 0px;
 
     header {
-        position: absolute;
-        top: 0px;
-        width: 100%;
+	position: absolute;
+	top: 0px;
+	width: 100%;
     }
 }
 
@@ -338,17 +338,17 @@ article.quote figure.quote-big {
     text-shadow: none;
 
     blockquote {
-        display: inline;
-        font-size: 200px;
-        line-height: 200px;
-        margin-top: 50px;
+	display: inline;
+	font-size: 200px;
+	line-height: 200px;
+	margin-top: 50px;
     }
 
     figcaption {
-        display: inline;
-        font-size: 75px;
-        line-height: 75px;
-        margin: 0;
+	display: inline;
+	font-size: 75px;
+	line-height: 75px;
+	margin: 0;
     }
 }
 
@@ -418,7 +418,7 @@ article.album div.images img {
     left: 0;
 
     img {
-        max-height: 90%;
+	max-height: 90%;
     }
 
 }
@@ -486,37 +486,37 @@ article.album div.images img {
 
 @-webkit-keyframes ball_moveG{
     0%{
-        -webkit-transform:rotate(0deg)}
+	-webkit-transform:rotate(0deg)}
 
     100%{
-        -webkit-transform:rotate(360deg)}
+	-webkit-transform:rotate(360deg)}
 
 }
 
 @-moz-keyframes ball_moveG{
     0%{
-        -moz-transform:rotate(0deg)}
+	-moz-transform:rotate(0deg)}
 
     100%{
-        -moz-transform:rotate(360deg)}
+	-moz-transform:rotate(360deg)}
 
 }
 
 @-o-keyframes ball_moveG{
     0%{
-        -o-transform:rotate(0deg)}
+	-o-transform:rotate(0deg)}
 
     100%{
-        -o-transform:rotate(360deg)}
+	-o-transform:rotate(360deg)}
 
 }
 
 @-ms-keyframes ball_moveG{
     0%{
-        -ms-transform:rotate(0deg)}
+	-ms-transform:rotate(0deg)}
 
     100%{
-        -ms-transform:rotate(360deg)}
+	-ms-transform:rotate(360deg)}
 
 }
 

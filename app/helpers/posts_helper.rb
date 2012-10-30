@@ -30,6 +30,7 @@ module PostsHelper
 
     styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
     styles << "color: #{post.text_color}" unless post.text_color.blank?
+    styles << "min-height: #{post.min_height}px" unless post.min_height.blank?
 
     if styles.empty?
       ""

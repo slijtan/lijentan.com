@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121029210608) do
+ActiveRecord::Schema.define(:version => 20121030014723) do
 
   create_table "background_images", :force => true do |t|
     t.integer "post_id",                    :null => false
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20121029210608) do
     t.string   "quote_source"
     t.boolean  "show_header",    :default => true
     t.string   "text_color"
+    t.integer  "min_height"
   end
 
   create_table "videos", :force => true do |t|

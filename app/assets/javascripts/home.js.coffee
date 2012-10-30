@@ -29,15 +29,18 @@ adjust_shifting_background = (element) ->
 				switch bg_type
 					when "shift_down"
 						x_offset = 50
-						y_offset = 100 - articles_position_on_page
+						y_offset = 100.0 - articles_position_on_page
 					when "shift_up"
 						x_offset = 50
 						y_offset = articles_position_on_page
 					when "shift_left"
-						x_offset = 100 - articles_position_on_page
+						x_offset = 100.0 - articles_position_on_page
 						y_offset = 0
 					when "shift_right"
 						x_offset = articles_position_on_page
+						y_offset = 0
+					when "fixed"
+						x_offset = 0
 						y_offset = 0
 
 #				console.log("processing position " + index + " with value " + bg_type + " and articles position is " + articles_position_on_page + " and y offset " + y_offset)

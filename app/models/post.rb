@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 		    'video-big',
 		   ]
 
-  attr_accessible :type, :space, :style, :published, :date_published, :bg_color, :bg_img_fixed, :bg_img_shift_down_1, :bg_img_shift_down_2, :title, :body, :quote, :quote_source, :show_header, :text_color
+  attr_accessible :type, :space, :style, :published, :date_published, :bg_color, :title, :body, :quote, :quote_source, :show_header, :text_color
   cattr_reader :valid_types
 
   validates_presence_of :title

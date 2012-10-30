@@ -14,6 +14,30 @@ p = Post.create(title: "Giants Win World Series!!!",
 
 Video.create(video_id: "YKmgVJjk5PY", post_id: p.id, host: 'youtube')
 
+p = Post.create(title: 'Ninja Assassin',
+	    type: 'quote',
+	    quote: "Come, little brother. Let us play like old times. ",
+	    style: 'quote-big',
+	    space: 'background',
+	    published: true,
+	    show_header: false,
+	    date_published: DateTime.new(2012, 10, 29, 2, 13))
+
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-bg.jpg', type: 'shift_right', tile: false, post_id: p.id, z_index: 1)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-shade.png', type: 'fixed', tile: false, post_id: p.id, z_index: 2)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja.png', type: 'shift_right', tile: false, post_id: p.id, z_index: 3)
+
+
+p = Post.create(title: 'October in SF',
+	    body:
+	    %{[Steven's 30th Birthday Cake](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-2.jpg)},
+	    space: 'background',
+	    published: true,
+	    type: 'two-column-text',
+	    date_published: DateTime.new(2012, 10, 7, 15, 3))
+
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+
 
 p = Post.create(title: "It's Time - Imagine Dragons",
 	    published: true,

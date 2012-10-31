@@ -31,9 +31,9 @@ adjust_floating_content = (element) ->
 
                 switch bg_type
                         when "down"
-                                new_top = (100.0 - article_y) * screen_height / 100.0
-                        when "up"
                                 new_top = article_y * screen_height / 100.0
+                        when "up"
+                                new_top = (100.0 - article_y) * screen_height / 100.0
 
                 quote_div.css("top", "#{new_top}px")
 

@@ -3,6 +3,16 @@ Post.delete_all
 Image.delete_all
 Video.delete_all
 
+
+p = Post.create(title: 'Burning Man 2012',
+            published: true,
+            space: 'background',
+            type: 'album',
+            style: 'album-strip',
+            date_published: DateTime.new(2012, 10, 30, 12, 35))
+
+(1..99).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/burning-man/burning-man-#{i}.jpg", post_id: p.id, position: i) }
+
 p = Post.create(title: "Messages In A Bottle",
             published: true,
             space: 'background',
@@ -160,6 +170,7 @@ p = Post.create(title: 'Roll On You Bears',
             published: true,
             space: 'background',
             type: 'album',
+            style: 'album-thumbnails',
             date_published: DateTime.new(2012, 10, 22, 10, 16))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/big-game/big-game-bg.jpg', type: 'shift_down', tile: false, post_id: p.id)
@@ -192,6 +203,7 @@ p = Post.create(title: 'A Day Trip to the Russian River',
             published: true,
             space: 'midground',
             type: 'album',
+            style: 'album-thumbnails',
             date_published: DateTime.new(2012, 10, 19, 17, 28))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg', type: 'shift_up', tile: false, post_id: p.id)
@@ -484,7 +496,7 @@ p = Post.create(title: 'Iceland, Germany, and Amsterdam',
             space: 'background',
             published: true,
             type: 'album',
-            style: 'albumumbnails',
+            style: 'album-thumbnails',
             date_published: DateTime.new(2012, 7, 15, 14, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/eu/eu-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
@@ -497,7 +509,7 @@ p = Post.create(title: 'Norway',
             published: true,
             space: 'midground',
             type: 'album',
-            style: 'albumumbnails',
+            style: 'album-thumbnails',
             date_published: DateTime.new(2012, 9, 24, 14, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/norway/norway-bg.jpg', type: 'fixed', tile: false, post_id: p.id)

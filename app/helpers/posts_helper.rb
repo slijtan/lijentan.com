@@ -15,6 +15,7 @@ module PostsHelper
 
     classes << space
     classes << background_class(post)
+    classes << post.style unless post.style.blank?
 
     html_classes = "class=\"#{classes.join(" ")}\""
 
@@ -82,13 +83,13 @@ module PostsHelper
     post.background_images.map do |background_image|
       case background_image.type
       when 'fixed', 'shift_up'
-	"url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} center top"
+        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} center top"
       when 'shift_down'
-	"url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} center bottom"
+        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} center bottom"
       when 'shift_right'
-	"url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} right top"
+        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} right top"
       when 'shift_left'
-	"url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} left top"
+        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} left top"
       end
     end
   end

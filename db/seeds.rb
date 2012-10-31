@@ -3,6 +3,19 @@ Post.delete_all
 Image.delete_all
 Video.delete_all
 
+p = Post.create(title: 'Holstee Manifesto',
+            type: 'quote',
+            quote: "Live your dream and share your passion",
+            style: 'quote-right-float-down',
+            space: 'background',
+            min_height: 1000,
+            published: true,
+            show_header: false,
+            date_published: DateTime.new(2012, 10, 31, 11, 15))
+
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'fixed', tile: false, post_id: p.id)
+
+
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
             body:
             %{
@@ -122,7 +135,7 @@ BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/giants-sweep/
 
 p = Post.create(title: 'Ninja Assassin',
             type: 'quote',
-            quote: "Come, little brother. Let us play like old times. ",
+            quote: "Come, little brother. Let us play like old times.",
             style: 'quote-big',
             space: 'background',
             published: true,

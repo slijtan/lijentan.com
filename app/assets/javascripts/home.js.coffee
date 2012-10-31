@@ -5,7 +5,40 @@ eof = null
 
 delay = (ms, func) -> setTimeout func, ms
 
-#handle shifting backgrounds
+articles_position_on_page = (article) ->
+        div_height = article.innerHeight()
+        screen_height = $(window).height()
+        top_height = article.offset().top
+        bottom_height = top_height + div_height
+        top_position = $(window).scrollTop()
+        bottom_position = top_position + screen_height
+
+        (bottom_position - top_height) * 100 / (div_height + screen_height)
+
+adjust_floating_content = (element) ->
+        div_height = element.innerHeight()
+        screen_height = $(window).height()
+        top_height = element.offset().top
+        bottom_height = top_height + div_height
+        top_position = $(window).scrollTop()
+        bottom_position = top_position + screen_height
+        floating_quote_class = /quote-(left|center|right)-float-(up|down)/.exec(element.attr("class"))
+
+        if floating_quote_class && top_position <= bottom_height && bottom_position >= top_height
+                quote_div = element.find("figure.quote")
+                bg_type = floating_quote_class[2] #(up|down)
+                article_y = articles_position_on_page(element)
+
+                switch bg_type
+                        when "down"
+                                new_top = (100.0 - article_y) * screen_height / 100.0
+                        when "up"
+                                new_top = article_y * screen_height / 100.0
+
+                quote_div.css("top", "#{new_top}px")
+
+
+
 adjust_shifting_background = (element) ->
         div_height = element.innerHeight()
         screen_height = $(window).height()
@@ -19,25 +52,24 @@ adjust_shifting_background = (element) ->
                 bg_positions = element.css("background-position").split(",")
 
                 for bg_position, index in bg_positions
-
                         if index < 2
                                 continue
                         else
-                                articles_position_on_page = (bottom_position - top_height) * 100 / (div_height + screen_height)
+                                article_y = articles_position_on_page(element)
                                 bg_type = bg_types[index-2]
 
                                 switch bg_type
                                         when "shift_down"
                                                 x_offset = 50
-                                                y_offset = 100.0 - articles_position_on_page
+                                                y_offset = 100.0 - article_y
                                         when "shift_up"
                                                 x_offset = 50
-                                                y_offset = articles_position_on_page
+                                                y_offset = article_y
                                         when "shift_left"
-                                                x_offset = 100.0 - articles_position_on_page
+                                                x_offset = 100.0 - article_y
                                                 y_offset = 0
                                         when "shift_right"
-                                                x_offset = articles_position_on_page
+                                                x_offset = article_y
                                                 y_offset = 0
                                         when "fixed"
                                                 x_offset = 0
@@ -301,5 +333,6 @@ $ ->
 
         $(window).scroll ->
                 $('article[class*=shift]').each -> adjust_shifting_background($(this))
+                $('article[class*=float]').each -> adjust_floating_content($(this))
                 update_nav_with_focused_article()
                 load_more_posts() if Math.random() > 0.8 && should_load_more_posts() #only run this 20% of the time

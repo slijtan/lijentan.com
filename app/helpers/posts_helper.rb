@@ -42,17 +42,6 @@ module PostsHelper
     raw("#{html_classes} #{html_styles}")
   end
 
-  def post_quote_class(post)
-    classes = []
-    classes << post.style if post.type == "quote"
-
-    raw("class=\"#{classes.join(" ")}\"")
-  end
-
-  def post_style(post)
-
-  end
-
   private
 
   def skip_to_cycle(set_to, cycle_values, cycle_name)

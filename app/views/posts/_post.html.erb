@@ -7,7 +7,7 @@
   </header>
 
   <% if post.quote %>
-  <figure <%= post_quote_class(post) %>>
+  <figure class="quote">
     <blockquote>"<%= post.quote %>"</blockquote>
     <% unless post.quote_source.blank? %><figcaption>&nbsp;-&nbsp;<%= post.quote_source %></figcaption><% end %>
     </figure>

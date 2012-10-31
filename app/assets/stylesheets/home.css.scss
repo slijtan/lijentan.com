@@ -329,7 +329,7 @@ article.video {
 /* ----------------------
    Figure Formats
    -------------------------*/
-article.quote figure.quote-big {
+article.quote-big figure {
     font-family: 'Francois One', sans-serif;
     font-style: italic;
     letter-spacing: -3px;
@@ -350,6 +350,12 @@ article.quote figure.quote-big {
         line-height: 75px;
         margin: 0;
     }
+}
+
+article.quote-right-float-down figure {
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }
 
 article.foreground.quote {

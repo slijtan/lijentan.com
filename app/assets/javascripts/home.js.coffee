@@ -15,7 +15,7 @@ adjust_shifting_background = (element) ->
         bottom_position = top_position + screen_height
 
         if top_position <= bottom_height && bottom_position >= top_height
-                bg_types = element.attr("class").match(/bg-.*/)[0].split("-")[1..]
+                bg_types = element.attr("class").match(/bg-[^ ]*/)[0].split("-")[1..]
                 bg_positions = element.css("background-position").split(",")
 
                 for bg_position, index in bg_positions
@@ -180,7 +180,7 @@ setup_strip_albums = ->
 
                         max_position = total_width - $(window).width()
 
-                        scroller = setInterval( move_backdrop, 30 )
+                        scroller = setInterval( move_strip_album, 30 )
                         $(this).data('scroller', scroller);
                 ->
                         scroller = $(this).data('scroller')
@@ -188,7 +188,7 @@ setup_strip_albums = ->
                 )
 
 
-move_backdrop = ->
+move_strip_album = ->
         new_left = Math.max(Math.min(images_div.position().left - rate * maxspeed, 0), -1 * max_position)
         images_div.css('left', new_left)
 

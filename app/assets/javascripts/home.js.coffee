@@ -79,7 +79,6 @@ adjust_shifting_background = (element) ->
 
                                 #make it more random and more extreme for tiled elements
                                 if bg_repeat == "repeat"
-                                        #multiplier = bg_positions.length - index
                                         multiplier = index
                                         x_offset *= multiplier
                                         y_offset *= multiplier

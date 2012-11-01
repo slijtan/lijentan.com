@@ -329,7 +329,19 @@ article.video {
 /* ----------------------
    Figure Formats
    -------------------------*/
-article.quote-big figure {
+article.foreground.quote {
+    color: $foreground-txt;
+}
+
+article.midground.quote {
+    color: $midground-txt;
+}
+
+article.background.quote {
+    color: $background-txt;
+}
+
+figure.quote-big {
     font-family: 'Francois One', sans-serif;
     font-style: italic;
     letter-spacing: -3px;
@@ -352,24 +364,47 @@ article.quote-big figure {
     }
 }
 
-article.quote-right-float-down figure {
+figure.quote-right-float-down {
     position: absolute;
     top: 0px;
     right: 0px;
+    width: 35%;
 }
 
-article.foreground.quote {
-    color: $foreground-txt;
+figure.quote-right-float-up {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 35%;
 }
 
-article.midground.quote {
-    color: $midground-txt;
+figure.quote-center-float-down {
+    position: absolute;
+    top: 0px;
+    left: 30%;
+    width: 35%;
 }
 
-article.background.quote {
-    color: $background-txt;
+figure.quote-center-float-up {
+    position: absolute;
+    bottom: 0px;
+    left: 30%;
+    width: 35%;
 }
 
+figure.quote-left-float-down {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 35%;
+}
+
+figure.quote-left-float-up {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 35%;
+}
 
 /* ----------------------
    Image Formats

@@ -3,10 +3,8 @@ Post.delete_all
 Image.delete_all
 Video.delete_all
 
-p = Post.create(title: 'Holstee Manifesto',
+p = Post.create(title: 'Holstee Pt. 1',
             type: 'quote',
-            quote: "Live your dream and share your passion",
-            style: 'quote-right-float-down',
             space: 'background',
             min_height: 1000,
             published: true,
@@ -14,6 +12,7 @@ p = Post.create(title: 'Holstee Manifesto',
             date_published: DateTime.new(2012, 10, 31, 11, 15))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'fixed', tile: false, post_id: p.id)
+Quote.create(quote: "This is your life.", type: 'quote-right-float-up', post_id: p.id, text_size: 30)
 
 
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
@@ -135,8 +134,6 @@ BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/giants-sweep/
 
 p = Post.create(title: 'Ninja Assassin',
             type: 'quote',
-            quote: "Come, little brother. Let us play like old times.",
-            style: 'quote-big',
             space: 'background',
             published: true,
             show_header: false,
@@ -145,6 +142,8 @@ p = Post.create(title: 'Ninja Assassin',
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-bg.jpg', type: 'shift_right', tile: false, post_id: p.id, z_index: 1)
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-shade.png', type: 'fixed', tile: false, post_id: p.id, z_index: 2)
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja.png', type: 'shift_right', tile: false, post_id: p.id, z_index: 3)
+
+Quote.create(quote: "Come, little brother. Let us play like old times.", type: 'quote-big', post_id: p.id)
 
 
 p = Post.create(title: 'Another Summer Weekend',
@@ -229,28 +228,26 @@ p = Post.create(title: 'Object In Nature - Session 6',
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg', post_id: p.id)
 
 p = Post.create(title: '50 Ways to Say Goodbye',
-            quote: "Some day I'll find a love like yours. She'll think I'm Superman. Not super minivan",
-            quote_source: "Patrick Monahan",
             space: 'background',
             type: 'quote',
-            style: 'quote-big',
             show_header: false,
             published: false,
             date_published: DateTime.new(2012, 10, 24, 14, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
 
+Quote.create(quote: "Some day I'll find a love like yours. She'll think I'm Superman. Not super minivan", source: "Patrick Monahan", type: 'quote-big', post_id: p.id)
+
 p = Post.create(title: 'Two Door Cinema Club',
             type: 'quote',
-            quote: "Cause if this is the life, this is the life, this is the life, this is the life, this is the life, then who'd argue?",
-            quote_source: "Alex Trimble",
-            style: 'quote-big',
             space: 'midground',
             published: true,
             show_header: false,
             date_published: DateTime.new(2012, 10, 24, 2, 13))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+
+Quote.create(quote: "Cause if this is the life, this is the life, this is the life, this is the life, this is the life, then who'd argue?", source: "Alex Trimble", type: 'quote-big', post_id: p.id)
 
 (1..9).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-#{i}.jpg", post_id: p.id, position: i) }
 
@@ -302,16 +299,17 @@ BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river
 p = Post.create(title: 'EGO',
             type: 'quote',
             bg_color: '#F0EACD',
-            text_color: '#000000',
-            quote: "There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self",
-            quote_source: "Ernest Hemingway",
-            style: 'quote-big',
             space: 'background',
             published: true,
             show_header: false,
             date_published: DateTime.new(2012, 10, 17, 10, 25))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ego/ego-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+Quote.create(quote: "There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self",
+             source: "Ernest Hemingway",
+             type: 'quote-big',
+             text_color: '#000000',
+             post_id: p.id)
 
 Post.create(title: 'My Resume',
             body:
@@ -499,9 +497,6 @@ I'm still not super happy with this solution, so if you know of a better way to 
 
 p = Post.create(
             title: "The Blue Angels",
-            quote: 'Multiply the best roller coaster you can imagine by 100',
-            quote_source: 'Navy Lt. C.J. Simonsen',
-            style: 'quote-big',
             bg_color: '#F0EACD',
             published: true,
             type: 'quote',
@@ -510,7 +505,7 @@ p = Post.create(
             date_published: DateTime.new(2012, 10, 8, 16, 9))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-bg.png', type: 'shift_up', tile: false, post_id: p.id)
-
+Quote.create(quote: "Multiply the best roller coaster you can imagine by 100", source: "Navy Lt. C.J. Simonsen", type: 'quote-big', post_id: p.id)
 (1..12).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-#{i}.jpg", post_id: p.id, position: i) }
 
 

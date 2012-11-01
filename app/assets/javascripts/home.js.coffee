@@ -16,18 +16,18 @@ articles_position_on_page = (article) ->
         (bottom_position - top_height) * 100 / (div_height + screen_height)
 
 adjust_floating_content = (element) ->
-        div_height = element.innerHeight()
+        article = element.parent()
+        div_height = article.innerHeight()
         screen_height = $(window).height()
-        top_height = element.offset().top
+        top_height = article.offset().top
         bottom_height = top_height + div_height
         top_position = $(window).scrollTop()
         bottom_position = top_position + screen_height
         floating_quote_class = /quote-(left|center|right)-float-(up|down)/.exec(element.attr("class"))
 
         if floating_quote_class && top_position <= bottom_height && bottom_position >= top_height
-                quote_div = element.find("figure.quote")
                 bg_type = floating_quote_class[2] #(up|down)
-                article_y = articles_position_on_page(element)
+                article_y = articles_position_on_page(article)
 
                 switch bg_type
                         when "down"
@@ -35,7 +35,7 @@ adjust_floating_content = (element) ->
                         when "up"
                                 new_top = (100.0 - article_y) * screen_height / 100.0
 
-                quote_div.css("top", "#{new_top}px")
+                element.css("top", "#{new_top}px")
 
 
 
@@ -333,6 +333,6 @@ $ ->
 
         $(window).scroll ->
                 $('article[class*=shift]').each -> adjust_shifting_background($(this))
-                $('article[class*=float]').each -> adjust_floating_content($(this))
+                $('figure[class*=float]').each -> adjust_floating_content($(this))
                 update_nav_with_focused_article()
                 load_more_posts() if Math.random() > 0.8 && should_load_more_posts() #only run this 20% of the time

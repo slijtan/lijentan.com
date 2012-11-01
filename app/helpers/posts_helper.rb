@@ -30,12 +30,24 @@ module PostsHelper
     end
 
     styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
-    styles << "color: #{post.text_color}" unless post.text_color.blank?
+#    styles << "color: #{post.text_color}" unless post.text_color.blank?
     styles << "min-height: #{post.min_height}px" unless post.min_height.blank?
 
-    if styles.empty?
-      ""
-    else
+    unless styles.empty?
+      html_styles = "style=\"#{styles.join(";")}\""
+    end
+
+    raw("#{html_classes} #{html_styles}")
+  end
+
+  def quote_class_and_style(quote)
+    html_classes = "class=\"#{quote.type}\""
+
+    styles = []
+    styles << "font-size: #{quote.text_size}px" unless quote.text_size.blank?
+    styles << "color: #{quote.text_color}" unless quote.text_color.blank?
+
+    unless styles.empty?
       html_styles = "style=\"#{styles.join(";")}\""
     end
 

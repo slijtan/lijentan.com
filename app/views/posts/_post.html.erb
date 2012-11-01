@@ -6,11 +6,13 @@
     <% end %>
   </header>
 
-  <% if post.quote %>
-  <figure class="quote">
-    <blockquote>"<%= post.quote %>"</blockquote>
-    <% unless post.quote_source.blank? %><figcaption>&nbsp;-&nbsp;<%= post.quote_source %></figcaption><% end %>
+  <% if post.is_quote? %>
+  <% for quote in post.quotes %>
+  <figure <%= quote_class_and_style(quote) %>>
+    <blockquote><%= '"' unless quote.source.blank? %><%= quote.quote %><%= '"' unless quote.source.blank? %></blockquote>
+    <% unless quote.source.blank? %><figcaption>&nbsp;-&nbsp;<%= quote.source %></figcaption><% end %>
     </figure>
+  <% end %>
   <% end %>
 
   <% if post.body %>

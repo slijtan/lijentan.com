@@ -3,6 +3,24 @@ Post.delete_all
 Image.delete_all
 Video.delete_all
 
+
+p = Post.create(title: 'Playing With Backgrounds',
+            type: 'quote',
+            space: 'auto',
+            bg_color: "#0C4F59",
+            published: true,
+            show_header: false,
+            date_published: DateTime.new(2012, 10, 31, 11, 15))
+
+BackgroundImage.create(url: 'http://2012.hd-live.co.uk/images/BG-small-hex-5.png', type: 'shift_up', tile: true, post_id: p.id, z_index: 1)
+BackgroundImage.create(url: 'http://2012.hd-live.co.uk/images/BG-small-hex-3.png', type: 'shift_down', tile: true, post_id: p.id, z_index: 2)
+BackgroundImage.create(url: 'http://2012.hd-live.co.uk/images/BG-small-hex-4.png', type: 'shift_down', tile: true, post_id: p.id, z_index: 3)
+BackgroundImage.create(url: 'http://2012.hd-live.co.uk/images/BG-small-hex-2.png', type: 'shift_down', tile: true, post_id: p.id, z_index: 4)
+BackgroundImage.create(url: 'http://2012.hd-live.co.uk/images/BG-small-hex-1.png', type: 'shift_down', tile: true, post_id: p.id, z_index: 5)
+
+Quote.create(quote: "Imitation is the sincerest form of flattery", source: "Inspired by 2012.hd-live.co.uk", type: "quote-big", post_id: p.id, text_color: "#D0531F")
+
+
 p = Post.create(title: 'Holstee Pt. 1',
             type: 'quote',
             space: 'background',

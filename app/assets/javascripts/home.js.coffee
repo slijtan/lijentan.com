@@ -50,6 +50,7 @@ adjust_shifting_background = (element) ->
         if top_position <= bottom_height && bottom_position >= top_height
                 bg_types = element.attr("class").match(/bg-[^ ]*/)[0].split("-")[1..]
                 bg_positions = element.css("background-position").split(",")
+                bg_repeats = element.css("background-repeat").split(",")
 
                 for bg_position, index in bg_positions
                         if index < 2
@@ -57,6 +58,7 @@ adjust_shifting_background = (element) ->
                         else
                                 article_y = articles_position_on_page(element)
                                 bg_type = bg_types[index-2]
+                                bg_repeat = $.trim(bg_repeats[index])
 
                                 switch bg_type
                                         when "shift_down"
@@ -74,6 +76,13 @@ adjust_shifting_background = (element) ->
                                         when "fixed"
                                                 x_offset = 0
                                                 y_offset = 0
+
+                                #make it more random and more extreme for tiled elements
+                                if bg_repeat == "repeat"
+                                        #multiplier = bg_positions.length - index
+                                        multiplier = index
+                                        x_offset *= multiplier
+                                        y_offset *= multiplier
 
                                 bg_positions[index] = x_offset + "% " + y_offset + "%"
 

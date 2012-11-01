@@ -10,7 +10,7 @@ p = Post.create(title: 'Playing With Backgrounds',
             bg_color: "#0C4F59",
             published: true,
             show_header: false,
-            date_published: DateTime.new(2012, 10, 31, 11, 15))
+            date_published: DateTime.new(2012, 10, 31, 18, 6))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-2.png', type: 'shift_down', tile: true, post_id: p.id, z_index: 1)
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-5.png', type: 'shift_up', tile: true, post_id: p.id, z_index: 2)

@@ -6,13 +6,15 @@ class Post < ActiveRecord::Base
                     'album-thumbails', 'album-strip', 'album-carousel', 'album-flipbook', #album styles
                     'video-big',
                    ]
+  @@valid_effects = ['fade-in']
 
-  attr_accessible :type, :space, :style, :published, :date_published, :bg_color, :title, :body, :show_header, :min_height
+  attr_accessible :type, :space, :style, :published, :date_published, :bg_color, :title, :body, :show_header, :min_height, :effect
   cattr_reader :valid_types
 
   validates_presence_of :title
   validates_inclusion_of :type, in: @@valid_types
   validates_inclusion_of :space, in: ['foreground', 'background', 'midground', 'auto']
+  validates_inclusion_of :effect, in: @@valid_effects, allow_nil: true
 
   has_many :images, dependent: :destroy, order: 'position ASC'
   has_many :videos, dependent: :destroy, order: 'position ASC'

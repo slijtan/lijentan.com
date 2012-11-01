@@ -29,6 +29,7 @@ p = Post.create(title: 'Holstee Pt. 1',
             min_height: 600,
             published: true,
             show_header: false,
+            effect: 'fade-in',
             date_published: DateTime.new(2012, 10, 31, 11, 15))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'shift_down', tile: false, post_id: p.id)
@@ -157,6 +158,7 @@ p = Post.create(title: 'Ninja Assassin',
             space: 'background',
             published: true,
             show_header: false,
+            effect: 'fade-in',
             date_published: DateTime.new(2012, 10, 29, 2, 13))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-bg.jpg', type: 'shift_right', tile: false, post_id: p.id, z_index: 1)

@@ -16,6 +16,7 @@ module PostsHelper
     classes << space
     classes << background_class(post)
     classes << post.style unless post.style.blank?
+    classes << post.effect unless post.effect.blank?
 
     html_classes = "class=\"#{classes.join(" ")}\""
 
@@ -30,7 +31,6 @@ module PostsHelper
     end
 
     styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
-#    styles << "color: #{post.text_color}" unless post.text_color.blank?
     styles << "min-height: #{post.min_height}px" unless post.min_height.blank?
 
     unless styles.empty?

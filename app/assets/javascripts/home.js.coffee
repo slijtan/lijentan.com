@@ -15,6 +15,20 @@ articles_position_on_page = (article) ->
 
         (bottom_position - top_height) * 100 / (div_height + screen_height)
 
+adjust_fade_in = (element) ->
+        div_height = element.innerHeight()
+        screen_height = $(window).height()
+        top_height = element.offset().top
+        bottom_height = top_height + div_height
+        top_position = $(window).scrollTop()
+        bottom_position = top_position + screen_height
+
+        if top_position <= bottom_height && bottom_position >= top_height
+                article_y = articles_position_on_page(element)
+                opacity = Math.abs(50 - article_y) / 50
+                element.find("div.fader").css("opacity", opacity)
+
+
 adjust_floating_content = (element) ->
         article = element.parent()
         div_height = article.innerHeight()
@@ -227,6 +241,9 @@ setup_strip_albums = ->
                         clearInterval( scroller )
                 )
 
+setup_fade_in = ->
+        $('.fade-in').prepend('<div class="fader"></div>')
+
 
 move_strip_album = ->
         new_left = Math.max(Math.min(images_div.position().left - rate * maxspeed, 0), -1 * max_position)
@@ -335,6 +352,7 @@ $ ->
         setup_videos()
         setup_images()
         setup_strip_albums()
+        setup_fade_in()
 
         $(window).resize ->
                 set_video_sizes()
@@ -342,5 +360,6 @@ $ ->
         $(window).scroll ->
                 $('article[class*=shift]').each -> adjust_shifting_background($(this))
                 $('figure[class*=float]').each -> adjust_floating_content($(this))
+                $('article[class*=fade-in]').each -> adjust_fade_in($(this))
                 update_nav_with_focused_article()
                 load_more_posts() if Math.random() > 0.8 && should_load_more_posts() #only run this 20% of the time

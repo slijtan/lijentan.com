@@ -6,13 +6,13 @@ Video.delete_all
 p = Post.create(title: 'Holstee Pt. 1',
             type: 'quote',
             space: 'background',
-            min_height: 1000,
+            min_height: 600,
             published: true,
             show_header: false,
             date_published: DateTime.new(2012, 10, 31, 11, 15))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'fixed', tile: false, post_id: p.id)
-Quote.create(quote: "This is your life.", type: 'quote-right-float-up', post_id: p.id, text_size: 30)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'shift_down', tile: false, post_id: p.id)
+Quote.create(quote: "Live your dream and share your passion.", type: "quote-right-float-up", post_id: p.id, text_size: 30)
 
 
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',

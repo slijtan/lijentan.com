@@ -288,10 +288,9 @@ setup_time_lapse = ->
                         images.each (index) ->
                                 if $(this).is(image_to_show)
                                         console.log("IS EXACT MATCH #{$(this).attr('src')}")
-                                        $(this).stop().transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
+                                        $(this).css("z-index", $(this).data("zindex")).stop().transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
                                                 700,
-                                                "snap",
-                                                -> $(this).css("z-index", $(this).data("zindex")))
+                                                "snap")
                                                 .removeClass('flipped')
                                         console.log("post id in data is #{$(this).data('body-id')}")
                                         content_div = $("##{$(this).data('body-id')}")
@@ -306,10 +305,9 @@ setup_time_lapse = ->
                                         console.log("FOUND AFTER MATCH #{$(this).attr('src')}")
                                         if $(this).hasClass("flipped") #that needs to be flipped back
                                                 console.log("NEEDS TO BE UN-FLIPPED")
-                                                $(this).stop().transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
+                                                $(this).stop().css("z-index", $(this).data("zindex")).transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
                                                         700,
-                                                        "snap",
-                                                        -> $(this).css("z-index", $(this).data("zindex")))
+                                                        "snap")
                                                         .removeClass('flipped')
 
 

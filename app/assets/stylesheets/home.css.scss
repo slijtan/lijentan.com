@@ -414,15 +414,24 @@ article.two-column-text.background div.body img {
     box-shadow: 2px 2px 0.1em #000000;
 }
 
-article.series div.images img {
-    border-radius: 5px;
-    border-top: solid 10px #FFFFFF;
-    border-left: solid 10px #FFFFFF;
-    border-right: solid 10px #FFFFFF;
-    border-bottom: solid 60px #FFFFFF;
-    box-shadow: 2px 2px 0 #A1A1A1;
-    max-width: 300px;
-    max-height: 300px;
+article.time-lapse {
+    div.images {
+        height: 400px;
+        position: relative;
+        overflow: visible;
+        margin-top: 40px;
+
+        img {
+            border-radius: 5px;
+            border: solid 3px rgba(255, 255, 255, .5);
+            -webkit-background-clip: padding-box; /* for Safari */
+            background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+            max-height: 300px;
+            max-width: 300px;
+            width: auto;
+            position: absolute;
+        }
+    }
 }
 
 article.album div.images img {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101061823) do
+ActiveRecord::Schema.define(:version => 20121102153028) do
 
   create_table "background_images", :force => true do |t|
     t.integer "post_id",                    :null => false
@@ -29,18 +29,19 @@ ActiveRecord::Schema.define(:version => 20121101061823) do
 
   create_table "posts", :force => true do |t|
     t.string   "type"
-    t.string   "space",          :default => "auto"
+    t.string   "space",            :default => "auto"
     t.string   "style"
-    t.boolean  "published",      :default => false
+    t.boolean  "published",        :default => false
     t.datetime "date_published"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "title"
     t.string   "bg_color"
     t.text     "body"
-    t.boolean  "show_header",    :default => true
+    t.boolean  "show_header",      :default => true
     t.integer  "min_height"
     t.string   "effect"
+    t.integer  "previous_post_id"
   end
 
   create_table "quotes", :force => true do |t|

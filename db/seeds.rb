@@ -2,6 +2,99 @@
 Post.delete_all
 Image.delete_all
 Video.delete_all
+BackgroundImage.delete_all
+Quote.delete_all
+
+p = Post.create(title: "How Will You Measure Your Life?",
+            published: true,
+            space: 'background',
+            type: 'video',
+            style: 'video-big',
+            published: true,
+            date_published: DateTime.new(2012, 11, 5, 10, 56))
+
+Video.create(video_id: "tvos4nORf_Y", post_id: p.id, host: 'youtube')
+
+
+ob1 = Post.create(title: 'Object In Nature - Session 1',
+            body:
+            %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (<a href="http://www.larryrobinson.net/" target=_blank>larryrobinson.net</a>). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. It's a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
+            published: true,
+            type: 'time-lapse',
+            date_published: DateTime.new(2012, 9, 25, 14, 43))
+
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png', post_id: ob1.id)
+
+
+ob2 = Post.create(title: 'Object In Nature - Session 2',
+            body:
+            %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O) (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. It's very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
+            published: true,
+            type: 'time-lapse',
+            space: 'midground',
+            previous_post_id: ob1.id,
+            date_published: DateTime.new(2012, 10, 2, 14, 43))
+
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg', post_id: ob2.id)
+
+ob3 = Post.create(title: 'Object In Nature - Session 3',
+            body:
+            %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the biker's vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!},
+            space: 'background',
+            published: true,
+            previous_post_id: ob2.id,
+            type: 'time-lapse',
+            date_published: DateTime.new(2012, 10, 5, 14, 43))
+
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', type: 'fixed', tile: false, post_id: ob3.id)
+
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', post_id: ob3.id)
+
+
+ob4 = Post.create(title: 'Object In Nature - Session 4',
+            body:
+            %{In this session I'm starting to use colors that I want the final painting to have. The sky is now blue, the sand is now brown, and the fence is now white. It's still a work in progress, and from here on out the process is pretty straight forward; I'm progressively using thicker and thicker paints and painting in more details and tones with darks and whites to give the painting space while making it look more realistic. I honestly really feel like I am fighting with the painting a lot, and I really didn't remember how hard it was to paint, but I also remember Larry teaching us that the process of painting is a curve, where at some point in the process we will hit a low where we don't like our painting and we feel lost. If we fight through that low, it's all uphill from there and we will eventually discover the painting and figure out a way to make it work, and we will grow to like our painting more and more. It's like problem solving, except instead of a math problem, it's a visual problem.},
+            space: 'midground',
+            published: true,
+            previous_post_id: ob3.id,
+            type: 'time-lapse',
+            date_published: DateTime.new(2012, 10, 12, 13, 43))
+
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', type: 'fixed', tile: false, post_id: ob4.id)
+
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', post_id: ob4.id)
+
+ob5 = Post.create(title: 'Object In Nature - Session 5',
+            body:
+            %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there},
+            published: true,
+            previous_post_id: ob4.id,
+            type: 'time-lapse',
+            date_published: DateTime.new(2012, 10, 20, 15, 10))
+
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-5.jpg', post_id: ob5.id)
+
+ob6 = Post.create(title: 'Object In Nature - Session 6',
+            body:
+            %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!},
+            space: 'midground',
+            published: true,
+            previous_post_id: ob5.id,
+            type: 'time-lapse',
+            date_published: DateTime.new(2012, 10, 25, 14, 43))
+
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg', post_id: ob6.id)
+
+ob7 = Post.create(title: 'Object In Nature - Session 7',
+            body:
+                %{Ok, this thing is as done as it's ever gonna be. There's still some things that I'd like to do to it, but I think I'm ready to move on to another painting...},
+            space: 'midground',
+            published: true,
+            previous_post_id: ob6.id,
+            type: 'time-lapse',
+            date_published: DateTime.new(2012, 11, 1, 14, 43))
+
+Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-7.jpg', post_id: ob7.id)
 
 
 p = Post.create(title: 'Playing With Backgrounds',
@@ -238,17 +331,6 @@ p = Post.create(title: "It's Time - Imagine Dragons",
 
 Video.create(video_id: "49-wNRvJwjk", post_id: p.id, host: 'youtube')
 
-
-p = Post.create(title: 'Object In Nature - Session 6',
-            body:
-            %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!},
-            space: 'midground',
-            published: true,
-            type: 'series',
-            date_published: DateTime.new(2012, 10, 25, 14, 43))
-
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg', post_id: p.id)
-
 p = Post.create(title: '50 Ways to Say Goodbye',
             space: 'background',
             type: 'quote',
@@ -293,16 +375,6 @@ p = Post.create(title: '30th Anniversary of "The Play"',
             date_published: DateTime.new(2012, 10, 22, 10, 10))
 
 Video.create(video_id: "0fZCCAqoSwY", post_id: p.id, host: 'youtube')
-
-p = Post.create(title: 'Object In Nature - Session 5',
-            body:
-            %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there},
-            published: true,
-            type: 'series',
-            date_published: DateTime.new(2012, 10, 20, 15, 10))
-
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-5.jpg', post_id: p.id)
-
 
 p = Post.create(title: 'A Day Trip to the Russian River',
             body:
@@ -462,18 +534,6 @@ This is [an example](http://example.com/ "Title") inline link. You got me feelin
             date_published: DateTime.new(2012, 10, 15, 15, 31))
 
 
-p = Post.create(title: 'Object In Nature - Session 4',
-            body:
-            %{In this session I'm starting to use colors that I want the final painting to have. The sky is now blue, the sand is now brown, and the fence is now white. It's still a work in progress, and from here on out the process is pretty straight forward; I'm progressively using thicker and thicker paints and painting in more details and tones with darks and whites to give the painting space while making it look more realistic. I honestly really feel like I am fighting with the painting a lot, and I really didn't remember how hard it was to paint, but I also remember Larry teaching us that the process of painting is a curve, where at some point in the process we will hit a low where we don't like our painting and we feel lost. If we fight through that low, it's all uphill from there and we will eventually discover the painting and figure out a way to make it work, and we will grow to like our painting more and more. It's like problem solving, except instead of a math problem, it's a visual problem.},
-            space: 'midground',
-            published: true,
-            type: 'series',
-            date_published: DateTime.new(2012, 10, 12, 13, 43))
-
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', type: 'fixed', tile: false, post_id: p.id)
-
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', post_id: p.id)
-
 p = Post.create(title: 'HTML5 and quotes with attribution',
             body:
             %{
@@ -562,38 +622,6 @@ To get it to work, I just simply adjust the background-position from "50% 0%" to
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-fg.png', type: 'shift_down', tile: true, z_index: 2, post_id: p.id)
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-bg.png', type: 'shift_down', tile: true, z_index: 1, post_id: p.id)
 
-
-p = Post.create(title: 'Object In Nature - Session 1',
-            body:
-            %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (<a href="http://www.larryrobinson.net/" target=_blank>larryrobinson.net</a>). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. It's a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
-            published: true,
-            type: 'series',
-            date_published: DateTime.new(2012, 9, 25, 14, 43))
-
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png', post_id: p.id)
-
-
-p = Post.create(title: 'Object In Nature - Session 2',
-            body:
-            %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O) (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. It's very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
-            published: true,
-            type: 'series',
-            space: 'midground',
-            date_published: DateTime.new(2012, 10, 2, 14, 43))
-
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg', post_id: p.id)
-
-p = Post.create(title: 'Object In Nature - Session 3',
-            body:
-            %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the biker's vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!},
-            space: 'background',
-            published: true,
-            type: 'series',
-            date_published: DateTime.new(2012, 10, 5, 14, 43))
-
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', type: 'fixed', tile: false, post_id: p.id)
-
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', post_id: p.id)
 
 p = Post.create(title: 'Iceland, Germany, and Amsterdam',
             body:

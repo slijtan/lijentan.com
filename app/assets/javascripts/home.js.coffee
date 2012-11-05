@@ -172,6 +172,7 @@ completed_loading_more_posts = ->
         setup_nav()
         setup_images()
         setup_videos()
+        setup_time_lapse()
 
         loader = $('#nav-post-loading').fadeOut(200).detach()
         loader.appendTo('#posts-nav')
@@ -243,6 +244,85 @@ setup_strip_albums = ->
 
 setup_fade_in = ->
         $('.fade-in').prepend('<div class="fader"></div>')
+
+setup_time_lapse = ->
+        distance_between_images = 35
+
+        $('article.time-lapse').each ->
+                max_height = 0
+
+                $(this).find('div.time-lapse-body').each (index) ->
+                        this_height = parseFloat($(this).css("height"))
+                        max_height = if this_height > max_height then this_height else max_height
+                        $(this).hide() unless index == 0
+                        console.log("THIS DIVS HEIGHT IS #{max_height}")
+
+                $(this).find('div.body').css("height", max_height)
+
+        $('article.time-lapse div.images').each ->
+                images = $(this).find('img')
+                count = images.length
+                container_width = distance_between_images * count + parseFloat(images.first().css("max-width"))
+                $(this).css("width", "#{container_width}px")
+
+                images.each (index) ->
+                        rot_direction = if index % 2 == 0 then "-" else ""
+                        rot_value = Math.random() * 7 + 5
+                        pos_direction = if index % 20 < 10 then "" else "-"
+                        rotation = if $(this).is(images.first()) then "0deg" else "#{rot_direction}#{rot_value}deg"
+                        top = "#{pos_direction}#{index * 9}px"
+                        zindex = count - index
+                        $(this).css("right", "#{distance_between_images * (count - index)}px")
+                        $(this).css("z-index", zindex)
+                        $(this).css("-webkit-transform", "rotate(#{rotation})") #TODO: support other browsers...
+                        $(this).css("top", "#{top}")
+                        $(this).data("rotation", rotation)
+                        $(this).data("top", top)
+                        $(this).data("zindex", zindex)
+
+                images.hover ->
+                        image_to_show = $(this)
+                        image_to_show_found = false
+                        console.log("------------ HOVERING OVER #{$(this).attr('src')} -------------")
+
+                        images.each (index) ->
+                                if $(this).is(image_to_show)
+                                        console.log("IS EXACT MATCH #{$(this).attr('src')}")
+                                        $(this).stop().transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
+                                                700,
+                                                "snap",
+                                                -> $(this).css("z-index", $(this).data("zindex")))
+                                                .removeClass('flipped')
+                                        console.log("post id in data is #{$(this).data('body-id')}")
+                                        content_div = $("##{$(this).data('body-id')}")
+                                        $(this).parents('article').find('div.time-lapse-body').each ->
+                                                if $(this).is(content_div)
+                                                        $(this).stop(true, true).fadeIn()
+                                                else
+                                                        $(this).stop(true, true).hide()
+                                        image_to_show_found = true
+
+                                else if image_to_show_found #after found image
+                                        console.log("FOUND AFTER MATCH #{$(this).attr('src')}")
+                                        if $(this).hasClass("flipped") #that needs to be flipped back
+                                                console.log("NEEDS TO BE UN-FLIPPED")
+                                                $(this).stop().transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
+                                                        700,
+                                                        "snap",
+                                                        -> $(this).css("z-index", $(this).data("zindex")))
+                                                        .removeClass('flipped')
+
+
+                                else #before found image
+                                        console.log("FOUND BEFORE MATCH #{$(this).attr('src')}")
+                                        unless $(this).hasClass("flipped") #that needs to be flipped
+                                                console.log("NEEDS TO BE FLIPPED")
+                                                rotation = Math.random() * 180 + 90 #80-110 degrees
+                                                $(this).stop().transition({marginRight: "300px", rotate: "-=#{rotation}deg", top: "+100px"},
+                                                        700,
+                                                        "snap",
+                                                        -> $(this).css("z-index", "-#{$(this).data('zindex')}"))
+                                                        .addClass("flipped")
 
 
 move_strip_album = ->
@@ -353,6 +433,7 @@ $ ->
         setup_images()
         setup_strip_albums()
         setup_fade_in()
+        setup_time_lapse()
 
         $(window).resize ->
                 set_video_sizes()
@@ -361,5 +442,7 @@ $ ->
                 $('article[class*=shift]').each -> adjust_shifting_background($(this))
                 $('figure[class*=float]').each -> adjust_floating_content($(this))
                 $('article[class*=fade-in]').each -> adjust_fade_in($(this))
-                update_nav_with_focused_article()
-                load_more_posts() if Math.random() > 0.8 && should_load_more_posts() #only run this 20% of the time
+
+                if $('nav').length > 0 #only do nav functions if nav exists
+                        update_nav_with_focused_article()
+                        load_more_posts() if Math.random() > 0.8 && should_load_more_posts() #only run this 20% of the time

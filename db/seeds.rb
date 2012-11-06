@@ -5,6 +5,15 @@ Video.delete_all
 BackgroundImage.delete_all
 Quote.delete_all
 
+p = Post.create(title: "GoPro on CK's 30th",
+            type: 'time-lapse',
+            space: 'background',
+            published: true,
+            date_published: DateTime.new(2012, 11, 5, 16, 23))
+
+(1..28).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/ck-bday-time-lapse/ck-bday-time-lapse-#{i}.jpg", post_id: p.id, position: i) }
+
+
 p = Post.create(title: "How Will You Measure Your Life?",
             published: true,
             space: 'background',

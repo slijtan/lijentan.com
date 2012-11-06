@@ -257,9 +257,9 @@ setup_time_lapse = ->
                 images.each (index) ->
                         rot_direction = if index % 2 == 0 then "-" else ""
                         rot_value = Math.random() * 7 + 5
-                        pos_direction = if index % 20 < 10 then "" else "-"
+                        pos_direction = if index % 10 < 5 then "" else "-"
                         rotation = if $(this).is(images.first()) then "0deg" else "#{rot_direction}#{rot_value}deg"
-                        top = "#{pos_direction}#{index * 9}px"
+                        top = "#{pos_direction}#{(index % 5) * 9}px"
                         zindex = count - index
                         $(this).css("right", "#{distance_between_images * (count - index)}px")
                         $(this).css("z-index", zindex)

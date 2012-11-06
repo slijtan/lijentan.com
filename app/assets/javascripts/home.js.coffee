@@ -169,10 +169,7 @@ completed_loading_more_posts = ->
         calculate_total_articles_on_page()
         eof = true if previous_total_articles == total_articles_on_page
 
-        setup_nav()
-        setup_images()
-        setup_videos()
-        setup_time_lapse()
+        setup_posts()
 
         loader = $('#nav-post-loading').fadeOut(200).detach()
         loader.appendTo('#posts-nav')
@@ -402,6 +399,14 @@ modal =
                 $('body').css({ overflow: 'visible' })
                 false
 
+setup_posts = ->
+        setup_nav()
+        setup_videos()
+        setup_images()
+        setup_strip_albums()
+        setup_fade_in()
+        setup_time_lapse()
+
 
 $ ->
         modal.setup()
@@ -409,12 +414,7 @@ $ ->
 
         #INITIALIZERS
         calculate_total_articles_on_page()
-        setup_nav()
-        setup_videos()
-        setup_images()
-        setup_strip_albums()
-        setup_fade_in()
-        setup_time_lapse()
+        setup_posts()
 
         $(window).resize ->
                 set_video_sizes()

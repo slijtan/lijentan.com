@@ -15,14 +15,7 @@
   <% end %>
   <% end %>
 
-  <% if post.is_time_lapse? %>
-  <div class="body">
-    <% post.time_lapse_posts.each do |previous_post| %>
-    <div class="time-lapse-body" id="post-<%= post.id %>-<%= previous_post.id %>-body"><%= markdown(previous_post.body) %></div>
-    <% end %>
-  </div>
-
-  <% elsif post.body %>
+  <% if post.body %>
   <div class="body"><%= markdown(post.body) %></div>
   <% end %>
 
@@ -37,7 +30,7 @@
   <% unless post.images.empty? %>
   <div class="images">
     <% post.images.each do |image| %>
-    <a href="#" data-full-size-url="<%= image.url %>"><%= image_tag(image.thumbnail_url, data: {body_id: "post-#{post.id}-#{image.post_id}-body"}) %></a>
+    <a href="#" data-full-size-url="<%= image.url %>"><%= image_tag(image.thumbnail_url) %></a>
     <% end %>
   </div>
   <% end %>

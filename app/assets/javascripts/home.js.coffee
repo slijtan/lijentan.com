@@ -248,17 +248,6 @@ setup_fade_in = ->
 setup_time_lapse = ->
         distance_between_images = 35
 
-        $('article.time-lapse').each ->
-                max_height = 0
-
-                $(this).find('div.time-lapse-body').each (index) ->
-                        this_height = parseFloat($(this).css("height"))
-                        max_height = if this_height > max_height then this_height else max_height
-                        $(this).hide() unless index == 0
-                        console.log("THIS DIVS HEIGHT IS #{max_height}")
-
-                $(this).find('div.body').css("height", max_height)
-
         $('article.time-lapse div.images').each ->
                 images = $(this).find('img')
                 count = images.length
@@ -293,12 +282,6 @@ setup_time_lapse = ->
                                                 "snap")
                                                 .removeClass('flipped')
                                         console.log("post id in data is #{$(this).data('body-id')}")
-                                        content_div = $("##{$(this).data('body-id')}")
-                                        $(this).parents('article').find('div.time-lapse-body').each ->
-                                                if $(this).is(content_div)
-                                                        $(this).stop(true, true).fadeIn()
-                                                else
-                                                        $(this).stop(true, true).hide()
                                         image_to_show_found = true
 
                                 else if image_to_show_found #after found image

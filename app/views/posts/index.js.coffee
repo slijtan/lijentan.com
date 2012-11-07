@@ -1,3 +1,5 @@
+<% skip_to_cycle(@space_of_last_post, spaces, "space") if @space_of_last_post %>
+
 $('<%= escape_javascript(render(@posts)) %>')
   .appendTo('#posts')
   .hide()

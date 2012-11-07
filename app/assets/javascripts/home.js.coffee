@@ -156,12 +156,15 @@ load_more_posts = (count = 5) ->
         loading_more_posts = true
         $('#nav-post-loading').fadeIn(200)
         animate_nav_post_loading()
+        space_of_last_post = $('article').last().attr("class").match(/[^ ]*ground/)[0]
+
         $.ajax '/posts.js',
                 type: 'GET'
                 dataType: 'script'
                 data:
                         items_per_page: count
                         offset: total_articles_on_page
+                        space_of_last_post: space_of_last_post
                 success: completed_loading_more_posts
 
 completed_loading_more_posts = ->
@@ -269,22 +272,17 @@ setup_time_lapse = ->
                 images.hover ->
                         image_to_show = $(this)
                         image_to_show_found = false
-                        console.log("------------ HOVERING OVER #{$(this).attr('src')} -------------")
 
                         images.each (index) ->
                                 if $(this).is(image_to_show)
-                                        console.log("IS EXACT MATCH #{$(this).attr('src')}")
                                         $(this).css("z-index", $(this).data("zindex")).stop().transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
                                                 700,
                                                 "snap")
                                                 .removeClass('flipped')
-                                        console.log("post id in data is #{$(this).data('body-id')}")
                                         image_to_show_found = true
 
                                 else if image_to_show_found #after found image
-                                        console.log("FOUND AFTER MATCH #{$(this).attr('src')}")
                                         if $(this).hasClass("flipped") #that needs to be flipped back
-                                                console.log("NEEDS TO BE UN-FLIPPED")
                                                 $(this).stop().css("z-index", $(this).data("zindex")).transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
                                                         700,
                                                         "snap")
@@ -292,9 +290,7 @@ setup_time_lapse = ->
 
 
                                 else #before found image
-                                        console.log("FOUND BEFORE MATCH #{$(this).attr('src')}")
                                         unless $(this).hasClass("flipped") #that needs to be flipped
-                                                console.log("NEEDS TO BE FLIPPED")
                                                 rotation = Math.random() * 180 + 90 #80-110 degrees
                                                 $(this).stop().transition({marginRight: "300px", rotate: "-=#{rotation}deg", top: "+100px"},
                                                         700,

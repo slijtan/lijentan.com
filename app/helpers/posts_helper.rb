@@ -1,15 +1,21 @@
 module PostsHelper
+
+  def spaces
+    ['midground', 'foreground', 'background']
+  end
+
   def post_class_and_style(post)
     #CLASSES FIRST
     classes = []
-    spaces = ['midground', 'foreground', 'background']
 
     classes << post.type
 
     if post.space == "auto"
       space = cycle(*spaces, name: "space")
+      logger.debug("space is auto #{space}")
     else
       space = post.space
+      logger.debug("space is set #{space}")
       skip_to_cycle(post.space, spaces, "space")
     end
 
@@ -54,13 +60,16 @@ module PostsHelper
     raw("#{html_classes} #{html_styles}")
   end
 
-  private
-
   def skip_to_cycle(set_to, cycle_values, cycle_name)
     until current_cycle(cycle_name) == set_to
+      logger.debug("cycling to #{current_cycle(cycle_name)}")
       cycle(*cycle_values, :name => cycle_name)
     end
+
+    logger.debug("cycle at #{current_cycle(cycle_name)}")
   end
+
+  private
 
   def bg_urls_for_space(space)
     case space

@@ -37,7 +37,7 @@ Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png
 
 ob2 = Post.create(title: 'Object In Nature - Session 2',
             body:
-            %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O) I don't remember (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. It's very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
+            %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O)verlapping (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. It's very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
             published: true,
             type: 'time-lapse',
             space: 'midground',

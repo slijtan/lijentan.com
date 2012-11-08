@@ -400,6 +400,43 @@ figure.quote-left-float-up {
     left: 0px;
 }
 
+
+figure.quote-top-float-right {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+figure.quote-top-float-left {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+figure.quote-center-float-right {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+}
+
+figure.quote-center-float-left {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+}
+
+figure.quote-bottom-float-right {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+figure.quote-bottom-float-left {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
 /* ----------------------
    Image Formats
    -------------------------*/

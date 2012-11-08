@@ -37,20 +37,26 @@ adjust_floating_content = (element) ->
         bottom_height = top_height + div_height
         top_position = $(window).scrollTop()
         bottom_position = top_position + screen_height
-        floating_quote_class = /quote-(left|center|right)-float-(up|down)/.exec(element.attr("class"))
+        floating_quote_class = /quote-(left|center|right|top|bottom)-float-(up|down|left|right)/.exec(element.attr("class"))
 
         if floating_quote_class && top_position <= bottom_height && bottom_position >= top_height
                 bg_type = floating_quote_class[2] #(up|down)
                 article_y = articles_position_on_page(article)
+
+                new_top = new_left = 0
 
                 switch bg_type
                         when "down"
                                 new_top = article_y * screen_height / 100.0
                         when "up"
                                 new_top = (100.0 - article_y) * screen_height / 100.0
+                        when "left"
+                                new_left = (100.0 - article_y) * screen_height / 100.0
+                        when "right"
+                                new_left = article_y * screen_height / 100.0
 
-                element.css("top", "#{new_top}px")
-
+                element.css("top", "#{new_top}px") if new_top
+                element.css("left", "#{new_left}px") if new_left
 
 
 adjust_shifting_background = (element) ->

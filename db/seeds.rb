@@ -8,7 +8,7 @@ Quote.delete_all
 p = Post.create(title: "Manga Camera",
                 type: 'album',
                 style: 'album-comic',
-                published: true,
+                published: false,
                 date_published: DateTime.new(2012, 11, 13, 11, 13))
 
 (1..20).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/manga/manga-#{i}.jpg", post_id: p.id, position: i) }

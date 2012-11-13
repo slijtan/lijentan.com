@@ -249,7 +249,8 @@ setup_strip_albums = ->
                 )
 
 setup_fade_in = ->
-        $('.fade-in').prepend('<div class="fader"></div>')
+        $('.fade-in').each ->
+                $(this).prepend('<div class="fader"></div>') unless $(this).find('.fader').length
 
 setup_time_lapse = ->
         distance_between_images = 35

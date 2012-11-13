@@ -5,77 +5,96 @@ Video.delete_all
 BackgroundImage.delete_all
 Quote.delete_all
 
+p = Post.create(title: "Manga Camera",
+                type: 'album',
+                style: 'album-comic',
+                published: true,
+                date_published: DateTime.new(2012, 11, 13, 11, 13))
+
+(1..20).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/manga/manga-#{i}.jpg", post_id: p.id, position: i) }
+
+
+p = Post.create(title: "Live in a Vision",
+                published: true,
+                type: 'video',
+                style: 'video-big',
+                space: 'background',
+                published: true,
+                date_published: DateTime.new(2012, 11, 10, 12, 57))
+
+Video.create(video_id: "3I9UsfDZLyQ", post_id: p.id, host: 'youtube')
+
 p = Post.create(title: 'Holstee Pt. 2',
-            type: 'quote',
-            space: 'background',
-            min_height: 600,
-            published: true,
-            show_header: false,
-            date_published: DateTime.new(2012, 11, 9, 11, 15))
+                type: 'quote',
+                space: 'background',
+                min_height: 600,
+                published: true,
+                show_header: false,
+                date_published: DateTime.new(2012, 11, 9, 11, 15))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-2.jpg', type: 'shift_up', tile: false, post_id: p.id)
 Quote.create(quote: "Life is short.", type: "quote-left-top", post_id: p.id, text_size: 60)
 
 
 p = Post.create(title: "The Happy Secret to Better Work",
-            published: true,
+                published: true,
             type: 'video',
-            style: 'video-big',
+                style: 'video-big',
             published: true,
-            date_published: DateTime.new(2012, 11, 8, 12, 57))
+                date_published: DateTime.new(2012, 11, 8, 12, 57))
 
 Video.create(video_id: "fLJsdqxnZb0", post_id: p.id, host: 'youtube')
 
 
 p = Post.create(title: "GoPro on CK's 30th",
-            type: 'time-lapse',
-            space: 'background',
-            published: true,
-            date_published: DateTime.new(2012, 11, 5, 16, 23))
+                type: 'time-lapse',
+                space: 'background',
+                published: true,
+                date_published: DateTime.new(2012, 11, 5, 16, 23))
 
 (1..28).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/ck-bday-time-lapse/ck-bday-time-lapse-#{i}.jpg", post_id: p.id, position: i) }
 
 
 p = Post.create(title: "How Will You Measure Your Life?",
-            published: true,
-            space: 'background',
-            type: 'video',
-            style: 'video-big',
-            published: true,
-            date_published: DateTime.new(2012, 11, 5, 10, 56))
+                published: true,
+                space: 'background',
+                type: 'video',
+                style: 'video-big',
+                published: true,
+                date_published: DateTime.new(2012, 11, 5, 10, 56))
 
 Video.create(video_id: "tvos4nORf_Y", post_id: p.id, host: 'youtube')
 
 
 ob1 = Post.create(title: 'Object In Nature - Session 1',
-            body:
-            %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (<a href="http://www.larryrobinson.net/" target=_blank>larryrobinson.net</a>). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. It's a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
-            published: true,
-            type: 'time-lapse',
-            date_published: DateTime.new(2012, 9, 25, 14, 43))
+                  body:
+                  %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (<a href="http://www.larryrobinson.net/" target=_blank>larryrobinson.net</a>). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. It's a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
+                  published: true,
+                  type: 'time-lapse',
+                  date_published: DateTime.new(2012, 9, 25, 14, 43))
 
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png', post_id: ob1.id)
 
 
 ob2 = Post.create(title: 'Object In Nature - Session 2',
-            body:
-            %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O)verlapping (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. It's very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
+                  body:
+                  %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O)verlapping (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. It's very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
             published: true,
-            type: 'time-lapse',
-            space: 'midground',
-            previous_post_id: ob1.id,
-            date_published: DateTime.new(2012, 10, 2, 14, 43))
+                  type: 'time-lapse',
+                  space: 'midground',
+                  previous_post_id: ob1.id,
+                  date_published: DateTime.new(2012, 10, 2, 14, 43))
 
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg', post_id: ob2.id)
 
 ob3 = Post.create(title: 'Object In Nature - Session 3',
-            body:
-            %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the biker's vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!},
+                  body:
+                  %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the biker's vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!},
             space: 'background',
-            published: true,
-            previous_post_id: ob2.id,
-            type: 'time-lapse',
-            date_published: DateTime.new(2012, 10, 5, 14, 43))
+                  published: true,
+                  previous_post_id: ob2.id,
+                  type: 'time-lapse',
+                  date_published: DateTime.new(2012, 10, 5, 14, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', type: 'fixed', tile: false, post_id: ob3.id)
 
@@ -83,58 +102,58 @@ Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg
 
 
 ob4 = Post.create(title: 'Object In Nature - Session 4',
-            body:
-            %{In this session I'm starting to use colors that I want the final painting to have. The sky is now blue, the sand is now brown, and the fence is now white. It's still a work in progress, and from here on out the process is pretty straight forward; I'm progressively using thicker and thicker paints and painting in more details and tones with darks and whites to give the painting space while making it look more realistic. I honestly really feel like I am fighting with the painting a lot, and I really didn't remember how hard it was to paint, but I also remember Larry teaching us that the process of painting is a curve, where at some point in the process we will hit a low where we don't like our painting and we feel lost. If we fight through that low, it's all uphill from there and we will eventually discover the painting and figure out a way to make it work, and we will grow to like our painting more and more. It's like problem solving, except instead of a math problem, it's a visual problem.},
+                  body:
+                  %{In this session I'm starting to use colors that I want the final painting to have. The sky is now blue, the sand is now brown, and the fence is now white. It's still a work in progress, and from here on out the process is pretty straight forward; I'm progressively using thicker and thicker paints and painting in more details and tones with darks and whites to give the painting space while making it look more realistic. I honestly really feel like I am fighting with the painting a lot, and I really didn't remember how hard it was to paint, but I also remember Larry teaching us that the process of painting is a curve, where at some point in the process we will hit a low where we don't like our painting and we feel lost. If we fight through that low, it's all uphill from there and we will eventually discover the painting and figure out a way to make it work, and we will grow to like our painting more and more. It's like problem solving, except instead of a math problem, it's a visual problem.},
             space: 'midground',
-            published: true,
-            previous_post_id: ob3.id,
-            type: 'time-lapse',
-            date_published: DateTime.new(2012, 10, 12, 13, 43))
+                  published: true,
+                  previous_post_id: ob3.id,
+                  type: 'time-lapse',
+                  date_published: DateTime.new(2012, 10, 12, 13, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', type: 'fixed', tile: false, post_id: ob4.id)
 
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', post_id: ob4.id)
 
 ob5 = Post.create(title: 'Object In Nature - Session 5',
-            body:
-            %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there},
+                  body:
+                  %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there},
             published: true,
-            previous_post_id: ob4.id,
-            type: 'time-lapse',
-            date_published: DateTime.new(2012, 10, 20, 15, 10))
+                  previous_post_id: ob4.id,
+                  type: 'time-lapse',
+                  date_published: DateTime.new(2012, 10, 20, 15, 10))
 
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-5.jpg', post_id: ob5.id)
 
 ob6 = Post.create(title: 'Object In Nature - Session 6',
-            body:
-            %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!},
+                  body:
+                  %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!},
             space: 'midground',
-            published: true,
-            previous_post_id: ob5.id,
-            type: 'time-lapse',
-            date_published: DateTime.new(2012, 10, 25, 14, 43))
+                  published: true,
+                  previous_post_id: ob5.id,
+                  type: 'time-lapse',
+                  date_published: DateTime.new(2012, 10, 25, 14, 43))
 
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg', post_id: ob6.id)
 
 ob7 = Post.create(title: 'Object In Nature - Session 7',
-            body:
-                %{Ok, this thing is as done as it's ever gonna be. There's still some things that I'd like to do to it, but I think I'm ready to move on to another painting...},
-            space: 'midground',
-            published: true,
-            previous_post_id: ob6.id,
-            type: 'time-lapse',
-            date_published: DateTime.new(2012, 11, 1, 14, 43))
+                  body:
+                  %{Ok, this thing is as done as it's ever gonna be. There's still some things that I'd like to do to it, but I think I'm ready to move on to another painting...},
+                  space: 'midground',
+                  published: true,
+                  previous_post_id: ob6.id,
+                  type: 'time-lapse',
+                  date_published: DateTime.new(2012, 11, 1, 14, 43))
 
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-7.jpg', post_id: ob7.id)
 
 
 p = Post.create(title: 'Playing With Backgrounds',
-            type: 'quote',
-            space: 'auto',
-            bg_color: "#0C4F59",
-            published: true,
-            show_header: false,
-            date_published: DateTime.new(2012, 10, 31, 18, 6))
+                type: 'quote',
+                space: 'auto',
+                bg_color: "#0C4F59",
+                published: true,
+                show_header: false,
+                date_published: DateTime.new(2012, 10, 31, 18, 6))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-2.png', type: 'shift_down', tile: true, post_id: p.id, z_index: 1)
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-5.png', type: 'shift_up', tile: true, post_id: p.id, z_index: 2)
@@ -147,21 +166,21 @@ BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-
 Quote.create(quote: "Imitation is the sincerest form of flattery", source: "Inspired by 2012.hd-live.co.uk", type: "quote-big", post_id: p.id, text_color: "#D0531F")
 
 p = Post.create(title: 'Holstee Pt. 1',
-            type: 'quote',
-            space: 'background',
-            min_height: 600,
-            published: true,
-            show_header: false,
-            effect: 'fade-in',
-            date_published: DateTime.new(2012, 10, 31, 11, 15))
+                type: 'quote',
+                space: 'background',
+                min_height: 600,
+                published: true,
+                show_header: false,
+                effect: 'fade-in',
+                date_published: DateTime.new(2012, 10, 31, 11, 15))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'fixed', tile: false, post_id: p.id)
 Quote.create(quote: "Live your dream and share your passion.", type: "quote-right-float-up", post_id: p.id, text_size: 30)
 
 
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
-            body:
-            %{
+                body:
+                %{
 Think of education as a spiral.  You revisit points and ideas at different points in time, but higher up in the spiral.  This class is the bottom of the spiral.
 
 Premises of PP:
@@ -231,58 +250,58 @@ What if I don't want to join a project of this size?  One can make a difference.
 "Never doubt that a small group of thoughtful, committed citizens can change the world. Indeed, it is the only thing that ever has." - Margaret Mead
 
 The problem is that most people dont understand how change occurs. Take, for example, smiles. Assume that one person smiles, and each person that sees it smiles at 3 other people.  It's only 20 degrees of separation to affect every person in the world. Or how about giving a general compliment to someone else? We underestimate our capacity to effect change because we underestimate the growth of an exponential function. This becomes a self-fulfilling prophecy, "who am I to change the world?"},
-            published: true,
-            type: 'notes',
-            date_published: DateTime.new(2012, 10, 31, 10, 13))
+                published: true,
+                type: 'notes',
+                date_published: DateTime.new(2012, 10, 31, 10, 13))
 
 p = Post.create(title: 'Burning Man 2012',
-            published: true,
-            space: 'background',
-            type: 'album',
-            style: 'album-strip',
-            date_published: DateTime.new(2012, 10, 30, 12, 35))
+                published: true,
+                space: 'background',
+                type: 'album',
+                style: 'album-strip',
+                date_published: DateTime.new(2012, 10, 30, 12, 35))
 
 (1..99).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/burning-man/burning-man-#{i}.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: "Messages In A Bottle",
-            published: true,
-            space: 'background',
-            type: 'notes',
-            published: true,
-            min_height: 1000,
-            date_published: DateTime.new(2012, 10, 29, 22, 50))
+                published: true,
+                space: 'background',
+                type: 'notes',
+                published: true,
+                min_height: 1000,
+                date_published: DateTime.new(2012, 10, 29, 22, 50))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/messages-in-a-bottle/messages-in-a-bottle.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 p = Post.create(title: "Giants Win The World Series!!!",
-            published: true,
-            space: 'background',
-            type: 'video',
-            style: 'video-big',
-            published: true,
-            date_published: DateTime.new(2012, 10, 29, 14, 55))
+                published: true,
+                space: 'background',
+                type: 'video',
+                style: 'video-big',
+                published: true,
+                date_published: DateTime.new(2012, 10, 29, 14, 55))
 
 Video.create(video_id: "YKmgVJjk5PY", post_id: p.id, host: 'youtube')
 
 p = Post.create(title: "Giants Sweep",
-            published: true,
-            space: 'background',
-            type: 'notes',
-            published: true,
-            min_height: 2000,
-            show_header: false,
-            date_published: DateTime.new(2012, 10, 29, 14, 54))
+                published: true,
+                space: 'background',
+                type: 'notes',
+                published: true,
+                min_height: 2000,
+                show_header: false,
+                date_published: DateTime.new(2012, 10, 29, 14, 54))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/giants-sweep/giants-sweep-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 
 p = Post.create(title: 'Ninja Assassin',
-            type: 'quote',
-            space: 'background',
-            published: true,
-            show_header: false,
-            effect: 'fade-in',
-            date_published: DateTime.new(2012, 10, 29, 2, 13))
+                type: 'quote',
+                space: 'background',
+                published: true,
+                show_header: false,
+                effect: 'fade-in',
+                date_published: DateTime.new(2012, 10, 29, 2, 13))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-bg.jpg', type: 'shift_right', tile: false, post_id: p.id, z_index: 1)
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-shade.png', type: 'scrolling', tile: false, post_id: p.id, z_index: 2)
@@ -292,8 +311,8 @@ Quote.create(quote: "Come, little brother. Let us play like old times.", type: '
 
 
 p = Post.create(title: 'Another Summer Weekend',
-            body:
-            %{It was another memorable weekend in SF.
+                body:
+                %{It was another memorable weekend in SF.
 On Friday we celebrated my good friend Angela's birthday, and we celebrated it on a historic ship from WWII, the S.S. Jeremiah O'Brien.
 
 ![The S.S. Jeremiah O'Brien](http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-2-th.jpg)
@@ -343,41 +362,41 @@ Today Jas and I drove over to Dublin and bought a Cajon, which is a percussion k
 
 ![Cajon](http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-13-th.jpg)
 },
-            space: 'midground',
-            published: true,
-            type: 'two-column-text',
-            date_published: DateTime.new(2012, 10, 29, 20, 13))
+                space: 'midground',
+                published: true,
+                type: 'two-column-text',
+                date_published: DateTime.new(2012, 10, 29, 20, 13))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 
 p = Post.create(title: "It's Time - Imagine Dragons",
-            published: true,
-            space: 'background',
-            type: 'video',
-            style: 'video-big',
-            published: true,
-            date_published: DateTime.new(2012, 10, 26, 13, 5))
+                published: true,
+                space: 'background',
+                type: 'video',
+                style: 'video-big',
+                published: true,
+                date_published: DateTime.new(2012, 10, 26, 13, 5))
 
 Video.create(video_id: "49-wNRvJwjk", post_id: p.id, host: 'youtube')
 
 p = Post.create(title: '50 Ways to Say Goodbye',
-            space: 'background',
-            type: 'quote',
-            show_header: false,
-            published: false,
-            date_published: DateTime.new(2012, 10, 24, 14, 43))
+                space: 'background',
+                type: 'quote',
+                show_header: false,
+                published: false,
+                date_published: DateTime.new(2012, 10, 24, 14, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 Quote.create(quote: "Some day I'll find a love like yours. She'll think I'm Superman. Not super minivan", source: "Patrick Monahan", type: 'quote-big', post_id: p.id)
 
 p = Post.create(title: 'Two Door Cinema Club',
-            type: 'quote',
-            space: 'midground',
-            published: true,
-            show_header: false,
-            date_published: DateTime.new(2012, 10, 24, 2, 13))
+                type: 'quote',
+                space: 'midground',
+                published: true,
+                show_header: false,
+                date_published: DateTime.new(2012, 10, 24, 2, 13))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
@@ -386,34 +405,34 @@ Quote.create(quote: "Cause if this is the life, this is the life, this is the li
 (1..9).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-#{i}.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: 'Roll On You Bears',
-            published: true,
-            space: 'background',
-            type: 'album',
-            style: 'album-thumbnails',
-            date_published: DateTime.new(2012, 10, 22, 10, 16))
+                published: true,
+                space: 'background',
+                type: 'album',
+                style: 'album-thumbnails',
+                date_published: DateTime.new(2012, 10, 22, 10, 16))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/big-game/big-game-bg.jpg', type: 'shift_down', tile: false, post_id: p.id)
 
 (1..11).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/big-game/big-game-#{i}.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: '30th Anniversary of "The Play"',
-            published: true,
-            space: 'background',
-            type: 'video',
-            style: 'video-big',
-            published: false,
-            date_published: DateTime.new(2012, 10, 22, 10, 10))
+                published: true,
+                space: 'background',
+                type: 'video',
+                style: 'video-big',
+                published: false,
+                date_published: DateTime.new(2012, 10, 22, 10, 10))
 
 Video.create(video_id: "0fZCCAqoSwY", post_id: p.id, host: 'youtube')
 
 p = Post.create(title: 'A Day Trip to the Russian River',
-            body:
-            %{Jas and I were lucky enough to take a random Wednesday trip to the Russian River to do some canoeing and fishing. We caught a lot of things (most of which were inanimate) but we also managed to catch a foot long Steelhead Trout! We called it Ol' Greg; cooked 'em up real good for dinner. We also saw a family of seals swimming in the river, they caught themselves a big ass trout and were munchin' on it for lunch. Can't wait to go back! },
+                body:
+                %{Jas and I were lucky enough to take a random Wednesday trip to the Russian River to do some canoeing and fishing. We caught a lot of things (most of which were inanimate) but we also managed to catch a foot long Steelhead Trout! We called it Ol' Greg; cooked 'em up real good for dinner. We also saw a family of seals swimming in the river, they caught themselves a big ass trout and were munchin' on it for lunch. Can't wait to go back! },
             published: true,
-            space: 'midground',
-            type: 'album',
-            style: 'album-thumbnails',
-            date_published: DateTime.new(2012, 10, 19, 17, 28))
+                space: 'midground',
+                type: 'album',
+                style: 'album-thumbnails',
+                date_published: DateTime.new(2012, 10, 19, 17, 28))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
 
@@ -421,12 +440,12 @@ BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river
 
 
 p = Post.create(title: 'EGO',
-            type: 'quote',
-            bg_color: '#F0EACD',
-            space: 'background',
-            published: true,
-            show_header: false,
-            date_published: DateTime.new(2012, 10, 17, 10, 25))
+                type: 'quote',
+                bg_color: '#F0EACD',
+                space: 'background',
+                published: true,
+                show_header: false,
+                date_published: DateTime.new(2012, 10, 17, 10, 25))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ego/ego-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 Quote.create(quote: "There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self",
@@ -621,20 +640,20 @@ Quote.create(quote: "Multiply the best roller coaster you can imagine by 100", s
 (1..12).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-#{i}.jpg", post_id: p.id, position: i) }
 
 
-p = Post.create(title: 'Summatime in the SFC',
-            body:
-            %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.![Steven's 30th Birthday Cake](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-2.jpg) Saturday was our good friends Michelle and Adam's wedding - It was amazing!![Mich's Wedding Dress](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-3.jpg) It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.![Doing the Hora](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-4.jpg)And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.![Dance Floor Lights](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-5.jpg) Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.![Blue Angels](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-6.jpg) Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a super chill concert in the park while seeing jets do fly-bys overhead?![Hardly Strictly Blue Grass Festival](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-7.jpg) We finished with a relaxing sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.![Bryan Takes a Picture](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-1.jpg) *It was truly a weekend to remember!*},
-            space: 'background',
-            published: true,
-            type: 'two-column-text',
-            date_published: DateTime.new(2012, 10, 7, 15, 3))
+  p = Post.create(title: 'Summatime in the SFC',
+                  body:
+                  %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.![Steven's 30th Birthday Cake](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-2.jpg) Saturday was our good friends Michelle and Adam's wedding - It was amazing!![Mich's Wedding Dress](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-3.jpg) It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.![Doing the Hora](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-4.jpg)And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.![Dance Floor Lights](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-5.jpg) Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.![Blue Angels](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-6.jpg) Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a super chill concert in the park while seeing jets do fly-bys overhead?![Hardly Strictly Blue Grass Festival](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-7.jpg) We finished with a relaxing sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.![Bryan Takes a Picture](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-1.jpg) *It was truly a weekend to remember!*},
+                  space: 'background',
+                  published: true,
+                  type: 'two-column-text',
+                  date_published: DateTime.new(2012, 10, 7, 15, 3))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 
 p = Post.create(title: 'Levitating Sheep',
-            body:
-            %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). ![A Poor Sheep](http://dl.dropbox.com/u/4893047/posts/parallax/sheep.jpg)
+                body:
+                %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). ![A Poor Sheep](http://dl.dropbox.com/u/4893047/posts/parallax/sheep.jpg)
 
 The basic premise is, as a user is scrolling through a post, a background image will also scroll from top to bottom within the post's background. I thought this looked pretty cool as a first run with only one background image, but then I had the idea to add an additional background image layer so that I can use 2 layers of scrolling backgrounds. If the top layer's image has a greater height, then it will scroll faster than the bottom layer's image, which esentially creates a simple parallax effect. That's the effect that I used to get these levitating sheep, with some being farther away and some being closer. Heres the simplified css:
 
@@ -644,44 +663,44 @@ background-position: 50% 0%;
 ```
 
 To get it to work, I just simply adjust the background-position from "50% 0%" to "50% 100%" using javascript as the user scrolls along the page.},
-            space: 'foreground',
-            published: true,
-            type: 'two-column-text',
-            date_published: DateTime.new(2012, 10, 5, 15, 3))
+                space: 'foreground',
+                published: true,
+                type: 'two-column-text',
+                date_published: DateTime.new(2012, 10, 5, 15, 3))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-fg.png', type: 'shift_down', tile: true, z_index: 2, post_id: p.id)
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-bg.png', type: 'shift_down', tile: true, z_index: 1, post_id: p.id)
 
 
 p = Post.create(title: 'Iceland, Germany, and Amsterdam',
-            body:
-            %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.},
+                body:
+                %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.},
             space: 'background',
-            published: true,
-            type: 'album',
-            style: 'album-thumbnails',
-            date_published: DateTime.new(2012, 7, 15, 14, 43))
+                published: true,
+                type: 'album',
+                style: 'album-thumbnails',
+                date_published: DateTime.new(2012, 7, 15, 14, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/eu/eu-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
 
 (1..28).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/eu/eu-#{i}.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: 'Norway',
-            body:
-            %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has it's price, and Norway was well worth every penny.},
+                body:
+                %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has it's price, and Norway was well worth every penny.},
             published: true,
-            space: 'midground',
-            type: 'album',
-            style: 'album-thumbnails',
-            date_published: DateTime.new(2012, 9, 24, 14, 43))
+                space: 'midground',
+                type: 'album',
+                style: 'album-thumbnails',
+                date_published: DateTime.new(2012, 9, 24, 14, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/norway/norway-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 (1..17).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/norway/norway-#{i}.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: 'The Tac Cup',
-            body:
-            %{So recently Steven decided to start officially keeping track of our beer pong records and to set up a ladder ranking system to finally figure out who's the best of the best. We are using the Elo Ranking system, which is the system that is used for chess rankings as well as a whole bunch of different ladder systems (we used it on Wasteland Empires for our leaderboard). We also got a trophy that works kinda like a championship belt. Whoever is at the top of the ladder gets to hold onto it, and it will change hands as the top ranked player gets dethroned from season to season. We decided to call it the "Canuto Tacderan Cup" after our landlord, Tac, because we've played the majority of beer pong games in this apartment and the apartment downstairs. And why the pig you ask? Well, I'd like to answer your question with another question… why not?<br /><br />
+                body:
+                %{So recently Steven decided to start officially keeping track of our beer pong records and to set up a ladder ranking system to finally figure out who's the best of the best. We are using the Elo Ranking system, which is the system that is used for chess rankings as well as a whole bunch of different ladder systems (we used it on Wasteland Empires for our leaderboard). We also got a trophy that works kinda like a championship belt. Whoever is at the top of the ladder gets to hold onto it, and it will change hands as the top ranked player gets dethroned from season to season. We decided to call it the "Canuto Tacderan Cup" after our landlord, Tac, because we've played the majority of beer pong games in this apartment and the apartment downstairs. And why the pig you ask? Well, I'd like to answer your question with another question… why not?<br /><br />
 Week 1 Results:
 
 1. Eiki: 1246.3987116397748
@@ -708,10 +727,10 @@ Week 1 Results:
 22. Norman: 1170.863960480068
 23. Total Number of Games Recorded: 35
 },
-            published: true,
-            space: 'midground',
-            type: 'single-column-text',
-            date_published: DateTime.new(2012, 10, 4, 14, 43))
+                published: true,
+                space: 'midground',
+                type: 'single-column-text',
+                date_published: DateTime.new(2012, 10, 4, 14, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 

@@ -5,6 +5,28 @@ Video.delete_all
 BackgroundImage.delete_all
 Quote.delete_all
 
+p = Post.create(title: 'Holstee Pt. 2',
+            type: 'quote',
+            space: 'background',
+            min_height: 600,
+            published: true,
+            show_header: false,
+            date_published: DateTime.new(2012, 11, 9, 11, 15))
+
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-2.jpg', type: 'shift_up', tile: false, post_id: p.id)
+Quote.create(quote: "Life is short.", type: "quote-left-top", post_id: p.id, text_size: 60)
+
+
+p = Post.create(title: "The Happy Secret to Better Work",
+            published: true,
+            type: 'video',
+            style: 'video-big',
+            published: true,
+            date_published: DateTime.new(2012, 11, 8, 12, 57))
+
+Video.create(video_id: "fLJsdqxnZb0", post_id: p.id, host: 'youtube')
+
+
 p = Post.create(title: "GoPro on CK's 30th",
             type: 'time-lapse',
             space: 'background',
@@ -124,7 +146,6 @@ BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-
 
 Quote.create(quote: "Imitation is the sincerest form of flattery", source: "Inspired by 2012.hd-live.co.uk", type: "quote-big", post_id: p.id, text_color: "#D0531F")
 
-
 p = Post.create(title: 'Holstee Pt. 1',
             type: 'quote',
             space: 'background',
@@ -134,7 +155,7 @@ p = Post.create(title: 'Holstee Pt. 1',
             effect: 'fade-in',
             date_published: DateTime.new(2012, 10, 31, 11, 15))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'shift_down', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'fixed', tile: false, post_id: p.id)
 Quote.create(quote: "Live your dream and share your passion.", type: "quote-right-float-up", post_id: p.id, text_size: 30)
 
 
@@ -176,7 +197,7 @@ The Minnesota Twins Studies (1996) took identical twins that were reared apart a
 
 Fortunately, these studies are misleading because there is counter-evidence. There's evidence that people change through therapy. There's evidence that people change after reading an influential book or a powerful experience.  There will be 2 lectures on change; we will be revisiting this. There's evidence that a powerful sentence causes change.  But thats a problem, how do we explain the contradiction in the Twins Studies research? The research makes an error; this error is called the Error of the Average.  They took the average of some sample size and they found that, on average, there was no significan't change. Does that mean that no twins had a significan't change of happiness?  No, of course not, just the average. They treated the twins with change as outliers, as statistical noise, and thus they were ignored. The average says that people dont change, but the fact that people *do* change proves the rule: **people can change**.
 
-The problem of this research is that it hurts people. People read about this, especially people who are already depressed, and feel like shit.  This research becomes a self-fulfilling prophecy; people start believing that their misery is fixed.  If it were true this would be no problem, but it's not true. Just because change is difficult, doesnt mean it's impossible.  The question is *how*?
+The problem of this research is that it hurts people. People read about this, especially people who are already depressed, and feel like shit.  This research becomes a self-fulfilling prophecy; people start believing that their misery is scrolling.  If it were true this would be no problem, but it's not true. Just because change is difficult, doesnt mean it's impossible.  The question is *how*?
 
 We're going to figure this out by studying the best.  We're going to study the exceptions to "the rule". Study the best in people instead of just the average. Maslow said the research we need to focus on is not just the average, but the elite and exceptional.
 
@@ -231,7 +252,7 @@ p = Post.create(title: "Messages In A Bottle",
             min_height: 1000,
             date_published: DateTime.new(2012, 10, 29, 22, 50))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/messages-in-a-bottle/messages-in-a-bottle.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/messages-in-a-bottle/messages-in-a-bottle.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 p = Post.create(title: "Giants Win The World Series!!!",
             published: true,
@@ -252,7 +273,7 @@ p = Post.create(title: "Giants Sweep",
             show_header: false,
             date_published: DateTime.new(2012, 10, 29, 14, 54))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/giants-sweep/giants-sweep-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/giants-sweep/giants-sweep-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 
 p = Post.create(title: 'Ninja Assassin',
@@ -264,7 +285,7 @@ p = Post.create(title: 'Ninja Assassin',
             date_published: DateTime.new(2012, 10, 29, 2, 13))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-bg.jpg', type: 'shift_right', tile: false, post_id: p.id, z_index: 1)
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-shade.png', type: 'fixed', tile: false, post_id: p.id, z_index: 2)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-shade.png', type: 'scrolling', tile: false, post_id: p.id, z_index: 2)
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja.png', type: 'shift_right', tile: false, post_id: p.id, z_index: 3)
 
 Quote.create(quote: "Come, little brother. Let us play like old times.", type: 'quote-big', post_id: p.id)
@@ -327,7 +348,7 @@ Today Jas and I drove over to Dublin and bought a Cajon, which is a percussion k
             type: 'two-column-text',
             date_published: DateTime.new(2012, 10, 29, 20, 13))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 
 p = Post.create(title: "It's Time - Imagine Dragons",
@@ -347,7 +368,7 @@ p = Post.create(title: '50 Ways to Say Goodbye',
             published: false,
             date_published: DateTime.new(2012, 10, 24, 14, 43))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 Quote.create(quote: "Some day I'll find a love like yours. She'll think I'm Superman. Not super minivan", source: "Patrick Monahan", type: 'quote-big', post_id: p.id)
 
@@ -358,7 +379,7 @@ p = Post.create(title: 'Two Door Cinema Club',
             show_header: false,
             date_published: DateTime.new(2012, 10, 24, 2, 13))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 Quote.create(quote: "Cause if this is the life, this is the life, this is the life, this is the life, this is the life, then who'd argue?", source: "Alex Trimble", type: 'quote-big', post_id: p.id)
 
@@ -394,7 +415,7 @@ p = Post.create(title: 'A Day Trip to the Russian River',
             style: 'album-thumbnails',
             date_published: DateTime.new(2012, 10, 19, 17, 28))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg', type: 'shift_up', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
 
 (1..27).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-#{i}.jpg", post_id: p.id, position: i) }
 
@@ -407,7 +428,7 @@ p = Post.create(title: 'EGO',
             show_header: false,
             date_published: DateTime.new(2012, 10, 17, 10, 25))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ego/ego-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ego/ego-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 Quote.create(quote: "There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self",
              source: "Ernest Hemingway",
              type: 'quote-big',
@@ -608,7 +629,7 @@ p = Post.create(title: 'Summatime in the SFC',
             type: 'two-column-text',
             date_published: DateTime.new(2012, 10, 7, 15, 3))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 
 p = Post.create(title: 'Levitating Sheep',
@@ -654,7 +675,7 @@ p = Post.create(title: 'Norway',
             style: 'album-thumbnails',
             date_published: DateTime.new(2012, 9, 24, 14, 43))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/norway/norway-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/norway/norway-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 (1..17).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/norway/norway-#{i}.jpg", post_id: p.id, position: i) }
 
@@ -692,7 +713,7 @@ Week 1 Results:
             type: 'single-column-text',
             date_published: DateTime.new(2012, 10, 4, 14, 43))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-1.jpg', post_id: p.id, position: 1)
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-2.jpg', post_id: p.id, position: 3)

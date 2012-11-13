@@ -437,6 +437,31 @@ figure.quote-bottom-float-left {
     right: 0px;
 }
 
+figure.quote-left-bottom {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+figure.quote-left-top {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+figure.quote-right-bottom {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+figure.quote-right-top {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+
 /* ----------------------
    Image Formats
    -------------------------*/

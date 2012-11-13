@@ -74,13 +74,11 @@ module PostsHelper
   def bg_urls_for_space(space)
     case space
     when 'foreground'
-      return "url(/assets/layout/divider-foreground-top.png) repeat-x center top", "url(/assets/layout/divider-foreground-bottom.png) repeat-x center bottom"
-
+      return "url(#{ asset_path 'layout/divider-foreground-top.png' }) repeat-x scroll center top", "url(#{ asset_path 'layout/divider-foreground-bottom.png' }) repeat-x scroll center bottom"
     when 'midground'
-      return "url(/assets/layout/divider-midground-top.png) repeat-x center top", "url(/assets/layout/divider-midground-bottom.png) repeat-x center bottom"
-
+      return "url(#{ asset_path 'layout/divider-midground-top.png' }) repeat-x scroll center top", "url(#{ asset_path 'layout/divider-midground-bottom.png' }) repeat-x scroll center bottom"
     when 'background'
-      return "url(/assets/layout/divider-background-top.png) repeat-x center top", "url(/assets/layout/divider-background-bottom.png) repeat-x center bottom"
+      return "url(#{ asset_path 'layout/divider-background-top.png' }) repeat-x scroll center top", "url(#{ asset_path 'layout/divider-background-bottom.png' }) repeat-x scroll center bottom"
     end
 
   end
@@ -92,7 +90,9 @@ module PostsHelper
   def background_css(post)
     post.background_images.map do |background_image|
       case background_image.type
-      when 'fixed', 'shift_up'
+      when 'fixed'
+        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} fixed center top"
+      when 'shift_up', 'scrolling'
         "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} center top"
       when 'shift_down'
         "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} center bottom"

@@ -48,51 +48,15 @@ class Post < ActiveRecord::Base
                                    width: @@album_comic_page_size[:width],
                                    rows: [],
                                    items: [
-                                           {width: @@album_comic_page_size[:width], height: @@album_comic_page_size[:height], top: 0, left: 0, z_index: 1},
-                                           {width: 33, height: 20, top: 10, left: 10, z_index: 2},
-                                           {width: 33, height: 20, top: 33, left: 10, z_index: 2},
-                                           {width: 33, height: 20, top: 60, left: 10, z_index: 2}
+                                           {width: 100, height: 100, top: 0, left: 0, z_index: 1},
+                                           {width: 33, height: 20, top: 3, left: 5, z_index: 2},
+                                           {width: 33, height: 20, top: 27, left: 5, z_index: 2},
+                                           {width: 33, height: 20, top: 51, left: 5, z_index: 2},
+                                           {width: 33, height: 20, top: 75, left: 5, z_index: 2},
+                                           {width: 47, height: 20, top: 75, left: 47, z_index: 2}
                                           ]
                                  }
                                 ]
-
-=begin
-  @@album_comic_data_template = [
-                                 {width: 0.33, height: 0.35, z_index: 1, page: 1, row: 1},
-                                 {width: 0.33, height: 0.35, z_index: 1, page: 1, row: 1},
-                                 {width: 0.34, height: 0.35, z_index: 1, page: 1, row: 1},
-
-                                 {width: 0.5, height: 0.3, z_index: 1, page: 1, row: 2},
-                                 {width: 0.5, height: 0.3, z_index: 1, page: 1, row: 2},
-
-                                 {width: 0.25, height: 0.35, z_index: 1, page: 1, row: 3},
-                                 {width: 0.25, height: 0.35, z_index: 1, page: 1, row: 3},
-                                 {width: 0.25, height: 0.35, z_index: 1, page: 1, row: 3},
-                                 {width: 0.25, height: 0.35, z_index: 1, page: 1, row: 3},
-                                ]
-
-
-  @@album_comic_data_template = [
-                                 {width: 3, height: 5, top: 0, left: 0, z_index: 1, page: 1, row: 1},
-                                 {width: 4.5, height: 4, top: 5, left: 0, z_index: 1, page: 1, row: 2},
-                                 {width: 2.25, height: 5, top: 9, left: 0, z_index: 1, page: 1, row: 3},
-                                 {width: 2.25, height: 5, top: 9, left: 2.25, z_index: 1, page: 1, row: 3},
-                                 {width: 3, height: 5, top: 0, left: 3, z_index: 1, page: 1, row: 1},
-                                 {width: 4.5, height: 4, top: 5, left: 4.5, z_index: 1, page: 1, row: 2},
-                                 {width: 2.25, height: 5, top: 9, left: 4.5, z_index: 1, page: 1, row: 3},
-                                 {width: 3, height: 5, top: 0, left: 6, z_index: 1, page: 1, row: 1},
-                                 {width: 2.25, height: 5, top: 9, left: 6.75, z_index: 1, page: 1, row: 3},
-
-                                 #page 2
-                                 {width: @@album_comic_page_size[:width], height: @@album_comic_page_size[:height], top: 0, left: 0, z_index: 1, page: 2}, #bg
-                                 {width: 2.5, height: 2.5, top: 0.25, left: 0.25 + @@album_comic_page_size[:width], z_index: 2}, #row 1
-                                 {width: 2.5, height: 2.5, top: 2.75, left: 0.25 + @@album_comic_page_size[:width], z_index: 2}, #2
-                                {width: 2.5, height: 2.5, top: 5.25, left: 0.25 + @@album_comic_page_size[:width], z_index: 2}, #3
-
-
-                       ]
-=end
-
 
   attr_accessible :type, :space, :style, :published, :date_published, :bg_color, :title, :body, :show_header, :min_height, :effect, :previous_post_id
   cattr_reader :valid_types
@@ -159,8 +123,9 @@ class Post < ActiveRecord::Base
   private
 
   def self.process_comic_data
-    #FIRST PASS
+    #FIRST PASS, setting most data for items in rows
     row_top_starting_point = []
+    page_left_starting_point = [0]
 
     processed_data =  @@album_comic_data_template.map.with_index do |page, page_num|
       #process the rows
@@ -192,30 +157,44 @@ class Post < ActiveRecord::Base
         row
       end
 
-      #process free elements
-      #element[:left] = (element[:page] - 1) * @@album_comic_page_size[:width] + element[:left] * width_without_margins
-      #element[:top] = element[:top] * height_without_margins
+      page_left_starting_point[page_num + 1] = page_left_starting_point[page_num] + page_width + @@album_comic_margin
 
       page
     end
 
-    #SECOND PASS
+    #SECOND PASS. setting top offsets for row items and translating all data for free floating items
     processed_data.map.with_index do |page, page_num|
+      page_width = page[:width]
+
       page[:rows].map.with_index do |row, row_num|
         row[:items].map.with_index do |item, item_num|
           item[:top] = row_top_starting_point[page_num][row_num]
         end
       end
+
+      page[:items].each do |item|
+        item[:width] = item[:width] * page_width / 100
+        item[:height] = item[:height] * @@album_comic_page_size[:height] / 100
+
+        item[:left] = page_left_starting_point[page_num] + item[:left] * page_width / 100
+        item[:top] = item[:top] * @@album_comic_page_size[:height] / 100
+      end
     end
 
+    ap processed_data
+
     flattened_template = []
-    #LAST PASS, FLATTEN THIS SON OF A MOTHERLESS FATHER
+    #LAST PASS, flattening this son of a motherless father
     #TODO, make this order elements from left to right
     processed_data.each do |page|
       page[:rows].each do |row|
         row[:items].each do |item|
           flattened_template << item
         end
+      end
+
+      page[:items].each do |item|
+        flattened_template << item
       end
     end
 

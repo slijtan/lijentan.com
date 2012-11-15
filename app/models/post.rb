@@ -55,7 +55,37 @@ class Post < ActiveRecord::Base
                                            {width: 33, height: 20, top: 75, left: 5, z_index: 2},
                                            {width: 47, height: 20, top: 75, left: 47, z_index: 2}
                                           ]
-                                 }
+                                 },
+
+                                 { #PAGE 2
+                                   width: @@album_comic_page_size[:width],
+                                   rows: [
+                                          { #ROW 0
+                                            height: 20,
+                                            items:
+                                            [
+                                             {width: 77, z_index: 1},
+                                             {width: 23, z_index: 1, height: 51},
+                                            ]
+                                          },
+                                          { #ROW 1
+                                            height: 30,
+                                            items:
+                                            [
+                                             {width: 35, z_index: 1},
+                                             {width: 40, z_index: 1}
+                                            ]
+                                          },
+                                          { #ROW 2
+                                            height: 50,
+                                            items:
+                                            [
+                                             {width: 100, z_index: 1}
+                                            ]
+                                          }
+                                         ],
+                                   items: []
+                                 },
                                 ]
 
   attr_accessible :type, :space, :style, :published, :date_published, :bg_color, :title, :body, :show_header, :min_height, :effect, :previous_post_id
@@ -76,7 +106,8 @@ class Post < ActiveRecord::Base
     name = name.to_s
     case name.to_s
     when /is_(.*)\?/
-      type == ($1).gsub(/_/, "-")
+      searching_for = ($1)
+      type == searching_for.gsub(/_/, "-") || style == searching_for.gsub(/_/, "-")
     end
   end
 
@@ -138,17 +169,17 @@ class Post < ActiveRecord::Base
         pixels_in_row = 0
         row_top_starting_point[page_num][row_num + 1] = 0
 
-        row[:items].map.with_index do |item, item_num|
-          width_without_margins = page_width - [tot_elements_in_row - 1, 0].max * @@album_comic_margin
-          height_without_margins = @@album_comic_page_size[:height] - [tot_rows_in_page - 1, 0].max * @@album_comic_margin
+        width_without_margins = page_width - [tot_elements_in_row - 1, 0].max * @@album_comic_margin
+        height_without_margins = @@album_comic_page_size[:height] - [tot_rows_in_page - 1, 0].max * @@album_comic_margin
 
+        starting_point_including_margin = (row[:height] * height_without_margins / 100) + @@album_comic_margin + row_top_starting_point[page_num][row_num]
+        row_top_starting_point[page_num][row_num + 1] = starting_point_including_margin if starting_point_including_margin > row_top_starting_point[page_num][row_num + 1]
+
+        row[:items].map.with_index do |item, item_num|
           item[:width] = item[:width] * width_without_margins / 100
           item[:height] = (item[:height] ? item[:height] : row[:height]) * height_without_margins / 100
 
           item[:left] = pixels_in_row
-          #item[:top] = per_page_row_start[page_num][row_num] * @@album_comic_page_size[:height] / 100 + (row_num) * @@album_comic_margin
-          starting_point_including_margin = item[:height] + @@album_comic_margin + row_top_starting_point[page_num][row_num]
-          row_top_starting_point[page_num][row_num + 1] = starting_point_including_margin if starting_point_including_margin > row_top_starting_point[page_num][row_num + 1]
           pixels_in_row += item[:width] + @@album_comic_margin
 
           item
@@ -162,12 +193,13 @@ class Post < ActiveRecord::Base
       page
     end
 
-    #SECOND PASS. setting top offsets for row items and translating all data for free floating items
+    #SECOND PASS. setting top and left offsets for row items and pages translating all data for free floating items
     processed_data.map.with_index do |page, page_num|
       page_width = page[:width]
 
       page[:rows].map.with_index do |row, row_num|
         row[:items].map.with_index do |item, item_num|
+          item[:left] += page_left_starting_point[page_num]
           item[:top] = row_top_starting_point[page_num][row_num]
         end
       end

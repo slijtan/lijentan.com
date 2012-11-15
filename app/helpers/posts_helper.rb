@@ -65,7 +65,7 @@ module PostsHelper
 
     styles = []
 
-    if post_data = Post.album_comic_data_for_index(index)
+    if image.post.is_album_comic? && post_data = Post.album_comic_data_for_index(index)
       styles << "top: #{post_data[:top]}px"
       styles << "left: #{post_data[:left]}px"
       styles << "width: #{post_data[:width]}px"

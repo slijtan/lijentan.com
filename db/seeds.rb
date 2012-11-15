@@ -9,7 +9,6 @@ p = Post.create(title: "Manga Camera",
                 type: 'album',
                 style: 'album-comic',
                 space: 'foreground',
-                min_height: 1200,
                 published: true,
                 date_published: DateTime.new(2012, 11, 13, 11, 13))
 
@@ -176,7 +175,7 @@ p = Post.create(title: 'Holstee Pt. 1',
                 effect: 'fade-in',
                 date_published: DateTime.new(2012, 10, 31, 11, 15))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'shift_down', tile: false, post_id: p.id)
 Quote.create(quote: "Live your dream and share your passion.", type: "quote-right-float-up", post_id: p.id, text_size: 30)
 
 

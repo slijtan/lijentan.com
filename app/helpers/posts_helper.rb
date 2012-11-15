@@ -1,5 +1,4 @@
 module PostsHelper
-
   def spaces
     ['midground', 'foreground', 'background']
   end
@@ -58,6 +57,26 @@ module PostsHelper
     end
 
     raw("#{html_classes} #{html_styles}")
+  end
+
+  def image_class_and_style(image)
+    @image_index ||= {}
+    index = (@image_index[image.post_id] ||= 0)
+
+    styles = []
+
+    if post_data = Post.album_comic_data_for_index(index)
+      styles << "top: #{post_data[:top]}px"
+      styles << "left: #{post_data[:left]}px"
+      styles << "width: #{post_data[:width]}px"
+      styles << "height: #{post_data[:height]}px"
+      styles << "z-index: #{post_data[:z_index]}"
+    end
+
+    @image_index[image.post_id] += 1
+
+    html_styles = "style=\"#{styles.join(";")}\""
+    raw(html_styles)
   end
 
   def skip_to_cycle(set_to, cycle_values, cycle_name)

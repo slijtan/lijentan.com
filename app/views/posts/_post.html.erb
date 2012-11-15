@@ -29,9 +29,7 @@
 
   <% unless post.images.empty? %>
   <div class="images">
-    <% post.images.each do |image| %>
-    <a href="#" data-full-size-url="<%= image.url %>"><%= image_tag(image.thumbnail_url) %></a>
-    <% end %>
+    <% post.images.each do |image| %><a href="#" data-full-size-url="<%= image.url %>" <%= image_class_and_style(image) %>><%= image_tag(image.thumbnail_url) %></a><% end %>
   </div>
   <% end %>
 

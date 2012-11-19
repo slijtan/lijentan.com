@@ -286,8 +286,6 @@ class Post < ActiveRecord::Base
       end
     end
 
-    ap processed_data
-
     flattened_template = []
     #LAST PASS, flattening this son of a motherless father
     #TODO, make this order elements from left to right

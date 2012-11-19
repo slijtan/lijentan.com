@@ -112,13 +112,13 @@ module PostsHelper
       when 'fixed'
         "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} fixed center top"
       when 'shift_up', 'scrolling'
-        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} center top"
+        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} scroll center top"
       when 'shift_down'
-        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} center bottom"
+        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} scroll center bottom"
       when 'shift_right'
-        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} right top"
+        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} scroll right top"
       when 'shift_left'
-        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} left top"
+        "url(#{ asset_path(background_image.url) }) #{background_image_repeat_css(background_image)} scroll left top"
       end
     end
   end

@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
                    ]
   @@valid_effects = ['fade-in']
 
-  @@album_comic_page_size = {width: 400, height: 600}
+  @@album_comic_page_size = {width: 470, height: 600}
   @@album_comic_margin = 7
   @@album_comic_data_template = [
                                  { #PAGE 0
@@ -86,10 +86,69 @@ class Post < ActiveRecord::Base
                                          ],
                                    items: []
                                  },
+                                 { #PAGE 3
+                                   width: @@album_comic_page_size[:width],
+                                   rows: [
+                                          { #ROW 0
+                                            height: 33,
+                                            items:
+                                            [
+                                             {width: 33, z_index: 1},
+                                             {width: 67, z_index: 1},
+                                            ]
+                                          },
+                                          { #ROW 1
+                                            height: 33,
+                                            items:
+                                            [
+                                             {width: 33, z_index: 1},
+                                             {width: 67, z_index: 1}
+                                            ]
+                                          },
+                                          { #ROW 2
+                                            height: 34,
+                                            items:
+                                            [
+                                             {width: 33, z_index: 1},
+                                             {width: 33, z_index: 1},
+                                             {width: 34, z_index: 1},
+                                            ]
+                                          }
+                                         ],
+                                   items: []
+                                 },
+                                 { #PAGE 4
+                                   width: @@album_comic_page_size[:width],
+                                   rows: [
+                                          { #ROW 0
+                                            height: 25,
+                                            items:
+                                            [
+                                             {width: 100, z_index: 1},
+                                            ]
+                                          },
+                                          { #ROW 1
+                                            height: 25,
+                                            items:
+                                            [
+                                             {width: 100, z_index: 1},
+                                            ]
+                                          },
+                                          { #ROW 2
+                                            height: 50,
+                                            items:
+                                            [
+                                             {width: 40, z_index: 1},
+                                             {width: 60, z_index: 1},
+                                            ]
+                                          }
+                                         ],
+                                   items: []
+                                 }
                                 ]
 
   attr_accessible :type, :space, :style, :published, :date_published, :bg_color, :title, :body, :show_header, :min_height, :effect, :previous_post_id
-  cattr_reader :valid_types
+  cattr_reader :valid_types, :album_comic_page_size
 
   validates_presence_of :title
   validates_inclusion_of :type, in: @@valid_types
@@ -148,10 +207,24 @@ class Post < ActiveRecord::Base
 
   def self.album_comic_data_for_index(index)
     @@album_comic_data_processed ||= process_comic_data
-    @@album_comic_data_processed[index]
+    @@album_comic_book_total_width ||= comic_book_width
+    @@album_comic_book_total_pages ||= @@album_comic_data_template.count
+
+    location_data = @@album_comic_data_processed[index % @@album_comic_data_processed.count]
+
+    unless(index < @@album_comic_data_processed.count)
+      book = (index / @@album_comic_data_processed.count).floor
+      location_data[:left] += book * @@album_comic_book_total_width + @@album_comic_book_total_pages * @@album_comic_margin
+    end
+
+    location_data
   end
 
   private
+
+  def self.comic_book_width
+    @@album_comic_data_template.sum {|page_data| page_data[:width]}
+  end
 
   def self.process_comic_data
     #FIRST PASS, setting most data for items in rows

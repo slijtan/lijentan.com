@@ -183,6 +183,8 @@ article {
         text-align: center;
         margin: 0 auto 0;
         width: 750px;
+        position: relative;
+        z-index: 100;
 
         h1 {
             padding: 0 10px 0 0;
@@ -213,6 +215,7 @@ article {
         text-align: center;
         overflow: auto;
         z-index: 1;
+        position: relative;
 
         img {
             margin: 5px;
@@ -326,10 +329,6 @@ article.video {
         top: 0px;
         width: 100%;
     }
-}
-
-article.album-comic {
-    min-height: 600px;
 }
 
 /* ----------------------
@@ -529,6 +528,11 @@ article.album-strip {
 }
 
 article.album-comic div.images {
+    width: 100%;
+    overflow: auto;
+    height: <%= Post.album_comic_page_size[:height] + 4 %>px;
+    left: 7px;
+
     a {
         position: absolute;
         border: 2px solid #000000;

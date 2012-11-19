@@ -12,7 +12,10 @@ p = Post.create(title: "Manga Camera",
                 published: true,
                 date_published: DateTime.new(2012, 11, 13, 11, 13))
 
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', type: 'scrolling', tile: true, post_id: p.id)
 (1..20).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/manga/manga-#{i}.jpg", post_id: p.id, position: i) }
+
+(1..20).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/manga/manga-#{i}.jpg", post_id: p.id, position:  i + 20) }
 
 
 p = Post.create(title: "Live in a Vision",
@@ -53,6 +56,7 @@ p = Post.create(title: "GoPro on CK's 30th",
                 published: true,
                 date_published: DateTime.new(2012, 11, 5, 16, 23))
 
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/wood-1.png', type: 'scrolling', tile: true, post_id: p.id)
 (1..28).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/ck-bday-time-lapse/ck-bday-time-lapse-#{i}.jpg", post_id: p.id, position: i) }
 
 
@@ -111,8 +115,7 @@ ob4 = Post.create(title: 'Object In Nature - Session 4',
                   type: 'time-lapse',
                   date_published: DateTime.new(2012, 10, 12, 13, 43))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', type: 'fixed', tile: false, post_id: ob4.id)
-
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', type: 'scrolling', tile: false, post_id: ob4.id)
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', post_id: ob4.id)
 
 ob5 = Post.create(title: 'Object In Nature - Session 5',
@@ -145,6 +148,7 @@ ob7 = Post.create(title: 'Object In Nature - Session 7',
                   type: 'time-lapse',
                   date_published: DateTime.new(2012, 11, 1, 14, 43))
 
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', type: 'scrolling', tile: true, post_id: ob7.id)
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-7.jpg', post_id: ob7.id)
 
 
@@ -262,6 +266,7 @@ p = Post.create(title: 'Burning Man 2012',
                 style: 'album-strip',
                 date_published: DateTime.new(2012, 10, 30, 12, 35))
 
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/stormy-sky.jpg', type: 'scrolling', tile: true, post_id: p.id)
 (1..99).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/burning-man/burning-man-#{i}.jpg", post_id: p.id, position: i) }
 
 p = Post.create(title: "Messages In A Bottle",
@@ -435,7 +440,7 @@ p = Post.create(title: 'A Day Trip to the Russian River',
                 style: 'album-thumbnails',
                 date_published: DateTime.new(2012, 10, 19, 17, 28))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg', type: 'shift_up', tile: false, post_id: p.id)
 
 (1..27).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-#{i}.jpg", post_id: p.id, position: i) }
 

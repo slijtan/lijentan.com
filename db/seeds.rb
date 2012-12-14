@@ -5,6 +5,129 @@ Video.delete_all
 BackgroundImage.delete_all
 Quote.delete_all
 
+p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 2',
+                body:
+
+%{
+Premises of PP:
+1. Bridge building vs Division and separation - This class will go against a lot of traditional psych with demarkation and division, and instead will build bridges
+2. Change is possible vs Change is illusive - Change is possible. Conventional wisdom believes that change isn't possible and that we're stuck with our early upbringing and genetic disposition (with minor deviations)
+3. [Internal factors primarily determine happiness vs Happiness is primarily a function of external circumstances](#p-lec-1-3) - People believe that "only if I get x, y, or z, then I'll be happy", but research shows that this isn't true.  Happiness is much more about the internal.
+4. [Human nature must be obeyed vs Human nature must be perfected](#p-lec-1-4)
+5. [Happiness is and ought to be the ultimate end vs Happiness should be a secondary pursuit](#p-lec-1-5)
+
+### <a name="p-lec-1-3"></a>Premise 3 - Internal factors primarily determine happiness VS happiness is primarily a function of external circumstances
+In the past, there has been much research about "Subjective Well-Being" (aka "happiness") where they measure happiness through self reports and collect peoples' subjective evaluation about how they're feeling. Recently there have been more studies trying to study happiness in a more "objective" manner, but we’ll talk about this later.  Most of the research, however, has been done through questionnaires. They have found high correlation in both the subjective and the objective ones.
+
+Dan Gilbert did research on how well people predict their levels of (un)happiness in the future at Northwestern University.  He went to psychology professors just before their tenure or non-tenure decision. He asked (1) how happy will you be if you get tenure? Most responded, extremely happy; they thought it would be the peak of their experience.  (2) How long will you be happy for? Most responded the rest of their lives. They were thinking "This is what I've been working on, it'll make or break my happiness".  (3) If you dont get tenure, how long will be distraught? Most responded for a very long time, probably until they get tenure from somewhere else.
+
+Then he went back to them after they got their tenure decision.  For people who got it, they were ecstatic and felt like this feeling of happiness would last a long time. For people who didn’t get it, they were completely distraught and thought they would still be feeling this way for a while.
+
+And then he went back to them a few months later. He found that both groups returned to their base level of happiness.  If they were down after they bounced back up, and if they were up after they came back down.
+
+He did a similar experiment with people winning the state lottery and found the exact same thing.  Winning the lottery did not affect their long term happiness levels.
+
+Think about when you got into Harvard.  When you got that big acceptance letter...  how happy were you? You were ecstatic! And then... classes begin... and then we usually go back to our base level of happiness.
+
+This is how our happiness works.  Why do you think there are so many extremely successful people who are depressed? They get an idea that once they get "there", they will be happy.  Then they get there, but then what?  They aren't happy, so they feel disillusioned. So many people think "when I get … then Ill be happy", but it doesnt work that way.
+
+There's more research by Ed Diener from the university of Illinois that shows similar results:
+
+- Income matters little to national happiness (beyond a GDP of $8k outside of US)
+- No change across generations
+- Place of residence is irrelevant (except people with Seasonal Affected Disorder)
+- Democracy and oppression DO show a significant difference
+
+Generally speaking, external circumstances make very little difference. What will make a difference? Our readiness and potential to experience happiness is mostly dependent on our state of mind, not on our status or the state of our bank account.
+
+So what can we do to raise the base level of happiness?  We'll talk about these more later, but some things that we can do are:
+
+- Meditation - changes the internal pathways
+- Learning to interpret events differently - ie: cognitive behavioral therapy
+- Exercise - cultivates self-esteem
+
+
+### <a name="p-lec-1-4"></a>Premise 4 - Human nature must be obeyed VS Human nature must be perfected
+Is our nature fixed or can we actually change and modify them?
+
+Thomas Sowell (Harvard class of 1958) wrote the book *A Conflict of Visions* (great political book). He says, you can divide political thinkers into 2 realms.  One side has the constrained vision; that human nature is fixed and we can't change it.  The other side has the view that we need to perfect human nature (utopianism).
+
+Constrained Vision (ie: Adam Smith, Edmund Burke, Ayn Rand, Hayak, Alexander Hamilton)
+
+- Human nature is immutable
+- Flaws inevitable
+- Acceptance
+- Channel nature
+"Nature to be commanded must be obeyed" - Francis Bacon
+
+Unconstrained Vision (ie: Rousseau, George Bernard Shaw, Ronald Dworkin)
+
+- Human nature can be improved
+- Perfectible
+- Solutions exist
+- Change nature
+"It is for self-perfectioning that destiny calls us" - Benjamin Constant
+
+Sowell shows how having one vision as opposed to the other leads to radically different results. Constrained vision would be the capitalists. They would think that humans are going to compete and beat each other, so how can we channel this effectively?  In contrast, the unconstrained vision leads to communism and utopianism.  We can make people better, we can make our society better... It's not a hard line, for example people can be psychologically constrained, but politically unconstrained.
+
+Most people can agree on the fact that we have a selfish gene and a benevolent gene.  The question is what can we do with those genes?
+
+In Tal's mind a healthy psychology falls on the constrained side of human nature. We have certain instincts and wants, and that they are unchangeable.  Circumstances change, fashion changes, technology changes, but our human nature is immutable and doesn't change.  The role of psychology is to understand this nature.  Once we understand it, how can we make the best use of it? And this is what Tal believes will lead to ultimate happiness. If, on the other hand, we do try and change it, we will encounter a brick wall in a battle that we will never win and it will lead to unhappiness.
+
+This is one of the central pillars of this class and of a fulfilling life, and has contributed a great deal to Tal's happiness.  It was when he gave himself the permission to be human (also the title of his next book). *Permission To Be Human*. Accepting things that are a part of who we are, that wont change, and giving ourselves the permission to experience them.  Giving ourselves unconditional acceptance to experience them.  There are 2 ways to go about these things.  One is to reject them, saying that "I will never be jealous", etc.  The other is to say "im human" and experience them, even if you don't like the feeling.  Other examples are feelings of stress, anger, anxiety, depression, or jealousy.  Give yourself the permission to experience these emotions.
+
+It's not the same as resignation though.  Just because I feel envy toward my closest friend, that does not mean that I will act accordingly and put them down.  No.  You have a choice. When you accept that emotion, you have a choice of what to do with it. The main point is that we shouldnt reject our nature, it's impossible to avoid who we are.
+
+The problem is that society, as a whole, doesnt give us the permission to be human.  Tal calls this *The Great Deception*.  Generally, in America, we dont give each other the permission to be human.  We dont give each other the permission to be sad. If we ask someone "how's it going?", we say "just fine" even if were stressed out; it's the automatic response. You don't have to go to the extreme and share with everyone, but you need people with whom you can be real and share these things.
+
+This deception leads to the great depression.  If everyone else says that they feel great, even if I'm not feeling great, I'll still say that I'm feeling great.  This facade spreads, and each of us will pretend the same which leads to a social downward spiral.
+
+Exercise: close your eyes and identify what you're feeling.  Tell yourself that it's ok, its natural, and embrace those feelings, good and bad.  Go with them, they might change or stay the same, but tell yourself that they are natural and embrace them. Do this for about 5 minutes and then open your eyes.
+
+"God, grant me the serenity to accept the things I cannot change, the courage to change the things I can change, and the wisdom to know the difference." - Reinhold Niebuhr
+
+### <a name="p-lec-1-5"></a>Premise 5 - Happiness is and ought to be our ultimate end VS Happiness should be a secondary pursuit
+
+Tal will argue that happiness IS the ultimate end.
+
+"Happiness is the meaning and purpose of life, the whole aim and end of human existence." - Aristotle
+
+"If we were to ask the question: 'What is human life's chief concern?' one of the answers we should receive would be: 'It is happiness.' How to gain, how to keep, how to recover happiness, is in fact for most men at all times the secret motive of all they do, and of all they are willing to endure." - William James
+
+We spend huge amounts of money to try and ensure our happiness whether it be our government or health systems.  This is true of the East and of the West.
+"Whether one believes in religion or not, whether one believes in this religion or that religion, the very purpose of our life is happiness, the very motion of our life is towards happiness."
+
+Some people say that this doesnt necessarily make happiness the highest goal, we need to pursue higher goals.  So it makes us feel good as an end in itself, but theres more to it
+
+Whats good about positive emotions?
+
+- It feels good to feel good - happiness as an end
+- Broaden and Build - Research by Barbara Fredrickson @ University of Michigan shows that when we experience positive emotions rather than negative, the view of the world has a much broader perspective on reality and it affects everything.  Historically, this broaden and build has strengthened us evolutionarily speaking, theyve made us stronger and more effective today, and this is still true today
+
+"We should work to cultivate positive emotions in ourselves and in those around us not just as end states in themselves, but also as a means to achieving psychological growth and improved psychological and physical health over time... I call this the broaden-and-build theory of positive emotions because positive emotions appear to broaden people’s momentary thought-action repertoires and build their enduring personal resources...
+
+Through experiences of positive emotions people transform themselves, becoming more creative, knowledgeable, resilient, socially integrated, and healthy individuals." - Barbara Fredrickson
+
+As opposed to Narrow and Constricted, in the wild when being attacked by lions, we want to feel anxiety and constrict out emotions to deal with this specific scenario.
+-Overcoming negative emotions - Narrow & Constrict doesnt work well with depression, it makes us focus on negatives and puts us in a negative loop.  Broaden & Build helps to reverse the cycle because it makes us think of positive things and apply them to our world.  Not to take away from embracing the negative emotions, those are healthy as well.  The point is Broaden & Build helps us get out of those narrow mind states.
+- Increased creativity - Experiments show this is true if all other things are equal. Proust would be more creative if he were happy! Research by Fredrickson on 3 groups of interns at a hospital trying to diagnose some type of liver disease.  Group 1 got candy, group 2 read an excerpt of the humanitarian importance of medicine, group 3 was the control.  Group 1 were much more likely to come up with a solution to the problem.  They didn't reach immediate closure on the problem because they had a broaden & build approach
+- Increased motivation & energy - Just think about the last time you were down.  How motivated and how much energy did you have?
+- Success - Comes with increase of creativity, motivation, and energy
+- Physical health
+
+But what about others? Happiness is not a zero sum game; its a positive sum game
+
+"Thousands of candles can be lighted from a single candle, and the life of the candle will not be shortened. Happiness never decreases by being shared.” Buddha
+
+We have better relationships, increased generosity, and has shown to make us help others more as well when were happy
+
+"Be the change you want to see in the world." - Gandhi
+},
+                published: true,
+                type: 'notes',
+                date_published: DateTime.new(2012, 12, 10, 19, 20))
+
+
 p = Post.create(title: "Manga Camera",
                 type: 'album',
                 style: 'album-comic',

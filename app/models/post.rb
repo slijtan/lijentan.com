@@ -210,7 +210,7 @@ class Post < ActiveRecord::Base
     @@album_comic_book_total_width ||= comic_book_width
     @@album_comic_book_total_pages ||= @@album_comic_data_template.count
 
-    location_data = @@album_comic_data_processed[index % @@album_comic_data_processed.count]
+    location_data = @@album_comic_data_processed[index % @@album_comic_data_processed.count].clone
 
     unless(index < @@album_comic_data_processed.count)
       book = (index / @@album_comic_data_processed.count).floor

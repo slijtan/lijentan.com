@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102153028) do
+ActiveRecord::Schema.define(:version => 20121228201408) do
 
   create_table "background_images", :force => true do |t|
     t.integer "post_id",                    :null => false
@@ -27,8 +27,17 @@ ActiveRecord::Schema.define(:version => 20121102153028) do
     t.integer "position", :default => 1
   end
 
+  create_table "post_elements", :force => true do |t|
+    t.integer "post_id"
+    t.integer "element_id"
+    t.string  "element_type"
+    t.string  "position"
+    t.string  "animation_type"
+    t.integer "animation_direction"
+    t.integer "sequence"
+  end
+
   create_table "posts", :force => true do |t|
-    t.string   "type"
     t.string   "space",            :default => "auto"
     t.string   "style"
     t.boolean  "published",        :default => false
@@ -37,7 +46,6 @@ ActiveRecord::Schema.define(:version => 20121102153028) do
     t.datetime "updated_at",                           :null => false
     t.string   "title"
     t.string   "bg_color"
-    t.text     "body"
     t.boolean  "show_header",      :default => true
     t.integer  "min_height"
     t.string   "effect"
@@ -51,6 +59,14 @@ ActiveRecord::Schema.define(:version => 20121102153028) do
     t.string  "type"
     t.string  "text_color"
     t.integer "text_size"
+  end
+
+  create_table "text_boxes", :force => true do |t|
+    t.text    "text"
+    t.string  "style",      :default => "full-margins"
+    t.string  "bg_color"
+    t.integer "text_size"
+    t.string  "text_color"
   end
 
   create_table "videos", :force => true do |t|

@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
 Post.delete_all
+TextBox.delete_all
+PostElement.delete_all
 Image.delete_all
 Video.delete_all
 BackgroundImage.delete_all
 Quote.delete_all
 
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 2',
-                body:
+                published: true,
+                date_published: DateTime.new(2012, 12, 10, 19, 20))
 
+tb = TextBox.create(text:
 %{
 Premises of PP:
 1. Bridge building vs Division and separation - This class will go against a lot of traditional psych with demarkation and division, and instead will build bridges
@@ -122,12 +126,14 @@ But what about others? Happiness is not a zero sum game; its a positive sum game
 We have better relationships, increased generosity, and has shown to make us help others more as well when were happy
 
 "Be the change you want to see in the world." - Gandhi
-},
-                published: true,
-                type: 'notes',
-                date_published: DateTime.new(2012, 12, 10, 19, 20))
+})
+
+PostElement.create(post_id: p.id,
+                   element: tb,
+                   position: 'inline')
 
 
+=begin
 p = Post.create(title: "Manga Camera",
                 type: 'album',
                 style: 'album-comic',
@@ -1020,3 +1026,5 @@ Active Agent
             published: true,
             type: 'notes',
             date_published: DateTime.new(2012, 7, 24, 14, 43))
+
+=end

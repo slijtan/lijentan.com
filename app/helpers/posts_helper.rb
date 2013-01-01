@@ -1,4 +1,18 @@
 module PostsHelper
+
+  def render_post_element(post_element)
+    render partial: 'text_box', locals: {text_box: post_element.element}
+  end
+
+  def text_box_class_and_style(text_box)
+    raw("class=\"text-box #{text_box.style}\"")
+  end
+
+
+  ########################################
+  ######## BEGIN OLD #####################
+  ########################################
+
   def spaces
     ['midground', 'foreground', 'background']
   end
@@ -44,6 +58,7 @@ module PostsHelper
 
     raw("#{html_classes} #{html_styles}")
   end
+
 
   def quote_class_and_style(quote)
     html_classes = "class=\"#{quote.type}\""

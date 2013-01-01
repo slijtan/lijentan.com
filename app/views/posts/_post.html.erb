@@ -6,6 +6,11 @@
     <% end %>
   </header>
 
+  <% post.post_elements.each do |post_element| %>
+  <%= render_post_element(post_element) %>
+  <% end %>
+
+<!--
   <% if post.is_quote? %>
   <% for quote in post.quotes %>
   <figure <%= quote_class_and_style(quote) %>>
@@ -32,5 +37,6 @@
     <% post.images.each do |image| %><a href="#" data-full-size-url="<%= image.url %>" <%= image_class_and_style(image) %>><%= image_tag(image.thumbnail_url) %></a><% end %>
   </div>
   <% end %>
+-->
 
 </article>

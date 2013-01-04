@@ -1,27 +1,49 @@
 module PostsHelper
 
   def render_post_element(post_element)
-    render partial: 'text_box', locals: {text_box: post_element.element}
+    render partial: post_element.element_type.underscore, locals: {post_element: post_element}
   end
 
-  def text_box_class_and_style(text_box)
-    raw("class=\"text-box #{text_box.style}\"")
+  def sprite_attributes(post_element)
+    sprite = post_element.element
+
+    classes = []
+    classes << "sprite"
+    classes << sprite.style
+    classes << post_element.animation_type if post_element.animation_type
+
+    data = {}
+    data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
+
+    styles = []
+    styles << "background: url(#{ asset_path(sprite.url) })"
+
+    html_classes = "class=\"#{classes.join(" ")}\""
+    html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
+    html_styles = "style=\"#{styles.join(";")}\""
+
+    raw("#{html_classes} #{html_styles} #{html_data}")
   end
 
+  def text_box_attributes(post_element)
+    text_box = post_element.element
 
-  ########################################
-  ######## BEGIN OLD #####################
-  ########################################
+    classes = []
+    classes << "text-box"
+    classes << text_box.style
 
-  def spaces
-    ['midground', 'foreground', 'background']
+    styles = []
+    styles << "font-size: #{text_box.text_size}px" if text_box.text_size
+    styles.concat(post_element.position_css)
+
+    html_classes = "class=\"#{classes.join(" ")}\""
+    html_styles = "style=\"#{styles.join(";")}\""
+
+    raw("#{html_classes} #{html_styles}")
   end
 
   def post_class_and_style(post)
-    #CLASSES FIRST
     classes = []
-
-    classes << post.type
 
     if post.space == "auto"
       space = cycle(*spaces, name: "space")
@@ -33,30 +55,29 @@ module PostsHelper
     end
 
     classes << space
-    classes << background_class(post)
-    classes << post.style unless post.style.blank?
     classes << post.effect unless post.effect.blank?
 
     html_classes = "class=\"#{classes.join(" ")}\""
 
-    #AND NOW STYLES
     styles = []
-
-    if post.has_background?
-      bg_urls = []
-      bg_urls << bg_urls_for_space(space)
-      bg_urls << background_css(post)
-      styles << "background: #{bg_urls.join(', ')}"
-    end
+    bg_urls = []
+    bg_urls << bg_urls_for_space(space)
 
     styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
-    styles << "min-height: #{post.min_height}px" unless post.min_height.blank?
+    styles << "height: #{post.height}" unless post.height.blank?
 
-    unless styles.empty?
-      html_styles = "style=\"#{styles.join(";")}\""
-    end
+    html_styles = "style=\"#{styles.join(";")}\"" unless styles.empty?
 
     raw("#{html_classes} #{html_styles}")
+  end
+
+
+  ########################################
+  ######## BEGIN OLD #####################
+  ########################################
+
+  def spaces
+    ['midground', 'foreground', 'background']
   end
 
 
@@ -117,6 +138,7 @@ module PostsHelper
 
   end
 
+=begin
   def background_class(post)
     post.background_images.empty? ? "bg-none" : (["bg"] << post.background_images.map {|image| image.type }).join("-")
   end
@@ -137,6 +159,7 @@ module PostsHelper
       end
     end
   end
+=end
 
   def background_image_repeat_css(background_image)
     background_image.tile ? "repeat" : "no-repeat"

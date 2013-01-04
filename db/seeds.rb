@@ -6,12 +6,14 @@ Image.delete_all
 Video.delete_all
 BackgroundImage.delete_all
 Quote.delete_all
+Sprite.delete_all
 
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 2',
                 published: true,
                 date_published: DateTime.new(2012, 12, 10, 19, 20))
 
-tb = TextBox.create(text:
+tb = TextBox.create(style: 'full-margins',
+                    text:
 %{
 Premises of PP:
 1. Bridge building vs Division and separation - This class will go against a lot of traditional psych with demarkation and division, and instead will build bridges
@@ -128,10 +130,7 @@ We have better relationships, increased generosity, and has shown to make us hel
 "Be the change you want to see in the world." - Gandhi
 })
 
-PostElement.create(post_id: p.id,
-                   element: tb,
-                   position: 'inline')
-
+PostElement.create(post_id: p.id, element: tb, position: 'inline')
 
 =begin
 p = Post.create(title: "Manga Camera",
@@ -157,18 +156,37 @@ p = Post.create(title: "Live in a Vision",
 
 Video.create(video_id: "3I9UsfDZLyQ", post_id: p.id, host: 'youtube')
 
+=end
+
 p = Post.create(title: 'Holstee Pt. 2',
-                type: 'quote',
                 space: 'background',
-                min_height: 600,
+                height: '600px',
                 published: true,
                 show_header: false,
                 date_published: DateTime.new(2012, 11, 9, 11, 15))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-2.jpg', type: 'shift_up', tile: false, post_id: p.id)
-Quote.create(quote: "Life is short.", type: "quote-left-top", post_id: p.id, text_size: 60)
+s = Sprite.create(style: 'image',
+                  url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-2.jpg')
 
+PostElement.create(post_id: p.id,
+                   element: s,
+                   position: 'inline',
+                   animation_type: 'scan',
+                   animation_direction: 'up',
+                   sequence: 1)
 
+tb = TextBox.create(text: 'Life is short.',
+                    style: 'single-column-text',
+                    text_size: 60)
+
+PostElement.create(post_id: p.id,
+                   element: tb,
+                   position: 'top:10%;left:10%;',
+                   sequence: 2)
+
+#Quote.create(quote: "Life is short.", type: "quote-left-top", post_id: p.id, text_size: 60)
+
+=begin
 p = Post.create(title: "The Happy Secret to Better Work",
                 published: true,
             type: 'video',

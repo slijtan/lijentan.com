@@ -3,9 +3,9 @@ class CreatePostElements < ActiveRecord::Migration
     create_table :post_elements do |t|
       t.integer :post_id
       t.references :element, polymorphic: true
-      t.string :position
+      t.string :position, default: 'inline', required: true
       t.string :animation_type, default: nil
-      t.integer :animation_direction, default: nil
+      t.string :animation_direction, default: nil
       t.integer :sequence
     end
   end

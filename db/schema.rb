@@ -11,35 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228201408) do
+ActiveRecord::Schema.define(:version => 20130103230726) do
 
   create_table "background_images", :force => true do |t|
-    t.integer "post_id",                    :null => false
-    t.string  "url",                        :null => false
-    t.string  "type",                       :null => false
-    t.boolean "tile",    :default => false, :null => false
-    t.integer "z_index", :default => 1,     :null => false
+    t.boolean "tile",     :default => false, :null => false
+    t.integer "z_index",  :default => 1,     :null => false
+    t.integer "image_id"
   end
 
   create_table "images", :force => true do |t|
-    t.string  "url"
-    t.integer "post_id"
-    t.integer "position", :default => 1
+    t.string "url"
   end
 
   create_table "post_elements", :force => true do |t|
     t.integer "post_id"
     t.integer "element_id"
     t.string  "element_type"
-    t.string  "position"
+    t.string  "position",            :default => "inline"
     t.string  "animation_type"
-    t.integer "animation_direction"
+    t.string  "animation_direction"
     t.integer "sequence"
   end
 
   create_table "posts", :force => true do |t|
     t.string   "space",            :default => "auto"
-    t.string   "style"
     t.boolean  "published",        :default => false
     t.datetime "date_published"
     t.datetime "created_at",                           :null => false
@@ -47,9 +42,9 @@ ActiveRecord::Schema.define(:version => 20121228201408) do
     t.string   "title"
     t.string   "bg_color"
     t.boolean  "show_header",      :default => true
-    t.integer  "min_height"
     t.string   "effect"
     t.integer  "previous_post_id"
+    t.string   "height"
   end
 
   create_table "quotes", :force => true do |t|
@@ -59,6 +54,11 @@ ActiveRecord::Schema.define(:version => 20121228201408) do
     t.string  "type"
     t.string  "text_color"
     t.integer "text_size"
+  end
+
+  create_table "sprites", :force => true do |t|
+    t.string "url"
+    t.string "style", :default => "image"
   end
 
   create_table "text_boxes", :force => true do |t|

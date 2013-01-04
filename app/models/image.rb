@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  attr_accessible :url, :post_id, :position
+  attr_accessible :url
 
   belongs_to :post
 

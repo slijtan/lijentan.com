@@ -35,6 +35,12 @@ adjust_scanning_background = (element) ->
                         when "down"
                                 x_offset = 50
                                 y_offset = 100.0 - article_y
+                        when "left"
+                                x_offset = 100.0 - article_y
+                                y_offset = 0
+                        when "right"
+                                x_offset = article_y
+                                y_offset = 0
 
                 element.css("background-position", x_offset + "% " + y_offset + "%")
 

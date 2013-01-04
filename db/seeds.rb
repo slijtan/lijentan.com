@@ -463,22 +463,51 @@ p = Post.create(title: "Giants Sweep",
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/giants-sweep/giants-sweep-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
-
+=end
 p = Post.create(title: 'Ninja Assassin',
-                type: 'quote',
                 space: 'background',
                 published: true,
                 show_header: false,
                 effect: 'fade-in',
                 date_published: DateTime.new(2012, 10, 29, 2, 13))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-bg.jpg', type: 'shift_right', tile: false, post_id: p.id, z_index: 1)
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-shade.png', type: 'scrolling', tile: false, post_id: p.id, z_index: 2)
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja.png', type: 'shift_right', tile: false, post_id: p.id, z_index: 3)
+s = Sprite.create(style: 'image',
+                  url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-bg.jpg')
 
-Quote.create(quote: "Come, little brother. Let us play like old times.", type: 'quote-big', post_id: p.id)
+PostElement.create(post_id: p.id,
+                   element: s,
+                   position: 'inline',
+                   animation_type: 'scan',
+                   animation_direction: 'right',
+                   sequence: 1)
 
+s = Sprite.create(style: 'image',
+                  url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-shade.png')
 
+PostElement.create(post_id: p.id,
+                   element: s,
+                   position: 'inline',
+                   sequence: 2)
+
+s = Sprite.create(style: 'image',
+                  url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja.png')
+
+PostElement.create(post_id: p.id,
+                   element: s,
+                   position: 'inline',
+                   animation_type: 'scan',
+                   animation_direction: 'right',
+                   sequence: 3)
+
+tb = TextBox.create(text: 'Come, little brother. Let us play like old times.',
+                    style: 'quote-big')
+
+PostElement.create(post_id: p.id,
+                   element: tb,
+                   position: 'inline',
+                   sequence: 4)
+
+=begin
 p = Post.create(title: 'Another Summer Weekend',
                 body:
                 %{It was another memorable weekend in SF.

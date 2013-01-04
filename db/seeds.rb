@@ -176,15 +176,13 @@ PostElement.create(post_id: p.id,
                    sequence: 1)
 
 tb = TextBox.create(text: 'Life is short.',
-                    style: 'single-column-text',
+                    style: 'single-line-text',
                     text_size: 60)
 
 PostElement.create(post_id: p.id,
                    element: tb,
                    position: 'top:10%;left:10%;',
                    sequence: 2)
-
-#Quote.create(quote: "Life is short.", type: "quote-left-top", post_id: p.id, text_size: 60)
 
 =begin
 p = Post.create(title: "The Happy Secret to Better Work",
@@ -317,19 +315,37 @@ BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-
 
 Quote.create(quote: "Imitation is the sincerest form of flattery", source: "Inspired by 2012.hd-live.co.uk", type: "quote-big", post_id: p.id, text_color: "#D0531F")
 
+=end
 p = Post.create(title: 'Holstee Pt. 1',
-                type: 'quote',
                 space: 'background',
-                min_height: 600,
+                height: '600px',
                 published: true,
                 show_header: false,
                 effect: 'fade-in',
                 date_published: DateTime.new(2012, 10, 31, 11, 15))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg', type: 'shift_down', tile: false, post_id: p.id)
-Quote.create(quote: "Live your dream and share your passion.", type: "quote-right-float-up", post_id: p.id, text_size: 30)
+s = Sprite.create(style: 'image',
+                  url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg')
 
+PostElement.create(post_id: p.id,
+                   element: s,
+                   position: 'inline',
+                   animation_type: 'scan',
+                   animation_direction: 'down',
+                   sequence: 1)
 
+tb = TextBox.create(text: 'Live your dream and share your passion.',
+                    style: 'single-line-text',
+                    text_size: 30)
+
+PostElement.create(post_id: p.id,
+                   element: tb,
+                   position: 'right',
+                   animation_type: 'scan',
+                   animation_direction: 'up',
+                   sequence: 2)
+
+=begin
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
                 body:
                 %{

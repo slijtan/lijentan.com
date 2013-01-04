@@ -3,5 +3,5 @@ class TextBox < ActiveRecord::Base
 
   has_one :post_element, as: :element
 
-  validates_inclusion_of :style, in: ['full-margins', 'single-column-text']
+  validates_inclusion_of :style, in: ['full-margins', 'single-column-text', 'single-line-text']
 end

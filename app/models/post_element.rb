@@ -36,16 +36,16 @@ class PostElement < ActiveRecord::Base
       else
         case css_attribute
         when 'top'
-          css_styles[:top] = 'top:0px';
+          css_styles[:top] = '0px';
 
         when 'bottom'
-          css_styles[:bottom] = 'bottom:0px';
+          css_styles[:bottom] = '0px';
 
         when 'left'
-          css_styles[:left] = 'left:0px';
+          css_styles[:left] = '0px';
 
         when 'right'
-          css_styles[:right] = 'right:0px';
+          css_styles[:right] = '0px';
 
         when 'v-center'
 

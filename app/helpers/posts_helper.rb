@@ -4,6 +4,7 @@ module PostsHelper
     render partial: post_element.element_type.underscore, locals: {post_element: post_element}
   end
 
+  #TODO refactor the attribute functions a bit
   def sprite_attributes(post_element)
     sprite = post_element.element
 
@@ -17,6 +18,7 @@ module PostsHelper
 
     styles = []
     styles << "background: url(#{ asset_path(sprite.url) })"
+    styles.concat(post_element.position_css)
 
     html_classes = "class=\"#{classes.join(" ")}\""
     html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
@@ -31,15 +33,20 @@ module PostsHelper
     classes = []
     classes << "text-box"
     classes << text_box.style
+    classes << post_element.animation_type if post_element.animation_type
+
+    data = {}
+    data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
 
     styles = []
-    styles << "font-size: #{text_box.text_size}px" if text_box.text_size
+    styles << "font-size:#{text_box.text_size}px" if text_box.text_size
     styles.concat(post_element.position_css)
 
     html_classes = "class=\"#{classes.join(" ")}\""
+    html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
     html_styles = "style=\"#{styles.join(";")}\""
 
-    raw("#{html_classes} #{html_styles}")
+    raw("#{html_classes} #{html_styles} #{html_data}")
   end
 
   def post_class_and_style(post)
@@ -85,8 +92,8 @@ module PostsHelper
     html_classes = "class=\"#{quote.type}\""
 
     styles = []
-    styles << "font-size: #{quote.text_size}px" unless quote.text_size.blank?
-    styles << "color: #{quote.text_color}" unless quote.text_color.blank?
+    styles << "font-size:#{quote.text_size}px" unless quote.text_size.blank?
+    styles << "color:#{quote.text_color}" unless quote.text_color.blank?
 
     unless styles.empty?
       html_styles = "style=\"#{styles.join(";")}\""

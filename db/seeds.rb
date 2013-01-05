@@ -8,7 +8,7 @@ BackgroundImage.delete_all
 Quote.delete_all
 Sprite.delete_all
 
-p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 2',
+p = Post.create(title: 'Premises of Positive Psychology Part 2',
                 published: true,
                 date_published: DateTime.new(2012, 12, 10, 19, 20))
 
@@ -894,7 +894,7 @@ s = Sprite.create(style: 'image',
 
 PostElement.create(post_id: p.id,
                    element: s,
-                   position: 'top;h-center',
+                   position: 'v-center;h-center',
                    animation_type: 'fixed',
                    sequence: 1)
 
@@ -970,8 +970,14 @@ Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-1.jpg', post_id
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-2.jpg', post_id: p.id, position: 3)
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-3.jpg', post_id: p.id, position: 2)
 
-Post.create(title: 'Harvard Psychology 1504 - History and Introduction to Positive Psychology',
-            body:
+=end
+
+p = Post.create(title: 'History and Introduction to Positive Psychology',
+            published: true,
+            date_published: DateTime.new(2012, 7, 11, 14, 43))
+
+tb = TextBox.create(style: 'full-margins',
+                    text:
             %{
 The first 3 lectures are to get a sense of what the class is about to see if it's something for you. It might not be for everybody.  This class is "applied" and "strength" psychology (aka "positive" psychology).
 
@@ -1034,14 +1040,17 @@ We will be studying ourselves and others, which is a great way to learn.  It tak
 
 this course = rigor (academia) + fun/accessibility (self-help movement)
 
-Topics for lectures will include: science of positive thinking, question of focus, external vs internal, how to change perspective and interpretations, can we change? yes we can change, the mind body connection, importance of sleep, perfectionism, humor, relationships},
+Topics for lectures will include: science of positive thinking, question of focus, external vs internal, how to change perspective and interpretations, can we change? yes we can change, the mind body connection, importance of sleep, perfectionism, humor, relationships})
+
+PostElement.create(post: p, element: tb)
+
+
+p = Post.create(title: 'Why is Positive Psychology So Important?',
             published: true,
-            type: 'notes',
-            date_published: DateTime.new(2012, 7, 11, 14, 43))
+            date_published: DateTime.new(2012, 7, 24, 14, 43))
 
-
-Post.create(title: 'Harvard Psychology 1504 - Why is Positive Psychology So Important?',
-            body:
+tb = TextBox.create(style: 'full-margins',
+                    text:
             %{This past week the Tal was really sick and was sent to the ER.  In the process he asked himself "what do I want to do with my life".  Spend time with family, but more specifically, professionally?  What does he want to get out of this year?  He wants to leave a coherent document for others to understand his view of PP. Ultimately the reason he went to the ER was a false alarm.
 
 So why is PP so important? Why did the grandparents and parents of positive psychology think this had to be it's own community of psychology instead of as part of the whole?
@@ -1119,9 +1128,6 @@ Active Agent
 - hope & optimism
 - forgive/forget
 
->The message of the positive psychology movement is to remind our field that it has been deformed. Psych is not just the study of disease, weakness, and damage.  It also is the study of strength and virtue.  Treatment is not just fixing what is wrong, it also is building what is right. Psychology is not just about illness or health, it is about work, education, insight, love, growth, and play. And in this quest for what is best, PP does not rely on wishful thinking, self-deception or hand-waving. Instead it tries to adapt what is best in the scientific method to the unique problems that human behavior presents in all it's complexity. - Martin Seligman},
-            published: true,
-            type: 'notes',
-            date_published: DateTime.new(2012, 7, 24, 14, 43))
+>The message of the positive psychology movement is to remind our field that it has been deformed. Psych is not just the study of disease, weakness, and damage.  It also is the study of strength and virtue.  Treatment is not just fixing what is wrong, it also is building what is right. Psychology is not just about illness or health, it is about work, education, insight, love, growth, and play. And in this quest for what is best, PP does not rely on wishful thinking, self-deception or hand-waving. Instead it tries to adapt what is best in the scientific method to the unique problems that human behavior presents in all it's complexity. - Martin Seligman})
 
-=end
+PostElement.create(post: p, element: tb)

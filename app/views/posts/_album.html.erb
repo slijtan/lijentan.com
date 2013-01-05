@@ -1,0 +1,5 @@
+<div <%= album_attributes(post_element) %>>
+  <% for album_element in post_element.element.album_elements %>
+  <%= render_album_element(album_element) %>
+  <% end %>
+</div>

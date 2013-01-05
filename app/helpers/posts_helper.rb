@@ -4,6 +4,10 @@ module PostsHelper
     render partial: post_element.element_type.underscore, locals: {post_element: post_element}
   end
 
+  def render_album_element(album_element)
+    render partial: album_element.element_type.underscore, locals: {element: album_element.element}
+  end
+
   #TODO refactor the attribute functions a bit
   def sprite_attributes(post_element)
     sprite = post_element.element
@@ -25,6 +29,22 @@ module PostsHelper
     html_styles = "style=\"#{styles.join(";")}\""
 
     raw("#{html_classes} #{html_styles} #{html_data}")
+  end
+
+  def album_attributes(post_element)
+    album = post_element.element
+
+    classes = []
+    classes << "album"
+    classes << album.style
+
+    styles = []
+    styles.concat(post_element.position_css)
+
+    html_classes = "class=\"#{classes.join(" ")}\""
+    html_styles = "style=\"#{styles.join(";")}\""
+
+    raw("#{html_classes} #{html_styles}")
   end
 
   def text_box_attributes(post_element)

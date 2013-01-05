@@ -200,22 +200,6 @@ article {
             border-top: solid 1px $foreground-txt-light;
         }
     }
-
-    .images {
-        margin: 30px auto 10px;
-        width: 80%;
-        text-align: center;
-        overflow: auto;
-        z-index: 1;
-        position: relative;
-
-        img {
-            margin: 5px;
-            width: auto;
-            height: auto;
-            max-height: 200px;
-        }
-    }
 }
 
 /* ----------------------
@@ -380,6 +364,30 @@ article.video {
 .image {
     background-repeat: no-repeat !important;
 }
+
+.fixed {
+    background-attachment: fixed !important;
+}
+
+/* ----------------------
+   Album Formats
+   -------------------------*/
+.album {
+    margin: 30px auto 10px;
+    width: 80%;
+    text-align: center;
+    overflow: auto;
+    position: relative;
+
+    img {
+        margin: 5px;
+        width: auto;
+        height: auto;
+        max-height: 150px;
+    }
+}
+
+
 
 
 /* ----------------------
@@ -553,9 +561,6 @@ article.time-lapse {
     }
 }
 
-article.album div.images img {
-    max-height: 150px;
-}
 
 article.album-strip {
 

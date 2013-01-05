@@ -882,20 +882,41 @@ To get it to work, I just simply adjust the background-position from "50% 0%" to
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-fg.png', type: 'shift_down', tile: true, z_index: 2, post_id: p.id)
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-bg.png', type: 'shift_down', tile: true, z_index: 1, post_id: p.id)
 
+=end
 
 p = Post.create(title: 'Iceland, Germany, and Amsterdam',
-                body:
-                %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.},
-            space: 'background',
+                space: 'background',
                 published: true,
-                type: 'album',
-                style: 'album-thumbnails',
                 date_published: DateTime.new(2012, 7, 15, 14, 43))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/eu/eu-bg.jpg', type: 'fixed', tile: false, post_id: p.id)
+s = Sprite.create(style: 'image',
+                  url: 'http://dl.dropbox.com/u/4893047/posts/eu/eu-bg.jpg')
 
-(1..28).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/eu/eu-#{i}.jpg", post_id: p.id, position: i) }
+PostElement.create(post_id: p.id,
+                   element: s,
+                   position: 'top;h-center',
+                   animation_type: 'fixed',
+                   sequence: 1)
 
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.})
+
+PostElement.create(post_id: p.id,
+                   element: tb,
+                   position: 'inline',
+                   sequence: 2)
+
+a = Album.create(style: 'thumbnail-rows')
+
+(1..28).each { |i| AlbumElement.create(album: a, element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/eu/eu-#{i}.jpg"), sequence: i) }
+
+PostElement.create(post_id: p.id,
+                   element: a,
+                   position: 'inline',
+                   sequence: 3)
+
+=begin
 p = Post.create(title: 'Norway',
                 body:
                 %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has it's price, and Norway was well worth every penny.},

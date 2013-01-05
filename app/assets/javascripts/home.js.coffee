@@ -275,7 +275,7 @@ setup_nav = ->
 
 setup_images = ->
         #MAKE IMAGES CLICKABLE
-        $('div.images a').click -> modal.open_image($(this))
+        $('.album a').click -> modal.open_image($(this))
 
 rate = 0
 max_position = 0

@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103230726) do
+ActiveRecord::Schema.define(:version => 20130105014309) do
+
+  create_table "album_elements", :force => true do |t|
+    t.integer "album_id"
+    t.integer "element_id"
+    t.string  "element_type"
+    t.integer "sequence"
+  end
+
+  create_table "albums", :force => true do |t|
+    t.string "style"
+  end
 
   create_table "background_images", :force => true do |t|
     t.boolean "tile",     :default => false, :null => false
@@ -21,6 +32,10 @@ ActiveRecord::Schema.define(:version => 20130103230726) do
 
   create_table "images", :force => true do |t|
     t.string "url"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.text "url"
   end
 
   create_table "post_elements", :force => true do |t|

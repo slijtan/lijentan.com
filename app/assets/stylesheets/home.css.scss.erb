@@ -293,6 +293,16 @@ article.notes header {
     width: 960px;
 }
 
+.two-column-text {
+    width: 750px;
+    -moz-column-count: 2; // Firefox
+    -webkit-column-count: 2; // Safari and Chrome
+    column-count: 2;
+    -moz-column-gap: 35px; // Firefox
+    -webkit-column-gap: 35px; // Safari and Chrome
+    column-gap: 35px;
+}
+
 .single-line-text {
     display: inline;
 }
@@ -323,14 +333,6 @@ article.notes header {
 
 
 /*
-article.two-column-text div.body {
-    -moz-column-count: 2; // Firefox
-    -webkit-column-count: 2; // Safari and Chrome
-    column-count: 2;
-    -moz-column-gap: 35px; // Firefox
-    -webkit-column-gap: 35px; // Safari and Chrome
-    column-gap: 35px;
-}
 
 article.notes div.body blockquote, article.single-column-text div.body blockquote {
     margin-top: 25px;

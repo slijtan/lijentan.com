@@ -507,10 +507,16 @@ PostElement.create(post_id: p.id,
                    position: 'inline',
                    sequence: 4)
 
-=begin
+
 p = Post.create(title: 'Another Summer Weekend',
-                body:
-                %{It was another memorable weekend in SF.
+                space: 'midground',
+                published: true,
+                date_published: DateTime.new(2012, 10, 29, 20, 13))
+
+
+tb = TextBox.create(style: 'two-column-text',
+                    text:
+                    %{It was another memorable weekend in SF.
 On Friday we celebrated my good friend Angela's birthday, and we celebrated it on a historic ship from WWII, the S.S. Jeremiah O'Brien.
 
 ![The S.S. Jeremiah O'Brien](http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-2-th.jpg)
@@ -559,15 +565,22 @@ There was a band playin' some celebratory music.
 Today Jas and I drove over to Dublin and bought a Cajon, which is a percussion kinda like a bongo drop. Can't wait to play it!
 
 ![Cajon](http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-13-th.jpg)
-},
-                space: 'midground',
-                published: true,
-                type: 'two-column-text',
-                date_published: DateTime.new(2012, 10, 29, 20, 13))
+})
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
+PostElement.create(post_id: p.id,
+                   element: tb,
+                   position: 'inline',
+                   sequence: 2)
 
+s = Sprite.create(style: 'image',
+                  url: 'http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-bg.jpg')
 
+PostElement.create(post_id: p.id,
+                   element: s,
+                   position: 'inline',
+                   sequence: 1)
+
+=begin
 p = Post.create(title: "It's Time - Imagine Dragons",
                 published: true,
                 space: 'background',

@@ -862,9 +862,24 @@ Quote.create(quote: "Multiply the best roller coaster you can imagine by 100", s
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 
+=end
+
 p = Post.create(title: 'Levitating Sheep',
-                body:
-                %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). ![A Poor Sheep](http://dl.dropbox.com/u/4893047/posts/parallax/sheep.jpg)
+                space: 'foreground',
+                published: true,
+                date_published: DateTime.new(2012, 10, 5, 15, 3))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-fg.png', style: 'tiling')
+
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'up', sequence: 1)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-bg.png', style: 'tiling')
+
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 2)
+
+tb = TextBox.create(style: 'two-column-text',
+                    text:
+                    %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). ![A Poor Sheep](http://dl.dropbox.com/u/4893047/posts/parallax/sheep.jpg)
 
 The basic premise is, as a user is scrolling through a post, a background image will also scroll from top to bottom within the post's background. I thought this looked pretty cool as a first run with only one background image, but then I had the idea to add an additional background image layer so that I can use 2 layers of scrolling backgrounds. If the top layer's image has a greater height, then it will scroll faster than the bottom layer's image, which esentially creates a simple parallax effect. That's the effect that I used to get these levitating sheep, with some being farther away and some being closer. Heres the simplified css:
 
@@ -873,16 +888,9 @@ background-image: url(big-falling-sheep.png), url(small-falling-sheep.png);
 background-position: 50% 0%;
 ```
 
-To get it to work, I just simply adjust the background-position from "50% 0%" to "50% 100%" using javascript as the user scrolls along the page.},
-                space: 'foreground',
-                published: true,
-                type: 'two-column-text',
-                date_published: DateTime.new(2012, 10, 5, 15, 3))
+To get it to work, I just simply adjust the background-position from "50% 0%" to "50% 100%" using javascript as the user scrolls along the page.})
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-fg.png', type: 'shift_down', tile: true, z_index: 2, post_id: p.id)
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-bg.png', type: 'shift_down', tile: true, z_index: 1, post_id: p.id)
-
-=end
+PostElement.create(post: p, element: tb, sequence: 3)
 
 p = Post.create(title: 'Iceland, Germany, and Amsterdam',
                 space: 'background',

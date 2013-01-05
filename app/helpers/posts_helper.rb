@@ -60,6 +60,7 @@ module PostsHelper
 
     styles = []
     styles << "font-size:#{text_box.text_size}px" if text_box.text_size
+    styles << "color:#{text_box.text_color}" if text_box.text_color
     styles.concat(post_element.position_css)
 
     html_classes = "class=\"#{classes.join(" ")}\""

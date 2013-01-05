@@ -296,26 +296,44 @@ ob7 = Post.create(title: 'Object In Nature - Session 7',
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', type: 'scrolling', tile: true, post_id: ob7.id)
 Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-7.jpg', post_id: ob7.id)
 
-
+=end
 p = Post.create(title: 'Playing With Backgrounds',
-                type: 'quote',
                 space: 'auto',
                 bg_color: "#0C4F59",
                 published: true,
                 show_header: false,
+                height: "700px",
                 date_published: DateTime.new(2012, 10, 31, 18, 6))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-2.png', type: 'shift_down', tile: true, post_id: p.id, z_index: 1)
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-5.png', type: 'shift_up', tile: true, post_id: p.id, z_index: 2)
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-3.png', type: 'shift_down', tile: true, post_id: p.id, z_index: 3)
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-1.png', type: 'shift_up', tile: true, post_id: p.id, z_index: 4)
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-3.png', type: 'shift_down', tile: true, post_id: p.id, z_index: 5)
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-2.png', style: 'tiling')
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-5.png', style: 'tiling')
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'up', sequence: 2)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-3.png', style: 'tiling')
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 3)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-1.png', style: 'tiling')
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'up', sequence: 4)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-3.png', style: 'tiling')
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 5)
+
+tb = TextBox.create(style: 'quote-big',
+                    text: '"Imitation is the sincerest form of flattery"',
+                    text_color: "#D0531F")
+
+PostElement.create(post: p, element: tb, sequence: 6)
+
+tb = TextBox.create(style: 'single-line-text',
+                    text: 'Inspired by 2012.hd-live.co.uk',
+                    text_size: "50px",
+                    text_color: "#D0531F")
+
+PostElement.create(post: p, element: tb, position: "right", sequence: 7)
 
 
-
-Quote.create(quote: "Imitation is the sincerest form of flattery", source: "Inspired by 2012.hd-live.co.uk", type: "quote-big", post_id: p.id, text_color: "#D0531F")
-
-=end
 p = Post.create(title: 'Holstee Pt. 1',
                 space: 'background',
                 height: '600px',

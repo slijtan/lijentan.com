@@ -916,20 +916,29 @@ PostElement.create(post_id: p.id,
                    position: 'inline',
                    sequence: 3)
 
-=begin
+
 p = Post.create(title: 'Norway',
-                body:
-                %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has it's price, and Norway was well worth every penny.},
-            published: true,
+                published: true,
                 space: 'midground',
-                type: 'album',
-                style: 'album-thumbnails',
                 date_published: DateTime.new(2012, 9, 24, 14, 43))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/norway/norway-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/norway/norway-bg.jpg', style: 'image')
 
-(1..17).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/norway/norway-#{i}.jpg", post_id: p.id, position: i) }
+PostElement.create(post: p, element: s, sequence: 1)
 
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has it's price, and Norway was well worth every penny.})
+
+PostElement.create(post: p, element: tb, sequence: 3)
+
+a = Album.create(style: 'thumbnail-rows')
+
+(1..17).each { |i| AlbumElement.create(album: a, element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/norway/norway-#{i}.jpg"), sequence: i )}
+
+PostElement.create(post: p, element: a, sequence: 2)
+
+=begin
 p = Post.create(title: 'The Tac Cup',
                 body:
                 %{So recently Steven decided to start officially keeping track of our beer pong records and to set up a ladder ranking system to finally figure out who's the best of the best. We are using the Elo Ranking system, which is the system that is used for chess rankings as well as a whole bunch of different ladder systems (we used it on Wasteland Empires for our leaderboard). We also got a trophy that works kinda like a championship belt. Whoever is at the top of the ladder gets to hold onto it, and it will change hands as the top ranked player gets dethroned from season to season. We decided to call it the "Canuto Tacderan Cup" after our landlord, Tac, because we've played the majority of beer pong games in this apartment and the apartment downstairs. And why the pig you ask? Well, I'd like to answer your question with another question… why not?<br /><br />

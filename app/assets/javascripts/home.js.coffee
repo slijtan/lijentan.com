@@ -311,6 +311,63 @@ setup_fade_in = ->
         $('.fade-in').each ->
                 $(this).append('<div class="fader"></div>') unless $(this).find('.fader').length
 
+move_strip_album = ->
+        new_left = Math.max(Math.min(images_div.position().left - rate * maxspeed, 0), -1 * max_position)
+        images_div.css('left', new_left)
+
+
+setup_coffee_table_album = ->
+        distance_between_images = 35
+
+        $('.coffee-table').each ->
+                images = $(this).find('img')
+                count = images.length
+                container_width = distance_between_images * count + parseFloat(images.first().css("max-width"))
+                $(this).css("width", "#{container_width}px")
+
+                images.each (index) ->
+                        rot_direction = if index % 2 == 0 then "-" else ""
+                        rot_value = Math.random() * 7 + 5
+                        pos_direction = if index % 10 < 5 then "" else "-"
+                        rotation = if $(this).is(images.first()) then "0deg" else "#{rot_direction}#{rot_value}deg"
+                        top = "#{pos_direction}#{(index % 5) * 9}px"
+                        zindex = count - index + count #we offset the zindex by the count to keep it positive
+                        $(this).css("right", "#{distance_between_images * (count - index)}px")
+                        $(this).css("z-index", zindex)
+                        $(this).css("-webkit-transform", "rotate(#{rotation})") #TODO: support other browsers...
+                        $(this).css("top", "#{top}")
+                        $(this).data("rotation", rotation)
+                        $(this).data("top", top)
+                        $(this).data("zindex", zindex)
+
+                images.hover ->
+                        image_to_show = $(this)
+                        image_to_show_found = false
+
+                        images.each (index) ->
+                                if $(this).is(image_to_show)
+                                        $(this).css("z-index", $(this).data("zindex")).stop().transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
+                                                700,
+                                                "snap")
+                                                .removeClass('flipped')
+                                        image_to_show_found = true
+
+                                else if image_to_show_found #after found image
+                                        if $(this).hasClass("flipped") #that needs to be flipped back
+                                                $(this).stop().css("z-index", $(this).data("zindex")).transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
+                                                        700,
+                                                        "snap")
+                                                        .removeClass('flipped')
+
+                                else #before found image
+                                        unless $(this).hasClass("flipped") #that needs to be flipped
+                                                rotation = Math.random() * 180 + 90 #80-110 degrees
+                                                $(this).stop().transition({marginRight: "300px", rotate: "-=#{rotation}deg", top: "+100px"},
+                                                        700,
+                                                        "snap",
+                                                        -> $(this).css("z-index", "#{2 * count - parseInt($(this).data('zindex'))}"))
+                                                        .addClass("flipped")
+###
 setup_time_lapse = ->
         distance_between_images = 35
 
@@ -363,12 +420,7 @@ setup_time_lapse = ->
                                                         "snap",
                                                         -> $(this).css("z-index", "-#{$(this).data('zindex')}"))
                                                         .addClass("flipped")
-
-
-move_strip_album = ->
-        new_left = Math.max(Math.min(images_div.position().left - rate * maxspeed, 0), -1 * max_position)
-        images_div.css('left', new_left)
-
+###
 
 setup_videos = ->
         #Replace video tags with iframes
@@ -467,7 +519,7 @@ setup_posts = ->
         setup_images()
         setup_strip_albums()
         setup_fade_in()
-        setup_time_lapse()
+        setup_coffee_table_album()
 
 
 $ ->

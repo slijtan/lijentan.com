@@ -196,17 +196,20 @@ p = Post.create(title: "The Happy Secret to Better Work",
 
 Video.create(video_id: "fLJsdqxnZb0", post_id: p.id, host: 'youtube')
 
-
+=end
 p = Post.create(title: "GoPro on CK's 30th",
-                type: 'time-lapse',
                 space: 'background',
                 published: true,
                 date_published: DateTime.new(2012, 11, 5, 16, 23))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/wood-1.png', type: 'scrolling', tile: true, post_id: p.id)
-(1..28).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/ck-bday-time-lapse/ck-bday-time-lapse-#{i}.jpg", post_id: p.id, position: i) }
+s = Sprite.create(style: 'tiling', url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/wood-1.png')
+PostElement.create(post: p, element: s, sequence: 1)
 
+a = Album.create(style: 'coffee-table')
+(1..28).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/ck-bday-time-lapse/ck-bday-time-lapse-#{i}.jpg"), sequence: i)}
+PostElement.create(post: p, element: a, sequence: 2)
 
+=begin
 p = Post.create(title: "How Will You Measure Your Life?",
                 published: true,
                 space: 'background',

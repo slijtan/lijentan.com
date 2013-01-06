@@ -283,12 +283,12 @@ maxspeed = 100
 images_div = null
 
 setup_strip_albums = ->
-        $('article.album-strip div.images').mousemove (element) ->
+        $('.horizontal-scroll').mousemove (element) ->
                 page_width = $(window).width()
                 page_center = page_width / 2
                 rate = (element.pageX - page_center) / page_width
 
-        $('article.album-strip div.images').hover(
+        $('.horizontal-scroll').hover(
                 ->
                         images_div = $(this)
                         total_width = 0

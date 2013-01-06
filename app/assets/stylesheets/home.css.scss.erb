@@ -177,6 +177,7 @@ article {
     width: 100%;
 //    min-height: 500px;
     position: relative;
+    overflow-x: hidden;
 
     header {
         text-align: center;
@@ -387,6 +388,24 @@ article.video {
     }
 }
 
+.horizontal-scroll {
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+
+    a {
+        display: inline-block;
+        float: left;
+    }
+
+    img {
+        display: inline-block;
+        max-height: 500px;
+        margin: 0;
+    }
+}
+
 
 
 
@@ -557,29 +576,6 @@ article.time-lapse {
             max-width: 300px;
             width: auto;
             position: absolute;
-        }
-    }
-}
-
-
-article.album-strip {
-
-    overflow-x: hidden;
-
-    div.images {
-        white-space: nowrap;
-        width: 100%;
-        overflow-x: hidden;
-        position: relative;
-
-        a {
-            display: inline-block;
-        }
-
-        img {
-            display: inline-block;
-            max-height: 500px;
-            margin: 0;
         }
     }
 }

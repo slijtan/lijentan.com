@@ -7,6 +7,8 @@ Video.delete_all
 BackgroundImage.delete_all
 Quote.delete_all
 Sprite.delete_all
+Album.delete_all
+AlbumElement.delete_all
 
 p = Post.create(title: 'Premises of Positive Psychology Part 2',
                 published: true,
@@ -327,7 +329,7 @@ tb = TextBox.create(style: 'quote-big',
 PostElement.create(post: p, element: tb, sequence: 6)
 
 tb = TextBox.create(style: 'single-line-text',
-                    text: 'Inspired by 2012.hd-live.co.uk',
+                    text: '&minus; Inspired by 2012.hd-live.co.uk',
                     text_size: "50px",
                     text_color: "#D0531F")
 
@@ -440,16 +442,25 @@ The problem is that most people dont understand how change occurs. Take, for exa
                 type: 'notes',
                 date_published: DateTime.new(2012, 10, 31, 10, 13))
 
+=end
+
 p = Post.create(title: 'Burning Man 2012',
                 published: true,
                 space: 'background',
-                type: 'album',
-                style: 'album-strip',
                 date_published: DateTime.new(2012, 10, 30, 12, 35))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/stormy-sky.jpg', type: 'scrolling', tile: true, post_id: p.id)
-(1..99).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/burning-man/burning-man-#{i}.jpg", post_id: p.id, position: i) }
+s = Sprite.create(style: 'tiling',
+                  url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/stormy-sky.jpg')
 
+PostElement.create(post: p, element: s, sequence: 1)
+
+a = Album.create(style: 'horizontal-scroll')
+
+PostElement.create(post: p, element: a, sequence: 2)
+
+(1..99).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/burning-man/burning-man-#{i}.jpg"), sequence: i) }
+
+=begin
 p = Post.create(title: "Messages In A Bottle",
                 published: true,
                 space: 'background',
@@ -887,12 +898,10 @@ p = Post.create(title: 'Levitating Sheep',
                 published: true,
                 date_published: DateTime.new(2012, 10, 5, 15, 3))
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-fg.png', style: 'tiling')
-
-PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'up', sequence: 1)
-
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-bg.png', style: 'tiling')
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1)
 
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-fg.png', style: 'tiling')
 PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 2)
 
 tb = TextBox.create(style: 'two-column-text',
@@ -935,7 +944,7 @@ PostElement.create(post_id: p.id,
 
 a = Album.create(style: 'thumbnail-rows')
 
-(1..28).each { |i| AlbumElement.create(album: a, element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/eu/eu-#{i}.jpg"), sequence: i) }
+(1..28).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/eu/eu-#{i}.jpg"), sequence: i) }
 
 PostElement.create(post_id: p.id,
                    element: a,
@@ -960,7 +969,7 @@ PostElement.create(post: p, element: tb, sequence: 3)
 
 a = Album.create(style: 'thumbnail-rows')
 
-(1..17).each { |i| AlbumElement.create(album: a, element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/norway/norway-#{i}.jpg"), sequence: i )}
+(1..17).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/norway/norway-#{i}.jpg"), sequence: i )}
 
 PostElement.create(post: p, element: a, sequence: 2)
 

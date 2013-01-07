@@ -9,6 +9,18 @@ module PostsHelper
   end
 
   #TODO refactor the attribute functions a bit
+  def video_attributes(post_element)
+    video = post_element.element
+
+    classes = []
+    classes << "video"
+    classes << video.style
+
+    html_classes = "class=\"#{classes.join(" ")}\""
+
+    raw("#{html_classes}")
+  end
+
   def sprite_attributes(post_element)
     sprite = post_element.element
 
@@ -93,7 +105,7 @@ module PostsHelper
     bg_urls << bg_urls_for_space(space)
 
     styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
-    styles << "height: #{post.height}" unless post.height.blank? || post.height == 'full-screen'
+    styles << "min-height: #{post.height}" unless post.height.blank? || post.height == 'full-screen'
 
     html_styles = "style=\"#{styles.join(";")}\"" unless styles.empty?
 

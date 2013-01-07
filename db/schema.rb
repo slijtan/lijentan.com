@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130105014309) do
+ActiveRecord::Schema.define(:version => 20130107054107) do
 
   create_table "album_elements", :force => true do |t|
     t.integer "album_id"
@@ -85,10 +85,9 @@ ActiveRecord::Schema.define(:version => 20130105014309) do
   end
 
   create_table "videos", :force => true do |t|
-    t.string  "video_id"
-    t.integer "post_id"
-    t.string  "host"
-    t.integer "position", :default => 1
+    t.string "video_id"
+    t.string "host"
+    t.string "style"
   end
 
 end

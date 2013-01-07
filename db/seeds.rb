@@ -147,18 +147,17 @@ BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/e
 
 (1..20).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/manga/manga-#{i}.jpg", post_id: p.id, position:  i + 20) }
 
+=end
 
 p = Post.create(title: "Live in a Vision",
-                published: true,
-                type: 'video',
-                style: 'video-big',
                 space: 'background',
                 published: true,
+                show_header: false,
                 date_published: DateTime.new(2012, 11, 10, 12, 57))
 
-Video.create(video_id: "3I9UsfDZLyQ", post_id: p.id, host: 'youtube')
+v = Video.create(video_id: "3I9UsfDZLyQ", style: 'full-width', host: 'youtube')
+PostElement.create(post: p, element: v)
 
-=end
 
 p = Post.create(title: 'Holstee Pt. 2',
                 space: 'background',
@@ -186,17 +185,14 @@ PostElement.create(post_id: p.id,
                    position: 'top:10%;left:10%;',
                    sequence: 2)
 
-=begin
 p = Post.create(title: "The Happy Secret to Better Work",
                 published: true,
-            type: 'video',
-                style: 'video-big',
-            published: true,
+                show_header: false,
                 date_published: DateTime.new(2012, 11, 8, 12, 57))
 
-Video.create(video_id: "fLJsdqxnZb0", post_id: p.id, host: 'youtube')
+v = Video.create(video_id: "fLJsdqxnZb0", style: 'full-width', host: 'youtube')
+PostElement.create(post: p, element: v)
 
-=end
 p = Post.create(title: "GoPro on CK's 30th",
                 space: 'background',
                 published: true,
@@ -209,21 +205,20 @@ a = Album.create(style: 'coffee-table')
 (1..28).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/ck-bday-time-lapse/ck-bday-time-lapse-#{i}.jpg"), sequence: i)}
 PostElement.create(post: p, element: a, sequence: 2)
 
-=begin
+
 p = Post.create(title: "How Will You Measure Your Life?",
                 published: true,
                 space: 'background',
-                type: 'video',
-                style: 'video-big',
-                published: true,
+                show_header: false,
                 date_published: DateTime.new(2012, 11, 5, 10, 56))
 
-Video.create(video_id: "tvos4nORf_Y", post_id: p.id, host: 'youtube')
+v = Video.create(video_id: "tvos4nORf_Y", style: 'full-width', host: 'youtube')
+PostElement.create(post: p, element: v)
 
-=end
+
 p = Post.create(title: 'Object In Nature - Session 1',
                 published: true,
-                height: "500px",
+                height: "550px",
                 space: "foreground",
                 date_published: DateTime.new(2012, 9, 25, 14, 43))
 
@@ -365,7 +360,7 @@ p = Post.create(title: 'Playing With Backgrounds',
                 bg_color: "#0C4F59",
                 published: true,
                 show_header: false,
-                height: "700px",
+                height: "750px",
                 date_published: DateTime.new(2012, 10, 31, 18, 6))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-2.png', style: 'tiling')
@@ -532,16 +527,17 @@ p = Post.create(title: "Messages In A Bottle",
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/messages-in-a-bottle/messages-in-a-bottle.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
+=end
 p = Post.create(title: "Giants Win The World Series!!!",
                 published: true,
                 space: 'background',
-                type: 'video',
-                style: 'video-big',
-                published: true,
+                show_header: false,
                 date_published: DateTime.new(2012, 10, 29, 14, 55))
 
-Video.create(video_id: "YKmgVJjk5PY", post_id: p.id, host: 'youtube')
+v = Video.create(video_id: "YKmgVJjk5PY", style: 'full-width', host: 'youtube')
+PostElement.create(post: p, element: v)
 
+=begin
 p = Post.create(title: "Giants Sweep",
                 published: true,
                 space: 'background',
@@ -670,17 +666,17 @@ PostElement.create(post_id: p.id,
                    position: 'inline',
                    sequence: 1)
 
-=begin
+
 p = Post.create(title: "It's Time - Imagine Dragons",
                 published: true,
                 space: 'background',
-                type: 'video',
-                style: 'video-big',
-                published: true,
+                show_header: false,
                 date_published: DateTime.new(2012, 10, 26, 13, 5))
 
-Video.create(video_id: "49-wNRvJwjk", post_id: p.id, host: 'youtube')
+v = Video.create(video_id: "49-wNRvJwjk", style: 'full-width', host: 'youtube')
+PostElement.create(post: p, element: v)
 
+=begin
 p = Post.create(title: '50 Ways to Say Goodbye',
                 space: 'background',
                 type: 'quote',
@@ -716,16 +712,18 @@ BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/big-game/big-
 
 (1..11).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/big-game/big-game-#{i}.jpg", post_id: p.id, position: i) }
 
+=end
+
 p = Post.create(title: '30th Anniversary of "The Play"',
                 published: true,
                 space: 'background',
-                type: 'video',
-                style: 'video-big',
-                published: false,
+                show_header: false,
                 date_published: DateTime.new(2012, 10, 22, 10, 10))
 
-Video.create(video_id: "0fZCCAqoSwY", post_id: p.id, host: 'youtube')
+v = Video.create(video_id: "0fZCCAqoSwY", style: 'full-width', host: 'youtube')
+PostElement.create(post: p, element: v)
 
+=begin
 p = Post.create(title: 'A Day Trip to the Russian River',
                 body:
                 %{Jas and I were lucky enough to take a random Wednesday trip to the Russian River to do some canoeing and fishing. We caught a lot of things (most of which were inanimate) but we also managed to catch a foot long Steelhead Trout! We called it Ol' Greg; cooked 'em up real good for dinner. We also saw a family of seals swimming in the river, they caught themselves a big ass trout and were munchin' on it for lunch. Can't wait to go back! },

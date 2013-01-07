@@ -134,20 +134,18 @@ We have better relationships, increased generosity, and has shown to make us hel
 
 PostElement.create(post_id: p.id, element: tb, position: 'inline')
 
-=begin
 p = Post.create(title: "Manga Camera",
-                type: 'album',
-                style: 'album-comic',
                 space: 'foreground',
                 published: true,
                 date_published: DateTime.new(2012, 11, 13, 11, 13))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', type: 'scrolling', tile: true, post_id: p.id)
-(1..20).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/manga/manga-#{i}.jpg", post_id: p.id, position: i) }
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 1)
 
-(1..20).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/manga/manga-#{i}.jpg", post_id: p.id, position:  i + 20) }
-
-=end
+a = Album.create(style: 'comic')
+(1..20).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/manga/manga-#{i}.jpg"), sequence: i) }
+(1..20).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/manga/manga-#{i}.jpg"), sequence: (i + 20)) }
+PostElement.create(post: p, element: a, sequence: 2)
 
 p = Post.create(title: "Live in a Vision",
                 space: 'background',

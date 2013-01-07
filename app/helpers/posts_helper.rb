@@ -48,6 +48,29 @@ module PostsHelper
     raw("#{html_classes} #{html_styles} #{html_data}")
   end
 
+  def photo_attributes(photo)
+    styles = []
+
+    if photo.album_element &&
+        photo.album.style == "comic" &&
+        post_data = Album.album_comic_data_for_index(photo.album_element.sequence - 1)
+
+      styles << "top: #{post_data[:top]}px"
+      styles << "left: #{post_data[:left]}px"
+      styles << "width: #{post_data[:width]}px"
+      styles << "height: #{post_data[:height]}px"
+      styles << "z-index: #{post_data[:z_index]}"
+    end
+
+    data = {}
+    data["full-size-url"] = photo.url
+
+    html_styles = "style=\"#{styles.join(";")}\""
+    html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
+
+    raw("#{html_styles} #{html_data}")
+  end
+
   def album_attributes(post_element)
     album = post_element.element
 

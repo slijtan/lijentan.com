@@ -10,6 +10,14 @@ Sprite.delete_all
 Album.delete_all
 AlbumElement.delete_all
 
+p = Post.create(title: "CKs 30th Birthday",
+                published: true,
+                show_header: false,
+                date_published: DateTime.new(2013, 1, 7, 14, 24))
+
+v = Video.create(video_id: "vwl56lz0JU0", style: 'full-width', host: 'youtube')
+PostElement.create(post: p, element: v)
+
 p = Post.create(title: 'Premises of Positive Psychology Part 2',
                 published: true,
                 padding: 'medium',

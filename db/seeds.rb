@@ -240,81 +240,126 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-
 PostElement.create(post:p, element: s, position: "left:700px", animation_type: 'scan', animation_direction: 'down', sequence: 3)
 
 
+p = Post.create(title: 'Object In Nature - Session 2',
+                published: true,
+                space: 'midground',
+                date_published: DateTime.new(2012, 10, 2, 14, 43))
 
-=begin
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O)verlapping (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. It's very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.})
 
+PostElement.create(post: p, element: tb, sequence: 1)
 
-ob2 = Post.create(title: 'Object In Nature - Session 2',
-                  body:
-                  %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O)verlapping (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. It's very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.},
-            published: true,
-                  type: 'time-lapse',
-                  space: 'midground',
-                  previous_post_id: ob1.id,
-                  date_published: DateTime.new(2012, 10, 2, 14, 43))
-
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg', post_id: ob2.id)
-
-ob3 = Post.create(title: 'Object In Nature - Session 3',
-                  body:
-                  %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the biker's vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!},
-            space: 'background',
-                  published: true,
-                  previous_post_id: ob2.id,
-                  type: 'time-lapse',
-                  date_published: DateTime.new(2012, 10, 5, 14, 43))
-
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', type: 'fixed', tile: false, post_id: ob3.id)
-
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', post_id: ob3.id)
+a = Album.create(style: 'coffee-table')
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg'), sequence: 1)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png'), sequence: 2)
+PostElement.create(post: p, element: a, sequence: 2)
 
 
-ob4 = Post.create(title: 'Object In Nature - Session 4',
-                  body:
-                  %{In this session I'm starting to use colors that I want the final painting to have. The sky is now blue, the sand is now brown, and the fence is now white. It's still a work in progress, and from here on out the process is pretty straight forward; I'm progressively using thicker and thicker paints and painting in more details and tones with darks and whites to give the painting space while making it look more realistic. I honestly really feel like I am fighting with the painting a lot, and I really didn't remember how hard it was to paint, but I also remember Larry teaching us that the process of painting is a curve, where at some point in the process we will hit a low where we don't like our painting and we feel lost. If we fight through that low, it's all uphill from there and we will eventually discover the painting and figure out a way to make it work, and we will grow to like our painting more and more. It's like problem solving, except instead of a math problem, it's a visual problem.},
-            space: 'midground',
-                  published: true,
-                  previous_post_id: ob3.id,
-                  type: 'time-lapse',
-                  date_published: DateTime.new(2012, 10, 12, 13, 43))
+p = Post.create(title: 'Object In Nature - Session 3',
+                space: 'background',
+                published: true,
+                date_published: DateTime.new(2012, 10, 5, 14, 43))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', type: 'scrolling', tile: false, post_id: ob4.id)
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', post_id: ob4.id)
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', style: 'image')
+PostElement.create(post: p, element: s, animation_type: 'fixed', sequence: 1)
 
-ob5 = Post.create(title: 'Object In Nature - Session 5',
-                  body:
-                  %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there},
-            published: true,
-                  previous_post_id: ob4.id,
-                  type: 'time-lapse',
-                  date_published: DateTime.new(2012, 10, 20, 15, 10))
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the biker's vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!})
+PostElement.create(post: p, element: tb, sequence: 2)
 
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-5.jpg', post_id: ob5.id)
+a = Album.create(style: 'coffee-table')
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg'), sequence: 1)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg'), sequence: 2)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png'), sequence: 3)
+PostElement.create(post: p, element: a, sequence: 3)
 
-ob6 = Post.create(title: 'Object In Nature - Session 6',
-                  body:
-                  %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!},
-            space: 'midground',
-                  published: true,
-                  previous_post_id: ob5.id,
-                  type: 'time-lapse',
-                  date_published: DateTime.new(2012, 10, 25, 14, 43))
 
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg', post_id: ob6.id)
+p = Post.create(title: 'Object In Nature - Session 4',
+                space: 'midground',
+                published: true,
+                date_published: DateTime.new(2012, 10, 12, 13, 43))
 
-ob7 = Post.create(title: 'Object In Nature - Session 7',
-                  body:
-                  %{Ok, this thing is as done as it's ever gonna be. There's still some things that I'd like to do to it, but I think I'm ready to move on to another painting...},
-                  space: 'midground',
-                  published: true,
-                  previous_post_id: ob6.id,
-                  type: 'time-lapse',
-                  date_published: DateTime.new(2012, 11, 1, 14, 43))
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', style: 'image')
+PostElement.create(post: p, element: s, animation_type: 'fixed', sequence: 1)
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', type: 'scrolling', tile: true, post_id: ob7.id)
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-7.jpg', post_id: ob7.id)
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{In this session I'm starting to use colors that I want the final painting to have. The sky is now blue, the sand is now brown, and the fence is now white. It's still a work in progress, and from here on out the process is pretty straight forward; I'm progressively using thicker and thicker paints and painting in more details and tones with darks and whites to give the painting space while making it look more realistic. I honestly really feel like I am fighting with the painting a lot, and I really didn't remember how hard it was to paint, but I also remember Larry teaching us that the process of painting is a curve, where at some point in the process we will hit a low where we don't like our painting and we feel lost. If we fight through that low, it's all uphill from there and we will eventually discover the painting and figure out a way to make it work, and we will grow to like our painting more and more. It's like problem solving, except instead of a math problem, it's a visual problem.})
 
-=end
+PostElement.create(post: p, element: tb, sequence: 2)
+
+a = Album.create(style: 'coffee-table')
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg'), sequence: 1)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg'), sequence: 2)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg'), sequence: 3)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png'), sequence: 4)
+PostElement.create(post: p, element: a, sequence: 3)
+
+
+p = Post.create(title: 'Object In Nature - Session 5',
+                published: true,
+                date_published: DateTime.new(2012, 10, 20, 15, 10))
+
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there})
+
+PostElement.create(post: p, element: tb, sequence: 1)
+
+a = Album.create(style: 'coffee-table')
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-5.jpg'), sequence: 1)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg'), sequence: 2)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg'), sequence: 3)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg'), sequence: 4)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png'), sequence: 5)
+PostElement.create(post: p, element: a, sequence: 2)
+
+p = Post.create(title: 'Object In Nature - Session 6',
+                space: 'midground',
+                published: true,
+                date_published: DateTime.new(2012, 10, 25, 14, 43))
+
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!})
+
+PostElement.create(post: p, element: tb, sequence: 1)
+
+a = Album.create(style: 'coffee-table')
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg'), sequence: 1)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-5.jpg'), sequence: 2)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg'), sequence: 3)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg'), sequence: 4)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg'), sequence: 5)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png'), sequence: 6)
+PostElement.create(post: p, element: a, sequence: 2)
+
+p = Post.create(title: 'Object In Nature - Session 7',
+                space: 'midground',
+                published: true,
+                date_published: DateTime.new(2012, 11, 1, 14, 43))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 1)
+
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{Ok, this thing is as done as it's ever gonna be. There's still some things that I'd like to do to it, but I think I'm ready to move on to another painting...})
+PostElement.create(post: p, element: tb, sequence: 2)
+
+a = Album.create(style: 'coffee-table')
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-7.jpg'), sequence: 1)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-6.jpg'), sequence: 2)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-5.jpg'), sequence: 3)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg'), sequence: 4)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg'), sequence: 5)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-2.jpg'), sequence: 6)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png'), sequence: 7)
+PostElement.create(post: p, element: a, sequence: 3)
+
 p = Post.create(title: 'Playing With Backgrounds',
                 space: 'auto',
                 bg_color: "#0C4F59",

@@ -379,18 +379,10 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-3
 PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 5)
 
 tb = TextBox.create(style: 'quote-big',
-                    text: '"Imitation is the sincerest form of flattery"',
+                    text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk',
                     text_color: "#D0531F")
 
 PostElement.create(post: p, element: tb, sequence: 6)
-
-tb = TextBox.create(style: 'single-line-text',
-                    text: '&minus; Inspired by 2012.hd-live.co.uk',
-                    text_size: "50px",
-                    text_color: "#D0531F")
-
-PostElement.create(post: p, element: tb, position: "right", sequence: 7)
-
 
 p = Post.create(title: 'Holstee Pt. 1',
                 space: 'background',
@@ -421,10 +413,14 @@ PostElement.create(post_id: p.id,
                    animation_direction: 'up',
                    sequence: 2)
 
-=begin
+
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
-                body:
-                %{
+                published: true,
+                date_published: DateTime.new(2012, 10, 31, 10, 13))
+
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{
 Think of education as a spiral.  You revisit points and ideas at different points in time, but higher up in the spiral.  This class is the bottom of the spiral.
 
 Premises of PP:
@@ -493,12 +489,10 @@ What if I don't want to join a project of this size?  One can make a difference.
 
 "Never doubt that a small group of thoughtful, committed citizens can change the world. Indeed, it is the only thing that ever has." - Margaret Mead
 
-The problem is that most people dont understand how change occurs. Take, for example, smiles. Assume that one person smiles, and each person that sees it smiles at 3 other people.  It's only 20 degrees of separation to affect every person in the world. Or how about giving a general compliment to someone else? We underestimate our capacity to effect change because we underestimate the growth of an exponential function. This becomes a self-fulfilling prophecy, "who am I to change the world?"},
-                published: true,
-                type: 'notes',
-                date_published: DateTime.new(2012, 10, 31, 10, 13))
+The problem is that most people dont understand how change occurs. Take, for example, smiles. Assume that one person smiles, and each person that sees it smiles at 3 other people.  It's only 20 degrees of separation to affect every person in the world. Or how about giving a general compliment to someone else? We underestimate our capacity to effect change because we underestimate the growth of an exponential function. This becomes a self-fulfilling prophecy, "who am I to change the world?"})
 
-=end
+PostElement.create(post: p, element: tb)
+
 
 p = Post.create(title: 'Burning Man 2012',
                 published: true,
@@ -516,18 +510,16 @@ PostElement.create(post: p, element: a, sequence: 2)
 
 (1..99).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/burning-man/burning-man-#{i}.jpg"), sequence: i) }
 
-=begin
 p = Post.create(title: "Messages In A Bottle",
                 published: true,
                 space: 'background',
-                type: 'notes',
-                published: true,
-                min_height: 1000,
+                height: "1200px",
                 date_published: DateTime.new(2012, 10, 29, 22, 50))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/messages-in-a-bottle/messages-in-a-bottle.jpg', type: 'scrolling', tile: false, post_id: p.id)
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/messages-in-a-bottle/messages-in-a-bottle.jpg', style: 'image')
+PostElement.create(post: p, element: s, position: 'top;h-center;')
 
-=end
+
 p = Post.create(title: "Giants Win The World Series!!!",
                 published: true,
                 space: 'background',
@@ -537,19 +529,16 @@ p = Post.create(title: "Giants Win The World Series!!!",
 v = Video.create(video_id: "YKmgVJjk5PY", style: 'full-width', host: 'youtube')
 PostElement.create(post: p, element: v)
 
-=begin
 p = Post.create(title: "Giants Sweep",
                 published: true,
                 space: 'background',
-                type: 'notes',
-                published: true,
-                min_height: 2000,
+                height: "2000px",
                 show_header: false,
                 date_published: DateTime.new(2012, 10, 29, 14, 54))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/giants-sweep/giants-sweep-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/giants-sweep/giants-sweep-bg.jpg', style: 'image')
+PostElement.create(post: p, element: s, position: "top;h-center")
 
-=end
 p = Post.create(title: 'Ninja Assassin',
                 space: 'background',
                 published: true,
@@ -687,32 +676,38 @@ p = Post.create(title: '50 Ways to Say Goodbye',
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
 Quote.create(quote: "Some day I'll find a love like yours. She'll think I'm Superman. Not super minivan", source: "Patrick Monahan", type: 'quote-big', post_id: p.id)
+=end
 
 p = Post.create(title: 'Two Door Cinema Club',
-                type: 'quote',
                 space: 'midground',
                 published: true,
                 show_header: false,
                 date_published: DateTime.new(2012, 10, 24, 2, 13))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-bg.jpg', style: 'image')
+PostElement.create(post: p, element: s, position: "top;h-center", sequence: 1)
 
-Quote.create(quote: "Cause if this is the life, this is the life, this is the life, this is the life, this is the life, then who'd argue?", source: "Alex Trimble", type: 'quote-big', post_id: p.id)
+tb = TextBox.create(text: "Cause if this is the life, this is the life, this is the life, this is the life, this is the life, then who'd argue?", style: 'quote-big')
+PostElement.create(post: p, element: tb, sequence: 2)
 
-(1..9).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-#{i}.jpg", post_id: p.id, position: i) }
+a = Album.create(style: 'thumbnail-rows')
+
+(1..9).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-#{i}.jpg"), sequence: 1) }
+PostElement.create(post: p, element: a, sequence: 3)
+
 
 p = Post.create(title: 'Roll On You Bears',
                 published: true,
                 space: 'background',
-                type: 'album',
-                style: 'album-thumbnails',
                 date_published: DateTime.new(2012, 10, 22, 10, 16))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/big-game/big-game-bg.jpg', type: 'shift_down', tile: false, post_id: p.id)
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/big-game/big-game-bg.jpg', style: 'image')
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1)
 
-(1..11).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/big-game/big-game-#{i}.jpg", post_id: p.id, position: i) }
+a = Album.create(style: 'thumbnail-rows')
+(1..11).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/big-game/big-game-#{i}.jpg"), sequence: i) }
+PostElement.create(post: p, element: a, sequence: 2)
 
-=end
 
 p = Post.create(title: '30th Anniversary of "The Play"',
                 published: true,
@@ -723,39 +718,48 @@ p = Post.create(title: '30th Anniversary of "The Play"',
 v = Video.create(video_id: "0fZCCAqoSwY", style: 'full-width', host: 'youtube')
 PostElement.create(post: p, element: v)
 
-=begin
+
 p = Post.create(title: 'A Day Trip to the Russian River',
-                body:
-                %{Jas and I were lucky enough to take a random Wednesday trip to the Russian River to do some canoeing and fishing. We caught a lot of things (most of which were inanimate) but we also managed to catch a foot long Steelhead Trout! We called it Ol' Greg; cooked 'em up real good for dinner. We also saw a family of seals swimming in the river, they caught themselves a big ass trout and were munchin' on it for lunch. Can't wait to go back! },
-            published: true,
+                published: true,
                 space: 'midground',
-                type: 'album',
-                style: 'album-thumbnails',
                 date_published: DateTime.new(2012, 10, 19, 17, 28))
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg', style: 'image')
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1)
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg', type: 'shift_up', tile: false, post_id: p.id)
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{Jas and I were lucky enough to take a random Wednesday trip to the Russian River to do some canoeing and fishing. We caught a lot of things (most of which were inanimate) but we also managed to catch a foot long Steelhead Trout! We called it Ol' Greg; cooked 'em up real good for dinner. We also saw a family of seals swimming in the river, they caught themselves a big ass trout and were munchin' on it for lunch. Can't wait to go back! })
+PostElement.create(post: p, element: tb, sequence: 2)
 
-(1..27).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-#{i}.jpg", post_id: p.id, position: i) }
+a = Album.create(style: 'thumbnail-rows')
+(1..27).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-#{i}.jpg"), sequence: i) }
+PostElement.create(post: p, element: a, sequence: 3)
 
 
 p = Post.create(title: 'EGO',
-                type: 'quote',
                 bg_color: '#F0EACD',
                 space: 'background',
                 published: true,
                 show_header: false,
                 date_published: DateTime.new(2012, 10, 17, 10, 25))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/ego/ego-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
-Quote.create(quote: "There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self",
-             source: "Ernest Hemingway",
-             type: 'quote-big',
-             text_color: '#000000',
-             post_id: p.id)
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/ego/ego-bg.jpg', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1)
 
-Post.create(title: 'My Resume',
-            body:
-            %{
+tb = TextBox.create(text: '"There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self" - Ernest Hemingway',
+                    style: 'quote-big',
+                    text_color: '#000000')
+PostElement.create(post: p, element: tb, sequence: 2)
+
+p = Post.create(title: 'My Resume',
+            space: 'auto',
+            published: true,
+            show_header: false,
+            date_published: DateTime.new(2012, 10, 16, 0, 3))
+
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{
 <div style="text-align: center">
 <h2 style="margin:0;">Lijen Tan</h2>
 <span style="color:868585;">349 Divisadero St, San Francisco, CA 94117</span><br>
@@ -829,17 +833,18 @@ B.S. in Electrical Engineering and Computer Science (May 2004), GPA: 3.5
 
 ### PERSONAL
 I am a fluent speaker of Mandarin and knowledgeable in Spanish. In my free time I like to play sports including roller hockey, volleyball, basketball, boxing, running, biking, and swimming. I'm a huge Niners and Sharks fan. I also enjoy music, playing the guitar, and trying to do art. When I have vacation time I like to go backpacking.
-},
+})
+PostElement.create(post: p, element: tb)
+
+
+p = Post.create(title: 'Markdown Support',
             space: 'auto',
             published: true,
-            type: 'notes',
-            show_header: false,
-            date_published: DateTime.new(2012, 10, 16, 0, 3))
+            date_published: DateTime.new(2012, 10, 15, 15, 31))
 
-
-Post.create(title: 'Markdown Support',
-            body:
-            %{
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{
 I worked in some better formatting options for posts in the last few days. It was hard for me to decide at first what to use; my main consideration was between a text-to-HTML converter like markdown or textitle, or a WYSIWYG tool such as Mercury Editor. I decided to go with <a href="http://github.github.com/github-flavored-markdown/" target=_blank>Github Flavored Markdown</a> with <a href="https://github.com/vmg/redcarpet" target=_blank>Redcarpet</a> because it's the fastest to implement, and I can always move toward a heavier solution with a WYSIWYG later down the line. I would definitely consider using a WYSIWYG built on top of markdown, which would be fully extensible with my current setup, or one that saves raw HTML for the most flexibility. I also included <a href="http://coderay.rubychan.de/" target=_blank>CodeRay</a> support for nicely formatted code blocks. I know some of the styles look jenky... I have to work on styling a lot of elements still, I will progressively add styles as I use them in my posts. Here are some examples below of the types of tags that I can use in my Posts as of now:
 
 # This is an H1
@@ -875,15 +880,16 @@ end
 ```
 
 This is [an example](http://example.com/ "Title") inline link. You got me feeling *Harder*, _better_, **faster**, __stronger__
-},
-            space: 'auto',
-            published: true,
-            type: 'notes',
-            date_published: DateTime.new(2012, 10, 15, 15, 31))
-
+})
+PostElement.create(post: p, element: tb)
 
 p = Post.create(title: 'HTML5 and quotes with attribution',
-            body:
+                space: 'auto',
+            published: true,
+            date_published: DateTime.new(2012, 10, 12, 1, 13))
+
+tb = TextBox.create(style: 'full-margins',
+            text:
             %{
 So I did my first couple quote posts (see the Blue Angels post and the Superman post), but while I was doing them I had to research about what the proper semantic HTML is for displaying a quote with an author or source. Sounds pretty straight forward right? That's what I thought, but for some reason this was a little more complicated that I had anticipated... I thought I'd share what I found in case anyone else runs into this issue. I ended up using the following markup with the figure and figcaption tags to represent a quote with attribution. If you're curious why I chose this option, and what considerations there were for the other options, feel free to follow the links below to dive deeper.
 
@@ -917,40 +923,41 @@ And another solution that uses the small tag. I didn't like this because the sma
 
 
 I'm still not super happy with this solution, so if you know of a better way to do this semantically, let me know!
-},
-            space: 'auto',
-            published: true,
-            type: 'single-column-text',
-            date_published: DateTime.new(2012, 10, 12, 1, 13))
-
-
+})
+PostElement.create(post: p, element: tb)
 
 p = Post.create(
             title: "The Blue Angels",
             bg_color: '#F0EACD',
             published: true,
-            type: 'quote',
             space: 'background',
             show_header: false,
             date_published: DateTime.new(2012, 10, 8, 16, 9))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-bg.png', type: 'shift_up', tile: false, post_id: p.id)
-Quote.create(quote: "Multiply the best roller coaster you can imagine by 100", source: "Navy Lt. C.J. Simonsen", type: 'quote-big', post_id: p.id)
-(1..12).each { |i| Image.create(url: "http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-#{i}.jpg", post_id: p.id, position: i) }
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-bg.png', style: 'image')
+PostElement.create(post: p, element: s, position: 'left', animation_type: 'scan', animation_direction: 'up', sequence: 1)
+
+tb = TextBox.create(style: 'quote-big', text: '"Multiply the best roller coaster you can imagine by 100" - Navy Lt. C.J. Simonsen')
+PostElement.create(post: p, element: tb, sequence: 2)
+
+a = Album.create(style: 'thumbnail-rows')
+(1..12).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-#{i}.jpg"), sequence: i) }
+PostElement.create(post: p, element: a, sequence: 3)
 
 
-  p = Post.create(title: 'Summatime in the SFC',
-                  body:
-                  %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.![Steven's 30th Birthday Cake](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-2.jpg) Saturday was our good friends Michelle and Adam's wedding - It was amazing!![Mich's Wedding Dress](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-3.jpg) It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.![Doing the Hora](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-4.jpg)And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.![Dance Floor Lights](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-5.jpg) Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.![Blue Angels](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-6.jpg) Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a super chill concert in the park while seeing jets do fly-bys overhead?![Hardly Strictly Blue Grass Festival](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-7.jpg) We finished with a relaxing sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.![Bryan Takes a Picture](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-1.jpg) *It was truly a weekend to remember!*},
-                  space: 'background',
-                  published: true,
-                  type: 'two-column-text',
-                  date_published: DateTime.new(2012, 10, 7, 15, 3))
+p = Post.create(title: 'Summatime in the SFC',
+                space: 'background',
+                published: true,
+                date_published: DateTime.new(2012, 10, 7, 15, 3))
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
+tb = TextBox.create(style: 'two-column-text',
+                    text:
+                    %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.![Steven's 30th Birthday Cake](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-2.jpg) Saturday was our good friends Michelle and Adam's wedding - It was amazing!![Mich's Wedding Dress](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-3.jpg) It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.![Doing the Hora](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-4.jpg)And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.![Dance Floor Lights](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-5.jpg) Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.![Blue Angels](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-6.jpg) Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a super chill concert in the park while seeing jets do fly-bys overhead?![Hardly Strictly Blue Grass Festival](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-7.jpg) We finished with a relaxing sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.![Bryan Takes a Picture](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-1.jpg) *It was truly a weekend to remember!*})
+PostElement.create(post: p, element: tb, sequence: 2)
 
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-bg.jpg', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1)
 
-=end
 
 p = Post.create(title: 'Levitating Sheep',
                 space: 'foreground',
@@ -1030,10 +1037,15 @@ a = Album.create(style: 'thumbnail-rows')
 
 PostElement.create(post: p, element: a, sequence: 3)
 
-=begin
+
 p = Post.create(title: 'The Tac Cup',
-                body:
-                %{So recently Steven decided to start officially keeping track of our beer pong records and to set up a ladder ranking system to finally figure out who's the best of the best. We are using the Elo Ranking system, which is the system that is used for chess rankings as well as a whole bunch of different ladder systems (we used it on Wasteland Empires for our leaderboard). We also got a trophy that works kinda like a championship belt. Whoever is at the top of the ladder gets to hold onto it, and it will change hands as the top ranked player gets dethroned from season to season. We decided to call it the "Canuto Tacderan Cup" after our landlord, Tac, because we've played the majority of beer pong games in this apartment and the apartment downstairs. And why the pig you ask? Well, I'd like to answer your question with another question… why not?<br /><br />
+                published: true,
+                space: 'midground',
+                date_published: DateTime.new(2012, 10, 4, 14, 43))
+
+tb = TextBox.create(style: 'full-margins',
+                    text:
+                    %{So recently Steven decided to start officially keeping track of our beer pong records and to set up a ladder ranking system to finally figure out who's the best of the best. We are using the Elo Ranking system, which is the system that is used for chess rankings as well as a whole bunch of different ladder systems (we used it on Wasteland Empires for our leaderboard). We also got a trophy that works kinda like a championship belt. Whoever is at the top of the ladder gets to hold onto it, and it will change hands as the top ranked player gets dethroned from season to season. We decided to call it the "Canuto Tacderan Cup" after our landlord, Tac, because we've played the majority of beer pong games in this apartment and the apartment downstairs. And why the pig you ask? Well, I'd like to answer your question with another question… why not?<br /><br />
 Week 1 Results:
 
 1. Eiki: 1246.3987116397748
@@ -1059,19 +1071,17 @@ Week 1 Results:
 21. amy: 1171.3777459196115
 22. Norman: 1170.863960480068
 23. Total Number of Games Recorded: 35
-},
-                published: true,
-                space: 'midground',
-                type: 'single-column-text',
-                date_published: DateTime.new(2012, 10, 4, 14, 43))
+})
+PostElement.create(post: p, element: tb, sequence: 2)
 
-BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-bg.jpg', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1)
 
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-1.jpg', post_id: p.id, position: 1)
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-2.jpg', post_id: p.id, position: 3)
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-3.jpg', post_id: p.id, position: 2)
-
-=end
+a = Album.create(style: 'thumbnail-rows')
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-1.jpg'), sequence: 1)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-2.jpg'), sequence: 3)
+a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-3.jpg'), sequence: 2)
+PostElement.create(post: p, element: a, sequence: 3)
 
 p = Post.create(title: 'History and Introduction to Positive Psychology',
             published: true,

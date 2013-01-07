@@ -16,9 +16,13 @@ module PostsHelper
     classes << "video"
     classes << video.style
 
-    html_classes = "class=\"#{classes.join(" ")}\""
+    styles = []
+    styles << "z-index: #{post_element.sequence}" if post_element.sequence
 
-    raw("#{html_classes}")
+    html_classes = "class=\"#{classes.join(" ")}\""
+    html_styles = "style=\"#{styles.join(";")}\""
+
+    raw("#{html_classes} #{html_styles}")
   end
 
   def sprite_attributes(post_element)
@@ -29,16 +33,17 @@ module PostsHelper
     classes << sprite.style
     classes << post_element.animation_type if post_element.animation_type
 
+    styles = []
+    styles << "background: url(#{ asset_path(sprite.url) })"
+    styles << "z-index: #{post_element.sequence}" if post_element.sequence
+    styles.concat(post_element.position_css)
+
     data = {}
     data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
 
-    styles = []
-    styles << "background: url(#{ asset_path(sprite.url) })"
-    styles.concat(post_element.position_css)
-
     html_classes = "class=\"#{classes.join(" ")}\""
-    html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
     html_styles = "style=\"#{styles.join(";")}\""
+    html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
 
     raw("#{html_classes} #{html_styles} #{html_data}")
   end
@@ -51,6 +56,7 @@ module PostsHelper
     classes << album.style
 
     styles = []
+    styles << "z-index: #{post_element.sequence}" if post_element.sequence
     styles.concat(post_element.position_css)
 
     html_classes = "class=\"#{classes.join(" ")}\""
@@ -67,17 +73,18 @@ module PostsHelper
     classes << text_box.style
     classes << post_element.animation_type if post_element.animation_type
 
-    data = {}
-    data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
-
     styles = []
     styles << "font-size:#{text_box.text_size}px" if text_box.text_size
     styles << "color:#{text_box.text_color}" if text_box.text_color
+    styles << "z-index: #{post_element.sequence}" if post_element.sequence
     styles.concat(post_element.position_css)
 
+    data = {}
+    data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
+
     html_classes = "class=\"#{classes.join(" ")}\""
-    html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
     html_styles = "style=\"#{styles.join(";")}\""
+    html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
 
     raw("#{html_classes} #{html_styles} #{html_data}")
   end

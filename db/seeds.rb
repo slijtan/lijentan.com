@@ -220,15 +220,28 @@ p = Post.create(title: "How Will You Measure Your Life?",
 
 Video.create(video_id: "tvos4nORf_Y", post_id: p.id, host: 'youtube')
 
+=end
+p = Post.create(title: 'Object In Nature - Session 1',
+                published: true,
+                height: "500px",
+                space: "foreground",
+                date_published: DateTime.new(2012, 9, 25, 14, 43))
 
-ob1 = Post.create(title: 'Object In Nature - Session 1',
-                  body:
-                  %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (<a href="http://www.larryrobinson.net/" target=_blank>larryrobinson.net</a>). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. It's a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.},
-                  published: true,
-                  type: 'time-lapse',
-                  date_published: DateTime.new(2012, 9, 25, 14, 43))
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/oakdale.jpg', style: 'image')
+PostElement.create(post:p, element: s, animation_type: 'scan', animation_direction: 'right', sequence: 1)
 
-Image.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1.png', post_id: ob1.id)
+tb = TextBox.create(style: 'single-column-text',
+                    text:
+                    %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (<a href="http://www.larryrobinson.net/" target=_blank>larryrobinson.net</a>). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. It's a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.})
+
+PostElement.create(post: p, element: tb, position: "left:300px", sequence: 2)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-1-bg.png', style: 'image')
+PostElement.create(post:p, element: s, position: "left:700px", animation_type: 'scan', animation_direction: 'down', sequence: 3)
+
+
+
+=begin
 
 
 ob2 = Post.create(title: 'Object In Nature - Session 2',
@@ -961,20 +974,18 @@ p = Post.create(title: 'Norway',
                 date_published: DateTime.new(2012, 9, 24, 14, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/norway/norway-bg.jpg', style: 'image')
-
 PostElement.create(post: p, element: s, sequence: 1)
 
 tb = TextBox.create(style: 'full-margins',
                     text:
                     %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has it's price, and Norway was well worth every penny.})
 
-PostElement.create(post: p, element: tb, sequence: 3)
+PostElement.create(post: p, element: tb, sequence: 2)
 
 a = Album.create(style: 'thumbnail-rows')
-
 (1..17).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/norway/norway-#{i}.jpg"), sequence: i )}
 
-PostElement.create(post: p, element: a, sequence: 2)
+PostElement.create(post: p, element: a, sequence: 3)
 
 =begin
 p = Post.create(title: 'The Tac Cup',

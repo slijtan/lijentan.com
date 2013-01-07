@@ -157,6 +157,7 @@ class Post < ActiveRecord::Base
   has_many :post_elements, dependent: :destroy, order: 'sequence ASC'
   belongs_to :previous_post, class_name: "Post"
 
+=begin
   def method_missing(name, *args)
     name = name.to_s
     case name.to_s
@@ -196,6 +197,7 @@ class Post < ActiveRecord::Base
   end
 
   alias_method_chain :images, :time_lapse
+=end
 
   def self.album_comic_data_for_index(index)
     @@album_comic_data_processed ||= process_comic_data

@@ -84,6 +84,7 @@ module PostsHelper
 
     classes << space
     classes << post.effect unless post.effect.blank?
+    classes << 'full-screen' if post.height == 'full-screen'
 
     html_classes = "class=\"#{classes.join(" ")}\""
 
@@ -92,7 +93,7 @@ module PostsHelper
     bg_urls << bg_urls_for_space(space)
 
     styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
-    styles << "height: #{post.height}" unless post.height.blank?
+    styles << "height: #{post.height}" unless post.height.blank? || post.height == 'full-screen'
 
     html_styles = "style=\"#{styles.join(";")}\"" unless styles.empty?
 

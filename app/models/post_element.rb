@@ -16,8 +16,8 @@ class PostElement < ActiveRecord::Base
     css_styles[:position] = "absolute"
 
     if element_type == 'Sprite'
-      y_val = 'top'
-      x_val = 'center'
+      y_val = '0%'
+      x_val = '50%'
 
       position.split(";").each do |css_attribute|
         css_attribute.delete!(" ")
@@ -37,8 +37,11 @@ class PostElement < ActiveRecord::Base
           y_val = '50%'
         when 'inline'
         else
-          if /(left|right|top|bottom):(\d)*(px|%)/ =~ css_attribute
-            attribute, value = css_attribute.split(":")
+          #TODO: handle right and bottom px and %
+          if match = /left:((\d)*(px|%))/.match(css_attribute)
+            x_val = match[1]
+          elsif match = /top:((\d)*(px|%))/.match(css_attribute)
+            y_val = match[1]
           end
         end
       end

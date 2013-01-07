@@ -27,22 +27,21 @@ adjust_scanning_background = (element) ->
         if top_position <= bottom_height && bottom_position >= top_height
                 animation_direction = element.data("animation-direction")
                 article_y = articles_position_on_page(element)
+                background_pos = element.css('background-position').split(" ");
+                x_offset = background_pos[0]
+                y_offset = background_pos[1]
 
                 switch animation_direction
                         when "up"
-                                x_offset = 50
-                                y_offset = article_y
+                                y_offset = article_y + "%"
                         when "down"
-                                x_offset = 50
-                                y_offset = 100.0 - article_y
+                                y_offset = 100.0 - article_y + "%"
                         when "left"
-                                x_offset = 100.0 - article_y
-                                y_offset = 0
+                                x_offset = 100.0 - article_y + "%"
                         when "right"
-                                x_offset = article_y
-                                y_offset = 0
+                                x_offset = article_y + "%"
 
-                element.css("background-position", x_offset + "% " + y_offset + "%")
+                element.css("background-position", x_offset + " " + y_offset)
 
 
 adjust_scanning_div = (element) ->
@@ -279,7 +278,7 @@ setup_images = ->
 
 rate = 0
 max_position = 0
-maxspeed = 100
+maxspeed = 75
 images_div = null
 
 setup_strip_albums = ->
@@ -367,6 +366,10 @@ setup_coffee_table_album = ->
                                                         "snap",
                                                         -> $(this).css("z-index", "#{2 * count - parseInt($(this).data('zindex'))}"))
                                                         .addClass("flipped")
+
+setup_full_screen_posts = ->
+        $(".full-screen").css("height", $(window).height())
+
 ###
 setup_time_lapse = ->
         distance_between_images = 35
@@ -520,6 +523,7 @@ setup_posts = ->
         setup_strip_albums()
         setup_fade_in()
         setup_coffee_table_album()
+        setup_full_screen_posts()
 
 
 $ ->

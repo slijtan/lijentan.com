@@ -112,7 +112,7 @@ module PostsHelper
     raw("#{html_classes} #{html_styles} #{html_data}")
   end
 
-  def post_class_and_style(post)
+  def post_attributes(post)
     classes = []
 
     if post.space == "auto"
@@ -125,7 +125,8 @@ module PostsHelper
     end
 
     classes << space
-    classes << post.effect unless post.effect.blank?
+    classes << post.effect if post.effect
+    classes << "padding-#{post.padding}" if post.padding
     classes << 'full-screen' if post.height == 'full-screen'
 
     html_classes = "class=\"#{classes.join(" ")}\""

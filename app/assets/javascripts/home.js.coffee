@@ -447,6 +447,7 @@ set_video_sizes = ->
         height = Math.min(width / ratio, $(window).height()) * 0.80 #leaves some margins on top & bottom
         $('.video.full-width iframe').attr('width', width)
         $('.video.full-width iframe').attr('height', height)
+        $('.video.full-width').css('height', height + "px")
 
 
 loading =

@@ -1,13 +1,13 @@
 class Post < ActiveRecord::Base
   self.inheritance_column = nil
 
-  @@valid_effects = ['fade-in']
+  @@valid_effects = %w[fade-in]
 
-  attr_accessible :space, :published, :date_published, :bg_color, :title, :show_header, :height, :effect, :previous_post_id
-  cattr_reader :album_comic_page_size
+  attr_accessible :space, :published, :date_published, :bg_color, :title, :show_header, :height, :effect, :previous_post_id, :padding
 
   validates_presence_of :title
-  validates_inclusion_of :space, in: ['foreground', 'background', 'midground', 'auto']
+  validates_inclusion_of :space, in: %w[foreground background midground auto]
+  validates_inclusion_of :padding, in: %w[medium], allow_nil: true
   validates_inclusion_of :effect, in: @@valid_effects, allow_nil: true
   #validate post height format *px, *% (unsupported), full (unsupported)
 
@@ -18,144 +18,4 @@ class Post < ActiveRecord::Base
   has_many :post_elements, dependent: :destroy, order: 'sequence ASC'
   belongs_to :previous_post, class_name: "Post"
 
-=begin
-  def method_missing(name, *args)
-    name = name.to_s
-    case name.to_s
-    when /is_(.*)\?/
-      searching_for = ($1)
-      type == searching_for.gsub(/_/, "-") || style == searching_for.gsub(/_/, "-")
-    end
-  end
-
-  def has_shifting_background?
-    for background_image in background_images
-      return true if background_image.is_shifting?
-    end
-
-    false
-  end
-
-  def time_lapse_posts
-    posts = []
-    posts << self
-
-    while post = posts[-1].previous_post
-      posts << post
-    end
-
-    posts
-  end
-
-  def images_with_time_lapse
-    images = []
-
-    for post in time_lapse_posts
-      images.concat(post.images_without_time_lapse)
-    end
-
-    images
-  end
-
-  alias_method_chain :images, :time_lapse
-=end
-
-  def self.album_comic_data_for_index(index)
-    @@album_comic_data_processed ||= process_comic_data
-    @@album_comic_book_total_width ||= comic_book_width
-    @@album_comic_book_total_pages ||= @@album_comic_data_template.count
-
-    location_data = @@album_comic_data_processed[index % @@album_comic_data_processed.count].clone
-
-    unless(index < @@album_comic_data_processed.count)
-      book = (index / @@album_comic_data_processed.count).floor
-      location_data[:left] += book * @@album_comic_book_total_width + @@album_comic_book_total_pages * @@album_comic_margin
-    end
-
-    location_data
-  end
-
-  private
-
-  def self.comic_book_width
-    @@album_comic_data_template.sum {|page_data| page_data[:width]}
-  end
-
-  def self.process_comic_data
-    #FIRST PASS, setting most data for items in rows
-    row_top_starting_point = []
-    page_left_starting_point = [0]
-
-    processed_data =  @@album_comic_data_template.map.with_index do |page, page_num|
-      #process the rows
-      page_width = page[:width]
-      tot_rows_in_page = page[:rows].count
-      row_top_starting_point[page_num] = [0]
-
-      page[:rows].map.with_index do |row, row_num|
-        tot_elements_in_row = row[:items].count
-        pixels_in_row = 0
-        row_top_starting_point[page_num][row_num + 1] = 0
-
-        width_without_margins = page_width - [tot_elements_in_row - 1, 0].max * @@album_comic_margin
-        height_without_margins = @@album_comic_page_size[:height] - [tot_rows_in_page - 1, 0].max * @@album_comic_margin
-
-        starting_point_including_margin = (row[:height] * height_without_margins / 100) + @@album_comic_margin + row_top_starting_point[page_num][row_num]
-        row_top_starting_point[page_num][row_num + 1] = starting_point_including_margin if starting_point_including_margin > row_top_starting_point[page_num][row_num + 1]
-
-        row[:items].map.with_index do |item, item_num|
-          item[:width] = item[:width] * width_without_margins / 100
-          item[:height] = (item[:height] ? item[:height] : row[:height]) * height_without_margins / 100
-
-          item[:left] = pixels_in_row
-          pixels_in_row += item[:width] + @@album_comic_margin
-
-          item
-        end
-
-        row
-      end
-
-      page_left_starting_point[page_num + 1] = page_left_starting_point[page_num] + page_width + @@album_comic_margin
-
-      page
-    end
-
-    #SECOND PASS. setting top and left offsets for row items and pages translating all data for free floating items
-    processed_data.map.with_index do |page, page_num|
-      page_width = page[:width]
-
-      page[:rows].map.with_index do |row, row_num|
-        row[:items].map.with_index do |item, item_num|
-          item[:left] += page_left_starting_point[page_num]
-          item[:top] = row_top_starting_point[page_num][row_num]
-        end
-      end
-
-      page[:items].each do |item|
-        item[:width] = item[:width] * page_width / 100
-        item[:height] = item[:height] * @@album_comic_page_size[:height] / 100
-
-        item[:left] = page_left_starting_point[page_num] + item[:left] * page_width / 100
-        item[:top] = item[:top] * @@album_comic_page_size[:height] / 100
-      end
-    end
-
-    flattened_template = []
-    #LAST PASS, flattening this son of a motherless father
-    #TODO, make this order elements from left to right
-    processed_data.each do |page|
-      page[:rows].each do |row|
-        row[:items].each do |item|
-          flattened_template << item
-        end
-      end
-
-      page[:items].each do |item|
-        flattened_template << item
-      end
-    end
-
-    flattened_template
-  end
 end

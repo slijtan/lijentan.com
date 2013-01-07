@@ -172,7 +172,6 @@ nav {
    Global Post Format
    -------------------------*/
 article {
-//    padding: 30px 0 40px 0;
     margin: 0 auto;
     width: 100%;
     position: relative;
@@ -181,7 +180,6 @@ article {
     header {
         text-align: center;
         margin: 0 auto 0;
-        padding-top: 40px;
         width: 750px;
         position: relative;
         z-index: 100;
@@ -204,7 +202,7 @@ article {
 }
 
 /* ----------------------
-   Space Formats
+   Post Formats
    -------------------------*/
 article.midground {
     background: url(layout/divider-midground-top.png) repeat-x center top, url(layout/divider-midground-bottom.png) repeat-x center bottom, $midground-bg;
@@ -249,6 +247,10 @@ article.background {
     }
 }
 
+article.padding-medium {
+    padding: 30px 0 40px;
+}
+
 /* ----------------------
    Title Formats
    -------------------------*/
@@ -269,9 +271,7 @@ article.notes header {
 .text-box {
     margin: 0 auto;
     text-align: justify;
-//    padding: 0 30px;
     position: relative;
-    padding-bottom: 40px;
 }
 
 .full-margins {
@@ -303,7 +303,6 @@ article.notes header {
     word-spacing: -3px;
     text-align: center;
     text-shadow: none;
-    padding: 30px 20px;
     font-size: 200px;
     line-height: 200px;
 
@@ -408,7 +407,7 @@ article.video {
 }
 
 .coffee-table {
-    height: 400px;
+    height: 350px;
     position: relative;
     overflow: visible;
     margin-top: 45px;
@@ -610,6 +609,7 @@ article.two-column-text.background div.body img {
     width: 100%;
     height: 100%;
     background-color: #000000;
+    z-index: 500;
 }
 
 

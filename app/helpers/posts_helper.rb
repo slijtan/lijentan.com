@@ -143,6 +143,10 @@ module PostsHelper
     raw("#{html_classes} #{html_styles}")
   end
 
+  def render_shadows(post)
+    raw("<div class=\"shadow-#{current_cycle('space')}-top\"></div><div class=\"shadow-#{current_cycle('space')}-bottom\"></div>")
+  end
+
 
   ########################################
   ######## BEGIN OLD #####################

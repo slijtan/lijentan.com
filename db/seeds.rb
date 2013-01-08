@@ -144,7 +144,7 @@ We have better relationships, increased generosity, and has shown to make us hel
 PostElement.create(post_id: p.id, element: tb, position: 'inline')
 
 p = Post.create(title: "Manga Camera",
-                space: 'foreground',
+                space: 'midground',
                 padding: 'medium',
                 published: true,
                 date_published: DateTime.new(2012, 11, 13, 11, 13))
@@ -158,7 +158,7 @@ a = Album.create(style: 'comic')
 PostElement.create(post: p, element: a, sequence: 2)
 
 p = Post.create(title: "Live in a Vision",
-                space: 'background',
+                space: 'midground',
                 published: true,
                 show_header: false,
                 date_published: DateTime.new(2012, 11, 10, 12, 57))
@@ -217,7 +217,6 @@ PostElement.create(post: p, element: a, sequence: 2)
 
 p = Post.create(title: "How Will You Measure Your Life?",
                 published: true,
-                space: 'background',
                 show_header: false,
                 date_published: DateTime.new(2012, 11, 5, 10, 56))
 

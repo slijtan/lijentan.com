@@ -204,8 +204,76 @@ article {
 /* ----------------------
    Post Formats
    -------------------------*/
+.shadow-foreground-top {
+    background: url(layout/divider-foreground-top.png) repeat-x center top;
+    position: absolute;
+    top: 0;
+    height: 190px;
+    width: 100%;
+    z-index: 999;
+}
+
+.shadow-foreground-bottom {
+    background: url(layout/divider-foreground-bottom.png) repeat-x center top;
+    position: absolute;
+    bottom: 0;
+    height: 190px;
+    width: 100%;
+    z-index: 999;
+}
+
+.shadow-midground-top {
+    background: url(layout/divider-midground-top.png) repeat-x center top;
+    position: absolute;
+    top: 0;
+    height: 190px;
+    width: 100%;
+    z-index: 999;
+}
+
+.shadow-midground-bottom {
+    background: url(layout/divider-midground-bottom.png) repeat-x center top;
+    position: absolute;
+    bottom: 0;
+    height: 190px;
+    width: 100%;
+    z-index: 999;
+}
+
+.shadow-background-top {
+    background: url(layout/divider-background-top.png) repeat-x center top;
+    position: absolute;
+    top: 0;
+    height: 190px;
+    width: 100%;
+    z-index: 999;
+}
+
+.shadow-background-bottom {
+    background: url(layout/divider-background-bottom.png) repeat-x center top;
+    position: absolute;
+    bottom: 0;
+    height: 190px;
+    width: 100%;
+    z-index: 999;
+}
+
+article.foreground {
+    background: $foreground-bg;
+    color: $foreground-txt;
+    text-shadow: $foreground-txt-shadow;
+
+    time {
+        border-color: $foreground-txt;
+    }
+
+    a {
+        color: $foreground-txt-link;
+    }
+}
+
 article.midground {
-    background: url(layout/divider-midground-top.png) repeat-x center top, url(layout/divider-midground-bottom.png) repeat-x center bottom, $midground-bg;
+    background: $midground-bg;
     color: $midground-txt;
     text-shadow: $midground-txt-shadow;
 
@@ -219,22 +287,9 @@ article.midground {
     }
 }
 
-article.foreground {
-    background: url(layout/divider-foreground-top.png) repeat-x center top, url(layout/divider-foreground-bottom.png) repeat-x center bottom, $foreground-bg;
-    color: $foreground-txt;
-    text-shadow: $foreground-txt-shadow;
-
-    time {
-        border-color: $foreground-txt;
-    }
-
-    a {
-        color: $foreground-txt-link;
-    }
-}
 
 article.background {
-    background: url(layout/divider-background-top.png) repeat-x center top, url(layout/divider-background-bottom.png) repeat-x center bottom, $background-bg;
+    background: $background-bg;
     color: $background-txt;
     text-shadow: $background-txt-shadow;
 

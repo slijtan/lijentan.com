@@ -306,19 +306,6 @@ article.padding-medium {
     padding: 30px 0 40px;
 }
 
-/* ----------------------
-   Title Formats
-   -------------------------*/
-/*
-article.notes header {
-    width: 960px;
-
-    time {
-        width: 960px;
-    }
-}
-*/
-
 
 /* ----------------------
    Text Box Formats
@@ -345,6 +332,17 @@ article.notes header {
     -moz-column-gap: 35px; // Firefox
     -webkit-column-gap: 35px; // Safari and Chrome
     column-gap: 35px;
+
+    img {
+        display: block;
+        margin: 10px auto;
+        max-width: 350px;
+        box-shadow: 2px 2px 0.1em #A1A1A1;
+    }
+
+    &.background img {
+        box-shadow: 2px 2px 0.1em #000000;
+    }
 }
 
 .single-line-text {
@@ -360,21 +358,10 @@ article.notes header {
     text-shadow: none;
     font-size: 200px;
     line-height: 200px;
-
-/*
-    figcaption {
-        display: inline;
-        font-size: 75px;
-        line-height: 75px;
-        margin: 0;
-    }
-*/
 }
 
 
-/*
-
-article.notes div.body blockquote, article.single-column-text div.body blockquote {
+blockquote {
     margin-top: 25px;
     padding: 0 120px;
     position: relative;
@@ -382,7 +369,7 @@ article.notes div.body blockquote, article.single-column-text div.body blockquot
     min-height: 70px;
 }
 
-article.notes div.body blockquote:before, article.single-column-text div.body blockquote:before {
+blockquote:before {
     display: block;
     content: "\201C";
     font-size: 120px;
@@ -392,19 +379,6 @@ article.notes div.body blockquote:before, article.single-column-text div.body bl
     color: #A1A1A1;
 }
 
-
-article.video {
-    padding: 0px;
-    margin-bottom: -4px;
-    min-height: 0px;
-
-    header {
-        position: absolute;
-        top: 0px;
-        width: 100%;
-    }
-}
-*/
 
 /* ----------------------
    Sprite Formats
@@ -439,7 +413,7 @@ article.video {
         margin: 5px;
         width: auto;
         height: auto;
-        max-height: 150px;
+        max-height: 200px;
     }
 }
 
@@ -499,160 +473,6 @@ article.video {
     }
 }
 
-/* ----------------------
-   Figure Formats
-   -------------------------*/
-/*
-article.foreground.quote {
-    color: $foreground-txt;
-}
-
-article.midground.quote {
-    color: $midground-txt;
-}
-
-article.background.quote {
-    color: $background-txt;
-}
-
-figure.quote-big {
-    font-family: 'Francois One', sans-serif;
-    font-style: italic;
-    letter-spacing: -3px;
-    word-spacing: -3px;
-    text-align: center;
-    text-shadow: none;
-
-    blockquote {
-        display: inline;
-        font-size: 200px;
-        line-height: 200px;
-        margin-top: 50px;
-    }
-
-    figcaption {
-        display: inline;
-        font-size: 75px;
-        line-height: 75px;
-        margin: 0;
-    }
-}
-
-figure.quote-right-float-down {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
-
-figure.quote-right-float-up {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-figure.quote-center-float-down {
-    position: absolute;
-    top: 0px;
-    left: 30%;
-}
-
-figure.quote-center-float-up {
-    position: absolute;
-    bottom: 0px;
-    left: 30%;
-}
-
-figure.quote-left-float-down {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
-
-figure.quote-left-float-up {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-}
-
-
-figure.quote-top-float-right {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
-
-figure.quote-top-float-left {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
-
-figure.quote-center-float-right {
-    position: absolute;
-    top: 50%;
-    left: 0px;
-}
-
-figure.quote-center-float-left {
-    position: absolute;
-    top: 50%;
-    right: 0px;
-}
-
-figure.quote-bottom-float-right {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-}
-
-figure.quote-bottom-float-left {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-figure.quote-left-bottom {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-}
-
-figure.quote-left-top {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
-
-figure.quote-right-bottom {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-figure.quote-right-top {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
-*/
-
-/* ----------------------
-   Image Formats
-   -------------------------*/
-article.two-column-text div.body img {
-    display: block;
-    margin: 10px auto;
-    max-width: 350px;
-    box-shadow: 2px 2px 0.1em #A1A1A1;
-}
-
-article.two-column-text.background div.body img {
-    box-shadow: 2px 2px 0.1em #000000;
-}
-
-
-
-
 
 /* ----------------------
    Effects
@@ -701,9 +521,6 @@ article.two-column-text.background div.body img {
 /* ----------------------
    Loader from http://cssload.net/
    -------------------------*/
-
-
-
 #loading{
     position:fixed;
     bottom: 20px;

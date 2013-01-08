@@ -2,10 +2,7 @@
 Post.delete_all
 TextBox.delete_all
 PostElement.delete_all
-Image.delete_all
 Video.delete_all
-BackgroundImage.delete_all
-Quote.delete_all
 Sprite.delete_all
 Album.delete_all
 AlbumElement.delete_all
@@ -539,7 +536,7 @@ PostElement.create(post: p, element: s, position: 'top;h-center;')
 
 p = Post.create(title: "Giants Win The World Series!!!",
                 published: true,
-                space: 'background',
+                space: 'midground',
                 show_header: false,
                 date_published: DateTime.new(2012, 10, 29, 14, 55))
 

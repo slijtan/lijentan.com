@@ -87,85 +87,6 @@ adjust_fade_in = (element) ->
                 element.find("div.fader").css("opacity", opacity)
 
 
-adjust_floating_content = (element) ->
-        article = element.parent()
-        div_height = article.innerHeight()
-        screen_height = $(window).height()
-        top_height = article.offset().top
-        bottom_height = top_height + div_height
-        top_position = $(window).scrollTop()
-        bottom_position = top_position + screen_height
-        floating_quote_class = /quote-(left|center|right|top|bottom)-float-(up|down|left|right)/.exec(element.attr("class"))
-
-        if floating_quote_class && top_position <= bottom_height && bottom_position >= top_height
-                bg_type = floating_quote_class[2] #(up|down)
-                article_y = articles_position_on_page(article)
-
-                new_top = new_left = 0
-
-                switch bg_type
-                        when "down"
-                                new_top = article_y * screen_height / 100.0
-                        when "up"
-                                new_top = (100.0 - article_y) * screen_height / 100.0
-                        when "left"
-                                new_left = (100.0 - article_y) * screen_height / 100.0
-                        when "right"
-                                new_left = article_y * screen_height / 100.0
-
-                element.css("top", "#{new_top}px") if new_top
-                element.css("left", "#{new_left}px") if new_left
-
-
-adjust_shifting_background = (element) ->
-        div_height = element.innerHeight()
-        screen_height = $(window).height()
-        top_height = element.offset().top
-        bottom_height = top_height + div_height
-        top_position = $(window).scrollTop()
-        bottom_position = top_position + screen_height
-
-        if top_position <= bottom_height && bottom_position >= top_height
-                bg_types = element.attr("class").match(/bg-[^ ]*/)[0].split("-")[1..]
-                bg_positions = element.css("background-position").split(",")
-                bg_repeats = element.css("background-repeat").split(",")
-
-                for bg_position, index in bg_positions
-                        if index < 2
-                                continue
-                        else
-                                article_y = articles_position_on_page(element)
-                                bg_type = bg_types[index-2]
-                                bg_repeat = $.trim(bg_repeats[index])
-
-                                switch bg_type
-                                        when "shift_down"
-                                                x_offset = 50
-                                                y_offset = 100.0 - article_y
-                                        when "shift_up"
-                                                x_offset = 50
-                                                y_offset = article_y
-                                        when "shift_left"
-                                                x_offset = 100.0 - article_y
-                                                y_offset = 0
-                                        when "shift_right"
-                                                x_offset = article_y
-                                                y_offset = 0
-                                        when "fixed"
-                                                x_offset = 0
-                                                y_offset = 0
-
-                                #make it more random and more extreme for tiled elements
-                                if bg_repeat == "repeat"
-                                        multiplier = index
-                                        x_offset *= multiplier
-                                        y_offset *= multiplier
-
-                                bg_positions[index] = x_offset + "% " + y_offset + "%"
-
-                element.css("background-position", bg_positions.toString())
-
-
 #hide nav items that arent current
 hide_nav_items = ->
         $('nav li').each ->
@@ -198,7 +119,6 @@ find_focused_article = ->
                 secondary_article = $(this) if my_position <= hit_area_bottom
 
         focused_article = primary_article || secondary_article
-
 
 update_nav_with_focused_article = ->
         make_post_current(find_focused_article())
@@ -370,74 +290,11 @@ setup_coffee_table_album = ->
 setup_full_screen_posts = ->
         $(".full-screen").css("height", $(window).height())
 
-###
-setup_time_lapse = ->
-        distance_between_images = 35
-
-        $('article.time-lapse div.images').each ->
-                images = $(this).find('img')
-                count = images.length
-                container_width = distance_between_images * count + parseFloat(images.first().css("max-width"))
-                $(this).css("width", "#{container_width}px")
-
-                images.each (index) ->
-                        rot_direction = if index % 2 == 0 then "-" else ""
-                        rot_value = Math.random() * 7 + 5
-                        pos_direction = if index % 10 < 5 then "" else "-"
-                        rotation = if $(this).is(images.first()) then "0deg" else "#{rot_direction}#{rot_value}deg"
-                        top = "#{pos_direction}#{(index % 5) * 9}px"
-                        zindex = count - index
-                        $(this).css("right", "#{distance_between_images * (count - index)}px")
-                        $(this).css("z-index", zindex)
-                        $(this).css("-webkit-transform", "rotate(#{rotation})") #TODO: support other browsers...
-                        $(this).css("top", "#{top}")
-                        $(this).data("rotation", rotation)
-                        $(this).data("top", top)
-                        $(this).data("zindex", zindex)
-
-                images.hover ->
-                        image_to_show = $(this)
-                        image_to_show_found = false
-
-                        images.each (index) ->
-                                if $(this).is(image_to_show)
-                                        $(this).css("z-index", $(this).data("zindex")).stop().transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
-                                                700,
-                                                "snap")
-                                                .removeClass('flipped')
-                                        image_to_show_found = true
-
-                                else if image_to_show_found #after found image
-                                        if $(this).hasClass("flipped") #that needs to be flipped back
-                                                $(this).stop().css("z-index", $(this).data("zindex")).transition({marginRight: "0px", rotate: $(this).data("rotation"), top: $(this).data("top")},
-                                                        700,
-                                                        "snap")
-                                                        .removeClass('flipped')
-
-
-                                else #before found image
-                                        unless $(this).hasClass("flipped") #that needs to be flipped
-                                                rotation = Math.random() * 180 + 90 #80-110 degrees
-                                                $(this).stop().transition({marginRight: "300px", rotate: "-=#{rotation}deg", top: "+100px"},
-                                                        700,
-                                                        "snap",
-                                                        -> $(this).css("z-index", "-#{$(this).data('zindex')}"))
-                                                        .addClass("flipped")
-###
-
 setup_videos = ->
         #Replace video tags with iframes
         $('video').each ->
                 url = $(this).attr('src')
                 $(this).replaceWith('<iframe id="ytplayer" type="text/html" src="' + url + '" frameborder="0" />')
-
-        #Video headers fade out on rollover
-        $('article.video').hover(
-                ->
-                        $(this).find('header').fadeOut(1300)
-                ->
-                        $(this).find('header').fadeIn(1300)
-                )
 
         set_video_sizes()
 
@@ -546,9 +403,6 @@ $ ->
                                 adjust_scanning_div($(this))
 
                 $('article[class*=fade-in]').each -> adjust_fade_in($(this))
-
-#		$('article[class*=shift]').each -> adjust_shifting_background($(this))
-#		$('figure[class*=float]').each -> adjust_floating_content($(this))
 
 
                 if $('nav').length > 0 #only do nav functions if nav exists

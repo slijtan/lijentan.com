@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107213800) do
+ActiveRecord::Schema.define(:version => 20130108060647) do
 
   create_table "album_elements", :force => true do |t|
     t.integer "album_id"
@@ -22,16 +22,6 @@ ActiveRecord::Schema.define(:version => 20130107213800) do
 
   create_table "albums", :force => true do |t|
     t.string "style"
-  end
-
-  create_table "background_images", :force => true do |t|
-    t.boolean "tile",     :default => false, :null => false
-    t.integer "z_index",  :default => 1,     :null => false
-    t.integer "image_id"
-  end
-
-  create_table "images", :force => true do |t|
-    t.string "url"
   end
 
   create_table "photos", :force => true do |t|
@@ -49,27 +39,17 @@ ActiveRecord::Schema.define(:version => 20130107213800) do
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "space",            :default => "auto"
-    t.boolean  "published",        :default => false
+    t.string   "space",          :default => "auto"
+    t.boolean  "published",      :default => false
     t.datetime "date_published"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "title"
     t.string   "bg_color"
-    t.boolean  "show_header",      :default => true
+    t.boolean  "show_header",    :default => true
     t.string   "effect"
-    t.integer  "previous_post_id"
     t.string   "height"
     t.string   "padding"
-  end
-
-  create_table "quotes", :force => true do |t|
-    t.integer "post_id"
-    t.string  "quote"
-    t.string  "source"
-    t.string  "type"
-    t.string  "text_color"
-    t.integer "text_size"
   end
 
   create_table "sprites", :force => true do |t|

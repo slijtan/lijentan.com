@@ -4,6 +4,7 @@
   <%= render(@site.header_post) %>
 <% end %>
 
+<% if @site.show_nav %>
 <nav>
   <ul id="posts-nav">
     <%= render partial: 'post_nav', collection: @posts, as: :post  %>
@@ -12,6 +13,7 @@
     </li>
   </ul>
 </nav>
+<% end %>
 
 <section id="posts">
   <%= render(@posts) %>

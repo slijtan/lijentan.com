@@ -141,7 +141,7 @@ module PostsHelper
   end
 
   def render_shadows(post)
-    raw("<div class=\"shadow-#{current_cycle('space')}-top\"></div><div class=\"shadow-#{current_cycle('space')}-bottom\"></div>")
+    content_tag(:div, nil, class: "shadow-#{current_cycle('space')}-top") + content_tag(:div, nil, class: "shadow-#{current_cycle('space')}-bottom")
   end
 
   def spaces

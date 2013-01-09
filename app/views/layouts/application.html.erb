@@ -12,9 +12,9 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= content_tag :body, data: {site_id: @site.id} do || %>
+  <%= yield %>
+  <% end %>
 
   <footer>
   </footer>

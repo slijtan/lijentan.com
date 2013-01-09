@@ -141,8 +141,9 @@ load_more_posts = (count = 5) ->
         $('#nav-post-loading').fadeIn(200)
         animate_nav_post_loading()
         space_of_last_post = $('article').last().attr("class").match(/[^ ]*ground/)[0]
+        site_id = $('body').data("site-id")
 
-        $.ajax '/posts.js',
+        $.ajax "/sites/#{site_id}/posts.js",
                 type: 'GET'
                 dataType: 'script'
                 data:

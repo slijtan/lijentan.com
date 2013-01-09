@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130108060647) do
+ActiveRecord::Schema.define(:version => 20130109010944) do
 
   create_table "album_elements", :force => true do |t|
     t.integer "album_id"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(:version => 20130108060647) do
     t.string   "effect"
     t.string   "height"
     t.string   "padding"
+    t.integer  "site_id"
+  end
+
+  create_table "sites", :force => true do |t|
+    t.string  "name"
+    t.boolean "show_nav"
+    t.integer "header_post_id"
   end
 
   create_table "sprites", :force => true do |t|

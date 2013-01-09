@@ -1,8 +1,14 @@
 Lijentandotcom::Application.routes.draw do
-  root :to => 'posts#index'
+  #defaults to lijentan.com for now
+  if site = Site.find_by_name("lijentan.com")
+    root to: "posts#index", site_id: site.id
+  end
 
-  resources :posts, :only => [:index, :show]
-#  get "posts/index"
+  resources :sites do
+    resources :posts, :only => [:index, :show]
+  end
+
+  #  get "posts/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

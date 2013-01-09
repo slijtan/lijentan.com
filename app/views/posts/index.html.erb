@@ -1,11 +1,8 @@
 <% skip_to_cycle(@space_of_last_post, spaces, "space") if @space_of_last_post %>
 
-<header id="main">
-  <hgroup>
-    <h1>Lijen's Blog</h1>
-    <h2>A place on the web for all my stuff...</h2>
-  </hgroup>
-</header>
+<% if @site.header_post %>
+  <%= render(@site.header_post) %>
+<% end %>
 
 <nav>
   <ul id="posts-nav">

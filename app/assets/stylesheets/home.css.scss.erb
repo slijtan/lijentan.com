@@ -8,9 +8,6 @@
     border-bottom-right-radius: $radius;
 }
 
-$header-txt: #FFFFFF;
-$header-txt-sub: #F7F7F7;
-
 $background-bg: #333333;
 $background-bg-dark: #000000;
 
@@ -61,6 +58,16 @@ ul {
     margin-bottom: 15px;
 }
 
+h1 {
+    font-size: 160px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 100px;
+    margin-top: 10px;
+}
+
 h3 {
     margin: 10px 0;
 }
@@ -71,40 +78,6 @@ h4, h5, h6 {
 
 img {
     max-width: 100%;
-}
-
-/* ----------------------
-   Header
-   -------------------------*/
-header#main {
-    background-image: url(headers/header4.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    width: 100%;
-    height: 580px;
-    margin: 0;
-    padding: 0;
-
-    hgroup {
-        font-family: 'Londrina Outline', cursive;
-        font-weight: normal;
-        margin-left: 20px;
-
-        h1 {
-            font-size: 160px;
-            margin: 0 auto;
-            color: $header-txt;
-        }
-
-        h2 {
-            font-size: 100px;
-            margin-top: 10px;
-            width: 700px;
-            color: $header-txt-sub;
-        }
-    }
 }
 
 /* ----------------------
@@ -187,6 +160,7 @@ article {
         h1 {
             padding: 0 10px 0 0;
             margin-bottom: -3px;
+            font-size: 19px;
         }
 
         time {
@@ -320,6 +294,10 @@ article.padding-medium {
     width: 960px;
 }
 
+.full-no-margins {
+    width: 90%;
+}
+
 .single-column-text {
     width: 350px;
 }
@@ -395,6 +373,18 @@ blockquote:before {
     background-repeat: no-repeat !important;
 }
 
+.tiling {
+    background-repeat: repeat !important;
+}
+
+.cover {
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+/* ----------------------
+   Animation Formats
+   -------------------------*/
 .fixed {
     background-attachment: fixed !important;
 }

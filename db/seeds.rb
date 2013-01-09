@@ -6,10 +6,35 @@ Video.delete_all
 Sprite.delete_all
 Album.delete_all
 AlbumElement.delete_all
+Site.delete_all
+
+
+s1 = Site.create(name: "lijentan.com", show_nav: true)
+s2 = Site.create(name: "Smashing Magazine Parallax Scrolling", show_nav: false)
+
+hp = Post.create(title: "Lijen's Blog",
+                 published: false,
+                 show_header: false,
+                 site: s1,
+                 date_published: DateTime.new(2013, 1, 7, 14, 24))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/header/header4.jpg', style: 'cover')
+PostElement.create(post: hp, element: s, animation_type: 'fixed', sequence: 1)
+tb = TextBox.create(style: 'full-no-margins',
+                    text_color: '#FFFFFF',
+                    text: %{
+#Lijen's Blog
+##A place on the<br />web for all my<br />stuff...
+})
+PostElement.create(post: hp, element: tb, sequence: 2)
+
+s1.update_attribute(:header_post, hp)
+
 
 p = Post.create(title: "CKs 30th Birthday",
                 published: true,
                 show_header: false,
+                site: s1,
                 date_published: DateTime.new(2013, 1, 7, 14, 24))
 
 v = Video.create(video_id: "vwl56lz0JU0", style: 'full-width', host: 'youtube')
@@ -17,6 +42,7 @@ PostElement.create(post: p, element: v)
 
 p = Post.create(title: 'Premises of Positive Psychology Part 2',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 date_published: DateTime.new(2012, 12, 10, 19, 20))
 
@@ -144,6 +170,7 @@ p = Post.create(title: "Manga Camera",
                 space: 'midground',
                 padding: 'medium',
                 published: true,
+                site: s1,
                 date_published: DateTime.new(2012, 11, 13, 11, 13))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', style: 'tiling')
@@ -158,6 +185,7 @@ p = Post.create(title: "Live in a Vision",
                 space: 'midground',
                 published: true,
                 show_header: false,
+                site: s1,
                 date_published: DateTime.new(2012, 11, 10, 12, 57))
 
 v = Video.create(video_id: "3I9UsfDZLyQ", style: 'full-width', host: 'youtube')
@@ -169,6 +197,7 @@ p = Post.create(title: 'Holstee Pt. 2',
                 height: '600px',
                 published: true,
                 show_header: false,
+                site: s1,
                 date_published: DateTime.new(2012, 11, 9, 11, 15))
 
 s = Sprite.create(style: 'image',
@@ -193,6 +222,7 @@ PostElement.create(post_id: p.id,
 p = Post.create(title: "The Happy Secret to Better Work",
                 published: true,
                 show_header: false,
+                site: s1,
                 date_published: DateTime.new(2012, 11, 8, 12, 57))
 
 v = Video.create(video_id: "fLJsdqxnZb0", style: 'full-width', host: 'youtube')
@@ -202,6 +232,7 @@ p = Post.create(title: "GoPro on CK's 30th",
                 space: 'background',
                 padding: 'medium',
                 published: true,
+                site: s1,
                 date_published: DateTime.new(2012, 11, 5, 16, 23))
 
 s = Sprite.create(style: 'tiling', url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/wood-1.png')
@@ -215,6 +246,7 @@ PostElement.create(post: p, element: a, sequence: 2)
 p = Post.create(title: "How Will You Measure Your Life?",
                 published: true,
                 show_header: false,
+                site: s1,
                 date_published: DateTime.new(2012, 11, 5, 10, 56))
 
 v = Video.create(video_id: "tvos4nORf_Y", style: 'full-width', host: 'youtube')
@@ -223,6 +255,7 @@ PostElement.create(post: p, element: v)
 
 p = Post.create(title: 'Object In Nature - Session 1',
                 published: true,
+                site: s1,
                 height: "550px",
                 space: "foreground",
                 date_published: DateTime.new(2012, 9, 25, 14, 43))
@@ -242,6 +275,7 @@ PostElement.create(post:p, element: s, position: "left:700px", animation_type: '
 
 p = Post.create(title: 'Object In Nature - Session 2',
                 published: true,
+                site: s1,
                 space: 'midground',
                 padding: 'medium',
                 date_published: DateTime.new(2012, 10, 2, 14, 43))
@@ -261,6 +295,7 @@ PostElement.create(post: p, element: a, sequence: 2)
 p = Post.create(title: 'Object In Nature - Session 3',
                 space: 'background',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 date_published: DateTime.new(2012, 10, 5, 14, 43))
 
@@ -282,6 +317,7 @@ PostElement.create(post: p, element: a, sequence: 3)
 p = Post.create(title: 'Object In Nature - Session 4',
                 space: 'midground',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 date_published: DateTime.new(2012, 10, 12, 13, 43))
 
@@ -305,6 +341,7 @@ PostElement.create(post: p, element: a, sequence: 3)
 p = Post.create(title: 'Object In Nature - Session 5',
                 padding: 'medium',
                 published: true,
+                site: s1,
                 date_published: DateTime.new(2012, 10, 20, 15, 10))
 
 tb = TextBox.create(style: 'full-margins',
@@ -325,6 +362,7 @@ p = Post.create(title: 'Object In Nature - Session 6',
                 space: 'midground',
                 padding: 'medium',
                 published: true,
+                site: s1,
                 date_published: DateTime.new(2012, 10, 25, 14, 43))
 
 tb = TextBox.create(style: 'full-margins',
@@ -346,6 +384,7 @@ p = Post.create(title: 'Object In Nature - Session 7',
                 space: 'midground',
                 padding: 'medium',
                 published: true,
+                site: s1,
                 date_published: DateTime.new(2012, 11, 1, 14, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', style: 'tiling')
@@ -371,6 +410,7 @@ p = Post.create(title: 'Playing With Backgrounds',
                 padding: 'medium',
                 bg_color: "#0C4F59",
                 published: true,
+                site: s1,
                 show_header: false,
                 height: "750px",
                 date_published: DateTime.new(2012, 10, 31, 18, 6))
@@ -400,6 +440,7 @@ p = Post.create(title: 'Holstee Pt. 1',
                 space: 'background',
                 height: '600px',
                 published: true,
+                site: s1,
                 show_header: false,
                 effect: 'fade-in',
                 date_published: DateTime.new(2012, 10, 31, 11, 15))
@@ -428,6 +469,7 @@ PostElement.create(post_id: p.id,
 
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 date_published: DateTime.new(2012, 10, 31, 10, 13))
 
@@ -509,6 +551,7 @@ PostElement.create(post: p, element: tb)
 
 p = Post.create(title: 'Burning Man 2012',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 space: 'background',
                 date_published: DateTime.new(2012, 10, 30, 12, 35))
@@ -526,6 +569,7 @@ PostElement.create(post: p, element: a, sequence: 2)
 
 p = Post.create(title: "Messages In A Bottle",
                 published: true,
+                site: s1,
                 space: 'background',
                 height: "1200px",
                 date_published: DateTime.new(2012, 10, 29, 22, 50))
@@ -536,6 +580,7 @@ PostElement.create(post: p, element: s, position: 'top;h-center;')
 
 p = Post.create(title: "Giants Win The World Series!!!",
                 published: true,
+                site: s1,
                 space: 'midground',
                 show_header: false,
                 date_published: DateTime.new(2012, 10, 29, 14, 55))
@@ -545,6 +590,7 @@ PostElement.create(post: p, element: v)
 
 p = Post.create(title: "Giants Sweep",
                 published: true,
+                site: s1,
                 space: 'background',
                 height: "2000px",
                 show_header: false,
@@ -556,6 +602,7 @@ PostElement.create(post: p, element: s, position: "top;h-center")
 p = Post.create(title: 'Ninja Assassin',
                 space: 'background',
                 published: true,
+                site: s1,
                 show_header: false,
                 date_published: DateTime.new(2012, 10, 29, 2, 13))
 
@@ -600,6 +647,7 @@ p = Post.create(title: 'Another Summer Weekend',
                 space: 'midground',
                 padding: 'medium',
                 published: true,
+                site: s1,
                 date_published: DateTime.new(2012, 10, 29, 20, 13))
 
 
@@ -672,6 +720,7 @@ PostElement.create(post_id: p.id,
 
 p = Post.create(title: "It's Time - Imagine Dragons",
                 published: true,
+                site: s1,
                 space: 'background',
                 show_header: false,
                 date_published: DateTime.new(2012, 10, 26, 13, 5))
@@ -685,6 +734,7 @@ p = Post.create(title: '50 Ways to Say Goodbye',
                 type: 'quote',
                 show_header: false,
                 published: false,
+                site: s1,
                 date_published: DateTime.new(2012, 10, 24, 14, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
@@ -695,6 +745,7 @@ Quote.create(quote: "Some day I'll find a love like yours. She'll think I'm Supe
 p = Post.create(title: 'Two Door Cinema Club',
                 space: 'midground',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 show_header: false,
                 date_published: DateTime.new(2012, 10, 24, 2, 13))
@@ -713,6 +764,7 @@ PostElement.create(post: p, element: a, sequence: 3)
 
 p = Post.create(title: 'Roll On You Bears',
                 published: true,
+                site: s1,
                 space: 'background',
                 padding: 'medium',
                 date_published: DateTime.new(2012, 10, 22, 10, 16))
@@ -727,6 +779,7 @@ PostElement.create(post: p, element: a, sequence: 2)
 
 p = Post.create(title: '30th Anniversary of "The Play"',
                 published: true,
+                site: s1,
                 space: 'background',
                 show_header: false,
                 date_published: DateTime.new(2012, 10, 22, 10, 10))
@@ -737,6 +790,7 @@ PostElement.create(post: p, element: v)
 
 p = Post.create(title: 'A Day Trip to the Russian River',
                 published: true,
+                site: s1,
                 space: 'midground',
                 padding: 'medium',
                 date_published: DateTime.new(2012, 10, 19, 17, 28))
@@ -758,6 +812,7 @@ p = Post.create(title: 'EGO',
                 space: 'background',
                 padding: 'medium',
                 published: true,
+                site: s1,
                 show_header: false,
                 date_published: DateTime.new(2012, 10, 17, 10, 25))
 
@@ -770,11 +825,12 @@ tb = TextBox.create(text: '"There is nothing noble in being superior to your fel
 PostElement.create(post: p, element: tb, sequence: 2)
 
 p = Post.create(title: 'My Resume',
-            space: 'auto',
-            padding: 'medium',
-            published: true,
-            show_header: false,
-            date_published: DateTime.new(2012, 10, 16, 0, 3))
+                space: 'auto',
+                padding: 'medium',
+                published: true,
+                site: s1,
+                show_header: false,
+                date_published: DateTime.new(2012, 10, 16, 0, 3))
 
 tb = TextBox.create(style: 'full-margins',
                     text:
@@ -860,6 +916,7 @@ p = Post.create(title: 'Markdown Support',
                 space: 'auto',
                 padding: 'medium',
                 published: true,
+                site: s1,
                 date_published: DateTime.new(2012, 10, 15, 15, 31))
 
 tb = TextBox.create(style: 'full-margins',
@@ -907,6 +964,7 @@ p = Post.create(title: 'HTML5 and quotes with attribution',
                 space: 'auto',
                 padding: 'medium',
             published: true,
+                site: s1,
             date_published: DateTime.new(2012, 10, 12, 1, 13))
 
 tb = TextBox.create(style: 'full-margins',
@@ -951,6 +1009,7 @@ p = Post.create(
             title: "The Blue Angels",
             bg_color: '#F0EACD',
             published: true,
+                site: s1,
             padding: 'medium',
             space: 'background',
             show_header: false,
@@ -970,6 +1029,7 @@ PostElement.create(post: p, element: a, sequence: 3)
 p = Post.create(title: 'Summatime in the SFC',
                 space: 'background',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 date_published: DateTime.new(2012, 10, 7, 15, 3))
 
@@ -986,6 +1046,7 @@ p = Post.create(title: 'Levitating Sheep',
                 space: 'foreground',
                 padding: 'medium',
                 published: true,
+                site: s1,
                 date_published: DateTime.new(2012, 10, 5, 15, 3))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-bg.png', style: 'tiling')
@@ -1013,6 +1074,7 @@ p = Post.create(title: 'Iceland, Germany, and Amsterdam',
                 space: 'background',
                 padding: 'medium',
                 published: true,
+                site: s1,
                 date_published: DateTime.new(2012, 7, 15, 14, 43))
 
 s = Sprite.create(style: 'image',
@@ -1045,6 +1107,7 @@ PostElement.create(post_id: p.id,
 
 p = Post.create(title: 'Norway',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 space: 'midground',
                 date_published: DateTime.new(2012, 9, 24, 14, 43))
@@ -1066,6 +1129,7 @@ PostElement.create(post: p, element: a, sequence: 3)
 
 p = Post.create(title: 'The Tac Cup',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 space: 'midground',
                 date_published: DateTime.new(2012, 10, 4, 14, 43))
@@ -1112,6 +1176,7 @@ PostElement.create(post: p, element: a, sequence: 3)
 
 p = Post.create(title: 'History and Introduction to Positive Psychology',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 date_published: DateTime.new(2012, 7, 11, 14, 43))
 
@@ -1186,6 +1251,7 @@ PostElement.create(post: p, element: tb)
 
 p = Post.create(title: 'Why is Positive Psychology So Important?',
                 published: true,
+                site: s1,
                 padding: 'medium',
                 date_published: DateTime.new(2012, 7, 24, 14, 43))
 

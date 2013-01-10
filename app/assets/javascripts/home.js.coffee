@@ -400,6 +400,7 @@ $ ->
 
         $(window).resize ->
                 set_video_sizes()
+                setup_full_screen_posts()
 
         $(window).scroll ->
                 $('div.scan:in-viewport').each ->

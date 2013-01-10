@@ -7,6 +7,7 @@ Sprite.delete_all
 Album.delete_all
 AlbumElement.delete_all
 Site.delete_all
+Domain.delete_all
 
 s1 = Site.create(name: "lijentan.com", show_nav: true)
 s1.domains.create(domain: "lijentan.localhost")
@@ -55,6 +56,7 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/slide2
 PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'scan', animation_direction: 'down')
 
 tb = TextBox.create(style: 'single-column-text',
+                    background_image_url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/grain.png',
                     text: %{
 ###Background Only
 In this section we are sliding the background at a different speed to the rest of the page.
@@ -85,6 +87,7 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/photo.
 PostElement.create(post: p, element: s, sequence: 1, position: "left:25%", animation_type: 'scan', animation_direction: 'down')
 
 tb = TextBox.create(style: 'single-column-text',
+                    background_image_url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/grain.png',
                     text: %{
 ###Scrolling Sprites
 The next step in your parallax scrolling adventure is to create some sprites!

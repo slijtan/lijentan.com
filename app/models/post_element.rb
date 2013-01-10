@@ -5,23 +5,24 @@ class PostElement < ActiveRecord::Base
   belongs_to :post
 
   validates_presence_of :element
-  validates_inclusion_of :animation_type, in: ["scan", "fixed"], allow_nil: true
+  validates_inclusion_of :animation_type, in: %w[scan fixed], allow_nil: true
 
   #position validation, examples are top: 2px; left; center; right; top; bottom; inline;
 
-  #TODO: fill this in as we move along...
-  def position_css
-    #we handle different cases for sprites (which use background-image) and other display elements
+  #TODO: Fill this in as we move along... This is gonna be a huge function, prolly needs to be better thought out at some point
+  def position_classes_and_css
     css_styles = {}
-    css_styles[:position] = "absolute"
+    classes = []
+    positions = position.split(";").map {|position| position.delete(" ")}
+
 
     if element_type == 'Sprite'
+      css_styles[:position] = animation_type ? "absolute" : "relative"
+
       y_val = '0%'
       x_val = '50%'
 
-      position.split(";").each do |css_attribute|
-        css_attribute.delete!(" ")
-
+      positions.each do |css_attribute|
         case css_attribute
         when 'top'
           y_val = '0%'
@@ -36,6 +37,7 @@ class PostElement < ActiveRecord::Base
         when 'v-center'
           y_val = '50%'
         when 'inline'
+          css_styles[:position] = 'relative'
         else
           #TODO: handle right and bottom px and %
           if match = /left:((\d)*(px|%))/.match(css_attribute)
@@ -49,9 +51,9 @@ class PostElement < ActiveRecord::Base
       css_styles[:'background-position'] = "#{x_val} #{y_val}"
 
     else
-      position.split(";").each do |css_attribute|
-        css_attribute.delete!(" ")
+      css_styles[:position] = positions.detect {|position| /(left|right|top|bottom)/.match(position) } ? "absolute" : "relative"
 
+      positions.each do |css_attribute|
         case css_attribute
         when 'top'
           css_styles[:top] = '0px';
@@ -63,7 +65,11 @@ class PostElement < ActiveRecord::Base
           css_styles[:right] = '0px';
         when 'v-center'
         when 'h-center'
-          css_styles[:margin] = '0 auto'
+          if css_styles[:position] == "relative"
+            css_styles[:margin] = '0 auto'
+          else
+            classes << "h-center"
+          end
         when 'inline'
           css_styles[:position] = 'relative'
         else
@@ -75,6 +81,6 @@ class PostElement < ActiveRecord::Base
       end
     end
 
-    css_styles.to_a.map {|css_pair| "#{css_pair[0]}:#{css_pair[1]}"}
+    [classes, css_styles.to_a.map {|css_pair| "#{css_pair[0]}:#{css_pair[1]}"}]
   end
 end

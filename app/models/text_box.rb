@@ -1,5 +1,5 @@
 class TextBox < ActiveRecord::Base
-  attr_accessible :bg_color, :style, :text, :text_color, :text_size
+  attr_accessible :bg_color, :style, :text, :text_color, :text_size, :text_align
 
   has_one :post_element, as: :element
 

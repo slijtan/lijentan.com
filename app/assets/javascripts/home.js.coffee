@@ -375,6 +375,10 @@ modal =
                 $('body').css({ overflow: 'visible' })
                 false
 
+reposition_elements = ->
+        $('.h-center').each ->
+                $(this).css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px")
+
 setup_posts = ->
         setup_nav()
         setup_videos()
@@ -383,6 +387,7 @@ setup_posts = ->
         setup_fade_in()
         setup_coffee_table_album()
         setup_full_screen_posts()
+        reposition_elements()
 
 
 $ ->
@@ -404,7 +409,6 @@ $ ->
                                 adjust_scanning_div($(this))
 
                 $('article[class*=fade-in]').each -> adjust_fade_in($(this))
-
 
                 if $('nav').length > 0 #only do nav functions if nav exists
                         update_nav_with_focused_article()

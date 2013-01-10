@@ -1,9 +1,5 @@
 <% skip_to_cycle(@space_of_last_post, spaces, "space") if @space_of_last_post %>
 
-<% if @site.header_post %>
-  <%= render(@site.header_post) %>
-<% end %>
-
 <% if @site.show_nav %>
 <nav>
   <ul id="posts-nav">
@@ -16,5 +12,7 @@
 <% end %>
 
 <section id="posts">
+  <%= render(@site.header_post) if @site.header_post %>
+
   <%= render(@posts) %>
 </section>

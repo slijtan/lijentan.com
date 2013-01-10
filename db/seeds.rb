@@ -8,10 +8,127 @@ Album.delete_all
 AlbumElement.delete_all
 Site.delete_all
 
-
 s1 = Site.create(name: "lijentan.com", show_nav: true)
-s2 = Site.create(name: "Smashing Magazine Parallax Scrolling", show_nav: false)
+s2 = Site.create(name: "Smashing Magazine Parallax Scrolling Tutorial", show_nav: false)
 
+## BEGIN SMASHING MAGAZINE PARALLAX TUTORIAL CLONE
+p = Post.create(title: "Intro",
+                published: true,
+                show_header: false,
+                site: s2,
+                space: nil,
+                height: "full-screen",
+                date_published: DateTime.new(2013, 1, 7, 14, 24))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/puckered.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'fixed')
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/smashing-logo.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 2, animation_type: 'fixed', position: "h-center;top:100px;")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/tutorial-title.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 3, position: "h-center;top:300px;")
+
+tb = TextBox.create(style: 'full-margins',
+                    text: "Words and pictures by Richard Shepherd / Twitter: [@richardshepherd](https://twitter.com/richardshepherd) / Web: [richardshepherd.com](http://richardshepherd.com/)<br />GitHub: [Fork it here!](https://github.com/richardshepherd/Parallax-Scrolling/)",
+                    text_color: "#FFFFFF",
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 4, position: "h-center;top:550px;")
+
+
+p = Post.create(title: "First Story",
+                published: true,
+                show_header: false,
+                site: s2,
+                space: nil,
+                height: "full-screen",
+                date_published: DateTime.new(2013, 1, 6, 14, 24))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/slide2.jpg', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'scan', animation_direction: 'down')
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: %{
+###Background Only
+In this section we are sliding the background at a different speed to the rest of the page.
+
+As this text box is scrolling at the same speed as the page, and faster than the background, it creates this lovely parallax effect.
+
+You can find all the HTML, CSS and the all important JavaScript files over at [GitHub](https://github.com/richardshepherd/Parallax-Scrolling) - so why don't you drop by for some hardcore forking action?
+
+Backgrounds for this article were taken from the May/June 2011 Smashing Magazine Desktop backgrounds.
+
+Head back to [Smashing Magazine](http://coding.smashingmagazine.com/2011/07/12/behind-the-scenes-of-nike-better-world/), or hop on over to [RichardShepherd.com](http://richardshepherd.com/).
+})
+PostElement.create(post: p, element: tb, sequence: 2, position: "left:100px;top:60px")
+
+
+p = Post.create(title: "Second Story",
+                published: true,
+                show_header: false,
+                site: s2,
+                space: nil,
+                height: "full-screen",
+                date_published: DateTime.new(2013, 1, 5, 14, 24))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/slide4.jpg', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'scan', animation_direction: 'down')
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/photo.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1, position: "left:25%", animation_type: 'scan', animation_direction: 'down')
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: %{
+###Scrolling Sprites
+The next step in your parallax scrolling adventure is to create some sprites!
+
+I have cut out one of the photos in this background and use it as a sprite. It scrolls at a different speed to the background and the window, and it's this effect that's used so well on Nike Better World and other parallax sites..
+
+Using too many sprites can slow down older computers, and you need to use some clever maths (and trial & error!) to work out their placement on the page.
+})
+PostElement.create(post: p, element: tb, sequence: 2, position: "right:10%;top:100px")
+
+p = Post.create(title: "Third Story",
+                published: true,
+                show_header: false,
+                site: s2,
+                space: nil,
+                height: "full-screen",
+                date_published: DateTime.new(2013, 1, 4, 14, 24))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/slide3.jpg', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'scan', animation_direction: 'down')
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: %{
+###HTML5 Video
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. o.
+})
+PostElement.create(post: p, element: tb, sequence: 2, position: "left:10%;top:50px")
+
+v = Video.create(video_id: "video/ogg:http://www.richardshepherd.com/smashing/parallax/video/parallelparking.theora.ogv;video/mp4:http://www.richardshepherd.com/smashing/parallax/video/parallelparking.mp4;video/webm:http://www.richardshepherd.com/smashing/parallax/video/parallelparking.webm", style: 'medium', host: 'html5')
+PostElement.create(post: p, element: v, sequence: 3)
+
+p = Post.create(title: "The End",
+                published: true,
+                show_header: false,
+                site: s2,
+                space: nil,
+                height: "full-screen",
+                date_published: DateTime.new(2013, 1, 3, 14, 24))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/puckered.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'fixed')
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/theend.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 2, animation_type: 'scan', animation_direction: 'up', position: "h-center")
+
+
+## BEGIN LIJENTAN.COM
 hp = Post.create(title: "Lijen's Blog",
                  published: false,
                  show_header: false,
@@ -19,7 +136,7 @@ hp = Post.create(title: "Lijen's Blog",
                  date_published: DateTime.new(2013, 1, 7, 14, 24))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/header/header4.jpg', style: 'cover')
-PostElement.create(post: hp, element: s, animation_type: 'fixed', sequence: 1)
+PostElement.create(post: hp, element: s, animation_type: 'fixed', sequence: 1, position: "top;h-center")
 tb = TextBox.create(style: 'full-no-margins',
                     text_color: '#FFFFFF',
                     text: %{
@@ -174,7 +291,7 @@ p = Post.create(title: "Manga Camera",
                 date_published: DateTime.new(2012, 11, 13, 11, 13))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', style: 'tiling')
-PostElement.create(post: p, element: s, sequence: 1)
+PostElement.create(post: p, element: s, sequence: 1, position: "top;h-center")
 
 a = Album.create(style: 'comic')
 (1..20).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/manga/manga-#{i}.jpg"), sequence: i) }
@@ -205,7 +322,7 @@ s = Sprite.create(style: 'image',
 
 PostElement.create(post_id: p.id,
                    element: s,
-                   position: 'inline',
+                   position: "top;h-center",
                    animation_type: 'scan',
                    animation_direction: 'up',
                    sequence: 1)
@@ -236,7 +353,7 @@ p = Post.create(title: "GoPro on CK's 30th",
                 date_published: DateTime.new(2012, 11, 5, 16, 23))
 
 s = Sprite.create(style: 'tiling', url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/wood-1.png')
-PostElement.create(post: p, element: s, sequence: 1)
+PostElement.create(post: p, element: s, sequence: 1, position: "top;h-center")
 
 a = Album.create(style: 'coffee-table')
 (1..28).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/ck-bday-time-lapse/ck-bday-time-lapse-#{i}.jpg"), sequence: i)}
@@ -261,7 +378,7 @@ p = Post.create(title: 'Object In Nature - Session 1',
                 date_published: DateTime.new(2012, 9, 25, 14, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/oakdale.jpg', style: 'image')
-PostElement.create(post:p, element: s, animation_type: 'scan', animation_direction: 'right', sequence: 1)
+PostElement.create(post:p, element: s, animation_type: 'scan', animation_direction: 'right', sequence: 1, position: "top;left;")
 
 tb = TextBox.create(style: 'single-column-text',
                     text:
@@ -300,7 +417,7 @@ p = Post.create(title: 'Object In Nature - Session 3',
                 date_published: DateTime.new(2012, 10, 5, 14, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', style: 'image')
-PostElement.create(post: p, element: s, animation_type: 'fixed', sequence: 1)
+PostElement.create(post: p, element: s, animation_type: 'fixed', sequence: 1, position: "top;h-center")
 
 tb = TextBox.create(style: 'full-margins',
                     text:
@@ -322,7 +439,7 @@ p = Post.create(title: 'Object In Nature - Session 4',
                 date_published: DateTime.new(2012, 10, 12, 13, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', style: 'image')
-PostElement.create(post: p, element: s, animation_type: 'fixed', sequence: 1)
+PostElement.create(post: p, element: s, animation_type: 'fixed', sequence: 1, position: "top;h-center")
 
 tb = TextBox.create(style: 'full-margins',
                     text:
@@ -388,7 +505,7 @@ p = Post.create(title: 'Object In Nature - Session 7',
                 date_published: DateTime.new(2012, 11, 1, 14, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', style: 'tiling')
-PostElement.create(post: p, element: s, sequence: 1)
+PostElement.create(post: p, element: s, sequence: 1, position: "top;left;")
 
 tb = TextBox.create(style: 'full-margins',
                     text:
@@ -416,19 +533,19 @@ p = Post.create(title: 'Playing With Backgrounds',
                 date_published: DateTime.new(2012, 10, 31, 18, 6))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-2.png', style: 'tiling')
-PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1)
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1, position: "top;h-center")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-5.png', style: 'tiling')
-PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'up', sequence: 2)
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'up', sequence: 2, position: "top;h-center")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-3.png', style: 'tiling')
-PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 3)
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 3, position: "top;h-center")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-1.png', style: 'tiling')
-PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'up', sequence: 4)
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'up', sequence: 4, position: "top;h-center")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-3.png', style: 'tiling')
-PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 5)
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 5, position: "top;h-center")
 
 tb = TextBox.create(style: 'quote-big',
                     text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk',
@@ -450,7 +567,7 @@ s = Sprite.create(style: 'image',
 
 PostElement.create(post_id: p.id,
                    element: s,
-                   position: 'inline',
+                   position: "top;h-center",
                    animation_type: 'scan',
                    animation_direction: 'down',
                    sequence: 1)
@@ -559,7 +676,7 @@ p = Post.create(title: 'Burning Man 2012',
 s = Sprite.create(style: 'tiling',
                   url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/stormy-sky.jpg')
 
-PostElement.create(post: p, element: s, sequence: 1)
+PostElement.create(post: p, element: s, sequence: 1, position: "top;h-center")
 
 a = Album.create(style: 'horizontal-scroll')
 
@@ -572,6 +689,7 @@ p = Post.create(title: "Messages In A Bottle",
                 site: s1,
                 space: 'background',
                 height: "1200px",
+                padding: 'medium',
                 date_published: DateTime.new(2012, 10, 29, 22, 50))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/messages-in-a-bottle/messages-in-a-bottle.jpg', style: 'image')
@@ -611,7 +729,7 @@ s = Sprite.create(style: 'image',
 
 PostElement.create(post_id: p.id,
                    element: s,
-                   position: 'inline',
+                   position: "top",
                    animation_type: 'scan',
                    animation_direction: 'right',
                    sequence: 1)
@@ -621,7 +739,7 @@ s = Sprite.create(style: 'image',
 
 PostElement.create(post_id: p.id,
                    element: s,
-                   position: 'inline',
+                   position: 'top;h-center',
                    sequence: 2)
 
 s = Sprite.create(style: 'image',
@@ -629,7 +747,7 @@ s = Sprite.create(style: 'image',
 
 PostElement.create(post_id: p.id,
                    element: s,
-                   position: 'inline',
+                   position: 'top',
                    animation_type: 'scan',
                    animation_direction: 'right',
                    sequence: 3)
@@ -714,7 +832,7 @@ s = Sprite.create(style: 'image',
 
 PostElement.create(post_id: p.id,
                    element: s,
-                   position: 'inline',
+                   position: 'top;h-center;',
                    sequence: 1)
 
 
@@ -770,7 +888,7 @@ p = Post.create(title: 'Roll On You Bears',
                 date_published: DateTime.new(2012, 10, 22, 10, 16))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/big-game/big-game-bg.jpg', style: 'image')
-PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1)
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1, position: 'top;h-center')
 
 a = Album.create(style: 'thumbnail-rows')
 (1..11).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/big-game/big-game-#{i}.jpg"), sequence: i) }
@@ -795,7 +913,7 @@ p = Post.create(title: 'A Day Trip to the Russian River',
                 padding: 'medium',
                 date_published: DateTime.new(2012, 10, 19, 17, 28))
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg', style: 'image')
-PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1)
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1, position: 'top;h-center')
 
 tb = TextBox.create(style: 'full-margins',
                     text:
@@ -817,7 +935,7 @@ p = Post.create(title: 'EGO',
                 date_published: DateTime.new(2012, 10, 17, 10, 25))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/ego/ego-bg.jpg', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1)
+PostElement.create(post: p, element: s, sequence: 1, position: 'top;h-center')
 
 tb = TextBox.create(text: '"There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self" - Ernest Hemingway',
                     style: 'quote-big',
@@ -836,7 +954,7 @@ tb = TextBox.create(style: 'full-margins',
                     text:
                     %{
 <div style="text-align: center">
-<h2 style="margin:0;">Lijen Tan</h2>
+<h3 style="margin:0;">Lijen Tan</h3>
 <span style="color:868585;">349 Divisadero St, San Francisco, CA 94117</span><br>
 <span style="color:868585;">Phone: (510)410-1855 / Email: lijentan@gmail.com</span>
 </div>
@@ -924,12 +1042,12 @@ tb = TextBox.create(style: 'full-margins',
                     %{
 I worked in some better formatting options for posts in the last few days. It was hard for me to decide at first what to use; my main consideration was between a text-to-HTML converter like markdown or textitle, or a WYSIWYG tool such as Mercury Editor. I decided to go with <a href="http://github.github.com/github-flavored-markdown/" target=_blank>Github Flavored Markdown</a> with <a href="https://github.com/vmg/redcarpet" target=_blank>Redcarpet</a> because it's the fastest to implement, and I can always move toward a heavier solution with a WYSIWYG later down the line. I would definitely consider using a WYSIWYG built on top of markdown, which would be fully extensible with my current setup, or one that saves raw HTML for the most flexibility. I also included <a href="http://coderay.rubychan.de/" target=_blank>CodeRay</a> support for nicely formatted code blocks. I know some of the styles look jenky... I have to work on styling a lot of elements still, I will progressively add styles as I use them in my posts. Here are some examples below of the types of tags that I can use in my Posts as of now:
 
-# This is an H1
-## This is an H2
-### This is an H3
-#### This is an H4
-##### This is an H5
-###### This is an H6
+# This is a H1
+## This is a H2
+### This is a H3
+#### This is a H4
+##### This is a H5
+###### This is a H6
 
 > This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
 > consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
@@ -1039,7 +1157,7 @@ tb = TextBox.create(style: 'two-column-text',
 PostElement.create(post: p, element: tb, sequence: 2)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-bg.jpg', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1)
+PostElement.create(post: p, element: s, sequence: 1, position: 'top;h-center')
 
 
 p = Post.create(title: 'Levitating Sheep',
@@ -1050,10 +1168,10 @@ p = Post.create(title: 'Levitating Sheep',
                 date_published: DateTime.new(2012, 10, 5, 15, 3))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-bg.png', style: 'tiling')
-PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1)
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1, position: 'top;h-center')
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-fg.png', style: 'tiling')
-PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 2)
+PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 2, position: 'top;h-center')
 
 tb = TextBox.create(style: 'two-column-text',
                     text:
@@ -1113,7 +1231,7 @@ p = Post.create(title: 'Norway',
                 date_published: DateTime.new(2012, 9, 24, 14, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/norway/norway-bg.jpg', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1)
+PostElement.create(post: p, element: s, sequence: 1, position: 'top;h-center')
 
 tb = TextBox.create(style: 'full-margins',
                     text:
@@ -1166,7 +1284,7 @@ Week 1 Results:
 PostElement.create(post: p, element: tb, sequence: 2)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-bg.jpg', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1)
+PostElement.create(post: p, element: s, sequence: 1, position: 'top;h-center')
 
 a = Album.create(style: 'thumbnail-rows')
 a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893047/posts/tac/tac-1.jpg'), sequence: 1)

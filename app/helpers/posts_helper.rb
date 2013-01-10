@@ -27,20 +27,21 @@ module PostsHelper
 
   def sprite_attributes(post_element)
     sprite = post_element.element
+    position_classes, position_css = post_element.position_classes_and_css
 
     classes = []
     classes << "sprite"
     classes << sprite.style
     classes << post_element.animation_type if post_element.animation_type
+    classes.concat(position_classes)
 
     styles = []
     styles << "background: url(#{ asset_path(sprite.url) })"
     styles << "z-index: #{post_element.sequence}" if post_element.sequence
-    styles.concat(post_element.position_css)
+    styles.concat(position_css)
 
     data = {}
     data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
-
     html_classes = "class=\"#{classes.join(" ")}\""
     html_styles = "style=\"#{styles.join(";")}\""
     html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
@@ -73,14 +74,16 @@ module PostsHelper
 
   def album_attributes(post_element)
     album = post_element.element
+    position_classes, position_css = post_element.position_classes_and_css
 
     classes = []
     classes << "album"
     classes << album.style
+    classes.concat(position_classes)
 
     styles = []
     styles << "z-index: #{post_element.sequence}" if post_element.sequence
-    styles.concat(post_element.position_css)
+    styles.concat(position_css)
 
     html_classes = "class=\"#{classes.join(" ")}\""
     html_styles = "style=\"#{styles.join(";")}\""
@@ -91,16 +94,20 @@ module PostsHelper
   def text_box_attributes(post_element)
     text_box = post_element.element
 
+    position_classes, position_css = post_element.position_classes_and_css
+
     classes = []
     classes << "text-box"
     classes << text_box.style
     classes << post_element.animation_type if post_element.animation_type
+    classes.concat(position_classes)
 
     styles = []
     styles << "font-size:#{text_box.text_size}px" if text_box.text_size
     styles << "color:#{text_box.text_color}" if text_box.text_color
+    styles << "text-align:#{text_box.text_align}" if text_box.text_align
     styles << "z-index: #{post_element.sequence}" if post_element.sequence
-    styles.concat(post_element.position_css)
+    styles.concat(position_css)
 
     data = {}
     data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
@@ -118,13 +125,13 @@ module PostsHelper
     if post.space == "auto"
       space = cycle(*spaces, name: "space")
       logger.debug("space is auto #{space}")
-    else
+    elsif space
       space = post.space
       logger.debug("space is set #{space}")
       skip_to_cycle(post.space, spaces, "space")
     end
 
-    classes << space
+    classes << space if space
     classes << post.effect if post.effect
     classes << "padding-#{post.padding}" if post.padding
     classes << 'full-screen' if post.height == 'full-screen'
@@ -141,7 +148,7 @@ module PostsHelper
   end
 
   def render_shadows(post)
-    content_tag(:div, nil, class: "shadow-#{current_cycle('space')}-top") + content_tag(:div, nil, class: "shadow-#{current_cycle('space')}-bottom")
+    content_tag(:div, nil, class: "shadow-#{current_cycle('space')}-top") + content_tag(:div, nil, class: "shadow-#{current_cycle('space')}-bottom") if post.space
   end
 
   def spaces

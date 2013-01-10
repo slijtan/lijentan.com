@@ -4,9 +4,13 @@ Lijentandotcom::Application.routes.draw do
     root to: "posts#index", site_id: site.id
   end
 
+  match 'sites/:site_id' => 'posts#index'
+
   resources :sites do
     resources :posts, :only => [:index, :show]
   end
+
+
 
   #  get "posts/index"
 

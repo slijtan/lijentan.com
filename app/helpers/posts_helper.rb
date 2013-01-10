@@ -11,18 +11,27 @@ module PostsHelper
   #TODO refactor the attribute functions a bit
   def video_attributes(post_element)
     video = post_element.element
+    position_classes, position_css = post_element.position_classes_and_css
 
     classes = []
     classes << "video"
     classes << video.style
+    classes << video.host
+    classes << post_element.animation_type if post_element.animation_type
+    classes.concat(position_classes)
 
     styles = []
     styles << "z-index: #{post_element.sequence}" if post_element.sequence
+    styles.concat(position_css)
+
+    data = {}
+    data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
 
     html_classes = "class=\"#{classes.join(" ")}\""
     html_styles = "style=\"#{styles.join(";")}\""
+    html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
 
-    raw("#{html_classes} #{html_styles}")
+    raw("#{html_classes} #{html_styles} #{html_data}")
   end
 
   def sprite_attributes(post_element)
@@ -42,6 +51,7 @@ module PostsHelper
 
     data = {}
     data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
+
     html_classes = "class=\"#{classes.join(" ")}\""
     html_styles = "style=\"#{styles.join(";")}\""
     html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}

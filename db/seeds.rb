@@ -120,8 +120,12 @@ Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac tu
 })
 PostElement.create(post: p, element: tb, sequence: 2, position: "left:10%;top:50px")
 
-v = Video.create(video_id: "video/ogg:http://www.richardshepherd.com/smashing/parallax/video/parallelparking.theora.ogv;video/mp4:http://www.richardshepherd.com/smashing/parallax/video/parallelparking.mp4;video/webm:http://www.richardshepherd.com/smashing/parallax/video/parallelparking.webm", style: 'medium', host: 'html5')
-PostElement.create(post: p, element: v, sequence: 3)
+video_data = [{type: "video/ogg", url: "http://www.richardshepherd.com/smashing/parallax/video/parallelparking.theora.ogv"},
+              {type: "video/mp4", url: "http://www.richardshepherd.com/smashing/parallax/video/parallelparking.mp4"},
+              {type: "video/webm", url: "http://www.richardshepherd.com/smashing/parallax/video/parallelparking.webm"}
+             ]
+v = Video.create(video_id: Marshal.dump(video_data), style: 'medium', host: 'html5')
+PostElement.create(post: p, element: v, sequence: 3, position: "right:10%", animation_type: "scan", animation_direction: "up")
 
 p = Post.create(title: "The End",
                 published: true,

@@ -1,3 +1,11 @@
 <div <%= video_attributes(post_element) %>>
+  <% if post_element.element.host == 'youtube' %>
   <video src="http://www.youtube.com/embed/<%= post_element.element.video_id %>?autohide=1&controls=0&modestbranding=1&rel=0&showinfo=0&fs=1"></video>
+  <% elsif post_element.element.host == 'html5' %>
+  <video class="<%= post_element.element.style %>" controls>
+    <% for source in post_element.element.sources %>
+    <source src="<%= source[:url] %>" type="<%= source[:type] %>" />
+    <% end %>
+  </video>
+  <% end %>
 </div>

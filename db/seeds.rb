@@ -695,7 +695,7 @@ p = Post.create(title: "Messages In A Bottle",
                 published: true,
                 site: s1,
                 space: 'background',
-                height: "1200px",
+                height: "1000px",
                 padding: 'medium',
                 date_published: DateTime.new(2012, 10, 29, 22, 50))
 

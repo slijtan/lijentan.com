@@ -9,15 +9,14 @@ class PostElement < ActiveRecord::Base
 
   #position validation, examples are top: 2px; left; center; right; top; bottom; inline;
 
-  #TODO: Fill this in as we move along... This is gonna be a huge function, prolly needs to be better thought out at some point
+  #TODO: Fill this in as we move along... This is gonna be a huge function, prolly needs to be better thought out at some point and needs unit tests like crazy
   def position_classes_and_css
     css_styles = {}
     classes = []
     positions = position.split(";").map {|position| position.delete(" ")}
 
-
     if element_type == 'Sprite'
-      css_styles[:position] = animation_type ? "absolute" : "relative"
+      css_styles[:position] = animation_type || ["tiling", "cover"].include?(element.style) || positions.detect {|position| /(left|right|top|bottom)/.match(position) } ? "absolute" : "relative"
 
       y_val = '0%'
       x_val = '50%'

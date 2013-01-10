@@ -1,8 +1,7 @@
 Lijentandotcom::Application.routes.draw do
-  #defaults to lijentan.com for now
-  if site = Site.find_by_name("lijentan.com")
-    root to: "posts#index", site_id: site.id
-  end
+  root to: "posts#index"
+
+  match ':id' => 'posts#show'
 
   match 'sites/:site_id' => 'posts#index'
 

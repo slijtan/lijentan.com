@@ -5,4 +5,5 @@ class Site < ActiveRecord::Base
 
   has_many :posts
   belongs_to :header_post, class_name: "Post"
+  has_many :domains
 end

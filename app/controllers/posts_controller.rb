@@ -24,6 +24,10 @@ class PostsController < ApplicationController
   private
 
   def set_site
-    @site = Site.find(params[:site_id])
+    if domain = Domain.find_by_domain(request.host)
+      @site = domain.site
+    else
+      @site = Site.find(params[:site_id])
+    end
   end
 end

@@ -9,7 +9,14 @@ AlbumElement.delete_all
 Site.delete_all
 
 s1 = Site.create(name: "lijentan.com", show_nav: true)
+s1.domains.create(domain: "lijentan.localhost")
+s1.domains.create(domain: "lijentan.com")
+s1.domains.create(domain: "www.lijentan.com")
+s1.domains.create(domain: "blog.lijentandotcom.herokuapp.com")
+
 s2 = Site.create(name: "Smashing Magazine Parallax Scrolling Tutorial", show_nav: false)
+s2.domains.create(domain: "smashing.localhost")
+s1.domains.create(domain: "smashing.lijentandotcom.herokuapp.com")
 
 ## BEGIN SMASHING MAGAZINE PARALLAX TUTORIAL CLONE
 p = Post.create(title: "Intro",

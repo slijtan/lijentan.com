@@ -293,7 +293,7 @@ setup_full_screen_posts = ->
 
 setup_videos = ->
         #Replace video tags with iframes
-        $('div.youtube').each ->
+        $('div.youtube video').each ->
                 url = $(this).attr('src')
                 $(this).replaceWith('<iframe id="ytplayer" type="text/html" src="' + url + '" frameborder="0" />')
 

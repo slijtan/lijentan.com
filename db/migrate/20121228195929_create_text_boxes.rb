@@ -10,15 +10,11 @@ class CreateTextBoxes < ActiveRecord::Migration
 
     remove_column :posts, :body
     remove_column :posts, :type
-    remove_column :posts, :quote
-    remove_column :posts, :quote_source
   end
 
   def down
     add_column :posts, :body, :text
     add_column :posts, :type, :string, required: true
-    add_column :posts, :quote, :text, required: false
-    add_column :posts, :quote_source, :string, required: false
     drop_table :text_boxes
   end
 end

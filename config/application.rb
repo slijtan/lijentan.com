@@ -64,5 +64,7 @@ module Lijentandotcom
       g.view_specs false
       g.helper_specs false
     end
+
+    config.assets.precompile += %w( jquery.transit.js jquery.viewport.mini.js )
   end
 end

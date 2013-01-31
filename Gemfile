@@ -15,6 +15,7 @@ gem "rspec-rails", ">= 2.10.1", :group => [:development, :test]
 gem "redcarpet"
 gem 'nokogiri'
 gem 'coderay'
+gem 'seedbank'
 
 group :test do
   gem 'cucumber-rails', :require => false

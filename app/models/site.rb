@@ -3,7 +3,8 @@ class Site < ActiveRecord::Base
 
   validates_presence_of :name
 
-  has_many :posts
-  belongs_to :header_post, class_name: "Post"
-  has_many :domains
+  has_many :posts, dependent: :destroy
+  has_many :domains, dependent: :destroy
+  belongs_to :header_post, class_name: "Post", dependent: :destroy
+
 end

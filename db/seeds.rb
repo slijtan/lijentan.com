@@ -21,12 +21,12 @@ s1.domains.create(domain: "smashing.lijentandotcom.herokuapp.com")
 
 ## BEGIN SMASHING MAGAZINE PARALLAX TUTORIAL CLONE
 p = Post.create(title: "Intro",
-                published: true,
-                show_header: false,
-                site: s2,
-                space: nil,
-                height: "full-screen",
-                date_published: DateTime.new(2013, 1, 7, 14, 24))
+		published: true,
+		show_header: false,
+		site: s2,
+		space: nil,
+		height: "full-screen",
+		date_published: DateTime.new(2013, 1, 7, 14, 24))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/puckered.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'fixed')
@@ -38,26 +38,26 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/tutori
 PostElement.create(post: p, element: s, sequence: 3, position: "h-center;top:300px;")
 
 tb = TextBox.create(style: 'full-margins',
-                    text: "Words and pictures by Richard Shepherd / Twitter: [@richardshepherd](https://twitter.com/richardshepherd) / Web: [richardshepherd.com](http://richardshepherd.com/)<br />GitHub: [Fork it here!](https://github.com/richardshepherd/Parallax-Scrolling/)",
-                    text_color: "#FFFFFF",
-                    text_align: "center")
+		    text: "Words and pictures by Richard Shepherd / Twitter: [@richardshepherd](https://twitter.com/richardshepherd) / Web: [richardshepherd.com](http://richardshepherd.com/)<br />GitHub: [Fork it here!](https://github.com/richardshepherd/Parallax-Scrolling/)",
+		    text_color: "#FFFFFF",
+		    text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 4, position: "h-center;top:550px;")
 
 
 p = Post.create(title: "First Story",
-                published: true,
-                show_header: false,
-                site: s2,
-                space: nil,
-                height: "full-screen",
-                date_published: DateTime.new(2013, 1, 6, 14, 24))
+		published: true,
+		show_header: false,
+		site: s2,
+		space: nil,
+		height: "full-screen",
+		date_published: DateTime.new(2013, 1, 6, 14, 24))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/slide2.jpg', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'scan', animation_direction: 'down')
 
 tb = TextBox.create(style: 'single-column-text',
-                    background_image_url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/grain.png',
-                    text: %{
+		    background_image_url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/grain.png',
+		    text: %{
 ###Background Only
 In this section we are sliding the background at a different speed to the rest of the page.
 
@@ -73,12 +73,12 @@ PostElement.create(post: p, element: tb, sequence: 2, position: "left:100px;top:
 
 
 p = Post.create(title: "Second Story",
-                published: true,
-                show_header: false,
-                site: s2,
-                space: nil,
-                height: "full-screen",
-                date_published: DateTime.new(2013, 1, 5, 14, 24))
+		published: true,
+		show_header: false,
+		site: s2,
+		space: nil,
+		height: "full-screen",
+		date_published: DateTime.new(2013, 1, 5, 14, 24))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/slide4.jpg', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'scan', animation_direction: 'down')
@@ -87,8 +87,8 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/photo.
 PostElement.create(post: p, element: s, sequence: 1, position: "left:25%", animation_type: 'scan', animation_direction: 'down')
 
 tb = TextBox.create(style: 'single-column-text',
-                    background_image_url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/grain.png',
-                    text: %{
+		    background_image_url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/grain.png',
+		    text: %{
 ###Scrolling Sprites
 The next step in your parallax scrolling adventure is to create some sprites!
 
@@ -99,18 +99,18 @@ Using too many sprites can slow down older computers, and you need to use some c
 PostElement.create(post: p, element: tb, sequence: 2, position: "right:10%;top:100px")
 
 p = Post.create(title: "Third Story",
-                published: true,
-                show_header: false,
-                site: s2,
-                space: nil,
-                height: "full-screen",
-                date_published: DateTime.new(2013, 1, 4, 14, 24))
+		published: true,
+		show_header: false,
+		site: s2,
+		space: nil,
+		height: "full-screen",
+		date_published: DateTime.new(2013, 1, 4, 14, 24))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/slide3.jpg', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'scan', animation_direction: 'down')
 
 tb = TextBox.create(style: 'single-column-text',
-                    text: %{
+		    text: %{
 ###HTML5 Video
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
 
@@ -121,19 +121,19 @@ Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac tu
 PostElement.create(post: p, element: tb, sequence: 2, position: "left:10%;top:50px")
 
 video_data = [{type: "video/ogg", url: "http://www.richardshepherd.com/smashing/parallax/video/parallelparking.theora.ogv"},
-              {type: "video/mp4", url: "http://www.richardshepherd.com/smashing/parallax/video/parallelparking.mp4"},
-              {type: "video/webm", url: "http://www.richardshepherd.com/smashing/parallax/video/parallelparking.webm"}
-             ]
-v = Video.create(video_id: Marshal.dump(video_data), style: 'medium', host: 'html5')
+	      {type: "video/mp4", url: "http://www.richardshepherd.com/smashing/parallax/video/parallelparking.mp4"},
+	      {type: "video/webm", url: "http://www.richardshepherd.com/smashing/parallax/video/parallelparking.webm"}
+	     ]
+v = Video.create(video_data: video_data, style: 'medium', host: 'html5')
 PostElement.create(post: p, element: v, sequence: 3, position: "right:10%", animation_type: "scan", animation_direction: "up")
 
 p = Post.create(title: "The End",
-                published: true,
-                show_header: false,
-                site: s2,
-                space: nil,
-                height: "full-screen",
-                date_published: DateTime.new(2013, 1, 3, 14, 24))
+		published: true,
+		show_header: false,
+		site: s2,
+		space: nil,
+		height: "full-screen",
+		date_published: DateTime.new(2013, 1, 3, 14, 24))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/puckered.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "top;center", animation_type: 'fixed')
@@ -144,16 +144,16 @@ PostElement.create(post: p, element: s, sequence: 2, animation_type: 'scan', ani
 
 ## BEGIN LIJENTAN.COM
 hp = Post.create(title: "Lijen's Blog",
-                 published: false,
-                 show_header: false,
-                 site: s1,
-                 date_published: DateTime.new(2013, 1, 7, 14, 24))
+		 published: false,
+		 show_header: false,
+		 site: s1,
+		 date_published: DateTime.new(2013, 1, 7, 14, 24))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/header/header4.jpg', style: 'cover')
 PostElement.create(post: hp, element: s, animation_type: 'fixed', sequence: 1, position: "top;h-center")
 tb = TextBox.create(style: 'full-no-margins',
-                    text_color: '#FFFFFF',
-                    text: %{
+		    text_color: '#FFFFFF',
+		    text: %{
 #Lijen's Blog
 ##A place on the<br />web for all my<br />stuff...
 })
@@ -163,22 +163,22 @@ s1.update_attribute(:header_post, hp)
 
 
 p = Post.create(title: "CKs 30th Birthday",
-                published: true,
-                show_header: false,
-                site: s1,
-                date_published: DateTime.new(2013, 1, 7, 14, 24))
+		published: true,
+		show_header: false,
+		site: s1,
+		date_published: DateTime.new(2013, 1, 7, 14, 24))
 
-v = Video.create(video_id: "vwl56lz0JU0", style: 'full-width', host: 'youtube')
+v = Video.create(video_data: {id: "vwl56lz0JU0"}, style: 'full-width', host: 'youtube')
 PostElement.create(post: p, element: v)
 
 p = Post.create(title: 'Premises of Positive Psychology Part 2',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                date_published: DateTime.new(2012, 12, 10, 19, 20))
+		published: true,
+		site: s1,
+		padding: 'medium',
+		date_published: DateTime.new(2012, 12, 10, 19, 20))
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
+		    text:
 %{
 Premises of PP:
 1. Bridge building vs Division and separation - This class will go against a lot of traditional psych with demarkation and division, and instead will build bridges
@@ -298,11 +298,11 @@ We have better relationships, increased generosity, and has shown to make us hel
 PostElement.create(post_id: p.id, element: tb, position: 'inline')
 
 p = Post.create(title: "Manga Camera",
-                space: 'midground',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                date_published: DateTime.new(2012, 11, 13, 11, 13))
+		space: 'midground',
+		padding: 'medium',
+		published: true,
+		site: s1,
+		date_published: DateTime.new(2012, 11, 13, 11, 13))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', style: 'tiling')
 PostElement.create(post: p, element: s, sequence: 1, position: "top;h-center")
@@ -313,58 +313,58 @@ a = Album.create(style: 'comic')
 PostElement.create(post: p, element: a, sequence: 2)
 
 p = Post.create(title: "Live in a Vision",
-                space: 'midground',
-                published: true,
-                show_header: false,
-                site: s1,
-                date_published: DateTime.new(2012, 11, 10, 12, 57))
+		space: 'midground',
+		published: true,
+		show_header: false,
+		site: s1,
+		date_published: DateTime.new(2012, 11, 10, 12, 57))
 
-v = Video.create(video_id: "3I9UsfDZLyQ", style: 'full-width', host: 'youtube')
+v = Video.create(video_data: {id: "3I9UsfDZLyQ"}, style: 'full-width', host: 'youtube')
 PostElement.create(post: p, element: v)
 
 
 p = Post.create(title: 'Holstee Pt. 2',
-                space: 'background',
-                height: '600px',
-                published: true,
-                show_header: false,
-                site: s1,
-                date_published: DateTime.new(2012, 11, 9, 11, 15))
+		space: 'background',
+		height: '600px',
+		published: true,
+		show_header: false,
+		site: s1,
+		date_published: DateTime.new(2012, 11, 9, 11, 15))
 
 s = Sprite.create(style: 'image',
-                  url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-2.jpg')
+		  url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-2.jpg')
 
 PostElement.create(post_id: p.id,
-                   element: s,
-                   position: "top;h-center",
-                   animation_type: 'scan',
-                   animation_direction: 'up',
-                   sequence: 1)
+		   element: s,
+		   position: "top;h-center",
+		   animation_type: 'scan',
+		   animation_direction: 'up',
+		   sequence: 1)
 
 tb = TextBox.create(text: 'Life is short.',
-                    style: 'single-line-text',
-                    text_size: 60)
+		    style: 'single-line-text',
+		    text_size: 60)
 
 PostElement.create(post_id: p.id,
-                   element: tb,
-                   position: 'top:10%;left:10%;',
-                   sequence: 2)
+		   element: tb,
+		   position: 'top:10%;left:10%;',
+		   sequence: 2)
 
 p = Post.create(title: "The Happy Secret to Better Work",
-                published: true,
-                show_header: false,
-                site: s1,
-                date_published: DateTime.new(2012, 11, 8, 12, 57))
+		published: true,
+		show_header: false,
+		site: s1,
+		date_published: DateTime.new(2012, 11, 8, 12, 57))
 
-v = Video.create(video_id: "fLJsdqxnZb0", style: 'full-width', host: 'youtube')
+v = Video.create(video_data: {id: "fLJsdqxnZb0"}, style: 'full-width', host: 'youtube')
 PostElement.create(post: p, element: v)
 
 p = Post.create(title: "GoPro on CK's 30th",
-                space: 'background',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                date_published: DateTime.new(2012, 11, 5, 16, 23))
+		space: 'background',
+		padding: 'medium',
+		published: true,
+		site: s1,
+		date_published: DateTime.new(2012, 11, 5, 16, 23))
 
 s = Sprite.create(style: 'tiling', url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/wood-1.png')
 PostElement.create(post: p, element: s, sequence: 1, position: "top;h-center")
@@ -375,28 +375,28 @@ PostElement.create(post: p, element: a, sequence: 2)
 
 
 p = Post.create(title: "How Will You Measure Your Life?",
-                published: true,
-                show_header: false,
-                site: s1,
-                date_published: DateTime.new(2012, 11, 5, 10, 56))
+		published: true,
+		show_header: false,
+		site: s1,
+		date_published: DateTime.new(2012, 11, 5, 10, 56))
 
-v = Video.create(video_id: "tvos4nORf_Y", style: 'full-width', host: 'youtube')
+v = Video.create(video_data: {id: "tvos4nORf_Y"}, style: 'full-width', host: 'youtube')
 PostElement.create(post: p, element: v)
 
 
 p = Post.create(title: 'Object In Nature - Session 1',
-                published: true,
-                site: s1,
-                height: "550px",
-                space: "foreground",
-                date_published: DateTime.new(2012, 9, 25, 14, 43))
+		published: true,
+		site: s1,
+		height: "550px",
+		space: "foreground",
+		date_published: DateTime.new(2012, 9, 25, 14, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/oakdale.jpg', style: 'image')
 PostElement.create(post:p, element: s, animation_type: 'scan', animation_direction: 'right', sequence: 1, position: "top;left;")
 
 tb = TextBox.create(style: 'single-column-text',
-                    text:
-                    %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (<a href="http://www.larryrobinson.net/" target=_blank>larryrobinson.net</a>). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. It's a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.})
+		    text:
+		    %{So, after over 4 years of not painting, I decided to sign up for a studio painting class with Larry Robinson (<a href="http://www.larryrobinson.net/" target=_blank>larryrobinson.net</a>). Larry's a super nice and really great teacher, I took a Fundamentals of Painting class with him several years ago at Berkeley Extension and loved it. It's a little weird painting again, and I forget most of the steps and fundamentals, but I'm slowly getting the hang of it again. Our first project is to paint an object in nature, so I dug out a photo that I took last week of my friend Audrey biking next to a Fjord in Norway. I switched the composition a little bit by pulling her closer into the foreground, and cropping off the right side and removing some houses, which you'll see in the next post. I'm going to post the evolution of the painting from week to week, stay tuned.})
 
 PostElement.create(post: p, element: tb, position: "left:300px", sequence: 2)
 
@@ -405,15 +405,15 @@ PostElement.create(post:p, element: s, position: "left:700px", animation_type: '
 
 
 p = Post.create(title: 'Object In Nature - Session 2',
-                published: true,
-                site: s1,
-                space: 'midground',
-                padding: 'medium',
-                date_published: DateTime.new(2012, 10, 2, 14, 43))
+		published: true,
+		site: s1,
+		space: 'midground',
+		padding: 'medium',
+		date_published: DateTime.new(2012, 10, 2, 14, 43))
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O)verlapping (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. It's very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.})
+		    text:
+		    %{After doing the initial grey wash and sketching out the composition of the painting using vine charcoal, the first main step of the painting process is to use a technique called ROR. It stands for (R)unny (O)verlapping (R)andom. The idea is to randomly fill in the space with very diluted paints so that you get a very runny surface. It's very initial, and we will end up painting over the initial layer several times over, but this first layer is just to get us started.})
 
 PostElement.create(post: p, element: tb, sequence: 1)
 
@@ -424,18 +424,18 @@ PostElement.create(post: p, element: a, sequence: 2)
 
 
 p = Post.create(title: 'Object In Nature - Session 3',
-                space: 'background',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                date_published: DateTime.new(2012, 10, 5, 14, 43))
+		space: 'background',
+		published: true,
+		site: s1,
+		padding: 'medium',
+		date_published: DateTime.new(2012, 10, 5, 14, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-3.jpg', style: 'image')
 PostElement.create(post: p, element: s, animation_type: 'fixed', sequence: 1, position: "top;h-center")
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the biker's vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!})
+		    text:
+		    %{The next layer we start using thicker paint with warm and cool colors to help define the space. You'll notice that I tried using warmer colors such as red, orange, and yellow for objects that I want to pull closer to the foreground, such as the biker, and cooler color such as blues and greens for objects that I want to push back. Black and white also help with giving objects texture and depth, where black pushes an object back and white pulls it forward. You can notice that I tried using white at the front edge of the roof of the house and black on the right edge of the biker's vest and helmet to give both of those objects some extra depth. Still got a ton of work to do, I forgot how long and tedious painting is!})
 PostElement.create(post: p, element: tb, sequence: 2)
 
 a = Album.create(style: 'coffee-table')
@@ -446,18 +446,18 @@ PostElement.create(post: p, element: a, sequence: 3)
 
 
 p = Post.create(title: 'Object In Nature - Session 4',
-                space: 'midground',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                date_published: DateTime.new(2012, 10, 12, 13, 43))
+		space: 'midground',
+		published: true,
+		site: s1,
+		padding: 'medium',
+		date_published: DateTime.new(2012, 10, 12, 13, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/painting/painting-4.jpg', style: 'image')
 PostElement.create(post: p, element: s, animation_type: 'fixed', sequence: 1, position: "top;h-center")
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{In this session I'm starting to use colors that I want the final painting to have. The sky is now blue, the sand is now brown, and the fence is now white. It's still a work in progress, and from here on out the process is pretty straight forward; I'm progressively using thicker and thicker paints and painting in more details and tones with darks and whites to give the painting space while making it look more realistic. I honestly really feel like I am fighting with the painting a lot, and I really didn't remember how hard it was to paint, but I also remember Larry teaching us that the process of painting is a curve, where at some point in the process we will hit a low where we don't like our painting and we feel lost. If we fight through that low, it's all uphill from there and we will eventually discover the painting and figure out a way to make it work, and we will grow to like our painting more and more. It's like problem solving, except instead of a math problem, it's a visual problem.})
+		    text:
+		    %{In this session I'm starting to use colors that I want the final painting to have. The sky is now blue, the sand is now brown, and the fence is now white. It's still a work in progress, and from here on out the process is pretty straight forward; I'm progressively using thicker and thicker paints and painting in more details and tones with darks and whites to give the painting space while making it look more realistic. I honestly really feel like I am fighting with the painting a lot, and I really didn't remember how hard it was to paint, but I also remember Larry teaching us that the process of painting is a curve, where at some point in the process we will hit a low where we don't like our painting and we feel lost. If we fight through that low, it's all uphill from there and we will eventually discover the painting and figure out a way to make it work, and we will grow to like our painting more and more. It's like problem solving, except instead of a math problem, it's a visual problem.})
 
 PostElement.create(post: p, element: tb, sequence: 2)
 
@@ -470,14 +470,14 @@ PostElement.create(post: p, element: a, sequence: 3)
 
 
 p = Post.create(title: 'Object In Nature - Session 5',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                date_published: DateTime.new(2012, 10, 20, 15, 10))
+		padding: 'medium',
+		published: true,
+		site: s1,
+		date_published: DateTime.new(2012, 10, 20, 15, 10))
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there})
+		    text:
+		    %{This week I focused on adding more details and final colors. I've generally been struggling with making the painting bright enough, so I tried lightening up the colors a bit and tried to get more contrast in there})
 
 PostElement.create(post: p, element: tb, sequence: 1)
 
@@ -490,15 +490,15 @@ a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893
 PostElement.create(post: p, element: a, sequence: 2)
 
 p = Post.create(title: 'Object In Nature - Session 6',
-                space: 'midground',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                date_published: DateTime.new(2012, 10, 25, 14, 43))
+		space: 'midground',
+		padding: 'medium',
+		published: true,
+		site: s1,
+		date_published: DateTime.new(2012, 10, 25, 14, 43))
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!})
+		    text:
+		    %{We're getting closer. I worked on the mountains in the background, and finally did a grey wash over the street. I'm trying to sharpen the girl on the bike and make her brighter to bring her forward. I think I'll be done in one or two more sessions... finally!})
 
 PostElement.create(post: p, element: tb, sequence: 1)
 
@@ -512,18 +512,18 @@ a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893
 PostElement.create(post: p, element: a, sequence: 2)
 
 p = Post.create(title: 'Object In Nature - Session 7',
-                space: 'midground',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                date_published: DateTime.new(2012, 11, 1, 14, 43))
+		space: 'midground',
+		padding: 'medium',
+		published: true,
+		site: s1,
+		date_published: DateTime.new(2012, 11, 1, 14, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/eggshell.jpg', style: 'tiling')
 PostElement.create(post: p, element: s, sequence: 1, position: "top;left;")
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{Ok, this thing is as done as it's ever gonna be. There's still some things that I'd like to do to it, but I think I'm ready to move on to another painting...})
+		    text:
+		    %{Ok, this thing is as done as it's ever gonna be. There's still some things that I'd like to do to it, but I think I'm ready to move on to another painting...})
 PostElement.create(post: p, element: tb, sequence: 2)
 
 a = Album.create(style: 'coffee-table')
@@ -537,14 +537,14 @@ a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893
 PostElement.create(post: p, element: a, sequence: 3)
 
 p = Post.create(title: 'Playing With Backgrounds',
-                space: 'auto',
-                padding: 'medium',
-                bg_color: "#0C4F59",
-                published: true,
-                site: s1,
-                show_header: false,
-                height: "750px",
-                date_published: DateTime.new(2012, 10, 31, 18, 6))
+		space: 'auto',
+		padding: 'medium',
+		bg_color: "#0C4F59",
+		published: true,
+		site: s1,
+		show_header: false,
+		height: "750px",
+		date_published: DateTime.new(2012, 10, 31, 18, 6))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-2.png', style: 'tiling')
 PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1, position: "top;h-center")
@@ -562,51 +562,51 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-3
 PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 5, position: "top;h-center")
 
 tb = TextBox.create(style: 'quote-big',
-                    text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk',
-                    text_color: "#D0531F")
+		    text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk',
+		    text_color: "#D0531F")
 
 PostElement.create(post: p, element: tb, sequence: 6)
 
 p = Post.create(title: 'Holstee Pt. 1',
-                space: 'background',
-                height: '600px',
-                published: true,
-                site: s1,
-                show_header: false,
-                effect: 'fade-in',
-                date_published: DateTime.new(2012, 10, 31, 11, 15))
+		space: 'background',
+		height: '600px',
+		published: true,
+		site: s1,
+		show_header: false,
+		effect: 'fade-in',
+		date_published: DateTime.new(2012, 10, 31, 11, 15))
 
 s = Sprite.create(style: 'image',
-                  url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg')
+		  url: 'http://dl.dropbox.com/u/4893047/posts/holstee/holstee-1.jpg')
 
 PostElement.create(post_id: p.id,
-                   element: s,
-                   position: "top;h-center",
-                   animation_type: 'scan',
-                   animation_direction: 'down',
-                   sequence: 1)
+		   element: s,
+		   position: "top;h-center",
+		   animation_type: 'scan',
+		   animation_direction: 'down',
+		   sequence: 1)
 
 tb = TextBox.create(text: 'Live your dream and share your passion.',
-                    style: 'single-line-text',
-                    text_size: 30)
+		    style: 'single-line-text',
+		    text_size: 30)
 
 PostElement.create(post_id: p.id,
-                   element: tb,
-                   position: 'right',
-                   animation_type: 'scan',
-                   animation_direction: 'up',
-                   sequence: 2)
+		   element: tb,
+		   position: 'right',
+		   animation_type: 'scan',
+		   animation_direction: 'up',
+		   sequence: 2)
 
 
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                date_published: DateTime.new(2012, 10, 31, 10, 13))
+		published: true,
+		site: s1,
+		padding: 'medium',
+		date_published: DateTime.new(2012, 10, 31, 10, 13))
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{
+		    text:
+		    %{
 Think of education as a spiral.  You revisit points and ideas at different points in time, but higher up in the spiral.  This class is the bottom of the spiral.
 
 Premises of PP:
@@ -681,14 +681,14 @@ PostElement.create(post: p, element: tb)
 
 
 p = Post.create(title: 'Burning Man 2012',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                space: 'background',
-                date_published: DateTime.new(2012, 10, 30, 12, 35))
+		published: true,
+		site: s1,
+		padding: 'medium',
+		space: 'background',
+		date_published: DateTime.new(2012, 10, 30, 12, 35))
 
 s = Sprite.create(style: 'tiling',
-                  url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/stormy-sky.jpg')
+		  url: 'http://dl.dropbox.com/u/4893047/posts/bg-textures/stormy-sky.jpg')
 
 PostElement.create(post: p, element: s, sequence: 1, position: "top;h-center")
 
@@ -699,93 +699,93 @@ PostElement.create(post: p, element: a, sequence: 2)
 (1..99).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/burning-man/burning-man-#{i}.jpg"), sequence: i) }
 
 p = Post.create(title: "Messages In A Bottle",
-                published: true,
-                site: s1,
-                space: 'background',
-                height: "1000px",
-                padding: 'medium',
-                date_published: DateTime.new(2012, 10, 29, 22, 50))
+		published: true,
+		site: s1,
+		space: 'background',
+		height: "1000px",
+		padding: 'medium',
+		date_published: DateTime.new(2012, 10, 29, 22, 50))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/messages-in-a-bottle/messages-in-a-bottle.jpg', style: 'image')
 PostElement.create(post: p, element: s, position: 'top;h-center;')
 
 
 p = Post.create(title: "Giants Win The World Series!!!",
-                published: true,
-                site: s1,
-                space: 'midground',
-                show_header: false,
-                date_published: DateTime.new(2012, 10, 29, 14, 55))
+		published: true,
+		site: s1,
+		space: 'midground',
+		show_header: false,
+		date_published: DateTime.new(2012, 10, 29, 14, 55))
 
-v = Video.create(video_id: "YKmgVJjk5PY", style: 'full-width', host: 'youtube')
+v = Video.create(video_data: {id: "YKmgVJjk5PY"}, style: 'full-width', host: 'youtube')
 PostElement.create(post: p, element: v)
 
 p = Post.create(title: "Giants Sweep",
-                published: true,
-                site: s1,
-                space: 'background',
-                height: "2000px",
-                show_header: false,
-                date_published: DateTime.new(2012, 10, 29, 14, 54))
+		published: true,
+		site: s1,
+		space: 'background',
+		height: "2000px",
+		show_header: false,
+		date_published: DateTime.new(2012, 10, 29, 14, 54))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/giants-sweep/giants-sweep-bg.jpg', style: 'image')
 PostElement.create(post: p, element: s, position: "top;h-center")
 
 p = Post.create(title: 'Ninja Assassin',
-                space: 'background',
-                published: true,
-                site: s1,
-                show_header: false,
-                date_published: DateTime.new(2012, 10, 29, 2, 13))
+		space: 'background',
+		published: true,
+		site: s1,
+		show_header: false,
+		date_published: DateTime.new(2012, 10, 29, 2, 13))
 
 s = Sprite.create(style: 'image',
-                  url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-bg.jpg')
+		  url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-bg.jpg')
 
 PostElement.create(post_id: p.id,
-                   element: s,
-                   position: "top",
-                   animation_type: 'scan',
-                   animation_direction: 'right',
-                   sequence: 1)
+		   element: s,
+		   position: "top",
+		   animation_type: 'scan',
+		   animation_direction: 'right',
+		   sequence: 1)
 
 s = Sprite.create(style: 'image',
-                  url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-shade.png')
+		  url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja-shade.png')
 
 PostElement.create(post_id: p.id,
-                   element: s,
-                   position: 'top;h-center',
-                   sequence: 2)
+		   element: s,
+		   position: 'top;h-center',
+		   sequence: 2)
 
 s = Sprite.create(style: 'image',
-                  url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja.png')
+		  url: 'http://dl.dropbox.com/u/4893047/posts/ninja/ninja.png')
 
 PostElement.create(post_id: p.id,
-                   element: s,
-                   position: 'top',
-                   animation_type: 'scan',
-                   animation_direction: 'right',
-                   sequence: 3)
+		   element: s,
+		   position: 'top',
+		   animation_type: 'scan',
+		   animation_direction: 'right',
+		   sequence: 3)
 
 tb = TextBox.create(text: 'Come, little brother. Let us play like old times.',
-                    style: 'quote-big')
+		    style: 'quote-big')
 
 PostElement.create(post_id: p.id,
-                   element: tb,
-                   position: 'inline',
-                   sequence: 4)
+		   element: tb,
+		   position: 'inline',
+		   sequence: 4)
 
 
 p = Post.create(title: 'Another Summer Weekend',
-                space: 'midground',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                date_published: DateTime.new(2012, 10, 29, 20, 13))
+		space: 'midground',
+		padding: 'medium',
+		published: true,
+		site: s1,
+		date_published: DateTime.new(2012, 10, 29, 20, 13))
 
 
 tb = TextBox.create(style: 'two-column-text',
-                    text:
-                    %{It was another memorable weekend in SF.
+		    text:
+		    %{It was another memorable weekend in SF.
 On Friday we celebrated my good friend Angela's birthday, and we celebrated it on a historic ship from WWII, the S.S. Jeremiah O'Brien.
 
 ![The S.S. Jeremiah O'Brien](http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-2-th.jpg)
@@ -837,37 +837,37 @@ Today Jas and I drove over to Dublin and bought a Cajon, which is a percussion k
 })
 
 PostElement.create(post_id: p.id,
-                   element: tb,
-                   position: 'inline',
-                   sequence: 2)
+		   element: tb,
+		   position: 'inline',
+		   sequence: 2)
 
 s = Sprite.create(style: 'image',
-                  url: 'http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-bg.jpg')
+		  url: 'http://dl.dropbox.com/u/4893047/posts/oct26-weekend/oct26-weekend-bg.jpg')
 
 PostElement.create(post_id: p.id,
-                   element: s,
-                   position: 'top;h-center;',
-                   sequence: 1)
+		   element: s,
+		   position: 'top;h-center;',
+		   sequence: 1)
 
 
 p = Post.create(title: "It's Time - Imagine Dragons",
-                published: true,
-                site: s1,
-                space: 'background',
-                show_header: false,
-                date_published: DateTime.new(2012, 10, 26, 13, 5))
+		published: true,
+		site: s1,
+		space: 'background',
+		show_header: false,
+		date_published: DateTime.new(2012, 10, 26, 13, 5))
 
-v = Video.create(video_id: "49-wNRvJwjk", style: 'full-width', host: 'youtube')
+v = Video.create(video_data: {id: "49-wNRvJwjk"}, style: 'full-width', host: 'youtube')
 PostElement.create(post: p, element: v)
 
 =begin
 p = Post.create(title: '50 Ways to Say Goodbye',
-                space: 'background',
-                type: 'quote',
-                show_header: false,
-                published: false,
-                site: s1,
-                date_published: DateTime.new(2012, 10, 24, 14, 43))
+		space: 'background',
+		type: 'quote',
+		show_header: false,
+		published: false,
+		site: s1,
+		date_published: DateTime.new(2012, 10, 24, 14, 43))
 
 BackgroundImage.create(url: 'http://dl.dropbox.com/u/4893047/posts/superman/superman-bg.jpg', type: 'scrolling', tile: false, post_id: p.id)
 
@@ -875,12 +875,12 @@ Quote.create(quote: "Some day I'll find a love like yours. She'll think I'm Supe
 =end
 
 p = Post.create(title: 'Two Door Cinema Club',
-                space: 'midground',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                show_header: false,
-                date_published: DateTime.new(2012, 10, 24, 2, 13))
+		space: 'midground',
+		published: true,
+		site: s1,
+		padding: 'medium',
+		show_header: false,
+		date_published: DateTime.new(2012, 10, 24, 2, 13))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/two-door-cinema/two-door-cinema-bg.jpg', style: 'image')
 PostElement.create(post: p, element: s, position: "top;h-center", sequence: 1)
@@ -895,11 +895,11 @@ PostElement.create(post: p, element: a, sequence: 3)
 
 
 p = Post.create(title: 'Roll On You Bears',
-                published: true,
-                site: s1,
-                space: 'background',
-                padding: 'medium',
-                date_published: DateTime.new(2012, 10, 22, 10, 16))
+		published: true,
+		site: s1,
+		space: 'background',
+		padding: 'medium',
+		date_published: DateTime.new(2012, 10, 22, 10, 16))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/big-game/big-game-bg.jpg', style: 'image')
 PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1, position: 'top;h-center')
@@ -910,28 +910,28 @@ PostElement.create(post: p, element: a, sequence: 2)
 
 
 p = Post.create(title: '30th Anniversary of "The Play"',
-                published: true,
-                site: s1,
-                space: 'background',
-                show_header: false,
-                date_published: DateTime.new(2012, 10, 22, 10, 10))
+		published: true,
+		site: s1,
+		space: 'background',
+		show_header: false,
+		date_published: DateTime.new(2012, 10, 22, 10, 10))
 
-v = Video.create(video_id: "0fZCCAqoSwY", style: 'full-width', host: 'youtube')
+v = Video.create(video_data: {id: "0fZCCAqoSwY"}, style: 'full-width', host: 'youtube')
 PostElement.create(post: p, element: v)
 
 
 p = Post.create(title: 'A Day Trip to the Russian River',
-                published: true,
-                site: s1,
-                space: 'midground',
-                padding: 'medium',
-                date_published: DateTime.new(2012, 10, 19, 17, 28))
+		published: true,
+		site: s1,
+		space: 'midground',
+		padding: 'medium',
+		date_published: DateTime.new(2012, 10, 19, 17, 28))
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/russian-river/russian-river-bg.jpg', style: 'image')
 PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1, position: 'top;h-center')
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{Jas and I were lucky enough to take a random Wednesday trip to the Russian River to do some canoeing and fishing. We caught a lot of things (most of which were inanimate) but we also managed to catch a foot long Steelhead Trout! We called it Ol' Greg; cooked 'em up real good for dinner. We also saw a family of seals swimming in the river, they caught themselves a big ass trout and were munchin' on it for lunch. Can't wait to go back! })
+		    text:
+		    %{Jas and I were lucky enough to take a random Wednesday trip to the Russian River to do some canoeing and fishing. We caught a lot of things (most of which were inanimate) but we also managed to catch a foot long Steelhead Trout! We called it Ol' Greg; cooked 'em up real good for dinner. We also saw a family of seals swimming in the river, they caught themselves a big ass trout and were munchin' on it for lunch. Can't wait to go back! })
 PostElement.create(post: p, element: tb, sequence: 2)
 
 a = Album.create(style: 'thumbnail-rows')
@@ -940,33 +940,33 @@ PostElement.create(post: p, element: a, sequence: 3)
 
 
 p = Post.create(title: 'EGO',
-                bg_color: '#F0EACD',
-                space: 'background',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                show_header: false,
-                date_published: DateTime.new(2012, 10, 17, 10, 25))
+		bg_color: '#F0EACD',
+		space: 'background',
+		padding: 'medium',
+		published: true,
+		site: s1,
+		show_header: false,
+		date_published: DateTime.new(2012, 10, 17, 10, 25))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/ego/ego-bg.jpg', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: 'top;h-center')
 
 tb = TextBox.create(text: '"There is nothing noble in being superior to your fellow man; true nobility is being superior to your former self" - Ernest Hemingway',
-                    style: 'quote-big',
-                    text_color: '#000000')
+		    style: 'quote-big',
+		    text_color: '#000000')
 PostElement.create(post: p, element: tb, sequence: 2)
 
 p = Post.create(title: 'My Resume',
-                space: 'auto',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                show_header: false,
-                date_published: DateTime.new(2012, 10, 16, 0, 3))
+		space: 'auto',
+		padding: 'medium',
+		published: true,
+		site: s1,
+		show_header: false,
+		date_published: DateTime.new(2012, 10, 16, 0, 3))
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{
+		    text:
+		    %{
 <div style="text-align: center">
 <h3 style="margin:0;">Lijen Tan</h3>
 <span style="color:868585;">349 Divisadero St, San Francisco, CA 94117</span><br>
@@ -1045,15 +1045,15 @@ PostElement.create(post: p, element: tb)
 
 
 p = Post.create(title: 'Markdown Support',
-                space: 'auto',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                date_published: DateTime.new(2012, 10, 15, 15, 31))
+		space: 'auto',
+		padding: 'medium',
+		published: true,
+		site: s1,
+		date_published: DateTime.new(2012, 10, 15, 15, 31))
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{
+		    text:
+		    %{
 I worked in some better formatting options for posts in the last few days. It was hard for me to decide at first what to use; my main consideration was between a text-to-HTML converter like markdown or textitle, or a WYSIWYG tool such as Mercury Editor. I decided to go with <a href="http://github.github.com/github-flavored-markdown/" target=_blank>Github Flavored Markdown</a> with <a href="https://github.com/vmg/redcarpet" target=_blank>Redcarpet</a> because it's the fastest to implement, and I can always move toward a heavier solution with a WYSIWYG later down the line. I would definitely consider using a WYSIWYG built on top of markdown, which would be fully extensible with my current setup, or one that saves raw HTML for the most flexibility. I also included <a href="http://coderay.rubychan.de/" target=_blank>CodeRay</a> support for nicely formatted code blocks. I know some of the styles look jenky... I have to work on styling a lot of elements still, I will progressively add styles as I use them in my posts. Here are some examples below of the types of tags that I can use in my Posts as of now:
 
 # This is a H1
@@ -1093,15 +1093,15 @@ This is [an example](http://example.com/ "Title") inline link. You got me feelin
 PostElement.create(post: p, element: tb)
 
 p = Post.create(title: 'HTML5 and quotes with attribution',
-                space: 'auto',
-                padding: 'medium',
-            published: true,
-                site: s1,
-            date_published: DateTime.new(2012, 10, 12, 1, 13))
+		space: 'auto',
+		padding: 'medium',
+	    published: true,
+		site: s1,
+	    date_published: DateTime.new(2012, 10, 12, 1, 13))
 
 tb = TextBox.create(style: 'full-margins',
-            text:
-            %{
+	    text:
+	    %{
 So I did my first couple quote posts (see the Blue Angels post and the Superman post), but while I was doing them I had to research about what the proper semantic HTML is for displaying a quote with an author or source. Sounds pretty straight forward right? That's what I thought, but for some reason this was a little more complicated that I had anticipated... I thought I'd share what I found in case anyone else runs into this issue. I ended up using the following markup with the figure and figcaption tags to represent a quote with attribution. If you're curious why I chose this option, and what considerations there were for the other options, feel free to follow the links below to dive deeper.
 
 ```html
@@ -1138,14 +1138,14 @@ I'm still not super happy with this solution, so if you know of a better way to 
 PostElement.create(post: p, element: tb)
 
 p = Post.create(
-            title: "The Blue Angels",
-            bg_color: '#F0EACD',
-            published: true,
-                site: s1,
-            padding: 'medium',
-            space: 'background',
-            show_header: false,
-            date_published: DateTime.new(2012, 10, 8, 16, 9))
+	    title: "The Blue Angels",
+	    bg_color: '#F0EACD',
+	    published: true,
+		site: s1,
+	    padding: 'medium',
+	    space: 'background',
+	    show_header: false,
+	    date_published: DateTime.new(2012, 10, 8, 16, 9))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-bg.png', style: 'image')
 PostElement.create(post: p, element: s, position: 'left', animation_type: 'scan', animation_direction: 'up', sequence: 1)
@@ -1159,15 +1159,15 @@ PostElement.create(post: p, element: a, sequence: 3)
 
 
 p = Post.create(title: 'Summatime in the SFC',
-                space: 'background',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                date_published: DateTime.new(2012, 10, 7, 15, 3))
+		space: 'background',
+		published: true,
+		site: s1,
+		padding: 'medium',
+		date_published: DateTime.new(2012, 10, 7, 15, 3))
 
 tb = TextBox.create(style: 'two-column-text',
-                    text:
-                    %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.![Steven's 30th Birthday Cake](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-2.jpg) Saturday was our good friends Michelle and Adam's wedding - It was amazing!![Mich's Wedding Dress](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-3.jpg) It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.![Doing the Hora](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-4.jpg)And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.![Dance Floor Lights](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-5.jpg) Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.![Blue Angels](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-6.jpg) Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a super chill concert in the park while seeing jets do fly-bys overhead?![Hardly Strictly Blue Grass Festival](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-7.jpg) We finished with a relaxing sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.![Bryan Takes a Picture](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-1.jpg) *It was truly a weekend to remember!*})
+		    text:
+		    %{Cheers to a fun and eventful weekend in SF! Friday was Steven's 30th birthday and we got to try out our new beer pong ladder system and web interface for the 1st time with everyone there. Credit to Steven and Tony for setting everything up and creating the website.![Steven's 30th Birthday Cake](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-2.jpg) Saturday was our good friends Michelle and Adam's wedding - It was amazing!![Mich's Wedding Dress](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-3.jpg) It was the most multi-cultural wedding that I've been to with Chinese, Jewish, Danish, and Turkish influences. We got to take part in the Jewish chair lifting tradition called the Hora, which was pretty dam fun.![Doing the Hora](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-4.jpg)And they had a super legit smoke and light setup going on the dance floor, with really great music selections going all night.![Dance Floor Lights](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-5.jpg) Sunday was a beautiful and eventful day in the city. We took the bus to the Palace of Fine Arts, and walked to the Marina to watch the Blue Angels.![Blue Angels](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-6.jpg) Afterwards we headed over to the 12th annual Hardly Strictly Blue Grass Festival, which is a completely free music festival in Golden Gate Park with a great story. The founder, Warren Hellman, passed away last year but has endowed the festival with funds to run for at least 15 years after his death. At the festival we listened to a great band called Civil Wars while being occasionally interrupted by the sonic booms of low flying fighter jets. Where else but in SF could you listen to a super chill concert in the park while seeing jets do fly-bys overhead?![Hardly Strictly Blue Grass Festival](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-7.jpg) We finished with a relaxing sunday dinner at Connie and Stephs place, where we watched a new-found favorite show called Secret Garden, a Korean drama with a twist worth watching. Our friend Bryan even came up from SoCal which made the weekend even better.![Bryan Takes a Picture](http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-1.jpg) *It was truly a weekend to remember!*})
 PostElement.create(post: p, element: tb, sequence: 2)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/oct6-weekend/oct6-bg.jpg', style: 'image')
@@ -1175,11 +1175,11 @@ PostElement.create(post: p, element: s, sequence: 1, position: 'top;h-center')
 
 
 p = Post.create(title: 'Levitating Sheep',
-                space: 'foreground',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                date_published: DateTime.new(2012, 10, 5, 15, 3))
+		space: 'foreground',
+		padding: 'medium',
+		published: true,
+		site: s1,
+		date_published: DateTime.new(2012, 10, 5, 15, 3))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-bg.png', style: 'tiling')
 PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 1, position: 'top;h-center')
@@ -1188,8 +1188,8 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/parallax/parallax-
 PostElement.create(post: p, element: s, animation_type: 'scan', animation_direction: 'down', sequence: 2, position: 'top;h-center')
 
 tb = TextBox.create(style: 'two-column-text',
-                    text:
-                    %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). ![A Poor Sheep](http://dl.dropbox.com/u/4893047/posts/parallax/sheep.jpg)
+		    text:
+		    %{One of my recent discoveries while styling out my site is that CSS3 lets us specify multiple background images and they get stacked on top of each other, kinda like photoshop layers. I wrote a quick script that pans my background images in order to create a simple parallax effect. To test this, I thought it would be cool to take a simple sheep, and make her levitate (or fall depending on which way you're scrolling...). ![A Poor Sheep](http://dl.dropbox.com/u/4893047/posts/parallax/sheep.jpg)
 
 The basic premise is, as a user is scrolling through a post, a background image will also scroll from top to bottom within the post's background. I thought this looked pretty cool as a first run with only one background image, but then I had the idea to add an additional background image layer so that I can use 2 layers of scrolling backgrounds. If the top layer's image has a greater height, then it will scroll faster than the bottom layer's image, which esentially creates a simple parallax effect. That's the effect that I used to get these levitating sheep, with some being farther away and some being closer. Heres the simplified css:
 
@@ -1203,53 +1203,53 @@ To get it to work, I just simply adjust the background-position from "50% 0%" to
 PostElement.create(post: p, element: tb, sequence: 3)
 
 p = Post.create(title: 'Iceland, Germany, and Amsterdam',
-                space: 'background',
-                padding: 'medium',
-                published: true,
-                site: s1,
-                date_published: DateTime.new(2012, 7, 15, 14, 43))
+		space: 'background',
+		padding: 'medium',
+		published: true,
+		site: s1,
+		date_published: DateTime.new(2012, 7, 15, 14, 43))
 
 s = Sprite.create(style: 'image',
-                  url: 'http://dl.dropbox.com/u/4893047/posts/eu/eu-bg.jpg')
+		  url: 'http://dl.dropbox.com/u/4893047/posts/eu/eu-bg.jpg')
 
 PostElement.create(post_id: p.id,
-                   element: s,
-                   position: 'v-center;h-center',
-                   animation_type: 'fixed',
-                   sequence: 1)
+		   element: s,
+		   position: 'v-center;h-center',
+		   animation_type: 'fixed',
+		   sequence: 1)
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.})
+		    text:
+		    %{I just wanted to post some pictures that Bryan took with his Diana on our 10 day trip through Europe. This was really the first time that I've had a chance to travel abroad with some of my best friends, and it was an amazing experience.  Ill let the pictures speak for themselves.})
 
 PostElement.create(post_id: p.id,
-                   element: tb,
-                   position: 'inline',
-                   sequence: 2)
+		   element: tb,
+		   position: 'inline',
+		   sequence: 2)
 
 a = Album.create(style: 'thumbnail-rows')
 
 (1..28).each { |i| a.album_elements.create(element: Photo.create(url: "http://dl.dropbox.com/u/4893047/posts/eu/eu-#{i}.jpg"), sequence: i) }
 
 PostElement.create(post_id: p.id,
-                   element: a,
-                   position: 'inline',
-                   sequence: 3)
+		   element: a,
+		   position: 'inline',
+		   sequence: 3)
 
 
 p = Post.create(title: 'Norway',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                space: 'midground',
-                date_published: DateTime.new(2012, 9, 24, 14, 43))
+		published: true,
+		site: s1,
+		padding: 'medium',
+		space: 'midground',
+		date_published: DateTime.new(2012, 9, 24, 14, 43))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/norway/norway-bg.jpg', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: 'top;h-center')
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has it's price, and Norway was well worth every penny.})
+		    text:
+		    %{Norway was, plain and simply put, the most beautiful country that I have ever been to. Drive even 10 minutes out of Oslo, the capital, and you're surrounded in all directions by miles of green trees, open farms, glacier capped mountains, and fjords and lakes streaming with waterfalls and rivers abound. We were constantly surrounded by breathtaking sight after breathtaking sight as we drove through a barren plateau, ferried through grand fjords, hiked to the foot of a glacier, snaked our way though mountainous tunnels, ducked under a massive waterfall, and weaved through millions upon millions of yellow and green birch trees. Norwegians were exceptionally friendly, progressive, laid back, and helpful, and the food was great with fresh fish for nearly every meal, and gourmet meals of rain deer and moose meat. The only complaint was how expensive it is there (about $12 for a beer), but I guess every great thing has it's price, and Norway was well worth every penny.})
 
 PostElement.create(post: p, element: tb, sequence: 2)
 
@@ -1260,15 +1260,15 @@ PostElement.create(post: p, element: a, sequence: 3)
 
 
 p = Post.create(title: 'The Tac Cup',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                space: 'midground',
-                date_published: DateTime.new(2012, 10, 4, 14, 43))
+		published: true,
+		site: s1,
+		padding: 'medium',
+		space: 'midground',
+		date_published: DateTime.new(2012, 10, 4, 14, 43))
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-                    %{So recently Steven decided to start officially keeping track of our beer pong records and to set up a ladder ranking system to finally figure out who's the best of the best. We are using the Elo Ranking system, which is the system that is used for chess rankings as well as a whole bunch of different ladder systems (we used it on Wasteland Empires for our leaderboard). We also got a trophy that works kinda like a championship belt. Whoever is at the top of the ladder gets to hold onto it, and it will change hands as the top ranked player gets dethroned from season to season. We decided to call it the "Canuto Tacderan Cup" after our landlord, Tac, because we've played the majority of beer pong games in this apartment and the apartment downstairs. And why the pig you ask? Well, I'd like to answer your question with another question… why not?<br /><br />
+		    text:
+		    %{So recently Steven decided to start officially keeping track of our beer pong records and to set up a ladder ranking system to finally figure out who's the best of the best. We are using the Elo Ranking system, which is the system that is used for chess rankings as well as a whole bunch of different ladder systems (we used it on Wasteland Empires for our leaderboard). We also got a trophy that works kinda like a championship belt. Whoever is at the top of the ladder gets to hold onto it, and it will change hands as the top ranked player gets dethroned from season to season. We decided to call it the "Canuto Tacderan Cup" after our landlord, Tac, because we've played the majority of beer pong games in this apartment and the apartment downstairs. And why the pig you ask? Well, I'd like to answer your question with another question… why not?<br /><br />
 Week 1 Results:
 
 1. Eiki: 1246.3987116397748
@@ -1307,14 +1307,14 @@ a.album_elements.create(element: Photo.create(url: 'http://dl.dropbox.com/u/4893
 PostElement.create(post: p, element: a, sequence: 3)
 
 p = Post.create(title: 'History and Introduction to Positive Psychology',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                date_published: DateTime.new(2012, 7, 11, 14, 43))
+		published: true,
+		site: s1,
+		padding: 'medium',
+		date_published: DateTime.new(2012, 7, 11, 14, 43))
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-            %{
+		    text:
+	    %{
 The first 3 lectures are to get a sense of what the class is about to see if it's something for you. It might not be for everybody.  This class is "applied" and "strength" psychology (aka "positive" psychology).
 
 ### I. History of Positive Psychology
@@ -1382,14 +1382,14 @@ PostElement.create(post: p, element: tb)
 
 
 p = Post.create(title: 'Why is Positive Psychology So Important?',
-                published: true,
-                site: s1,
-                padding: 'medium',
-                date_published: DateTime.new(2012, 7, 24, 14, 43))
+		published: true,
+		site: s1,
+		padding: 'medium',
+		date_published: DateTime.new(2012, 7, 24, 14, 43))
 
 tb = TextBox.create(style: 'full-margins',
-                    text:
-            %{This past week the Tal was really sick and was sent to the ER.  In the process he asked himself "what do I want to do with my life".  Spend time with family, but more specifically, professionally?  What does he want to get out of this year?  He wants to leave a coherent document for others to understand his view of PP. Ultimately the reason he went to the ER was a false alarm.
+		    text:
+	    %{This past week the Tal was really sick and was sent to the ER.  In the process he asked himself "what do I want to do with my life".  Spend time with family, but more specifically, professionally?  What does he want to get out of this year?  He wants to leave a coherent document for others to understand his view of PP. Ultimately the reason he went to the ER was a false alarm.
 
 So why is PP so important? Why did the grandparents and parents of positive psychology think this had to be it's own community of psychology instead of as part of the whole?
 

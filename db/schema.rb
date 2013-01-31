@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130032708) do
+ActiveRecord::Schema.define(:version => 20130131020523) do
 
   create_table "album_elements", :force => true do |t|
     t.integer "album_id"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(:version => 20130130032708) do
   end
 
   create_table "videos", :force => true do |t|
-    t.text   "video_id", :limit => 255
+    t.text   "video_data"
     t.string "host"
     t.string "style"
   end

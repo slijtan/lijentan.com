@@ -9,5 +9,36 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *
  */
+
+// CSS Reset
+@import "reset";
+
+// Core variables, mixins, and functions
+@import "mixins";
+@import "functions";
+@import "variables";
+
+//Globals and page structure
+@import "scaffolding";
+@import "type";
+@import "code";
+@import "posts";
+
+//Type, Forms, Code, Tables?
+
+//Components
+@import "nav";
+@import "animations";
+@import "text_boxes";
+@import "sprites";
+@import "videos";
+@import "albums";
+
+//Effects
+@import "effects";
+@import "loader";
+
+//Modals
+@import "modals";

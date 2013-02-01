@@ -1,0 +1,63 @@
+/* ----------------------
+   Nav
+   -------------------------*/
+nav {
+    position: fixed;
+    right: $gridGutterWidth;
+    top: $baseLineHeight;
+    z-index: $zIndexNav;
+
+    ul {
+	font-family: $navFontFamily;
+
+	li {
+	    list-style-type: none;
+
+	    a {
+		display: block;
+		float: right;
+		color: $linkColorNav;
+
+		&:hover {text-decoration:none}
+
+		&.title {
+		    margin-right: 10px;
+		    font-size: 16px;
+		    text-shadow: 0.1em 0 0 $grayLight;
+		}
+
+		&.bullet {
+		    clear: both;
+		    width: 37px;
+		    height: 20px;
+		    font-size: 15px;
+		    text-align: center;
+		    vertical-align: middle;
+		    background-color: rgba(173, 169, 169, 0.75);
+		    color: #666666;
+		    box-shadow: 1px 1px 1px #000000;
+		}
+	    }
+
+	    &:first-child a.bullet {
+		@include rounded-top(5px);
+	    }
+
+	    &:last-child a.bullet {
+		@include rounded-bottom(5px);
+		border-bottom: none;
+	    }
+
+	    a.bullet:hover {
+		color: #ADA9A9;
+	    }
+
+	    &.current, &.hover {
+		a.bullet {
+		    background-color: rgba(0, 0, 0, 0.5);
+		    color: #ADA9A9;
+		}
+	    }
+	}
+    }
+}

@@ -63,8 +63,8 @@ module PostsHelper
     styles = []
 
     if photo.album_element &&
-        photo.album.style == "comic" &&
-        post_data = Album.album_comic_data_for_index(photo.album_element.sequence - 1)
+	photo.album.style == "comic" &&
+	post_data = Album.album_comic_data_for_index(photo.album_element.sequence - 1)
 
       styles << "top: #{post_data[:top]}px"
       styles << "left: #{post_data[:left]}px"
@@ -131,7 +131,7 @@ module PostsHelper
   end
 
   def post_attributes(post)
-    classes = []
+    classes = %w[post]
 
     if post.space == "auto"
       space = cycle(*spaces, name: "space")

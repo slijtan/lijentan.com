@@ -1,0 +1,60 @@
+/* ----------------------
+   Text Box Formats
+   -------------------------*/
+.text-box {
+    margin: 0 auto;
+    position: relative;
+
+
+    &.full-margins {
+	width: $gridRowWidth;
+	text-align: justify;
+    }
+
+    &.full-no-margins {
+	width: 100%;
+	text-align: justify;
+    }
+
+    &.single-column-text {
+	width: grid-width(6);
+	text-align: justify;
+    }
+
+    &.two-column-text {
+	width: grid-width(8);
+	text-align: justify;
+	-moz-column-count: 2; // Firefox
+	-webkit-column-count: 2; // Safari and Chrome
+	column-count: 2;
+	-moz-column-gap: $gridGutterWidth; // Firefox
+	-webkit-column-gap: $gridGutterWidth; // Safari and Chrome
+	column-gap: $gridGutterWidth;
+
+	img {
+	    display: block;
+	    margin: $baseLineHeight auto;
+	    max-width: grid-width(4);
+	    box-shadow: 2px 2px 0.1em $grayLight;
+	}
+
+	&.background img {
+	    box-shadow: 2px 2px 0.1em $black;
+	}
+    }
+
+    &.single-line-text {
+	width: $gridRowWidth;
+	display: inline;
+	text-align: left;
+    }
+
+    &.quote-big {
+	font-family: $impactFontFamily;
+	font-style: italic;
+	text-shadow: none;
+	font-size: $fontSizeMassive;
+	line-height: $lineHeightMassive;
+	text-align: center;
+    }
+}

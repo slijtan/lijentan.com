@@ -1,0 +1,122 @@
+/* ----------------------
+   Grey Colors
+   -------------------------*/
+$black:                 #000;
+$grayDarker:            #222;
+$grayDark:              #333;
+$gray:                  #555;
+$grayLight:             #999;
+$grayLighter:           #eee;
+$white:                 #fff;
+
+/* ----------------------
+   Scaffolding
+   -------------------------*/
+$bodyBackground:        #fff;
+$textColor:             #000;
+
+
+/* ----------------------
+   Article Spaces
+   -------------------------*/
+$foregroundBg: $white;
+$foregroundBgDark: $grayLighter;
+
+$foregroundTxt: $black;
+$foregroundTxtLight: $grayDarker;
+$foregroundTxtShadow: $white;
+$foregroundTxtLink: #566DE6;
+
+$midgroundBg: $grayLighter;
+$midgroundBgDark: $grayLight;
+
+$midgroundTxt: $grayDarker;
+$midgroundTxtLight: $grayDark;
+$midgroundTxtShadow: $white;
+$midgroundTxtLink: #566DE6;
+
+$backgroundBg: $grayDark;
+$backgroundBgDark: $black;
+
+$backgroundTxt: $grayLighter;
+$backgroundTxtLight: $white;
+$backgroundTxtShadow: $black;
+$backgroundTxtLink: #A1A1A1;
+
+
+/* ----------------------
+   Links
+   -------------------------*/
+$linkColor:             #08c;
+$linkColorHover:        darken($linkColor, 15%);
+$linkColorNav:          $black;
+
+
+/* ----------------------
+   Typography
+   -------------------------*/
+$sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+$monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+$impactFontFamily:      'Francois One', sans-serif;
+$navFontFamily:         'Open Sans Condensed', Arial, Arial, Helvetica, sans-serif;
+
+$baseFontSize:          14px;
+$baseFontFamily:        $sansFontFamily;
+$baseLineHeight:        20px;
+$altFontFamily:         $serifFontFamily;
+
+$headingsFontFamily:    inherit; // empty to use BS default, $baseFontFamily
+$headingsFontWeight:    bold;    // instead of browser default, bold
+$headingsColor:         inherit; // empty to use BS default, $textColor
+
+/* ----------------------
+   Basic GRID
+   -------------------------*/
+
+// Default 940px grid
+// -------------------------
+$gridColumns:             12;
+$gridColumnWidth:         60px;
+$gridGutterWidth:         20px;
+$gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
+
+
+/* ----------------------
+   Z-indexes
+   -------------------------*/
+$zIndexPostHeader: 101;
+$zIndexSpaceShadows: 100;
+$zIndexNav: 1000;
+$zIndexFader: 1100;
+
+/* ----------------------
+   COMPONENT VARIABLES
+   -------------------------*/
+
+/* ----------------------
+   Component sizing - Based on 14px font-size and 20px line-height
+   -------------------------*/
+$fontSizeMassive:       $baseFontSize * 14; // ~196px
+$fontSizeHuge:          $baseFontSize * 8; // ~112px
+$fontSizeLarge:         $baseFontSize * 1.25; // ~18px
+$fontSizeSmall:         $baseFontSize * 0.85; // ~12px
+$fontSizeMini:          $baseFontSize * 0.75; // ~11px
+
+$lineHeightMassive:     $baseLineHeight * 11; //~220
+$lineHeightHuge:        $baseLineHeight * 8; //~160
+
+$paddingHuge:           30px 20px;
+$paddingLarge:          11px 19px; // 44px
+$paddingSmall:          2px 10px;  // 26px
+$paddingMini:           0 6px;   // 22px
+
+$baseBorderRadius:      4px;
+$borderRadiusLarge:     6px;
+$borderRadiusSmall:     3px;
+
+
+/* ----------------------
+   Horizontal Rule
+   -------------------------*/
+$hrBorder:                $grayLighter;

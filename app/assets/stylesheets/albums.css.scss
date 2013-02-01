@@ -1,0 +1,73 @@
+/* ----------------------
+   Album Formats
+   -------------------------*/
+.album {
+    margin: 30px auto 10px;
+    width: 80%;
+    text-align: center;
+    overflow: auto;
+    position: relative;
+
+    img {
+	margin: 5px;
+	width: auto;
+	height: auto;
+	max-height: 200px;
+    }
+}
+
+.horizontal-scroll {
+    white-space: nowrap;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+
+    a {
+	display: inline-block;
+	float: left;
+    }
+
+    img {
+	display: inline-block;
+	max-height: 500px;
+	margin: 0;
+    }
+}
+
+.coffee-table {
+    height: 350px;
+    position: relative;
+    overflow: visible;
+    margin-top: 45px;
+
+    img {
+	border-radius: 5px;
+	border: solid 3px rgba(255, 255, 255, .5);
+	-webkit-background-clip: padding-box; /* for Safari */
+	background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+	max-height: 300px;
+	max-width: 300px;
+	width: auto;
+	position: absolute;
+    }
+}
+
+.comic {
+    width: 100%;
+    overflow: auto;
+    height: 600px;
+    left: 7px;
+
+   a {
+	position: absolute;
+	border: 2px solid #000000;
+	overflow: hidden;
+
+	img {
+	    width: 100%;
+	    height: 100%;
+	    max-height: none;
+	    margin: 0;
+	}
+    }
+}

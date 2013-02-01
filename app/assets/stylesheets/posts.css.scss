@@ -1,0 +1,134 @@
+/* ----------------------
+   Global Post Format
+   -------------------------*/
+article.post {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    header {
+	text-align: center;
+	margin: 0 auto;
+	width: $gridRowWidth;
+	position: relative;
+	padding-bottom: $paddingSmall;
+	z-index: $zIndexPostHeader;
+
+	time {
+	    display: block;
+	    text-align: right;
+	    border-top: solid 1px $hrBorder;
+	}
+    }
+
+    &.foreground {
+	background: $foregroundBg;
+	color: $foregroundTxt;
+	text-shadow: 1px 1px 0.1em $foregroundTxtShadow;
+
+	time {
+	    color: $foregroundTxtLight;
+	    border-color: $foregroundBgDark;
+	}
+
+	a { color: $foregroundTxtLink;}
+    }
+
+    &.midground {
+	background: $midgroundBg;
+	color: $midgroundTxt;
+	text-shadow: 1px 1px 0.1em $midgroundTxtShadow;
+
+	time {
+	    color: $midgroundTxtLight;
+	    border-color: $midgroundBgDark;
+	}
+
+	a { color: $midgroundTxtLink;}
+    }
+
+    &.background {
+	background: $backgroundBg;
+	color: $backgroundTxt;
+	text-shadow: 1px 1px 0.1em $backgroundTxtShadow;
+
+	time {
+	    color: $backgroundTxtLight;
+	    border-color: $backgroundBgDark;
+	}
+
+	a { color: $backgroundTxtLink;}
+    }
+}
+
+/* ----------------------
+   Shadows
+   -------------------------*/
+.shadow-foreground-top {
+    background: url(layout/divider-foreground-top.png) repeat-x center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 190px;
+    width: 100%;
+    z-index: $zIndexSpaceShadows;
+}
+
+.shadow-foreground-bottom {
+    background: url(layout/divider-foreground-bottom.png) repeat-x center top;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 190px;
+    width: 100%;
+    z-index: $zIndexSpaceShadows;
+}
+
+.shadow-midground-top {
+    background: url(layout/divider-midground-top.png) repeat-x center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 190px;
+    width: 100%;
+    z-index: $zIndexSpaceShadows;
+}
+
+.shadow-midground-bottom {
+    background: url(layout/divider-midground-bottom.png) repeat-x center top;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 190px;
+    width: 100%;
+    z-index: $zIndexSpaceShadows;
+}
+
+.shadow-background-top {
+    background: url(layout/divider-background-top.png) repeat-x center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 190px;
+    width: 100%;
+    z-index: $zIndexSpaceShadows;
+}
+
+.shadow-background-bottom {
+    background: url(layout/divider-background-bottom.png) repeat-x center top;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 190px;
+    width: 100%;
+    z-index: $zIndexSpaceShadows;
+}
+
+
+/* ----------------------
+   Post Padding Setting
+   -------------------------*/
+article.padding-medium {
+    padding: $paddingHuge;
+}

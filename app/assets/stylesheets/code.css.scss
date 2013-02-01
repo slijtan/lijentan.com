@@ -1,0 +1,69 @@
+/* ----------------------
+   Syntax Highlighting with CodeRay
+   -------------------------*/
+
+.CodeRay {
+    display: block;
+    border-radius: 5px;
+    box-shadow: 2px 2px 0 #A1A1A1;
+    background-color: #232323;
+    font-family: 'Courier New', 'Terminal', monospace;
+    color: #E6E0DB;
+    padding: 3px 5px;
+    overflow: auto;
+    font-size: 12px;
+    margin: 12px 0;
+    text-shadow: none;
+}
+
+.CodeRay pre {
+    margin: 0px;
+    padding: 0px;
+}
+
+table.CodeRay { border-collapse: collapse; width: 100%; padding: 2px }
+
+table.CodeRay td {
+    padding: 1em 0.5em;
+    vertical-align: top;
+}
+
+.CodeRay .line-numbers, .CodeRay .no {
+  background-color: #5A5353;
+  color: #AAA;
+  text-align: right;
+  border-radius: 5px;
+}
+
+.CodeRay .line-numbers a {
+  color: #000000;
+}
+
+.CodeRay .line-numbers tt { font-weight: bold }
+.CodeRay .line-numbers .highlighted { color: red }
+
+.CodeRay .an { color:#E7BE69 }                      /* html attribute */
+.CodeRay .c  { color:#BC9358; font-style: italic; } /* comment */
+.CodeRay .ch { color:#509E4F }                      /* escaped character */
+.CodeRay .cl { color:#FFF }                         /* class */
+.CodeRay .co { color:#FFF }                         /* constant */
+.CodeRay .gv { color:#D0CFFE }                      /* global variable */
+.CodeRay .i  { color:#A4C260 }                      /* integer */
+.CodeRay .il { background:#151515 }                 /* inline code */
+.CodeRay .iv { color:#D0CFFE }                      /* instance variable */
+.CodeRay .pp { color:#E7BE69 }                      /* doctype */
+.CodeRay .rx { color:#A4C260 }                      /* regex */
+.CodeRay .s  { color:#A4C260 }                      /* string */
+.CodeRay .sy { color:#6C9CBD }                      /* symbol */
+.CodeRay .ta { color:#E7BE69 }                      /* html tag */
+.CodeRay .pc { color:#6C9CBD }                      /* boolean */
+
+.CodeRay .tag { color:#070 }
+.CodeRay .keyword  { color:#CB7832 }
+.CodeRay .function { color:#FFC56D }
+.CodeRay .tag-special { color:#D70; font-weight:bold }
+.CodeRay .type { color:#339; font-weight:bold }
+.CodeRay .regexp .function  { color:#404; font-weight: bold }
+.CodeRay .regexp .content { color:#808 }
+.CodeRay .regexp .delimiter { color:#404 }
+.CodeRay .float { color:#A4C260 }

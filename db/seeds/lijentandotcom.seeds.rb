@@ -18,6 +18,7 @@ hp = Post.create(title: "Lijen's Blog",
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/header/header4.jpg', style: 'cover')
 PostElement.create(post: hp, element: s, animation_type: 'fixed', sequence: 1, position: "top;h-center")
+
 tb = TextBox.create(style: 'full-no-margins',
 		    text_color: '#FFFFFF',
 		    text: %{

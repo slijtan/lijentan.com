@@ -5,11 +5,11 @@ Lijentandotcom::Application.routes.draw do
 
   match 'sites/:site_id' => 'posts#index'
 
+  match 'posts/:id' => 'posts#show'
+
   resources :sites do
     resources :posts, :only => [:index, :show]
   end
-
-
 
   #  get "posts/index"
 

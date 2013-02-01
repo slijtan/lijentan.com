@@ -136,7 +136,7 @@ module PostsHelper
     if post.space == "auto"
       space = cycle(*spaces, name: "space")
       logger.debug("space is auto #{space}")
-    elsif space
+    elsif post.space
       space = post.space
       logger.debug("space is set #{space}")
       skip_to_cycle(post.space, spaces, "space")

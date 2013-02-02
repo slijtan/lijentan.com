@@ -4,7 +4,7 @@
 .text-box {
     margin: 0 auto;
     position: relative;
-
+    padding: 0 $baseLineHeight;
 
     &.full-margins {
 	width: $gridRowWidth;
@@ -13,7 +13,6 @@
 
     &.full-no-margins {
 	width: 100%;
-	text-align: justify;
     }
 
     &.single-column-text {

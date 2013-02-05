@@ -14,13 +14,44 @@ p = Post.create(title: "We happy?",
 		site: site,
 		date_published: DateTime.new(2013, 1, 7, 14, 24))
 
-tb = TextBox.create(style: 'full-margins',
+tb = TextBox.create(style: 'full-no-margins',
+		    text_align: 'left',
 		    text: %{
-Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+<h1 class="massive">"Well, the way they make shows is, they make one show.</h1>
 
-Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+<h1 class="huge">That show's called a pilot. Then they show that show to the people who make shows,</h1>
 
-Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+<h1 class="xlarge">and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.</h1>
+
+<h1 class="large">Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Well, the way they make shows is, they make one show. That show's called a</h1>
+
+<h1 class="medium">pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</h1>
+
+<h1 class="small">Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</h1>
+
+<h1 class="xsmall">Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength</h1>
+
+<h1 class="tiny">of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</h1>
+
+<p class="massive">"Well, the way they make shows is, they make one show.</p>
+
+<p class="huge">That show's called a pilot. Then they show that show to the people who make shows,</p>
+
+<p class="xlarge">and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.</p>
+
+<p class="large">Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Well, the way they make shows is, they make one show. That show's called a</p>
+
+<p class="medium">pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
+
+<p class="small">Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</p>
+
+<p class="xsmall">Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength</p>
+
+<p class="tiny">of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</p>
 }
 )
 PostElement.create(post: p, element: tb, sequence: 1)

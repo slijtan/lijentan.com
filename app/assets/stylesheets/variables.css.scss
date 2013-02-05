@@ -99,12 +99,21 @@ $zIndexFader: 1100;
    -------------------------*/
 $fontSizeMassive:       $baseFontSize * 14; // ~196px
 $fontSizeHuge:          $baseFontSize * 8; // ~112px
+$fontSizeXLarge:        $baseFontSize * 5.25; // ~73px
 $fontSizeLarge:         $baseFontSize * 1.25; // ~18px
+$fontSizeMedium:        $baseFontSize; // ~18px
 $fontSizeSmall:         $baseFontSize * 0.85; // ~12px
-$fontSizeMini:          $baseFontSize * 0.75; // ~11px
+$fontSizeXSmall:        $baseFontSize * 0.75; // ~11px
+$fontSizeTiny:          $baseFontSize * 0.65; // ~9px
 
-$lineHeightMassive:     $baseLineHeight * 11; //~220
-$lineHeightHuge:        $baseLineHeight * 8; //~160
+$lineHeightMassive:     $baseLineHeight * 11; //~220px
+$lineHeightHuge:        $baseLineHeight * 7; //~160px
+$lineHeightXLarge:      $baseLineHeight * 4.5; //~90px
+$lineHeightLarge:       $baseLineHeight; // ~20px
+$lineHeightMedium:      $baseLineHeight; // ~20px
+$lineHeightSmall:       $baseLineHeight; // ~20px
+$lineHeightXSmall:      $baseLineHeight; // ~20px
+$lineHeightTiny:        $baseLineHeight; // ~20px
 
 $paddingHuge:           30px 20px;
 $paddingLarge:          11px 19px; // 44px

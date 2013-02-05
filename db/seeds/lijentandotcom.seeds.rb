@@ -4,7 +4,9 @@ if site = Site.find_by_name(site_name)
   site.destroy
 end
 
-site = Site.create(name: site_name, show_nav: true)
+site = Site.create(name: site_name,
+		   show_nav: true,
+		   )
 site.domains.create(domain: "lijentan.localhost")
 site.domains.create(domain: "lijentan.com")
 site.domains.create(domain: "www.lijentan.com")
@@ -22,13 +24,12 @@ PostElement.create(post: hp, element: s, animation_type: 'fixed', sequence: 1, p
 tb = TextBox.create(style: 'full-no-margins',
 		    text_color: '#FFFFFF',
 		    text: %{
-#Lijen's Blog
-##A place on the<br />web for all my<br />stuff...
+<h1 class="massive">Lijen's Blog</h1>
+<h2 class="huge">A place on the<br />web for all my<br />stuff...</h2>
 })
 PostElement.create(post: hp, element: tb, sequence: 2)
 
 site.update_attribute(:header_post, hp)
-
 
 p = Post.create(title: "CKs 30th Birthday",
 		published: true,

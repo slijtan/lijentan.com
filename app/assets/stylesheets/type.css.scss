@@ -16,9 +16,52 @@ em      { font-style: italic; }
 cite    { font-style: normal; }
 
 /* ----------------------
+   Forced Size Classes
+   -------------------------*/
+.massive {
+    font-size: $fontSizeMassive;
+    line-height: $lineHeightMassive;
+}
+
+.huge {
+    font-size: $fontSizeHuge;
+    line-height: $lineHeightHuge;
+}
+
+.xlarge {
+    font-size: $fontSizeXLarge;
+    line-height: $lineHeightXLarge;
+}
+
+.large {
+    font-size: $fontSizeLarge;
+    line-height: $lineHeightLarge;
+}
+
+.medium {
+    font-size: $fontSizeMedium;
+    line-height: $lineHeightMedium;
+}
+
+.small {
+    font-size: $fontSizeSmall;
+    line-height: $lineHeightSmall;
+}
+
+.xsmall {
+    font-size: $fontSizeXSmall;
+    line-height: $lineHeightXSmall;
+}
+
+.tiny {
+    font-size: $fontSizeTiny;
+    line-height: $lineHeightTiny;
+}
+
+
+/* ----------------------
    Header
    -------------------------*/
-
 h1, h2, h3, h4, h5, h6 {
   margin: ($baseLineHeight / 2) 0;
   font-family: $headingsFontFamily;

@@ -18,44 +18,67 @@ cite    { font-style: normal; }
 /* ----------------------
    Forced Size Classes
    -------------------------*/
-.massive {
-    font-size: $fontSizeMassive;
-    line-height: $lineHeightMassive;
-}
+p, h1, h2, h3, h4, h5, h6 {
+    &.massive {
+	font-size: $fontSizeMassive;
+	line-height: $lineHeightMassive;
+    }
 
-.huge {
-    font-size: $fontSizeHuge;
-    line-height: $lineHeightHuge;
-}
+    &.huge {
+	font-size: $fontSizeHuge;
+	line-height: $lineHeightHuge;
+    }
 
-.xlarge {
-    font-size: $fontSizeXLarge;
-    line-height: $lineHeightXLarge;
-}
+    &.xlarge {
+	font-size: $fontSizeXLarge;
+	line-height: $lineHeightXLarge;
+    }
 
-.large {
-    font-size: $fontSizeLarge;
-    line-height: $lineHeightLarge;
-}
+    &.large {
+	font-size: $fontSizeLarge;
+	line-height: $lineHeightLarge;
+    }
 
-.medium {
-    font-size: $fontSizeMedium;
-    line-height: $lineHeightMedium;
-}
+    &.medium {
+	font-size: $fontSizeMedium;
+	line-height: $lineHeightMedium;
+    }
 
-.small {
-    font-size: $fontSizeSmall;
-    line-height: $lineHeightSmall;
-}
+    &.small {
+	font-size: $fontSizeSmall;
+	line-height: $lineHeightSmall;
+    }
 
-.xsmall {
-    font-size: $fontSizeXSmall;
-    line-height: $lineHeightXSmall;
-}
+    &.xsmall {
+	font-size: $fontSizeXSmall;
+	line-height: $lineHeightXSmall;
+    }
 
-.tiny {
-    font-size: $fontSizeTiny;
-    line-height: $lineHeightTiny;
+    &.tiny {
+	font-size: $fontSizeTiny;
+	line-height: $lineHeightTiny;
+    }
+
+/* ----------------------
+   Colors
+   -------------------------*/
+    &.blue {color: $blue}
+    &.blue-dark {color: $blueDark}
+    &.green {color: $green}
+    &.red {color: $red}
+    &.yellow {color: $yellow}
+    &.orange {color: $orange}
+    &.pink {color: $pink}
+    &.purple {color: $purple}
+
+
+/* ----------------------
+   Justify
+   -------------------------*/
+    &.left {text-align: left}
+    &.center {text-align: center}
+    &.right {text-align: right}
+    &.justify {text-align: justify}
 }
 
 

@@ -1,9 +1,16 @@
 <% if @site.site_style %>
 <% content_for :head do %>
+
+<%= raw(@site.site_style.title_font_data[:font_code]) if @site.site_style.title_font_data %>
+<%= raw(@site.site_style.header_font_data[:font_code]) if @site.site_style.header_font_data %>
+<%= raw(@site.site_style.body_font_data[:font_code]) if @site.site_style.body_font_data %>
+
 <style>
-  <% if @site.site_style.font_color %>
-  body {color: <%= @site.site_style.font_color %>;}
-  <% end %>
+
+  body {
+  <%= "color: #{@site.site_style.font_color};" if @site.site_style.font_color %>
+  <%= raw("font-family: #{@site.site_style.body_font_data[:font_family]};") if @site.site_style.body_font_data %>
+  }
 
   <% if @site.site_style.link_color %>
   a {color: <%= @site.site_style.link_color %>;}
@@ -12,6 +19,15 @@
   <% if @site.site_style.link_hover_color %>
   a:hover {color: <%= @site.site_style.link_hover_color %>;}
   <% end %>
+
+  <% if @site.site_style.header_font_data %>
+  h1, h2, h3, h4, h5, h6 { font-family: <%= raw(@site.site_style.header_font_data[:font_family]) %>}
+  <% end %>
+
+  <% if @site.site_style.title_font_data %>
+  article.title { font-family: <%= raw(@site.site_style.title_font_data[:font_family]) %>}
+  <% end %>
+
 </style>
 <% end %>
 <% end %>

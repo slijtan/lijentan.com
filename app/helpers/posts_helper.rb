@@ -146,6 +146,7 @@ module PostsHelper
     classes << post.effect if post.effect
     classes << "padding-#{post.padding}" if post.padding
     classes << 'full-screen' if post.height == 'full-screen'
+    classes << 'title' if post.is_header_post?
 
     html_classes = "class=\"#{classes.join(" ")}\""
 

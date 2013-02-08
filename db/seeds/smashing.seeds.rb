@@ -36,7 +36,7 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/tutori
 PostElement.create(post: p, element: s, sequence: 3, position: "h-center;top:300px;")
 
 tb = TextBox.create(style: 'full-margins',
-		    text: "Words and pictures by Richard Shepherd / Twitter: [@richardshepherd](https://twitter.com/richardshepherd) / Web: [richardshepherd.com](http://richardshepherd.com/)<br />GitHub: [Fork it here!](https://github.com/richardshepherd/Parallax-Scrolling/)",
+		    text: "<span class='grayLight small'>Words and pictures by Richard Shepherd / Twitter: [@richardshepherd](https://twitter.com/richardshepherd) / Web: [richardshepherd.com](http://richardshepherd.com/)<br />GitHub: [Fork it here!](https://github.com/richardshepherd/Parallax-Scrolling/)</span>",
 		    text_color: "#FFFFFF",
 		    text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 4, position: "h-center;top:550px;")
@@ -56,7 +56,7 @@ PostElement.create(post: p, element: s, sequence: 1, position: "top;center", ani
 tb = TextBox.create(style: 'single-column-text',
 		    background_image_url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/grain.png',
 		    text: %{
-###Background Only
+#Background Only
 In this section we are sliding the background at a different speed to the rest of the page.
 
 As this text box is scrolling at the same speed as the page, and faster than the background, it creates this lovely parallax effect.
@@ -87,7 +87,7 @@ PostElement.create(post: p, element: s, sequence: 1, position: "left:25%", anima
 tb = TextBox.create(style: 'single-column-text',
 		    background_image_url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/grain.png',
 		    text: %{
-###Scrolling Sprites
+#Scrolling Sprites
 The next step in your parallax scrolling adventure is to create some sprites!
 
 I have cut out one of the photos in this background and use it as a sprite. It scrolls at a different speed to the background and the window, and it's this effect that's used so well on Nike Better World and other parallax sites..
@@ -109,7 +109,7 @@ PostElement.create(post: p, element: s, sequence: 1, position: "top;center", ani
 
 tb = TextBox.create(style: 'single-column-text',
 		    text: %{
-###HTML5 Video
+#HTML5 Video
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
 
 Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.

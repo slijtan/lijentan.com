@@ -18,7 +18,7 @@ cite    { font-style: normal; }
 /* ----------------------
    Forced Size Classes
    -------------------------*/
-p, h1, h2, h3, h4, h5, h6 {
+p, h1, h2, h3, h4, h5, h6, span, em, b, a {
     &.massive {
 	font-size: $fontSizeMassive;
 	line-height: $lineHeightMassive;
@@ -62,6 +62,14 @@ p, h1, h2, h3, h4, h5, h6 {
 /* ----------------------
    Colors
    -------------------------*/
+    &.black {color: $black}
+    &.grayDarker {color: $grayDarker}
+    &.grayDark {color: $grayDark}
+    &.gray {color: $gray}
+    &.grayLight {color: $grayLight}
+    &.grayLighter {color: $grayLighter}
+    &.white {color: $white}
+
     &.blue {color: $blue}
     &.blue-dark {color: $blueDark}
     &.green {color: $green}

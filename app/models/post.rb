@@ -13,4 +13,8 @@ class Post < ActiveRecord::Base
 
   has_many :post_elements, dependent: :destroy, order: 'sequence ASC'
   belongs_to :site
+
+  def is_header_post?
+    self.id == site.header_post_id
+  end
 end

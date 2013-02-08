@@ -7,6 +7,16 @@ site = Site.create(name: site_name, show_nav: false)
 site.domains.create(domain: "smashing.localhost")
 site.domains.create(domain: "smashing.lijentandotcom.herokuapp.com")
 
+site.site_style.update_attributes(font_color_data: {
+				    font_color: "#fff",
+				    link_color: "#fff",
+				    link_hover_color: "#fff"},
+				  header_font_data: {
+				    font_code: '<link href="http://fonts.googleapis.com/css?family=Lobster+Two" rel="stylesheet" type="text/css">',
+				    font_family: "'Lobster Two', cursive"
+				  }
+				  )
+
 ## BEGIN SMASHING MAGAZINE PARALLAX TUTORIAL CLONE
 p = Post.create(title: "Intro",
 		published: true,

@@ -1,3 +1,21 @@
+<% if @site.site_style %>
+<% content_for :head do %>
+<style>
+  <% if @site.site_style.font_color %>
+  body {color: <%= @site.site_style.font_color %>;}
+  <% end %>
+
+  <% if @site.site_style.link_color %>
+  a {color: <%= @site.site_style.link_color %>;}
+  <% end %>
+
+  <% if @site.site_style.link_hover_color %>
+  a:hover {color: <%= @site.site_style.link_hover_color %>;}
+  <% end %>
+</style>
+<% end %>
+<% end %>
+
 <% skip_to_cycle(@space_of_last_post, spaces, "space") if @space_of_last_post %>
 
 <% if @site.show_nav %>

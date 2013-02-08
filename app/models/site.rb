@@ -6,5 +6,7 @@ class Site < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :domains, dependent: :destroy
   belongs_to :header_post, class_name: "Post", dependent: :destroy
+  has_one :site_style, dependent: :destroy
 
+  before_create :build_site_style
 end

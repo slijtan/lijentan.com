@@ -8,15 +8,66 @@ site = Site.create(name: site_name, show_nav: true)
 site.domains.create(domain: "blog-template.localhost")
 site.domains.create(domain: "blog-template.lijentandotcom.herokuapp.com")
 
+
+p = Post.create(title: "Fluid grid text with background-position system",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "700px",
+                date_published: DateTime.new(2013, 2, 11, 14, 45))
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: 'This is fluid text thats about 20% to the left of the screen, and 35% from the top. (position: fluid-h:20%;fluid-v:35%;)')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: 'This is fluid text thats about 10% to the right of the screen, and 35% from the bottom. (fluid-h:90%;fluid-v:65%;)')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:90%;fluid-v:65%;")
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: 'This is fluid text thats dead center. (fluid-h:50%;fluid-v:50%;)')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-h:50%;fluid-v:50%;")
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: 'TOP LEFT (fluid-h:0%;fluid-v:0%;)')
+PostElement.create(post: p, element: tb, sequence: 4, position: "fluid-h:0%;fluid-v:0%;")
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: 'BOTTOM RIGHT (fluid-h:100%;fluid-v:100%;)')
+PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:100%;fluid-v:100%;")
+
+p = Post.create(title: "Fluid grid images with background-position system (Same positionings as previous post)",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "700px",
+                date_published: DateTime.new(2013, 2, 11, 14, 44))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 2, position: "fluid-h:90%;fluid-v:65%;")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 3, position: "fluid-h:50%;fluid-v:50%;")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 4, position: "fluid-h:0%;fluid-v:0%;")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:100%;fluid-v:100%;")
+
+
 p = Post.create(title: "We happy?",
-		published: true,
-		show_header: true,
-		site: site,
-		date_published: DateTime.new(2013, 1, 7, 14, 24))
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 1, 7, 14, 24))
 
 tb = TextBox.create(style: 'full-no-margins',
-		    text_align: 'left',
-		    text: %{
+                    text_align: 'left',
+                    text: %{
 <h1 class="massive">"Well, the way they make shows is, they make one show.</h1>
 
 <h1 class="huge blue">That show's called a pilot. Then they show that show to the people who make shows,</h1>
@@ -58,13 +109,13 @@ PostElement.create(post: p, element: tb, sequence: 1)
 
 
 p = Post.create(title: "Is she dead, yes or no?",
-		published: true,
-		show_header: true,
-		site: site,
-		date_published: DateTime.new(2013, 1, 7, 13, 24))
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 1, 7, 13, 24))
 
 tb = TextBox.create(style: 'full-margins',
-		    text: %{
+                    text: %{
 Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
 
 Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
@@ -75,13 +126,13 @@ Now that we know who you are, I know who I am. I'm not a mistake! It all makes s
 PostElement.create(post: p, element: tb, sequence: 1)
 
 p = Post.create(title: "Hold on to your butts",
-		published: true,
-		show_header: true,
-		site: site,
-		date_published: DateTime.new(2013, 1, 7, 12, 24))
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 1, 7, 12, 24))
 
 tb = TextBox.create(style: 'full-margins',
-		    text: %{
+                    text: %{
 Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
 
 Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
@@ -92,13 +143,13 @@ Look, just because I don't be givin' no man a foot massage don't make it right f
 PostElement.create(post: p, element: tb, sequence: 1)
 
 p = Post.create(title: "I'm serious as a heart attack",
-		published: true,
-		show_header: true,
-		site: site,
-		date_published: DateTime.new(2013, 1, 7, 11, 24))
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 1, 7, 11, 24))
 
 tb = TextBox.create(style: 'full-no-margins',
-		    text: %{
+                    text: %{
 Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
 
 Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
@@ -109,13 +160,13 @@ Look, just because I don't be givin' no man a foot massage don't make it right f
 PostElement.create(post: p, element: tb, sequence: 1)
 
 p = Post.create(title: "No man, I don't eat pork",
-		published: true,
-		show_header: true,
-		site: site,
-		date_published: DateTime.new(2013, 1, 7, 10, 24))
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 1, 7, 10, 24))
 
 tb = TextBox.create(style: 'single-column-text',
-		    text: %{
+                    text: %{
 My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
 
 My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
@@ -126,13 +177,13 @@ My money's in that office, right? If she start giving me some bullshit about it 
 PostElement.create(post: p, element: tb, sequence: 1)
 
 p = Post.create(title: "Uuummmm, this is a tasty burger!",
-		published: true,
-		show_header: true,
-		site: site,
-		date_published: DateTime.new(2013, 1, 7, 9, 24))
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 1, 7, 9, 24))
 
 tb = TextBox.create(style: 'two-column-text',
-		    text: %{
+                    text: %{
 Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
 
 Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
@@ -145,12 +196,12 @@ Your bones don't break, mine do. That's clear. Your cells react to bacteria and 
 PostElement.create(post: p, element: tb, sequence: 1)
 
 p = Post.create(title: "I Want Brains",
-		published: true,
-		site: site,
-		date_published: DateTime.new(2013, 1, 7, 9, 24))
+                published: true,
+                site: site,
+                date_published: DateTime.new(2013, 1, 7, 9, 24))
 
 tb = TextBox.create(style: 'single-line-text',
-		    text: %{
+                    text: %{
 Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris. Hi mortuis soulless creaturas, imo monstra adventus vultus comedat cerebella viventium. Qui offenderit rapto, terribilem incessu. The voodoo sacerdos suscitat mortuos comedere carnem. Search for solum oculi eorum defunctis cerebro. Nescio an Undead zombies. Sicut malus movie horror.
 }
 )
@@ -158,21 +209,21 @@ PostElement.create(post: p, element: tb, sequence: 1)
 
 
 p = Post.create(title: "Big Ol' Quote",
-		published: true,
-		site: site,
-		show_header: false,
-		date_published: DateTime.new(2012, 10, 31, 18, 6))
+                published: true,
+                site: site,
+                show_header: false,
+                date_published: DateTime.new(2012, 10, 31, 18, 6))
 
 tb = TextBox.create(style: 'quote-big',
-		    text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk')
+                    text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk')
 
 PostElement.create(post: p, element: tb, sequence: 6)
 
 
 p = Post.create(title: "Giants Win The World Series!!!",
-		published: true,
-		site: site,
-		date_published: DateTime.new(2012, 11, 29, 14, 55))
+                published: true,
+                site: site,
+                date_published: DateTime.new(2012, 11, 29, 14, 55))
 
 v = Video.create(video_data: {id: "YKmgVJjk5PY"}, style: 'medium', host: 'youtube')
 PostElement.create(post: p, element: v)
@@ -180,12 +231,12 @@ PostElement.create(post: p, element: v)
 
 
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
-		published: true,
-		site: site,
-		date_published: DateTime.new(2012, 10, 31, 10, 13))
+                published: true,
+                site: site,
+                date_published: DateTime.new(2012, 10, 31, 10, 13))
 
 tb = TextBox.create(style: 'full-margins',
-		    text: %{
+                    text: %{
 Think of education as a spiral.  You revisit points and ideas at different points in time, but higher up in the spiral.  This class is the bottom of the spiral.
 
 Premises of PP:

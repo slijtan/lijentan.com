@@ -11,7 +11,7 @@ module PostsHelper
   #TODO refactor the attribute functions a bit
   def video_attributes(post_element)
     video = post_element.element
-    position_classes, position_css = post_element.position_classes_and_css
+    position_classes, position_css, position_data = post_element.position_classes_and_css_and_data
 
     classes = []
     classes << "video"
@@ -27,16 +27,17 @@ module PostsHelper
     data = {}
     data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
 
+    html_id = "id=\"#{post_element.id}\""
     html_classes = "class=\"#{classes.join(" ")}\""
     html_styles = "style=\"#{styles.join(";")}\""
     html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
 
-    raw("#{html_classes} #{html_styles} #{html_data}")
+    raw("#{html_id} #{html_classes} #{html_styles} #{html_data}")
   end
 
   def sprite_attributes(post_element)
     sprite = post_element.element
-    position_classes, position_css = post_element.position_classes_and_css
+    position_classes, position_css, position_data = post_element.position_classes_and_css_and_data
 
     classes = []
     classes << "sprite"
@@ -52,19 +53,20 @@ module PostsHelper
     data = {}
     data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
 
+    html_id = "id=\"#{post_element.id}\""
     html_classes = "class=\"#{classes.join(" ")}\""
     html_styles = "style=\"#{styles.join(";")}\""
     html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
 
-    raw("#{html_classes} #{html_styles} #{html_data}")
+    raw("#{html_id} #{html_classes} #{html_styles} #{html_data}")
   end
 
   def photo_attributes(photo)
     styles = []
 
     if photo.album_element &&
-	photo.album.style == "comic" &&
-	post_data = Album.album_comic_data_for_index(photo.album_element.sequence - 1)
+        photo.album.style == "comic" &&
+        post_data = Album.album_comic_data_for_index(photo.album_element.sequence - 1)
 
       styles << "top: #{post_data[:top]}px"
       styles << "left: #{post_data[:left]}px"
@@ -84,7 +86,7 @@ module PostsHelper
 
   def album_attributes(post_element)
     album = post_element.element
-    position_classes, position_css = post_element.position_classes_and_css
+    position_classes, position_css, position_data = post_element.position_classes_and_css_and_data
 
     classes = []
     classes << "album"
@@ -95,16 +97,17 @@ module PostsHelper
     styles << "z-index: #{post_element.sequence}" if post_element.sequence
     styles.concat(position_css)
 
+    html_id = "id=\"#{post_element.id}\""
     html_classes = "class=\"#{classes.join(" ")}\""
     html_styles = "style=\"#{styles.join(";")}\""
 
-    raw("#{html_classes} #{html_styles}")
+    raw("#{html_id} #{html_classes} #{html_styles}")
   end
 
   def text_box_attributes(post_element)
     text_box = post_element.element
 
-    position_classes, position_css = post_element.position_classes_and_css
+    position_classes, position_css, position_data = post_element.position_classes_and_css_and_data
 
     classes = []
     classes << "text-box"
@@ -122,12 +125,14 @@ module PostsHelper
 
     data = {}
     data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
+    data.merge!(position_data)
 
+    html_id = "id=\"#{post_element.id}\""
     html_classes = "class=\"#{classes.join(" ")}\""
     html_styles = "style=\"#{styles.join(";")}\""
     html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
 
-    raw("#{html_classes} #{html_styles} #{html_data}")
+    raw("#{html_id} #{html_classes} #{html_styles} #{html_data}")
   end
 
   def post_attributes(post)

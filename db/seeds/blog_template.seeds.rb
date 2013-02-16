@@ -8,13 +8,77 @@ site = Site.create(name: site_name, show_nav: true)
 site.domains.create(domain: "blog-template.localhost")
 site.domains.create(domain: "blog-template.lijentandotcom.herokuapp.com")
 
+######################################## SPLASH
+p = Post.create(title: "StyleSheet",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 19, 12, 46))
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">StyleSheet</h1>
+
+This site is meant to show the capabilities of the platform components, positioning, and animations
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+
+######################################## COMPONENT POSITIONING
+p = Post.create(title: "Component Positioning",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 18, 14, 45))
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Component Positioning</h1>
+
+I put my hand up on your hip, when I dip you dip we dip
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+
+
+p = Post.create(title: "Fixed grid text",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "700px",
+                date_published: DateTime.new(2013, 2, 18, 14, 44))
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-6col;top:20px')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-left:-6col;top:0px")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-3col;top:150px')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-left:-3col;top:150px")
+
+tb = TextBox.create(style: 'two-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:2col;bottom:350px')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-left:2col;bottom:350px")
+
+tb = TextBox.create(style: 'two-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-right:6col;bottom:0px')
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-right:6col;bottom:0px")
+
 
 p = Post.create(title: "Fluid grid text with background-position system",
                 published: true,
                 show_header: true,
                 site: site,
                 height: "700px",
-                date_published: DateTime.new(2013, 2, 11, 14, 45))
+                date_published: DateTime.new(2013, 2, 18, 14, 43))
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
@@ -46,7 +110,7 @@ p = Post.create(title: "Fluid grid images with background-position system (Same 
                 show_header: true,
                 site: site,
                 height: "700px",
-                date_published: DateTime.new(2013, 2, 11, 14, 44))
+                date_published: DateTime.new(2013, 2, 18, 14, 42))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
@@ -64,16 +128,136 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-squa
 PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:100%;fluid-v:100%;")
 
 
-p = Post.create(title: "We happy?",
+######################################## TEXT BOX FORMATS
+p = Post.create(title: "Text Boxes",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 17, 14, 42))
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Text Boxes</h1>
+
+Words are the strongest known bridges between our minds and hearts
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+
+
+
+p = Post.create(title: "Full No-Margins",
                 published: true,
                 show_header: true,
                 site: site,
-                date_published: DateTime.new(2013, 1, 7, 14, 24))
+                date_published: DateTime.new(2013, 2, 17, 14, 41))
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: %{
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+p = Post.create(title: "Single Column Text",
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 2, 17, 14, 40))
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: %{
+My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
+
+My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
+
+My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+p = Post.create(title: "Two-Column Text",
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 2, 17, 14, 39))
+
+tb = TextBox.create(style: 'two-column-text',
+                    text: %{
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+p = Post.create(title: "Single-line text",
+                published: true,
+                site: site,
+                date_published: DateTime.new(2013, 2, 17, 14, 38))
+
+tb = TextBox.create(style: 'single-line-text',
+                    text: %{
+Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris. Hi mortuis soulless creaturas, imo monstra adventus vultus comedat cerebella viventium. Qui offenderit rapto, terribilem incessu. The voodoo sacerdos suscitat mortuos comedere carnem. Search for solum oculi eorum defunctis cerebro. Nescio an Undead zombies. Sicut malus movie horror.
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+
+p = Post.create(title: "Big Ol' Quote",
+                published: true,
+                site: site,
+                show_header: true,
+                date_published: DateTime.new(2013, 2, 17, 14, 37))
+
+tb = TextBox.create(style: 'quote-big',
+                    text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk')
+
+PostElement.create(post: p, element: tb, sequence: 6)
+
+
+
+######################################## Typography
+
+p = Post.create(title: "Typography",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 16, 14, 42))
+
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Typography</h1>
+
+Fonts baby... and colors
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+
+
+p = Post.create(title: "Font sizes and colors",
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 2, 16, 14, 41))
 
 tb = TextBox.create(style: 'full-no-margins',
                     text_align: 'left',
                     text: %{
-<h1 class="massive">"Well, the way they make shows is, they make one show.</h1>
+<h1 class="massive">Well, the way they make shows is, they make one show.</h1>
 
 <h1 class="huge blue">That show's called a pilot. Then they show that show to the people who make shows,</h1>
 
@@ -91,7 +275,7 @@ Well, the way they make shows is, they make one show. That show's called a</h1>
 
 <h1 class="tiny pink">of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</h1>
 
-<p class="massive">"Well, the way they make shows is, they make one show.</p>
+<p class="massive">Well, the way they make shows is, they make one show.</p>
 
 <p class="huge blue">That show's called a pilot. Then they show that show to the people who make shows,</p>
 
@@ -113,122 +297,105 @@ Well, the way they make shows is, they make one show. That show's called a</p>
 PostElement.create(post: p, element: tb, sequence: 1)
 
 
-p = Post.create(title: "Is she dead, yes or no?",
+######################################## Space
+
+p = Post.create(title: "Space",
                 published: true,
-                show_header: true,
-                site: site,
-                date_published: DateTime.new(2013, 1, 7, 13, 24))
-
-tb = TextBox.create(style: 'full-margins',
-                    text: %{
-Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-
-Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-
-Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
-
-p = Post.create(title: "Hold on to your butts",
-                published: true,
-                show_header: true,
-                site: site,
-                date_published: DateTime.new(2013, 1, 7, 12, 24))
-
-tb = TextBox.create(style: 'full-margins',
-                    text: %{
-Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-
-Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-
-Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
-
-p = Post.create(title: "I'm serious as a heart attack",
-                published: true,
-                show_header: true,
-                site: site,
-                date_published: DateTime.new(2013, 1, 7, 11, 24))
-
-tb = TextBox.create(style: 'full-no-margins',
-                    text: %{
-Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-
-Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-
-Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
-
-p = Post.create(title: "No man, I don't eat pork",
-                published: true,
-                show_header: true,
-                site: site,
-                date_published: DateTime.new(2013, 1, 7, 10, 24))
-
-tb = TextBox.create(style: 'single-column-text',
-                    text: %{
-My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
-
-My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
-
-My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
-
-p = Post.create(title: "Uuummmm, this is a tasty burger!",
-                published: true,
-                show_header: true,
-                site: site,
-                date_published: DateTime.new(2013, 1, 7, 9, 24))
-
-tb = TextBox.create(style: 'two-column-text',
-                    text: %{
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
-
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
-
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
-
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
-
-p = Post.create(title: "I Want Brains",
-                published: true,
-                site: site,
-                date_published: DateTime.new(2013, 1, 7, 9, 24))
-
-tb = TextBox.create(style: 'single-line-text',
-                    text: %{
-Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris. Hi mortuis soulless creaturas, imo monstra adventus vultus comedat cerebella viventium. Qui offenderit rapto, terribilem incessu. The voodoo sacerdos suscitat mortuos comedere carnem. Search for solum oculi eorum defunctis cerebro. Nescio an Undead zombies. Sicut malus movie horror.
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
-
-
-p = Post.create(title: "Big Ol' Quote",
-                published: true,
-                site: site,
                 show_header: false,
-                date_published: DateTime.new(2012, 10, 31, 18, 6))
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 15, 14, 42))
 
-tb = TextBox.create(style: 'quote-big',
-                    text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk')
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Space</h1>
 
-PostElement.create(post: p, element: tb, sequence: 6)
+The final frontier
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
 
+
+p = Post.create(title: "Background",
+                published: true,
+                show_header: true,
+                site: site,
+                space: "background",
+                date_published: DateTime.new(2013, 2, 15, 14, 41))
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+p = Post.create(title: "Foreground",
+                published: true,
+                show_header: true,
+                site: site,
+                space: "foreground",
+                date_published: DateTime.new(2013, 2, 15, 14, 40))
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+
+Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+
+Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+p = Post.create(title: "Midground",
+                published: true,
+                show_header: true,
+                site: site,
+                space: "midground",
+                date_published: DateTime.new(2013, 2, 15, 14, 39))
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+
+
+######################################## MISC
+
+p = Post.create(title: "Miscellaneous",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 14, 14, 42))
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Miscellaneous</h1>
+
+The corner where we shove everything we dont want
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
 
 p = Post.create(title: "Giants Win The World Series!!!",
                 published: true,
                 site: site,
-                date_published: DateTime.new(2012, 11, 29, 14, 55))
+                date_published: DateTime.new(2013, 2, 14, 14, 41))
 
 v = Video.create(video_data: {id: "YKmgVJjk5PY"}, style: 'medium', host: 'youtube')
 PostElement.create(post: p, element: v)
@@ -238,7 +405,7 @@ PostElement.create(post: p, element: v)
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
                 published: true,
                 site: site,
-                date_published: DateTime.new(2012, 10, 31, 10, 13))
+                date_published: DateTime.new(2013, 2, 14, 14, 40))
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{

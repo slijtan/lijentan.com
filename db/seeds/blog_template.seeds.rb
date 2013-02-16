@@ -17,22 +17,27 @@ p = Post.create(title: "Fluid grid text with background-position system",
                 date_published: DateTime.new(2013, 2, 11, 14, 45))
 
 tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
                     text: 'This is fluid text thats about 20% to the left of the screen, and 35% from the top. (position: fluid-h:20%;fluid-v:35%;)')
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
 
 tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
                     text: 'This is fluid text thats about 10% to the right of the screen, and 35% from the bottom. (fluid-h:90%;fluid-v:65%;)')
 PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:90%;fluid-v:65%;")
 
 tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
                     text: 'This is fluid text thats dead center. (fluid-h:50%;fluid-v:50%;)')
 PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-h:50%;fluid-v:50%;")
 
 tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
                     text: 'TOP LEFT (fluid-h:0%;fluid-v:0%;)')
 PostElement.create(post: p, element: tb, sequence: 4, position: "fluid-h:0%;fluid-v:0%;")
 
 tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
                     text: 'BOTTOM RIGHT (fluid-h:100%;fluid-v:100%;)')
 PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:100%;fluid-v:100%;")
 

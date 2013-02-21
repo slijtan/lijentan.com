@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
 
   @@valid_effects = %w[fade-in]
 
-  attr_accessible :space, :published, :date_published, :bg_color, :title, :show_header, :height, :effect, :padding, :site
+  attr_accessible :space, :published, :date_published, :bg_color, :title, :show_header, :height, :effect, :padding, :site, :display_order
 
   validates_presence_of :title, :site
   validates_inclusion_of :space, in: %w[foreground background midground auto], allow_nil: true

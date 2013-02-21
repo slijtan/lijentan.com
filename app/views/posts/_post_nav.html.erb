@@ -1,4 +1,4 @@
 <li id="nav-post-<%= post.id %>">
-  <a href="#post-<%= post.id %>" class="bullet"><%= post.date_published.to_formatted_s(:nav)  %></a>
+  <a href="#post-<%= post.id %>" class="bullet"><%= post.date_published.to_formatted_s(:nav) if post.date_published  %></a>
   <a href="#" class="title"><%= post.title %></a>
 </li>

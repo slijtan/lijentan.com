@@ -2,7 +2,9 @@
   <% if post.show_header %>
   <header>
     <h1><%= post.title %></h1>
+    <% if post.date_published %>
     <time datetime="<%= post.date_published.to_s(:db) %>" pubdate><%= post.date_published.to_formatted_s(:post_title)  %></time>
+    <% end %>
   </header>
   <% end %>
 

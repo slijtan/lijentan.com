@@ -14,8 +14,7 @@ p = Post.create(title: "Instruction Manual",
                 show_header: false,
                 site: site,
                 space: "foreground",
-                height: "full-screen",
-                date_published: DateTime.new(2013, 3, 29, 12, 46))
+                height: "full-screen",)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -35,7 +34,7 @@ p = Post.create(title: "Text Boxes",
                 site: site,
                 space: "foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 21, 14, 42))
+                display_order: 1)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -52,7 +51,7 @@ p = Post.create(title: "Full No-Margins",
                 published: true,
                 show_header: true,
                 site: site,
-                date_published: DateTime.new(2013, 2, 21, 14, 41))
+                display_order: 2)
 
 tb = TextBox.create(style: 'full-no-margins',
                     text: %{
@@ -69,7 +68,7 @@ p = Post.create(title: "Single Column Text",
                 published: true,
                 show_header: true,
                 site: site,
-                date_published: DateTime.new(2013, 2, 21, 14, 40))
+                display_order: 3)
 
 tb = TextBox.create(style: 'single-column-text',
                     text: %{
@@ -86,7 +85,7 @@ p = Post.create(title: "Two-Column Text",
                 published: true,
                 show_header: true,
                 site: site,
-                date_published: DateTime.new(2013, 2, 21, 14, 39))
+                display_order: 4)
 
 tb = TextBox.create(style: 'two-column-text',
                     text: %{
@@ -104,7 +103,7 @@ PostElement.create(post: p, element: tb, sequence: 1)
 p = Post.create(title: "Single-line text",
                 published: true,
                 site: site,
-                date_published: DateTime.new(2013, 2, 21, 14, 38))
+                display_order: 5)
 
 tb = TextBox.create(style: 'single-line-text',
                     text: %{
@@ -118,7 +117,7 @@ p = Post.create(title: "Big Ol' Quote",
                 published: true,
                 site: site,
                 show_header: true,
-                date_published: DateTime.new(2013, 2, 21, 14, 37))
+                display_order: 6)
 
 tb = TextBox.create(style: 'quote-big',
                     text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk')
@@ -134,7 +133,7 @@ p = Post.create(title: "Typography",
                 site: site,
                 space: "foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 20, 14, 42))
+                display_order: 10)
 
 
 tb = TextBox.create(style: 'full-margins',
@@ -151,7 +150,7 @@ p = Post.create(title: "Font sizes and colors",
                 published: true,
                 show_header: true,
                 site: site,
-                date_published: DateTime.new(2013, 2, 20, 14, 41))
+                display_order: 11)
 
 tb = TextBox.create(style: 'full-no-margins',
                     text_align: 'left',
@@ -203,7 +202,7 @@ p = Post.create(title: "Sprites",
                 site: site,
                 space: "foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 19, 14, 45))
+                display_order: 20)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -220,7 +219,7 @@ p = Post.create(title: "Image",
                 show_header: true,
                 site: site,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 19, 13, 44))
+                display_order: 21)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1)
@@ -230,7 +229,7 @@ p = Post.create(title: "Tiling",
                 show_header: true,
                 site: site,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 19, 12, 44))
+                display_order: 22)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'tiling')
 PostElement.create(post: p, element: s, sequence: 1)
@@ -240,7 +239,7 @@ p = Post.create(title: "Cover",
                 show_header: true,
                 site: site,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 19, 11, 44))
+                display_order: 23)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 1)
@@ -250,7 +249,7 @@ p = Post.create(title: "Full Height",
                 show_header: true,
                 site: site,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 19, 10, 44))
+                display_order: 24)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'full-height')
 PostElement.create(post: p, element: s, sequence: 1)
@@ -265,7 +264,7 @@ p = Post.create(title: "Component Positioning",
                 site: site,
                 space: "foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 18, 14, 45))
+                display_order: 30)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -282,7 +281,7 @@ p = Post.create(title: "Fixed grid text",
                 show_header: true,
                 site: site,
                 height: "700px",
-                date_published: DateTime.new(2013, 2, 18, 14, 44))
+                display_order: 31)
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
@@ -369,7 +368,7 @@ p = Post.create(title: "Fluid grid text with background-position system",
                 show_header: true,
                 site: site,
                 height: "700px",
-                date_published: DateTime.new(2013, 2, 18, 14, 43))
+                display_order: 32)
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
@@ -401,7 +400,7 @@ p = Post.create(title: "Fluid grid images with background-position system (Same 
                 show_header: true,
                 site: site,
                 height: "700px",
-                date_published: DateTime.new(2013, 2, 18, 14, 42))
+                display_order: 33)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
@@ -426,7 +425,7 @@ p = Post.create(title: "Animation",
                 site: site,
                 space: "foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 17, 14, 45))
+                display_order: 40)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -442,7 +441,7 @@ p = Post.create(title: "Scan",
                 show_header: true,
                 site: site,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 17, 13, 44))
+                display_order: 41)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "top:100px", animation_type: "scan", animation_direction: "right")
@@ -515,7 +514,7 @@ p = Post.create(title: "Fixed",
                 show_header: true,
                 site: site,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 17, 12, 44))
+                display_order: 42)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'tiling')
 PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
@@ -534,7 +533,7 @@ p = Post.create(title: "Space",
                 site: site,
                 space: "foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 15, 14, 42))
+                display_order: 50)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -551,7 +550,7 @@ p = Post.create(title: "Background",
                 show_header: true,
                 site: site,
                 space: "background",
-                date_published: DateTime.new(2013, 2, 15, 14, 41))
+                display_order: 51)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -569,7 +568,7 @@ p = Post.create(title: "Foreground",
                 show_header: true,
                 site: site,
                 space: "foreground",
-                date_published: DateTime.new(2013, 2, 15, 14, 40))
+                display_order: 52)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -587,7 +586,7 @@ p = Post.create(title: "Midground",
                 show_header: true,
                 site: site,
                 space: "midground",
-                date_published: DateTime.new(2013, 2, 15, 14, 39))
+                display_order: 53)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -610,7 +609,7 @@ p = Post.create(title: "Miscellaneous",
                 site: site,
                 space: "foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 14, 14, 42))
+                display_order: 60)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -624,7 +623,7 @@ PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;flu
 p = Post.create(title: "Giants Win The World Series!!!",
                 published: true,
                 site: site,
-                date_published: DateTime.new(2013, 2, 14, 14, 41))
+                display_order: 61)
 
 v = Video.create(video_data: {id: "YKmgVJjk5PY"}, style: 'medium', host: 'youtube')
 PostElement.create(post: p, element: v)
@@ -634,7 +633,7 @@ PostElement.create(post: p, element: v)
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
                 published: true,
                 site: site,
-                date_published: DateTime.new(2013, 2, 14, 14, 40))
+                display_order: 62)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{

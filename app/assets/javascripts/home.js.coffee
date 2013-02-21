@@ -53,6 +53,11 @@ adjust_scanning_div = (element) ->
         top_position = $(window).scrollTop()
         bottom_position = top_position + screen_height
 
+        width = $(element).outerWidth()
+        full_width = $(element).parent('article').outerWidth()
+        height = $(element).outerHeight()
+        full_height = $(element).parent('article').outerHeight()
+
         if top_position <= bottom_height && bottom_position >= top_height
                 animation_direction = element.data("animation-direction")
                 article_y = articles_position_on_page(article)
@@ -61,13 +66,13 @@ adjust_scanning_div = (element) ->
 
                 switch animation_direction
                         when "down"
-                                new_top = article_y * screen_height / 100.0
+                                new_top = map_to_fluid_coordinates(article_y, height, full_height)
                         when "up"
-                                new_top = (100.0 - article_y) * screen_height / 100.0
+                                new_top = map_to_fluid_coordinates(100 - article_y, height, full_height)
                         when "left"
-                                new_left = (100.0 - article_y) * screen_height / 100.0
+                                new_left = map_to_fluid_coordinates(100.0 - article_y, width, full_width)
                         when "right"
-                                new_left = article_y * screen_height / 100.0
+                                new_left = map_to_fluid_coordinates(article_y, width, full_width)
 
                 element.css("top", "#{new_top}px") if new_top
                 element.css("left", "#{new_left}px") if new_left
@@ -386,18 +391,36 @@ set_fluid_positions = ->
                 width = $(this).outerWidth()
                 full_width = $(this).parent('article').outerWidth()
                 coordinate = $(this).data('fluid-h')
-                console.log("fluid-h", width, coordinate)
                 $(this).css("left", map_to_fluid_coordinates(coordinate, width, full_width))
 
         $('.fluid-v').each ->
                 height = $(this).outerHeight()
                 full_height = $(this).parent('article').outerHeight()
                 coordinate = $(this).data('fluid-v')
-                console.log("fluid-v", height, coordinate)
                 $(this).css("top", map_to_fluid_coordinates(coordinate, height, full_height))
 
 map_to_fluid_coordinates = (coordinate, length, full_length) ->
         (coordinate / 100) * (full_length - length)
+
+set_fixed_positions = ->
+        column_width = $('body').data("col-width")
+        gutter_width = $('body').data("gutter-width")
+
+        $('.fixed-left').each ->
+                coordinate = $(this).data('fixed-left')
+                $(this).css("left", map_to_fixed_coordinates(coordinate, column_width, gutter_width, "left"))
+        $('.fixed-right').each ->
+                coordinate = $(this).data('fixed-right')
+                $(this).css("right", map_to_fixed_coordinates(coordinate, column_width, gutter_width, "right"))
+
+
+
+map_to_fixed_coordinates = (coordinate, column_width, gutter_width, edge = "left") ->
+        center = $(window).width() / 2
+        if edge == "left"
+                center + (gutter_width / 2) + coordinate * (column_width + gutter_width)
+        else
+                center - ((gutter_width / 2) + coordinate * (column_width + gutter_width) + column_width)
 
 
 setup_posts = ->
@@ -413,6 +436,7 @@ setup_posts = ->
 
 setup_positions = ->
         set_fluid_positions()
+        set_fixed_positions()
         set_video_sizes()
         setup_full_screen_posts()
 

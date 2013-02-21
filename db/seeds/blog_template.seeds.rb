@@ -10,21 +10,118 @@ site.domains.create(domain: "blog-template.lijentandotcom.herokuapp.com")
 
 ######################################## SPLASH
 p = Post.create(title: "StyleSheet",
-                published: true,
+                published: false,
                 show_header: false,
                 site: site,
                 space: "foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 19, 12, 46))
+                date_published: DateTime.new(2013, 3, 29, 12, 46))
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
 <h1 class="xlarge">StyleSheet</h1>
 
-This site is meant to show the capabilities of the platform components, positioning, and animations
+<p class="grayLight">This site is meant to show the capabilities of the platform components, positioning, and animations</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+
+site.update_attribute(:header_post, p)
+
+
+######################################## ANIMATION
+p = Post.create(title: "Animation",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 19, 14, 45))
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Animation</h1>
+
+<p class="grayLight">All change is not growth, as all movement is not forward.</p>
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+
+
+
+
+p = Post.create(title: "Scan",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 19, 13, 44))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1, position: "top:100px", animation_type: "scan", animation_direction: "right")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 2, position: "fluid-h:60%", animation_type: "scan", animation_direction: "down")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 3, position: "fluid-v:100%", animation_type: "scan", animation_direction: "left")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 4, position: "fixed-right:6col", animation_type: "scan", animation_direction: "up")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 5, position: "top:50px", animation_type: "scan", animation_direction: "right")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 6, position: "fluid-h:40%", animation_type: "scan", animation_direction: "down")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 7, position: "fluid-v:90%", animation_type: "scan", animation_direction: "left")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 8, position: "fixed-right:3col", animation_type: "scan", animation_direction: "up")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'position: "top:0px", animation_type: "scan", animation_direction: "right"')
+PostElement.create(post: p, element: tb, sequence: 9, position: "top:0px", animation_type: "scan", animation_direction: "right")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fluid-h:20%", animation_type: "scan", animation_direction: "down"')
+PostElement.create(post: p, element: tb, sequence: 10, position: "fluid-h:20%", animation_type: "scan", animation_direction: "down")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fluid-v:80%", animation_type: "scan", animation_direction: "left"')
+PostElement.create(post: p, element: tb, sequence: 11, position: "fluid-v:80%", animation_type: "scan", animation_direction: "left")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fixed-right:6col", animation_type: "scan", animation_direction: "up"')
+PostElement.create(post: p, element: tb, sequence: 12, position: "fixed-right:6col", animation_type: "scan", animation_direction: "up")
+
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#444',
+                    text: 'position: "top:0px", animation_type: "scan", animation_direction: "right"')
+PostElement.create(post: p, element: tb, sequence: 13, position: "top:0px", animation_type: "scan", animation_direction: "right")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#444',
+                    text: 'position: "fluid-h:20%", animation_type: "scan", animation_direction: "down"')
+PostElement.create(post: p, element: tb, sequence: 14, position: "fluid-h:20%", animation_type: "scan", animation_direction: "down")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#444',
+                    text: 'position: "fluid-v:80%", animation_type: "scan", animation_direction: "left"')
+PostElement.create(post: p, element: tb, sequence: 15, position: "fluid-v:80%", animation_type: "scan", animation_direction: "left")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#444',
+                    text: 'position: "fixed-right:6col", animation_type: "scan", animation_direction: "up"')
+PostElement.create(post: p, element: tb, sequence: 16, position: "fixed-right:6col", animation_type: "scan", animation_direction: "up")
+
 
 ######################################## COMPONENT POSITIONING
 p = Post.create(title: "Component Positioning",
@@ -39,7 +136,7 @@ tb = TextBox.create(style: 'full-margins',
                     text: %{
 <h1 class="xlarge">Component Positioning</h1>
 
-I put my hand up on your hip, when I dip you dip we dip
+<p class="grayLight">I put my hand up on your hip, when I dip you dip we dip</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
@@ -70,7 +167,70 @@ PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-left:2col
 tb = TextBox.create(style: 'two-column-text',
                     bg_color: '#555',
                     text: 'fixed-right:6col;bottom:0px')
-PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-right:6col;bottom:0px")
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-right:5col;bottom:0px")
+
+
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-6col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-left:-6col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-5col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-left:-5col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-4col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-left:-4col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-3col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 8, position: "fixed-left:-3col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-2col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 9, position: "fixed-left:-2col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-1col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 10, position: "fixed-left:-1col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:0col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 11, position: "fixed-left:0col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:1col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 12, position: "fixed-left:1col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:2col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 13, position: "fixed-left:2col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:3col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 14, position: "fixed-left:3col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:4col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 15, position: "fixed-left:4col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:5col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 15, position: "fixed-left:5col;top:400px")
+
 
 
 p = Post.create(title: "Fluid grid text with background-position system",
@@ -141,7 +301,7 @@ tb = TextBox.create(style: 'full-margins',
                     text: %{
 <h1 class="xlarge">Text Boxes</h1>
 
-Words are the strongest known bridges between our minds and hearts
+<p class="grayLight">Words are the strongest known bridges between our minds and hearts</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
@@ -242,7 +402,7 @@ tb = TextBox.create(style: 'full-margins',
                     text: %{
 <h1 class="xlarge">Typography</h1>
 
-Fonts baby... and colors
+<p class="grayLight">Fonts baby... and colors</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
@@ -311,7 +471,7 @@ tb = TextBox.create(style: 'full-margins',
                     text: %{
 <h1 class="xlarge">Space</h1>
 
-The final frontier
+<p class="grayLight">The final frontier</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
@@ -387,7 +547,7 @@ tb = TextBox.create(style: 'full-margins',
                     text: %{
 <h1 class="xlarge">Miscellaneous</h1>
 
-The corner where we shove everything we dont want
+<p class="grayLight">The corner where we shove everything we dont want</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")

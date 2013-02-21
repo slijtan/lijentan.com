@@ -14,7 +14,7 @@
     <%= yield :head %>
   </head>
 
-  <%= content_tag :body, data: {site_id: @site.id} do || %>
+  <%= content_tag :body, data: {site_id: @site.id, col_width: Site::COL_WIDTH, gutter_width: Site::GUTTER_WIDTH} do || %>
   <%= yield %>
   <% end %>
 

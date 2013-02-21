@@ -84,13 +84,19 @@ class PostElement < ActiveRecord::Base
             attribute, value = css_attribute.split(":")
             css_styles[attribute.to_sym] = value
 
-          elsif match_data =  /(fluid-h|fluid-v):(\d*)%/.match(css_attribute)
-            attribute = match_data[1]
-            value = match_data[2]
+          elsif match = /(fluid-h|fluid-v):(\d*)%/.match(css_attribute)
+            attribute = match[1]
+            value = match[2]
             classes << attribute
             data[attribute.to_sym] = value
-          end
 
+          elsif match = /(fixed-(left|right)):(-?\d*)cols?/.match(css_attribute)
+            attribute = match[1]
+            value = match[3]
+            classes << attribute
+            data[attribute.to_sym] = value
+
+          end
         end
       end
     end

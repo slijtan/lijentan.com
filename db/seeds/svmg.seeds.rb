@@ -72,7 +72,7 @@ p = Post.create(title: "MLBAM",
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-mlb.jpg', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 1, position: "right;v-center;", animation_type: "scan", animation_direction: "right")
 
-tb = TextBox.create(style: 'single-line-text',
+tb = TextBox.create(style: 'full-margins',
                     text: "<h1 class='massive'>&#149;</h1>")
 PostElement.create(post: p, element: tb, sequence: 2, position: "bottom: 0%", animation_type: "scan", animation_direction: "right")
 

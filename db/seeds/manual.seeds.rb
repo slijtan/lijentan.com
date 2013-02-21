@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-site_name = "Blog Template"
+site_name = "Instruction Manual"
 if site = Site.find_by_name(site_name)
   site.destroy
 end
 
 site = Site.create(name: site_name, show_nav: true)
-site.domains.create(domain: "blog-template.localhost")
-site.domains.create(domain: "blog-template.lijentandotcom.herokuapp.com")
+site.domains.create(domain: "manual.localhost")
+site.domains.create(domain: "manual.lijentandotcom.herokuapp.com")
 
 ######################################## SPLASH
-p = Post.create(title: "StyleSheet",
+p = Post.create(title: "Instruction Manual",
                 published: false,
                 show_header: false,
                 site: site,
@@ -19,18 +19,185 @@ p = Post.create(title: "StyleSheet",
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
-<h1 class="xlarge">StyleSheet</h1>
+<h1 class="xlarge">Instruction Manual</h1>
 
-<p class="grayLight">This site is meant to show the capabilities of the platform components, positioning, and animations</p>
+<p class="grayLight">In the case of "RTFM", please refer to this</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
 
 site.update_attribute(:header_post, p)
 
+######################################## TEXT BOX FORMATS
+p = Post.create(title: "Text Boxes",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 21, 14, 42))
 
-######################################## ANIMATION
-p = Post.create(title: "Animation",
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Text Boxes</h1>
+
+<p class="grayLight">Words are the strongest known bridges between our minds and hearts</p>
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+
+
+
+p = Post.create(title: "Full No-Margins",
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 2, 21, 14, 41))
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: %{
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+p = Post.create(title: "Single Column Text",
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 2, 21, 14, 40))
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: %{
+My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
+
+My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
+
+My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+p = Post.create(title: "Two-Column Text",
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 2, 21, 14, 39))
+
+tb = TextBox.create(style: 'two-column-text',
+                    text: %{
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+
+Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+p = Post.create(title: "Single-line text",
+                published: true,
+                site: site,
+                date_published: DateTime.new(2013, 2, 21, 14, 38))
+
+tb = TextBox.create(style: 'single-line-text',
+                    text: %{
+Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris. Hi mortuis soulless creaturas, imo monstra adventus vultus comedat cerebella viventium. Qui offenderit rapto, terribilem incessu. The voodoo sacerdos suscitat mortuos comedere carnem. Search for solum oculi eorum defunctis cerebro. Nescio an Undead zombies. Sicut malus movie horror.
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+
+p = Post.create(title: "Big Ol' Quote",
+                published: true,
+                site: site,
+                show_header: true,
+                date_published: DateTime.new(2013, 2, 21, 14, 37))
+
+tb = TextBox.create(style: 'quote-big',
+                    text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk')
+
+PostElement.create(post: p, element: tb, sequence: 6)
+
+
+######################################## TYPOGRAPHY
+
+p = Post.create(title: "Typography",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 20, 14, 42))
+
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Typography</h1>
+
+<p class="grayLight">Fonts baby... and colors</p>
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+
+
+p = Post.create(title: "Font sizes and colors",
+                published: true,
+                show_header: true,
+                site: site,
+                date_published: DateTime.new(2013, 2, 20, 14, 41))
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text_align: 'left',
+                    text: %{
+<h1 class="massive">Well, the way they make shows is, they make one show.</h1>
+
+<h1 class="huge blue">That show's called a pilot. Then they show that show to the people who make shows,</h1>
+
+<h1 class="xlarge red left">and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.</h1>
+
+<h1 class="large orange right">Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Well, the way they make shows is, they make one show. That show's called a</h1>
+
+<h1 class="medium justify">pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</h1>
+
+<h1 class="small purple">Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</h1>
+
+<h1 class="xsmall blue-dark">Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength</h1>
+
+<h1 class="tiny pink">of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</h1>
+
+<p class="massive">Well, the way they make shows is, they make one show.</p>
+
+<p class="huge blue">That show's called a pilot. Then they show that show to the people who make shows,</p>
+
+<p class="xlarge red">and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.</p>
+
+<p class="large orange right">Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Well, the way they make shows is, they make one show. That show's called a</p>
+
+<p class="medium justify">pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
+
+<p class="small purple">Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</p>
+
+<p class="xsmall blue-dark">Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength</p>
+
+<p class="tiny pink">of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</p>
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+
+######################################## SPRITES
+p = Post.create(title: "Sprites",
                 published: true,
                 show_header: false,
                 site: site,
@@ -40,22 +207,242 @@ p = Post.create(title: "Animation",
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
-<h1 class="xlarge">Animation</h1>
+<h1 class="xlarge">Sprites</h1>
 
-<p class="grayLight">All change is not growth, as all movement is not forward.</p>
+<p class="grayLight">Obey your thirst</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
 
 
+p = Post.create(title: "Image",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 19, 13, 44))
 
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1)
+
+p = Post.create(title: "Tiling",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 19, 12, 44))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 1)
+
+p = Post.create(title: "Cover",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 19, 11, 44))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'cover')
+PostElement.create(post: p, element: s, sequence: 1)
+
+p = Post.create(title: "Full Height",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 19, 10, 44))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'full-height')
+PostElement.create(post: p, element: s, sequence: 1)
+
+
+
+
+######################################## COMPONENT POSITIONING
+p = Post.create(title: "Component Positioning",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 18, 14, 45))
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Component Positioning</h1>
+
+<p class="grayLight">I put my hand up on your hip, when I dip you dip we dip</p>
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+
+
+p = Post.create(title: "Fixed grid text",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "700px",
+                date_published: DateTime.new(2013, 2, 18, 14, 44))
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-6col;top:20px')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-left:-6col;top:0px")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-3col;top:150px')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-left:-3col;top:150px")
+
+tb = TextBox.create(style: 'two-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:2col;bottom:350px')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-left:2col;bottom:350px")
+
+tb = TextBox.create(style: 'two-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-right:6col;bottom:0px')
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-right:5col;bottom:0px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-6col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-left:-6col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-5col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-left:-5col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-4col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-left:-4col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-3col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 8, position: "fixed-left:-3col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-2col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 9, position: "fixed-left:-2col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:-1col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 10, position: "fixed-left:-1col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:0col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 11, position: "fixed-left:0col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:1col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 12, position: "fixed-left:1col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:2col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 13, position: "fixed-left:2col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:3col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 14, position: "fixed-left:3col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:4col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 15, position: "fixed-left:4col;top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-left:5col; top:400px')
+PostElement.create(post: p, element: tb, sequence: 15, position: "fixed-left:5col;top:400px")
+
+p = Post.create(title: "Fluid grid text with background-position system",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "700px",
+                date_published: DateTime.new(2013, 2, 18, 14, 43))
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'This is fluid text thats about 20% to the left of the screen, and 35% from the top. (position: fluid-h:20%;fluid-v:35%;)')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'This is fluid text thats about 10% to the right of the screen, and 35% from the bottom. (fluid-h:90%;fluid-v:65%;)')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:90%;fluid-v:65%;")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'This is fluid text thats dead center. (fluid-h:50%;fluid-v:50%;)')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-h:50%;fluid-v:50%;")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'TOP LEFT (fluid-h:0%;fluid-v:0%;)')
+PostElement.create(post: p, element: tb, sequence: 4, position: "fluid-h:0%;fluid-v:0%;")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'BOTTOM RIGHT (fluid-h:100%;fluid-v:100%;)')
+PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:100%;fluid-v:100%;")
+
+p = Post.create(title: "Fluid grid images with background-position system (Same positionings as previous post)",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "700px",
+                date_published: DateTime.new(2013, 2, 18, 14, 42))
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 2, position: "fluid-h:90%;fluid-v:65%;")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 3, position: "fluid-h:50%;fluid-v:50%;")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 4, position: "fluid-h:0%;fluid-v:0%;")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:100%;fluid-v:100%;")
+
+
+######################################## ANIMATION
+p = Post.create(title: "Animation",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "full-screen",
+                date_published: DateTime.new(2013, 2, 17, 14, 45))
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Animation</h1>
+
+<p class="grayLight">All change is not growth, as all movement is not forward</p>
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
 
 p = Post.create(title: "Scan",
                 published: true,
                 show_header: true,
                 site: site,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 19, 13, 44))
+                date_published: DateTime.new(2013, 2, 17, 13, 44))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "top:100px", animation_type: "scan", animation_direction: "right")
@@ -123,338 +510,20 @@ tb = TextBox.create(style: 'skinny-column-text',
 PostElement.create(post: p, element: tb, sequence: 16, position: "fixed-right:6col", animation_type: "scan", animation_direction: "up")
 
 
-######################################## COMPONENT POSITIONING
-p = Post.create(title: "Component Positioning",
+p = Post.create(title: "Fixed",
                 published: true,
-                show_header: false,
+                show_header: true,
                 site: site,
-                space: "foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 18, 14, 45))
+                date_published: DateTime.new(2013, 2, 17, 12, 44))
 
-tb = TextBox.create(style: 'full-margins',
-                    text: %{
-<h1 class="xlarge">Component Positioning</h1>
-
-<p class="grayLight">I put my hand up on your hip, when I dip you dip we dip</p>
-},
-                    text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
-
-
-p = Post.create(title: "Fixed grid text",
-                published: true,
-                show_header: true,
-                site: site,
-                height: "700px",
-                date_published: DateTime.new(2013, 2, 18, 14, 44))
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
 
 tb = TextBox.create(style: 'single-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-6col;top:20px')
-PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-left:-6col;top:0px")
-
-tb = TextBox.create(style: 'single-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-3col;top:150px')
-PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-left:-3col;top:150px")
-
-tb = TextBox.create(style: 'two-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:2col;bottom:350px')
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-left:2col;bottom:350px")
-
-tb = TextBox.create(style: 'two-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-right:6col;bottom:0px')
-PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-right:5col;bottom:0px")
-
-
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-6col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-left:-6col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-5col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-left:-5col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-4col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-left:-4col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-3col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 8, position: "fixed-left:-3col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-2col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 9, position: "fixed-left:-2col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-1col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 10, position: "fixed-left:-1col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:0col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 11, position: "fixed-left:0col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:1col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 12, position: "fixed-left:1col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:2col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 13, position: "fixed-left:2col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:3col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 14, position: "fixed-left:3col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:4col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 15, position: "fixed-left:4col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:5col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 15, position: "fixed-left:5col;top:400px")
-
-
-
-p = Post.create(title: "Fluid grid text with background-position system",
-                published: true,
-                show_header: true,
-                site: site,
-                height: "700px",
-                date_published: DateTime.new(2013, 2, 18, 14, 43))
-
-tb = TextBox.create(style: 'single-column-text',
-                    bg_color: '#555',
-                    text: 'This is fluid text thats about 20% to the left of the screen, and 35% from the top. (position: fluid-h:20%;fluid-v:35%;)')
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
-
-tb = TextBox.create(style: 'single-column-text',
-                    bg_color: '#555',
-                    text: 'This is fluid text thats about 10% to the right of the screen, and 35% from the bottom. (fluid-h:90%;fluid-v:65%;)')
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:90%;fluid-v:65%;")
-
-tb = TextBox.create(style: 'single-column-text',
-                    bg_color: '#555',
-                    text: 'This is fluid text thats dead center. (fluid-h:50%;fluid-v:50%;)')
-PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-h:50%;fluid-v:50%;")
-
-tb = TextBox.create(style: 'single-column-text',
-                    bg_color: '#555',
-                    text: 'TOP LEFT (fluid-h:0%;fluid-v:0%;)')
-PostElement.create(post: p, element: tb, sequence: 4, position: "fluid-h:0%;fluid-v:0%;")
-
-tb = TextBox.create(style: 'single-column-text',
-                    bg_color: '#555',
-                    text: 'BOTTOM RIGHT (fluid-h:100%;fluid-v:100%;)')
-PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:100%;fluid-v:100%;")
-
-p = Post.create(title: "Fluid grid images with background-position system (Same positionings as previous post)",
-                published: true,
-                show_header: true,
-                site: site,
-                height: "700px",
-                date_published: DateTime.new(2013, 2, 18, 14, 42))
-
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
-
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 2, position: "fluid-h:90%;fluid-v:65%;")
-
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 3, position: "fluid-h:50%;fluid-v:50%;")
-
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 4, position: "fluid-h:0%;fluid-v:0%;")
-
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:100%;fluid-v:100%;")
-
-
-######################################## TEXT BOX FORMATS
-p = Post.create(title: "Text Boxes",
-                published: true,
-                show_header: false,
-                site: site,
-                space: "foreground",
-                height: "full-screen",
-                date_published: DateTime.new(2013, 2, 17, 14, 42))
-
-tb = TextBox.create(style: 'full-margins',
-                    text: %{
-<h1 class="xlarge">Text Boxes</h1>
-
-<p class="grayLight">Words are the strongest known bridges between our minds and hearts</p>
-},
-                    text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
-
-
-
-p = Post.create(title: "Full No-Margins",
-                published: true,
-                show_header: true,
-                site: site,
-                date_published: DateTime.new(2013, 2, 17, 14, 41))
-
-tb = TextBox.create(style: 'full-no-margins',
-                    text: %{
-Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-
-Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-
-Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
-
-p = Post.create(title: "Single Column Text",
-                published: true,
-                show_header: true,
-                site: site,
-                date_published: DateTime.new(2013, 2, 17, 14, 40))
-
-tb = TextBox.create(style: 'single-column-text',
-                    text: %{
-My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
-
-My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
-
-My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
-
-p = Post.create(title: "Two-Column Text",
-                published: true,
-                show_header: true,
-                site: site,
-                date_published: DateTime.new(2013, 2, 17, 14, 39))
-
-tb = TextBox.create(style: 'two-column-text',
-                    text: %{
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
-
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
-
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
-
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
-
-p = Post.create(title: "Single-line text",
-                published: true,
-                site: site,
-                date_published: DateTime.new(2013, 2, 17, 14, 38))
-
-tb = TextBox.create(style: 'single-line-text',
-                    text: %{
-Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris. Hi mortuis soulless creaturas, imo monstra adventus vultus comedat cerebella viventium. Qui offenderit rapto, terribilem incessu. The voodoo sacerdos suscitat mortuos comedere carnem. Search for solum oculi eorum defunctis cerebro. Nescio an Undead zombies. Sicut malus movie horror.
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
-
-
-p = Post.create(title: "Big Ol' Quote",
-                published: true,
-                site: site,
-                show_header: true,
-                date_published: DateTime.new(2013, 2, 17, 14, 37))
-
-tb = TextBox.create(style: 'quote-big',
-                    text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk')
-
-PostElement.create(post: p, element: tb, sequence: 6)
-
-
-
-######################################## Typography
-
-p = Post.create(title: "Typography",
-                published: true,
-                show_header: false,
-                site: site,
-                space: "foreground",
-                height: "full-screen",
-                date_published: DateTime.new(2013, 2, 16, 14, 42))
-
-
-tb = TextBox.create(style: 'full-margins',
-                    text: %{
-<h1 class="xlarge">Typography</h1>
-
-<p class="grayLight">Fonts baby... and colors</p>
-},
-                    text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
-
-
-p = Post.create(title: "Font sizes and colors",
-                published: true,
-                show_header: true,
-                site: site,
-                date_published: DateTime.new(2013, 2, 16, 14, 41))
-
-tb = TextBox.create(style: 'full-no-margins',
-                    text_align: 'left',
-                    text: %{
-<h1 class="massive">Well, the way they make shows is, they make one show.</h1>
-
-<h1 class="huge blue">That show's called a pilot. Then they show that show to the people who make shows,</h1>
-
-<h1 class="xlarge red left">and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.</h1>
-
-<h1 class="large orange right">Some don't, become nothing. She starred in one of the ones that became nothing.
-
-Well, the way they make shows is, they make one show. That show's called a</h1>
-
-<h1 class="medium justify">pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</h1>
-
-<h1 class="small purple">Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</h1>
-
-<h1 class="xsmall blue-dark">Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength</h1>
-
-<h1 class="tiny pink">of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</h1>
-
-<p class="massive">Well, the way they make shows is, they make one show.</p>
-
-<p class="huge blue">That show's called a pilot. Then they show that show to the people who make shows,</p>
-
-<p class="xlarge red">and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs.</p>
-
-<p class="large orange right">Some don't, become nothing. She starred in one of the ones that became nothing.
-
-Well, the way they make shows is, they make one show. That show's called a</p>
-
-<p class="medium justify">pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.</p>
-
-<p class="small purple">Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</p>
-
-<p class="xsmall blue-dark">Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength</p>
-
-<p class="tiny pink">of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.</p>
-}
-)
-PostElement.create(post: p, element: tb, sequence: 1)
+                    bg_color: '#444',
+                    text: 'position: "fluid-h:50%;fluid-v:50%", animation_type: "fixed"')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fluid-v:50%", animation_type: "fixed")
 
 
 ######################################## Space

@@ -459,6 +459,13 @@ $ ->
                         else
                                 adjust_scanning_div($(this))
 
+                #hide fixed text if article isnt in view
+                $('.text-box.fixed').each ->
+                        if $(this).parent('article').overlaps($(this))
+                                $(this).css('visibility', 'visible');
+                        else
+                                $(this).css('visibility', 'hidden');
+
                 $('article[class*=fade-in]').each -> adjust_fade_in($(this))
 
                 if $('nav').length > 0 #only do nav functions if nav exists

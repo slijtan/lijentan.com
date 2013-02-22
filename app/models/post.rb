@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   attr_accessible :space, :published, :date_published, :bg_color, :title, :show_header, :height, :effect, :padding, :site, :display_order
 
   validates_presence_of :title, :site
-  validates_inclusion_of :space, in: %w[foreground background midground auto], allow_nil: true
+  validates_inclusion_of :space, in: %w[foreground background midground auto mid-to-foreground back-to-midground], allow_nil: true
   validates_inclusion_of :padding, in: %w[medium], allow_nil: true
   validates_inclusion_of :effect, in: @@valid_effects, allow_nil: true
   #validate post height format *px, *% (unsupported), full (unsupported)

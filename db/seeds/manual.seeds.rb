@@ -13,7 +13,7 @@ p = Post.create(title: "Instruction Manual",
                 published: false,
                 show_header: false,
                 site: site,
-                space: "foreground",
+                space: "mid-to-foreground",
                 height: "full-screen",)
 
 tb = TextBox.create(style: 'full-margins',
@@ -32,7 +32,7 @@ p = Post.create(title: "Text Boxes",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "foreground",
+                space: "mid-to-foreground",
                 height: "full-screen",
                 display_order: 1)
 
@@ -131,7 +131,7 @@ p = Post.create(title: "Typography",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "foreground",
+                space: "mid-to-foreground",
                 height: "full-screen",
                 display_order: 10)
 
@@ -200,7 +200,7 @@ p = Post.create(title: "Sprites",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "foreground",
+                space: "mid-to-foreground",
                 height: "full-screen",
                 display_order: 20)
 
@@ -262,7 +262,7 @@ p = Post.create(title: "Component Positioning",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "foreground",
+                space: "mid-to-foreground",
                 height: "full-screen",
                 display_order: 30)
 
@@ -361,14 +361,72 @@ PostElement.create(post: p, element: tb, sequence: 15, position: "fixed-left:4co
 tb = TextBox.create(style: 'skinny-column-text',
                     bg_color: '#555',
                     text: 'fixed-left:5col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 15, position: "fixed-left:5col;top:400px")
+PostElement.create(post: p, element: tb, sequence: 16, position: "fixed-left:5col;top:400px")
+
+
+p = Post.create(title: "Fixed grid sprite (requires implementation)",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "700px",
+                display_order: 32)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-left:-6col;top:0px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 2, position: "fixed-left:-3col;top:150px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 3, position: "fixed-left:2col;bottom:350px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 4, position: "fixed-right:5col;bottom:0px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 5, position: "fixed-left:-6col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 6, position: "fixed-left:-5col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 7, position: "fixed-left:-4col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 8, position: "fixed-left:-3col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 9, position: "fixed-left:-2col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 10, position: "fixed-left:-1col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 11, position: "fixed-left:0col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 12, position: "fixed-left:1col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 13, position: "fixed-left:2col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 14, position: "fixed-left:3col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 15, position: "fixed-left:4col;top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 16, position: "fixed-left:5col;top:400px")
+
+
 
 p = Post.create(title: "Fluid grid text with background-position system",
                 published: true,
                 show_header: true,
                 site: site,
                 height: "700px",
-                display_order: 32)
+                display_order: 33)
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
@@ -400,7 +458,7 @@ p = Post.create(title: "Fluid grid images with background-position system (Same 
                 show_header: true,
                 site: site,
                 height: "700px",
-                display_order: 33)
+                display_order: 34)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
@@ -423,7 +481,7 @@ p = Post.create(title: "Animation",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "foreground",
+                space: "mid-to-foreground",
                 height: "full-screen",
                 display_order: 40)
 
@@ -514,10 +572,10 @@ p = Post.create(title: "Fixed",
                 show_header: true,
                 site: site,
                 height: "full-screen",
-                display_order: 42)
+                display_order: 0)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'tiling')
-PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
+PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed", position: "top:0px;v-center;")
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#444',
@@ -531,7 +589,7 @@ p = Post.create(title: "Space",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "foreground",
+                space: "mid-to-foreground",
                 height: "full-screen",
                 display_order: 50)
 
@@ -559,6 +617,10 @@ Look, just because I don't be givin' no man a foot massage don't make it right f
 Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
 
 Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
 }
 )
 PostElement.create(post: p, element: tb, sequence: 1)
@@ -572,6 +634,10 @@ p = Post.create(title: "Foreground",
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
+Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+
+Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+
 Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
 
 Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
@@ -595,10 +661,59 @@ You think water moves fast? You should see ice. It moves like it has a mind. Lik
 Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
 
 Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
 }
 )
 PostElement.create(post: p, element: tb, sequence: 1)
 
+
+p = Post.create(title: "Mid-To-Foreground",
+                published: true,
+                show_header: true,
+                site: site,
+                space: "mid-to-foreground",
+                display_order: 54)
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+
+p = Post.create(title: "Back-To-Midground",
+                published: true,
+                show_header: true,
+                site: site,
+                space: "back-to-midground",
+                display_order: 55)
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.
+
+Look, just because I don't be givin' no man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin' up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill the motherfucker, know what I'm sayin'?
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+
+Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+}
+)
+PostElement.create(post: p, element: tb, sequence: 1)
 
 
 ######################################## MISC
@@ -607,7 +722,7 @@ p = Post.create(title: "Miscellaneous",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "foreground",
+                space: "mid-to-foreground",
                 height: "full-screen",
                 display_order: 60)
 

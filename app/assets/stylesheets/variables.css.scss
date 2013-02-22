@@ -95,6 +95,11 @@ $gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth 
 /* ----------------------
    Z-indexes
    -------------------------*/
+$zIndexBackground: 20;
+$zIndexBackToMidground: 21;
+$zIndexMidground: 22;
+$zIndexMidToForeground: 23;
+$zIndexForeground: 24;
 $zIndexPostHeader: 101;
 $zIndexSpaceShadows: 100;
 $zIndexNav: 1000;

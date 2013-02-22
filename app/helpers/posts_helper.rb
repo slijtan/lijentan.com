@@ -142,10 +142,12 @@ module PostsHelper
     if post.space == "auto"
       space = cycle(*spaces, name: "space")
       logger.debug("space is auto #{space}")
-    elsif post.space
+    elsif spaces.include?(post.space)
       space = post.space
       logger.debug("space is set #{space}")
       skip_to_cycle(post.space, spaces, "space")
+    elsif post.space
+      space = post.space
     end
 
     classes << space if space
@@ -166,7 +168,13 @@ module PostsHelper
   end
 
   def render_shadows(post)
-    content_tag(:div, nil, class: "shadow-#{current_cycle('space')}-top") + content_tag(:div, nil, class: "shadow-#{current_cycle('space')}-bottom") if post.space
+    if post.space == 'mid-to-foreground'
+      content_tag(:div, nil, class: "shadow-midground-top") + content_tag(:div, nil, class: "shadow-foreground-bottom")
+    elsif post.space == 'back-to-midground'
+      content_tag(:div, nil, class: "shadow-background-top") + content_tag(:div, nil, class: "shadow-midground-bottom")
+    elsif post.space
+      content_tag(:div, nil, class: "shadow-#{current_cycle('space')}-top") + content_tag(:div, nil, class: "shadow-#{current_cycle('space')}-bottom")
+    end
   end
 
   def spaces

@@ -572,14 +572,25 @@ p = Post.create(title: "Fixed",
                 show_header: true,
                 site: site,
                 height: "full-screen",
-                display_order: 0)
+                display_order: 42)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'tiling')
 PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed", position: "top:0px;v-center;")
 
-tb = TextBox.create(style: 'single-column-text',
+tb = TextBox.create(style: 'two-column-text',
                     bg_color: '#444',
-                    text: 'position: "fluid-h:50%;fluid-v:50%", animation_type: "fixed"')
+                    text: %{
+position: &quot;fluid-h:50%;fluid-v:70%&quot;, animation_type: &quot;fixed&quot;
+Well, the way they make shows is, they make one show. That show&#39;s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they&#39;re going to make more shows. Some pilots get picked and become television programs. Some don&#39;t, become nothing. She starred in one of the ones that became nothing.
+
+Look, just because I don&#39;t be givin&#39; no man a foot massage don&#39;t make it right for Marsellus to throw Antwone into a glass motherfuckin&#39; house, fuckin&#39; up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, &#39;cause I&#39;ll kill the motherfucker, know what I&#39;m sayin&#39;?
+
+Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I&#39;m in a transitional period so I don&#39;t wanna kill you, I wanna help you. But I can&#39;t give you this case, it don&#39;t belong to me. Besides, I&#39;ve already been through too much shit this morning over this case to hand it over to your dumb ass.
+
+Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they&#39;re actually proud of that shit.
+
+Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I&#39;m in a transitional period so I don&#39;t wanna kill you, I wanna help you. But I can&#39;t give you this case, it don&#39;t belong to me. Besides, I&#39;ve already been through too much shit this morning over this case to hand it over to your dumb ass.
+})
 PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fluid-v:50%", animation_type: "fixed")
 
 

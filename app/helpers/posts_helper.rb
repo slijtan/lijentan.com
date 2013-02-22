@@ -146,8 +146,12 @@ module PostsHelper
       space = post.space
       logger.debug("space is set #{space}")
       skip_to_cycle(post.space, spaces, "space")
-    elsif post.space
+    elsif post.space == 'mid-to-foreground'
       space = post.space
+      skip_to_cycle('foreground', spaces, "space")
+    elsif post.space == 'back-to-midground'
+      space = post.space
+      skip_to_cycle('midground', spaces, "space")
     end
 
     classes << space if space

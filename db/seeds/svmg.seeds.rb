@@ -17,14 +17,14 @@ p = Post.create(title: "SVMG",
                 display_order: 1)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1, position: "h-center;top:250px;", animation_type: "fixed")
+PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixed-top:250px;", animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
 <p class="large">Brand Representation - Consulting - Social Media</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 2, position: "h-center;top:450px;", animation_type: "fixed")
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:450px;", animation_type: "fixed")
 
 
 
@@ -58,7 +58,7 @@ p = Post.create(title: "UFC",
                 display_order: 3)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logotype-ufc.jpg', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1, position: "left;v-center;", animation_type: "scan", animation_direction: "right")
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-left:0px;fluid-v:50%", animation_type: "scan", animation_direction: "right")
 
 
 p = Post.create(title: "MLBAM",
@@ -72,11 +72,11 @@ p = Post.create(title: "MLBAM",
                 display_order: 4)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-mlb.jpg', style: 'cover')
-PostElement.create(post: p, element: s, sequence: 1, position: "right;v-center;", animation_type: "scan", animation_direction: "right")
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-right:0px;fluid-v:50%", animation_type: "scan", animation_direction: "right")
 
 tb = TextBox.create(style: 'full-margins',
                     text: "<h1 class='massive'>&#149;</h1>")
-PostElement.create(post: p, element: tb, sequence: 2, position: "bottom: 0%", animation_type: "scan", animation_direction: "right")
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-bottom:0px", animation_type: "scan", animation_direction: "right")
 
 tb = TextBox.create(style: 'single-column-text',
                     text: %{
@@ -84,7 +84,7 @@ tb = TextBox.create(style: 'single-column-text',
 
 Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
 })
-PostElement.create(post: p, element: tb, sequence: 3, position: "top: 15%", animation_type: "scan", animation_direction: "left")
+PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-h:15%;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 
 ############# CONSULTING  #############

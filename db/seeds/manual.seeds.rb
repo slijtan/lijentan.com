@@ -14,6 +14,7 @@ p = Post.create(title: "Instruction Manual",
                 show_header: false,
                 site: site,
                 space: "mid-to-foreground",
+                depth: 1,
                 height: "full-screen",)
 
 tb = TextBox.create(style: 'full-margins',
@@ -23,7 +24,7 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLight">In case of "RTFM", please refer to this...</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
 
 site.update_attribute(:header_post, p)
 
@@ -33,6 +34,7 @@ p = Post.create(title: "Text Boxes",
                 show_header: false,
                 site: site,
                 space: "mid-to-foreground",
+                depth: 0,
                 height: "full-screen",
                 display_order: 1)
 
@@ -43,7 +45,7 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLight">Words are, of course, the most powerful drug used by mankind</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
 
 
 
@@ -150,6 +152,7 @@ p = Post.create(title: "Typography",
                 site: site,
                 space: "mid-to-foreground",
                 height: "full-screen",
+                depth: 0,
                 display_order: 10)
 
 
@@ -160,7 +163,7 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLight">Fonts baby... and colors</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
 
 
 p = Post.create(title: "Font sizes and colors",
@@ -219,6 +222,7 @@ p = Post.create(title: "Sprites",
                 site: site,
                 space: "mid-to-foreground",
                 height: "full-screen",
+                depth: 0,
                 display_order: 20)
 
 tb = TextBox.create(style: 'full-margins',
@@ -228,7 +232,7 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLight">Obey your thirst</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
 
 
 p = Post.create(title: "Image",
@@ -281,6 +285,7 @@ p = Post.create(title: "Component Positioning",
                 site: site,
                 space: "mid-to-foreground",
                 height: "full-screen",
+                depth: 0,
                 display_order: 30)
 
 tb = TextBox.create(style: 'full-margins',
@@ -290,7 +295,7 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLight">Creativity is that marvelous capacity to grasp mutually distinct realities and draw a spark from their juxtaposition</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
 
 p = Post.create(title: "Fixed text",
                 published: true,
@@ -520,6 +525,7 @@ p = Post.create(title: "Fluid grid images with background-position system",
                 show_header: true,
                 site: site,
                 height: "700px",
+                depth: 2,
                 display_order: 36)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
@@ -545,6 +551,7 @@ p = Post.create(title: "Animation",
                 site: site,
                 space: "mid-to-foreground",
                 height: "full-screen",
+                depth: 1,
                 display_order: 40)
 
 tb = TextBox.create(style: 'full-margins',
@@ -554,13 +561,14 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLight">All change is not growth, as all movement is not forward</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
 
 p = Post.create(title: "Fixed Text Box and Sprite",
                 published: true,
                 show_header: true,
                 site: site,
                 height: "full-screen",
+                depth: 0,
                 display_order: 41)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'tiling')
@@ -663,7 +671,8 @@ p = Post.create(title: "Three Phase Animation System",
                 show_header: false,
                 site: site,
                 height: "900px",
-                display_order: 0)
+                space: "background",
+                display_order: 43)
 
 
 tb = TextBox.create(style: 'single-column-text',

@@ -510,17 +510,18 @@ $ ->
                 setup_positions()
 
         $(window).scroll ->
-                $('div.scan:in-viewport').each ->
-                        if $(this).hasClass('sprite')
-                                adjust_scanning_background($(this))
-                        else
-                                adjust_scanning_div($(this))
+                $('article:in-viewport').each ->
+                        $(this).find('div.scan, div.fixed-scan').each ->
+                                if $(this).hasClass('sprite')
+                                        adjust_scanning_background($(this))
+                                else
+                                        adjust_scanning_div($(this))
 
                 $('div.three-phase:in-viewport').each ->
                         update_three_phase_animation($(this))
 
                 #hide fixed text if article isnt in view
-                $('.text-box.fixed').each ->
+                $('.text-box.fixed, .text-box.fixed-scan').each ->
                         if $(this).parent('article').overlaps($(this))
                                 $(this).css('visibility', 'visible')
                         else

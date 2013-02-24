@@ -1,10 +1,10 @@
 /* ----------------------
    Animation Formats
    -------------------------*/
-.fixed {
+.fixed, .fixed-scan {
     background-attachment: fixed !important;
 }
 
-.text-box.fixed {
+.text-box.fixed, .text-box.fixed-scan {
     position: fixed !important;
 }

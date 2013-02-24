@@ -598,7 +598,6 @@ p = Post.create(title: "Scanning Text Boxes and Sprites",
                 height: "full-screen",
                 display_order: 42)
 
-
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'image', width: 400, height: 400)
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:100px", animation_type: "scan", animation_direction: "right")
 
@@ -666,13 +665,86 @@ tb = TextBox.create(style: 'skinny-column-text',
 PostElement.create(post: p, element: tb, sequence: 16, position: "fixed-grid-right:6col", animation_type: "scan", animation_direction: "up")
 
 
+p = Post.create(title: "Fixed Scan Text Boxes and Sprites",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "full-screen",
+                depth: 0,
+                display_order: 43)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'image', width: 400, height: 400)
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:100px", animation_type: "fixed-scan", animation_direction: "right")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'image', width: 400, height: 400)
+PostElement.create(post: p, element: s, sequence: 2, position: "fluid-h:60%", animation_type: "fixed-scan", animation_direction: "up")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'image', width: 400, height: 400)
+PostElement.create(post: p, element: s, sequence: 3, position: "fluid-v:100%", animation_type: "fixed-scan", animation_direction: "left")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'image', width: 400, height: 400)
+PostElement.create(post: p, element: s, sequence: 4, position: "fixed-grid-right:6col", animation_type: "fixed-scan", animation_direction: "down")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 5, position: "fixed-top:250px", animation_type: "fixed-scan", animation_direction: "right")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 6, position: "fluid-h:40%", animation_type: "fixed-scan", animation_direction: "up")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 7, position: "fluid-v:90%", animation_type: "fixed-scan", animation_direction: "left")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 8, position: "fixed-grid-right:3col", animation_type: "fixed-scan", animation_direction: "down")
+
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fixed-top:0px", animation_type: "fixed-scan", animation_direction: "right"')
+PostElement.create(post: p, element: tb, sequence: 9, position: "fixed-top:0px", animation_type: "fixed-scan", animation_direction: "right")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fluid-h:20%", animation_type: "fixed-scan", animation_direction: "down"')
+PostElement.create(post: p, element: tb, sequence: 10, position: "fluid-h:20%", animation_type: "fixed-scan", animation_direction: "down")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fluid-v:80%", animation_type: "fixed-scan", animation_direction: "left"')
+PostElement.create(post: p, element: tb, sequence: 11, position: "fluid-v:80%", animation_type: "fixed-scan", animation_direction: "left")
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fixed-grid-right:6col", animation_type: "fixed-scan", animation_direction: "up"')
+PostElement.create(post: p, element: tb, sequence: 12, position: "fixed-grid-right:6col", animation_type: "fixed-scan", animation_direction: "up")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#444',
+                    text: 'position: "fixed-top:0px", animation_type: "fixed-scan", animation_direction: "right"')
+PostElement.create(post: p, element: tb, sequence: 13, position: "fixed-top:0px", animation_type: "fixed-scan", animation_direction: "right")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#444',
+                    text: 'position: "fluid-h:20%", animation_type: "fixed-scan", animation_direction: "down"')
+PostElement.create(post: p, element: tb, sequence: 14, position: "fluid-h:20%", animation_type: "fixed-scan", animation_direction: "down")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#444',
+                    text: 'position: "fluid-v:80%", animation_type: "fixed-scan", animation_direction: "left"')
+PostElement.create(post: p, element: tb, sequence: 15, position: "fluid-v:80%", animation_type: "fixed-scan", animation_direction: "left")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#444',
+                    text: 'position: "fixed-grid-right:6col", animation_type: "fixed-scan", animation_direction: "up"')
+PostElement.create(post: p, element: tb, sequence: 16, position: "fixed-grid-right:6col", animation_type: "fixed-scan", animation_direction: "up")
+
 p = Post.create(title: "Three Phase Animation System",
                 published: true,
                 show_header: false,
                 site: site,
                 height: "900px",
                 space: "background",
-                display_order: 43)
+                display_order: 44)
 
 
 tb = TextBox.create(style: 'single-column-text',

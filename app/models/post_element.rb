@@ -5,7 +5,7 @@ class PostElement < ActiveRecord::Base
   belongs_to :post
 
   validates_presence_of :element
-  validates_inclusion_of :animation_type, in: %w[scan fixed three-phase], allow_nil: true
+  validates_inclusion_of :animation_type, in: %w[scan fixed fixed-scan three-phase], allow_nil: true
 
   #position validation, examples are top: 2px; left; center; right; top; bottom; inline;
 

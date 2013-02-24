@@ -14,17 +14,17 @@ p = Post.create(title: "SVMG",
                 site: site,
                 space: "background",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 9, 12, 47))
+                display_order: 1)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1, position: "h-center;top:250px;")
+PostElement.create(post: p, element: s, sequence: 1, position: "h-center;top:250px;", animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
 <p class="large">Brand Representation - Consulting - Social Media</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 2, position: "h-center;top:450px;")
+PostElement.create(post: p, element: tb, sequence: 2, position: "h-center;top:450px;", animation_type: "fixed")
 
 
 
@@ -33,9 +33,9 @@ p = Post.create(title: "Brand Representation",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "foreground",
-                height: "375px",
-                date_published: DateTime.new(2013, 2, 9, 12, 46))
+                space: "mid-to-foreground",
+                height: "full-screen",
+                display_order: 2)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -44,7 +44,7 @@ tb = TextBox.create(style: 'full-margins',
 Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "h-center;top:30%;")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%")
 
 
 ############# Brand Rep Brands #############
@@ -54,7 +54,8 @@ p = Post.create(title: "UFC",
                 site: site,
                 height: "500px",
                 bg_color: '#000',
-                date_published: DateTime.new(2013, 2, 9, 12, 45))
+                space: 'background',
+                display_order: 3)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logotype-ufc.jpg', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "left;v-center;", animation_type: "scan", animation_direction: "right")
@@ -67,7 +68,8 @@ p = Post.create(title: "MLBAM",
                 height: "500px",
                 bg_color: '#003263',
                 space: "background",
-                date_published: DateTime.new(2013, 2, 9, 12, 44))
+                depth: 3,
+                display_order: 4)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-mlb.jpg', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 1, position: "right;v-center;", animation_type: "scan", animation_direction: "right")
@@ -90,9 +92,10 @@ p = Post.create(title: "Consulting",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "foreground",
+                space: "mid-to-foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 9, 12, 43))
+                depth: 2,
+                display_order: 5)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -101,8 +104,7 @@ tb = TextBox.create(style: 'full-margins',
 Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "h-center;top:30%;")
-
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 
 ############# SOCIAL MEDIA  #############
@@ -110,9 +112,10 @@ p = Post.create(title: "Consulting",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "foreground",
+                space: "mid-to-foreground",
                 height: "full-screen",
-                date_published: DateTime.new(2013, 2, 9, 12, 42))
+                depth: 1,
+                display_order: 6)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -121,4 +124,4 @@ tb = TextBox.create(style: 'full-margins',
 Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "h-center;top:30%;")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")

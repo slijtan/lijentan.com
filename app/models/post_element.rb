@@ -5,7 +5,7 @@ class PostElement < ActiveRecord::Base
   belongs_to :post
 
   validates_presence_of :element
-  validates_inclusion_of :animation_type, in: %w[scan fixed], allow_nil: true
+  validates_inclusion_of :animation_type, in: %w[scan fixed three-phase], allow_nil: true
 
   #position validation, examples are top: 2px; left; center; right; top; bottom; inline;
 
@@ -18,33 +18,32 @@ class PostElement < ActiveRecord::Base
 
     if element_type == 'Sprite'
       css_styles[:position] = animation_type || ["tiling", "cover"].include?(element.style) || positions.detect {|position| /(left|right|top|bottom|fluid)/.match(position) } ? "absolute" : "relative"
-
-      y_val = '0%'
       x_val = '50%'
+      y_val = '0%'
 
       positions.each do |css_attribute|
         case css_attribute
-        when 'top'
-          y_val = '0%'
-        when 'bottom'
-          y_val = '100%'
-        when 'left'
-          x_val = '0%'
-        when 'right'
-          x_val = '100%'
-        when 'h-center'
-          x_val = '50%'
-        when 'v-center'
-          y_val = '50%'
         when 'inline'
           css_styles[:position] = 'relative'
         else
           #TODO: handle right and bottom px and %
-          if match = /left:((\d)*(px|%))/.match(css_attribute)
+          if match = /fixed-left:(\d*px)/.match(css_attribute)
             x_val = match[1]
 
-          elsif match = /top:((\d)*(px|%))/.match(css_attribute)
+          elsif match = /fixed-top:(\d*px)/.match(css_attribute)
             y_val = match[1]
+
+          elsif match = /(fixed-(right|bottom)):(\d*)px/.match(css_attribute)
+            attribute = match[1]
+            value = match[3]
+            classes << attribute
+            data[attribute.to_sym] = value
+
+          elsif match = /(fixed-grid-(left|right)):(-?\d*)cols?/.match(css_attribute)
+            attribute = match[1]
+            value = match[3]
+            classes << attribute
+            data[attribute.to_sym] = value
 
           elsif match = /fluid-h:(\d*%)/.match(css_attribute)
             x_val = match[1]
@@ -62,26 +61,12 @@ class PostElement < ActiveRecord::Base
 
       positions.each do |css_attribute|
         case css_attribute
-        when 'top'
-          css_styles[:top] = '0px';
-        when 'bottom'
-          css_styles[:bottom] = '0px';
-        when 'left'
-          css_styles[:left] = '0px';
-        when 'right'
-          css_styles[:right] = '0px';
-        when 'v-center'
-        when 'h-center'
-          if css_styles[:position] == "relative"
-            css_styles[:margin] = '0 auto'
-          else
-            classes << "h-center"
-          end
         when 'inline'
           css_styles[:position] = 'relative'
         else
-          if /(left|right|top|bottom):(\d)*(px|%)/ =~ css_attribute
-            attribute, value = css_attribute.split(":")
+          if match = /fixed-(left|right|top|bottom):(\d*px)/.match(css_attribute)
+            attribute = match[1]
+            value = match[2]
             css_styles[attribute.to_sym] = value
 
           elsif match = /(fluid-h|fluid-v):(\d*)%/.match(css_attribute)
@@ -90,7 +75,7 @@ class PostElement < ActiveRecord::Base
             classes << attribute
             data[attribute.to_sym] = value
 
-          elsif match = /(fixed-(left|right)):(-?\d*)cols?/.match(css_attribute)
+          elsif match = /(fixed-grid-(left|right)):(-?\d*)cols?/.match(css_attribute)
             attribute = match[1]
             value = match[3]
             classes << attribute
@@ -102,5 +87,9 @@ class PostElement < ActiveRecord::Base
     end
 
     [classes, css_styles.to_a.map {|css_pair| "#{css_pair[0]}:#{css_pair[1]}"}, data]
+  end
+
+  def three_phase_initial
+    animation_direction.split("-").first
   end
 end

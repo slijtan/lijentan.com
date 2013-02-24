@@ -5,6 +5,16 @@ eof = null
 
 delay = (ms, func) -> setTimeout func, ms
 
+set_background_position_x = (element, x) ->
+        background_pos = element.css('background-position').split(" ");
+        y = background_pos[1]
+        element.css("background-position", x + " " + y)
+
+set_background_position_y = (element, y) ->
+        background_pos = element.css('background-position').split(" ");
+        x = background_pos[0]
+        element.css("background-position", x + " " + y)
+
 articles_position_on_page = (article) ->
         div_height = article.innerHeight()
         screen_height = $(window).height()
@@ -27,22 +37,16 @@ adjust_scanning_background = (element) ->
         if top_position <= bottom_height && bottom_position >= top_height
                 animation_direction = element.data("animation-direction")
                 article_y = articles_position_on_page(element)
-                background_pos = element.css('background-position').split(" ");
-                x_offset = background_pos[0]
-                y_offset = background_pos[1]
 
                 switch animation_direction
                         when "up"
-                                y_offset = article_y + "%"
+                                set_background_position_y(element, 100.0 - article_y + "%")
                         when "down"
-                                y_offset = 100.0 - article_y + "%"
+                                set_background_position_y(element, article_y + "%")
                         when "left"
-                                x_offset = 100.0 - article_y + "%"
+                                set_background_position_x(element, 100.0 - article_y + "%")
                         when "right"
-                                x_offset = article_y + "%"
-
-                element.css("background-position", x_offset + " " + y_offset)
-
+                                set_background_position_x(element, article_y + "%")
 
 adjust_scanning_div = (element) ->
         article = element.parent()
@@ -66,13 +70,13 @@ adjust_scanning_div = (element) ->
 
                 switch animation_direction
                         when "down"
-                                new_top = map_to_fluid_coordinates(article_y, height, full_height)
+                                new_top = fluid_to_cartesian(article_y, height, full_height)
                         when "up"
-                                new_top = map_to_fluid_coordinates(100 - article_y, height, full_height)
+                                new_top = fluid_to_cartesian(100 - article_y, height, full_height)
                         when "left"
-                                new_left = map_to_fluid_coordinates(100.0 - article_y, width, full_width)
+                                new_left = fluid_to_cartesian(100.0 - article_y, width, full_width)
                         when "right"
-                                new_left = map_to_fluid_coordinates(article_y, width, full_width)
+                                new_left = fluid_to_cartesian(article_y, width, full_width)
 
                 element.css("top", "#{new_top}px") if new_top
                 element.css("left", "#{new_left}px") if new_left
@@ -387,41 +391,93 @@ reposition_elements = ->
                 $(this).css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px")
 
 set_fluid_positions = ->
-        $('.fluid-h').each ->
+        $('.text-box.fluid-h').each ->
                 width = $(this).outerWidth()
                 full_width = $(this).parent('article').outerWidth()
                 coordinate = $(this).data('fluid-h')
-                $(this).css("left", map_to_fluid_coordinates(coordinate, width, full_width))
+                $(this).css("left", fluid_to_cartesian(coordinate, width, full_width))
 
-        $('.fluid-v').each ->
+        $('.text-box.fluid-v').each ->
                 height = $(this).outerHeight()
                 full_height = $(this).parent('article').outerHeight()
                 coordinate = $(this).data('fluid-v')
-                $(this).css("top", map_to_fluid_coordinates(coordinate, height, full_height))
+                $(this).css("top", fluid_to_cartesian(coordinate, height, full_height))
 
-map_to_fluid_coordinates = (coordinate, length, full_length) ->
-        (coordinate / 100) * (full_length - length)
-
-set_fixed_positions = ->
+set_fixed_grid_positions = ->
         column_width = $('body').data("col-width")
         gutter_width = $('body').data("gutter-width")
 
-        $('.fixed-left').each ->
-                coordinate = $(this).data('fixed-left')
-                $(this).css("left", map_to_fixed_coordinates(coordinate, column_width, gutter_width, "left"))
-        $('.fixed-right').each ->
+        $('.text-box.fixed-grid-left').each ->
+                fixed_grid = $(this).data('fixed-grid-left')
+                $(this).css("left", fixed_grid_to_cartesian(fixed_grid, column_width, gutter_width, "left"))
+        $('.text-box.fixed-grid-right').each ->
+                fixed_grid = $(this).data('fixed-grid-right')
+                $(this).css("right", fixed_grid_to_cartesian(fixed_grid, column_width, gutter_width, "right"))
+        $('.sprite.fixed-grid-left').each ->
+                fixed_grid = $(this).data('fixed-grid-left')
+                set_background_position_x($(this), fixed_grid_to_cartesian(fixed_grid, column_width, gutter_width, "left") + "px")
+        $('.sprite.fixed-grid-right').each ->
+                fixed_grid = $(this).data('fixed-grid-right')
+                sprite_width = $(this).data('width')
+                cartesian = fixed_grid_to_cartesian(fixed_grid, column_width, gutter_width, "left") + column_width
+                set_background_position_x($(this),  (cartesian - sprite_width) + "px")
+
+set_fixed_positions = ->
+        $('.sprite.fixed-right').each ->
+                full_width = $(this).outerWidth()
+                sprite_width = $(this).data('width')
                 coordinate = $(this).data('fixed-right')
-                $(this).css("right", map_to_fixed_coordinates(coordinate, column_width, gutter_width, "right"))
+                x = (full_width - coordinate - sprite_width) + "px"
+                set_background_position_x($(this), x)
+
+        $('.sprite.fixed-bottom').each ->
+                if $(this).hasClass('fixed')
+                        full_height = $(window).height()
+                else
+                        full_height = $(this).outerHeight()
+
+                sprite_height = $(this).data('height')
+                coordinate = $(this).data('fixed-bottom')
+                y = (full_height - coordinate - sprite_height) + "px"
+                set_background_position_y($(this), y)
 
 
+fluid_to_cartesian = (coordinate, length, full_length) ->
+        (coordinate / 100) * (full_length - length)
 
-map_to_fixed_coordinates = (coordinate, column_width, gutter_width, edge = "left") ->
+fixed_grid_to_cartesian = (coordinate, column_width, gutter_width, edge = "left") ->
         center = $(window).width() / 2
         if edge == "left"
                 center + (gutter_width / 2) + coordinate * (column_width + gutter_width)
         else
                 center - ((gutter_width / 2) + coordinate * (column_width + gutter_width) + column_width)
 
+update_three_phase_animation = (element) ->
+        animation_types = element.data('animation-direction').split("-")
+        phase = detect_phase(element)
+        animation_type = animation_types[phase-1]
+        valid_animation_types = ["fixed", "roll"]
+        unless element.hasClass(animation_type)
+                element.removeClass(type) for type in valid_animation_types
+                element.addClass(animation_type)
+                set_fixed_positions()
+
+
+detect_phase = (element) ->
+        article = element.parent('article')
+
+        article_height = article.innerHeight()
+        article_top = article.offset().top
+        article_bottom = article_top + article_height
+        window_top = $(window).scrollTop()
+        window_bottom = window_top + $(window).height()
+
+        if article_top > window_top
+                return 1
+        else if article_bottom > window_bottom
+                return 2
+        else
+                return 3
 
 setup_posts = ->
         setup_nav()
@@ -436,6 +492,7 @@ setup_posts = ->
 
 setup_positions = ->
         set_fluid_positions()
+        set_fixed_grid_positions()
         set_fixed_positions()
         set_video_sizes()
         setup_full_screen_posts()
@@ -459,12 +516,15 @@ $ ->
                         else
                                 adjust_scanning_div($(this))
 
+                $('div.three-phase:in-viewport').each ->
+                        update_three_phase_animation($(this))
+
                 #hide fixed text if article isnt in view
                 $('.text-box.fixed').each ->
                         if $(this).parent('article').overlaps($(this))
-                                $(this).css('visibility', 'visible');
+                                $(this).css('visibility', 'visible')
                         else
-                                $(this).css('visibility', 'hidden');
+                                $(this).css('visibility', 'hidden')
 
                 $('article[class*=fade-in]').each -> adjust_fade_in($(this))
 

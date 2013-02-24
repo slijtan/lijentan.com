@@ -20,7 +20,7 @@ tb = TextBox.create(style: 'full-margins',
                     text: %{
 <h1 class="xlarge">Instruction Manual</h1>
 
-<p class="grayLight">In the case of "RTFM", please refer to this</p>
+<p class="grayLight">In case of "RTFM", please refer to this...</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
@@ -40,7 +40,7 @@ tb = TextBox.create(style: 'full-margins',
                     text: %{
 <h1 class="xlarge">Text Boxes</h1>
 
-<p class="grayLight">Words are the strongest known bridges between our minds and hearts</p>
+<p class="grayLight">Words are, of course, the most powerful drug used by mankind</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
@@ -122,7 +122,24 @@ p = Post.create(title: "Big Ol' Quote",
 tb = TextBox.create(style: 'quote-big',
                     text: '"Imitation is the sincerest form of flattery" - Inspired by 2012.hd-live.co.uk')
 
-PostElement.create(post: p, element: tb, sequence: 6)
+PostElement.create(post: p, element: tb, sequence: 1)
+
+p = Post.create(title: "Background Colors and Images",
+                published: true,
+                site: site,
+                show_header: true,
+                height: '700px',
+                display_order: 7)
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: 'red',
+                    text: 'single-column-text with a red background. ' * 30)
+PostElement.create(post: p, element: tb, sequence: 1, position: 'fixed-grid-right:-1col;fluid-v:50%')
+
+tb = TextBox.create(style: 'single-column-text',
+                    background_image_url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png',
+                    text: 'single-column-text with small square background image' * 20)
+PostElement.create(post: p, element: tb, sequence: 2, position: 'fixed-grid-left:0col;fluid-v:50%')
 
 
 ######################################## TYPOGRAPHY
@@ -221,7 +238,7 @@ p = Post.create(title: "Image",
                 height: "full-screen",
                 display_order: 21)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'image', width: 400, height: 400)
 PostElement.create(post: p, element: s, sequence: 1)
 
 p = Post.create(title: "Tiling",
@@ -231,7 +248,7 @@ p = Post.create(title: "Tiling",
                 height: "full-screen",
                 display_order: 22)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'tiling')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'tiling')
 PostElement.create(post: p, element: s, sequence: 1)
 
 p = Post.create(title: "Cover",
@@ -241,7 +258,7 @@ p = Post.create(title: "Cover",
                 height: "full-screen",
                 display_order: 23)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'cover')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 1)
 
 p = Post.create(title: "Full Height",
@@ -251,7 +268,7 @@ p = Post.create(title: "Full Height",
                 height: "full-screen",
                 display_order: 24)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'full-height')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'full-height')
 PostElement.create(post: p, element: s, sequence: 1)
 
 
@@ -270,13 +287,12 @@ tb = TextBox.create(style: 'full-margins',
                     text: %{
 <h1 class="xlarge">Component Positioning</h1>
 
-<p class="grayLight">I put my hand up on your hip, when I dip you dip we dip</p>
+<p class="grayLight">Creativity is that marvelous capacity to grasp mutually distinct realities and draw a spark from their juxtaposition</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
 
-
-p = Post.create(title: "Fixed grid text",
+p = Post.create(title: "Fixed text",
                 published: true,
                 show_header: true,
                 site: site,
@@ -285,140 +301,186 @@ p = Post.create(title: "Fixed grid text",
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
-                    text: 'fixed-left:-6col;top:20px')
-PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-left:-6col;top:0px")
+                    text: 'fixed-left:100px;fixed-top:100px')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-left:100px;fixed-top:100px")
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
-                    text: 'fixed-left:-3col;top:150px')
-PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-left:-3col;top:150px")
+                    text: 'fixed-right:100px;fixed-top:100px')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-right:100px;fixed-top:100px")
 
-tb = TextBox.create(style: 'two-column-text',
+tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
-                    text: 'fixed-left:2col;bottom:350px')
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-left:2col;bottom:350px")
+                    text: 'fixed-left:100px;fixed-bottom:100px')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-left:100px;fixed-bottom:100px")
 
-tb = TextBox.create(style: 'two-column-text',
+tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
-                    text: 'fixed-right:6col;bottom:0px')
-PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-right:5col;bottom:0px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-6col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-left:-6col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-5col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-left:-5col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-4col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-left:-4col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-3col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 8, position: "fixed-left:-3col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-2col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 9, position: "fixed-left:-2col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:-1col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 10, position: "fixed-left:-1col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:0col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 11, position: "fixed-left:0col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:1col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 12, position: "fixed-left:1col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:2col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 13, position: "fixed-left:2col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:3col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 14, position: "fixed-left:3col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:4col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 15, position: "fixed-left:4col;top:400px")
-
-tb = TextBox.create(style: 'skinny-column-text',
-                    bg_color: '#555',
-                    text: 'fixed-left:5col; top:400px')
-PostElement.create(post: p, element: tb, sequence: 16, position: "fixed-left:5col;top:400px")
+                    text: 'fixed-right:100px;fixed-bottom:100px')
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-right:100px;fixed-bottom:100px")
 
 
-p = Post.create(title: "Fixed grid sprite (requires implementation)",
+p = Post.create(title: "Fixed sprites",
                 published: true,
                 show_header: true,
                 site: site,
                 height: "700px",
                 display_order: 32)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1, position: "fixed-left:-6col;top:0px")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-left:100px;fixed-top:100px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 2, position: "fixed-left:-3col;top:150px")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 2, position: "fixed-right:100px;fixed-top:100px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 3, position: "fixed-left:2col;bottom:350px")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 3, position: "fixed-left:100px;fixed-bottom:100px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 4, position: "fixed-right:5col;bottom:0px")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 4, position: "fixed-right:100px;fixed-bottom:100px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 5, position: "fixed-left:-6col;top:400px")
+p = Post.create(title: "Fixed grid text",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "700px",
+                display_order: 33)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 6, position: "fixed-left:-5col;top:400px")
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-6col;fixed-top:0px')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-grid-left:-6col;fixed-top:0px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 7, position: "fixed-left:-4col;top:400px")
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-3col;fixed-top:150px')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-grid-left:-3col;fixed-top:150px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 8, position: "fixed-left:-3col;top:400px")
+tb = TextBox.create(style: 'two-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:2col;fixed-bottom:350px')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-left:2col;fixed-bottom:350px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 9, position: "fixed-left:-2col;top:400px")
+tb = TextBox.create(style: 'two-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-right:5col;fixed-bottom:0px')
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-right:5col;fixed-bottom:0px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 10, position: "fixed-left:-1col;top:400px")
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-6col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-6col;fixed-top:400px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 11, position: "fixed-left:0col;top:400px")
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-5col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-grid-left:-5col;fixed-top:400px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 12, position: "fixed-left:1col;top:400px")
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-4col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-grid-left:-4col;fixed-top:400px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 13, position: "fixed-left:2col;top:400px")
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-3col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 8, position: "fixed-grid-left:-3col;fixed-top:400px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 14, position: "fixed-left:3col;top:400px")
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-2col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 9, position: "fixed-grid-left:-2col;fixed-top:400px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 15, position: "fixed-left:4col;top:400px")
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-1col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 10, position: "fixed-grid-left:-1col;fixed-top:400px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 16, position: "fixed-left:5col;top:400px")
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:0col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 11, position: "fixed-grid-left:0col;fixed-top:400px")
 
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:1col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 12, position: "fixed-grid-left:1col;fixed-top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:2col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 13, position: "fixed-grid-left:2col;fixed-top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:3col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 14, position: "fixed-grid-left:3col;fixed-top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:4col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 15, position: "fixed-grid-left:4col;fixed-top:400px")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:5col;fixed-top:400px')
+PostElement.create(post: p, element: tb, sequence: 16, position: "fixed-grid-left:5col;fixed-top:400px")
+
+
+p = Post.create(title: "Fixed grid sprite",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "700px",
+                display_order: 34)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-grid-left:-6col;fixed-top:0px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 2, position: "fixed-grid-left:-3col;fixed-top:150px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 3, position: "fixed-grid-left:2col;fixed-bottom:350px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 3, position: "fixed-grid-right:5col;fixed-bottom:0px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 5, position: "fixed-grid-left:-6col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 6, position: "fixed-grid-left:-5col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 7, position: "fixed-grid-left:-4col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 8, position: "fixed-grid-left:-3col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 9, position: "fixed-grid-left:-2col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 10, position: "fixed-grid-left:-1col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 11, position: "fixed-grid-left:0col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 12, position: "fixed-grid-left:1col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 13, position: "fixed-grid-left:2col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 14, position: "fixed-grid-left:3col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 15, position: "fixed-grid-left:4col;fixed-top:400px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 16, position: "fixed-grid-left:5col;fixed-top:400px")
 
 
 p = Post.create(title: "Fluid grid text with background-position system",
@@ -426,7 +488,7 @@ p = Post.create(title: "Fluid grid text with background-position system",
                 show_header: true,
                 site: site,
                 height: "700px",
-                display_order: 33)
+                display_order: 35)
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
@@ -453,26 +515,26 @@ tb = TextBox.create(style: 'single-column-text',
                     text: 'BOTTOM RIGHT (fluid-h:100%;fluid-v:100%;)')
 PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:100%;fluid-v:100%;")
 
-p = Post.create(title: "Fluid grid images with background-position system (Same positionings as previous post)",
+p = Post.create(title: "Fluid grid images with background-position system",
                 published: true,
                 show_header: true,
                 site: site,
                 height: "700px",
-                display_order: 34)
+                display_order: 36)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
 PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:20%;fluid-v:35%;")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
 PostElement.create(post: p, element: s, sequence: 2, position: "fluid-h:90%;fluid-v:65%;")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
 PostElement.create(post: p, element: s, sequence: 3, position: "fluid-h:50%;fluid-v:50%;")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
 PostElement.create(post: p, element: s, sequence: 4, position: "fluid-h:0%;fluid-v:0%;")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
 PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:100%;fluid-v:100%;")
 
 
@@ -501,8 +563,8 @@ p = Post.create(title: "Fixed Text Box and Sprite",
                 height: "full-screen",
                 display_order: 41)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'tiling')
-PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed", position: "top:0px;v-center;")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed", position: "fixed-top:0px;v-center;")
 
 tb = TextBox.create(style: 'two-column-text',
                     bg_color: '#444',
@@ -528,34 +590,36 @@ p = Post.create(title: "Scanning Text Boxes and Sprites",
                 height: "full-screen",
                 display_order: 42)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1, position: "top:100px", animation_type: "scan", animation_direction: "right")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 2, position: "fluid-h:60%", animation_type: "scan", animation_direction: "down")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'image', width: 400, height: 400)
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:100px", animation_type: "scan", animation_direction: "right")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'image', width: 400, height: 400)
+PostElement.create(post: p, element: s, sequence: 2, position: "fluid-h:60%", animation_type: "scan", animation_direction: "up")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'image', width: 400, height: 400)
 PostElement.create(post: p, element: s, sequence: 3, position: "fluid-v:100%", animation_type: "scan", animation_direction: "left")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/large-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 4, position: "fixed-right:6col", animation_type: "scan", animation_direction: "up")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/large-square.png', style: 'image', width: 400, height: 400)
+PostElement.create(post: p, element: s, sequence: 4, position: "fixed-grid-right:6col", animation_type: "scan", animation_direction: "down")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 5, position: "top:50px", animation_type: "scan", animation_direction: "right")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 5, position: "fixed-top:250px", animation_type: "scan", animation_direction: "right")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 6, position: "fluid-h:40%", animation_type: "scan", animation_direction: "down")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 6, position: "fluid-h:40%", animation_type: "scan", animation_direction: "up")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
 PostElement.create(post: p, element: s, sequence: 7, position: "fluid-v:90%", animation_type: "scan", animation_direction: "left")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/blog_template/small-square.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 8, position: "fixed-right:3col", animation_type: "scan", animation_direction: "up")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 8, position: "fixed-grid-right:3col", animation_type: "scan", animation_direction: "down")
+
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
-                    text: 'position: "top:0px", animation_type: "scan", animation_direction: "right"')
-PostElement.create(post: p, element: tb, sequence: 9, position: "top:0px", animation_type: "scan", animation_direction: "right")
+                    text: 'position: "fixed-top:0px", animation_type: "scan", animation_direction: "right"')
+PostElement.create(post: p, element: tb, sequence: 9, position: "fixed-top:0px", animation_type: "scan", animation_direction: "right")
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
@@ -569,14 +633,14 @@ PostElement.create(post: p, element: tb, sequence: 11, position: "fluid-v:80%", 
 
 tb = TextBox.create(style: 'single-column-text',
                     bg_color: '#555',
-                    text: 'position: "fixed-right:6col", animation_type: "scan", animation_direction: "up"')
-PostElement.create(post: p, element: tb, sequence: 12, position: "fixed-right:6col", animation_type: "scan", animation_direction: "up")
+                    text: 'position: "fixed-grid-right:6col", animation_type: "scan", animation_direction: "up"')
+PostElement.create(post: p, element: tb, sequence: 12, position: "fixed-grid-right:6col", animation_type: "scan", animation_direction: "up")
 
 
 tb = TextBox.create(style: 'skinny-column-text',
                     bg_color: '#444',
-                    text: 'position: "top:0px", animation_type: "scan", animation_direction: "right"')
-PostElement.create(post: p, element: tb, sequence: 13, position: "top:0px", animation_type: "scan", animation_direction: "right")
+                    text: 'position: "fixed-top:0px", animation_type: "scan", animation_direction: "right"')
+PostElement.create(post: p, element: tb, sequence: 13, position: "fixed-top:0px", animation_type: "scan", animation_direction: "right")
 
 tb = TextBox.create(style: 'skinny-column-text',
                     bg_color: '#444',
@@ -590,8 +654,69 @@ PostElement.create(post: p, element: tb, sequence: 15, position: "fluid-v:80%", 
 
 tb = TextBox.create(style: 'skinny-column-text',
                     bg_color: '#444',
-                    text: 'position: "fixed-right:6col", animation_type: "scan", animation_direction: "up"')
-PostElement.create(post: p, element: tb, sequence: 16, position: "fixed-right:6col", animation_type: "scan", animation_direction: "up")
+                    text: 'position: "fixed-grid-right:6col", animation_type: "scan", animation_direction: "up"')
+PostElement.create(post: p, element: tb, sequence: 16, position: "fixed-grid-right:6col", animation_type: "scan", animation_direction: "up")
+
+
+p = Post.create(title: "Three Phase Animation System",
+                published: true,
+                show_header: false,
+                site: site,
+                height: "900px",
+                display_order: 0)
+
+
+tb = TextBox.create(style: 'single-column-text',
+                    bg_color: '#444',
+                    text: %{
+<h1 class="center">Three Phase Animation System</h1>
+
+This system supports 3 different phases as the user scrolls through a post (in order of priority):
+
+1. Top of post <is below> Top of window
+2. Bottom of post <is below> Bottom of window
+3. Bottom of post <is above> Bottom of window
+
+The system supports the following animation types, one can be set for each phase described above:
+
+- Fixed
+- Roll
+- Scan (not yet implemented)
+})
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-grid-left:0col;fluid-v:50%")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fixed-right:-7col;bottom:250px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll"')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-grid-right:-7col;fixed-bottom:250px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fixed-left:-6col;top:650px", animation_type: "three-phase", animation_direction: "fixed-roll-roll"')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-left:-6col;fixed-top:650px", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fixed-left:-5col;top:450px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed"')
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-left:-5col;fixed-top:450px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fixed-left:-4col;bottom:450px", animation_type: "three-phase", animation_direction: "roll-roll-fixed"')
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-4col;fixed-bottom:450px", animation_type: "three-phase", animation_direction: "roll-roll-fixed")
+
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 6, position: "fluid-h:10%;fixed-bottom:250px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 7, position: "fixed-grid-left:-6col;fixed-top:650px", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 8, position: "fixed-grid-left:-5col;fixed-top:450px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 9, position: "fixed-grid-left:-4col;fixed-bottom:450px", animation_type: "three-phase", animation_direction: "roll-roll-fixed")
 
 
 
@@ -733,6 +858,7 @@ PostElement.create(post: p, element: tb, sequence: 1)
 
 ######################################## MISC
 
+
 p = Post.create(title: "Miscellaneous",
                 published: true,
                 show_header: false,
@@ -745,15 +871,68 @@ tb = TextBox.create(style: 'full-margins',
                     text: %{
 <h1 class="xlarge">Miscellaneous</h1>
 
-<p class="grayLight">The corner where we shove everything we dont want</p>
+<p class="grayLight">The corner where we shove everything else</p>
 },
                     text_align: "center")
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
 
+
+p = Post.create(title: "Page 1",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "mid-to-foreground",
+                height: "full-screen",
+                depth: 5,
+                display_order: 61)
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Page 1</h1>
+
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+p = Post.create(title: "Page 2",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "mid-to-foreground",
+                height: "full-screen",
+                depth: 4,
+                display_order: 62)
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Page 2</h1>
+
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+p = Post.create(title: "Page 3",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "mid-to-foreground",
+                height: "full-screen",
+                depth: 3,
+                display_order: 63)
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Page 3</h1>
+
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+
 p = Post.create(title: "Giants Win The World Series!!!",
                 published: true,
                 site: site,
-                display_order: 61)
+                display_order: 64)
 
 v = Video.create(video_data: {id: "YKmgVJjk5PY"}, style: 'medium', host: 'youtube')
 PostElement.create(post: p, element: v)
@@ -763,7 +942,7 @@ PostElement.create(post: p, element: v)
 p = Post.create(title: 'Harvard Psychology 1504 - Premises of Positive Psychology Part 1',
                 published: true,
                 site: site,
-                display_order: 62)
+                display_order: 65)
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{

@@ -52,6 +52,9 @@ module PostsHelper
 
     data = {}
     data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
+    data["width"] = sprite.width if sprite.width
+    data["height"] = sprite.height if sprite.height
+    data.merge!(position_data)
 
     html_id = "id=\"#{post_element.id}\""
     html_classes = "class=\"#{classes.join(" ")}\""
@@ -113,6 +116,7 @@ module PostsHelper
     classes << "text-box"
     classes << text_box.style
     classes << post_element.animation_type if post_element.animation_type
+    classes << post_element.three_phase_initial if post_element.animation_type == "three-phase"
     classes.concat(position_classes)
 
     styles = []
@@ -165,6 +169,7 @@ module PostsHelper
     styles = []
     styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
     styles << "min-height: #{post.height}" unless post.height.blank? || post.height == 'full-screen'
+    styles << "z-index: #{post.depth}" if post.depth
 
     html_styles = "style=\"#{styles.join(";")}\"" unless styles.empty?
 

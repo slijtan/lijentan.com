@@ -26,6 +26,7 @@ module PostsHelper
 
     data = {}
     data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
+    data.merge!(position_data)
 
     html_id = "id=\"#{post_element.id}\""
     html_classes = "class=\"#{classes.join(" ")}\""

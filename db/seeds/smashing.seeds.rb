@@ -24,7 +24,7 @@ p = Post.create(title: "Intro",
                 site: site,
                 space: nil,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 1, 7, 14, 24))
+                display_order: 1)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/puckered.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fluid-v:0%;fluid-h:50%", animation_type: 'fixed')
@@ -48,7 +48,7 @@ p = Post.create(title: "First Story",
                 site: site,
                 space: nil,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 1, 6, 14, 24))
+                display_order: 2)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/slide2.jpg', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px;fluid-h:50%", animation_type: 'scan', animation_direction: 'down')
@@ -76,7 +76,7 @@ p = Post.create(title: "Second Story",
                 site: site,
                 space: nil,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 1, 5, 14, 24))
+                display_order: 3)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/slide4.jpg', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px;fluid-h:50%", animation_type: 'scan', animation_direction: 'down')
@@ -94,7 +94,7 @@ I have cut out one of the photos in this background and use it as a sprite. It s
 
 Using too many sprites can slow down older computers, and you need to use some clever maths (and trial & error!) to work out their placement on the page.
 })
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h::90%;fixed-top:100px")
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:90%;fixed-top:100px")
 
 p = Post.create(title: "Third Story",
                 published: true,
@@ -102,7 +102,7 @@ p = Post.create(title: "Third Story",
                 site: site,
                 space: nil,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 1, 4, 14, 24))
+                display_order: 4)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/slide3.jpg', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px;fluid-h:50%", animation_type: 'scan', animation_direction: 'down')
@@ -131,7 +131,7 @@ p = Post.create(title: "The End",
                 site: site,
                 space: nil,
                 height: "full-screen",
-                date_published: DateTime.new(2013, 1, 3, 14, 24))
+                display_order: 5)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/smashing-parallax/puckered.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px;fluid-h:50%", animation_type: 'fixed')

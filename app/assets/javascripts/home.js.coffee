@@ -391,13 +391,13 @@ reposition_elements = ->
                 $(this).css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px")
 
 set_fluid_positions = ->
-        $('.text-box.fluid-h').each ->
+        $('.text-box.fluid-h, .video.fluid-h').each ->
                 width = $(this).outerWidth()
                 full_width = $(this).parent('article').outerWidth()
                 coordinate = $(this).data('fluid-h')
                 $(this).css("left", fluid_to_cartesian(coordinate, width, full_width))
 
-        $('.text-box.fluid-v').each ->
+        $('.text-box.fluid-v, .video.fluid-h').each ->
                 height = $(this).outerHeight()
                 full_height = $(this).parent('article').outerHeight()
                 coordinate = $(this).data('fluid-v')

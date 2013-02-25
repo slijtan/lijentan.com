@@ -65,6 +65,6 @@ module Lijentandotcom
       g.helper_specs false
     end
 
-    config.assets.precompile += %w( jquery.transit.js jquery.viewport.mini.js )
+    config.assets.precompile += %w( jquery.transit.js jquery.viewport.mini.js jquery.overlaps.js)
   end
 end

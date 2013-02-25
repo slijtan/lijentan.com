@@ -162,19 +162,22 @@ module PostsHelper
     classes << space if space
     classes << post.effect if post.effect
     classes << "padding-#{post.padding}" if post.padding
-    classes << 'full-screen' if post.height == 'full-screen'
     classes << 'title' if post.is_header_post?
 
     html_classes = "class=\"#{classes.join(" ")}\""
 
     styles = []
     styles << "background-color: #{post.bg_color}" unless post.bg_color.blank?
-    styles << "min-height: #{post.height}" unless post.height.blank? || post.height == 'full-screen'
     styles << "z-index: #{post.depth}" if post.depth
 
-    html_styles = "style=\"#{styles.join(";")}\"" unless styles.empty?
+    data = {}
+    data[:height] = post.height if post.height
 
-    raw("#{html_classes} #{html_styles}")
+    html_styles = "style=\"#{styles.join(";")}\"" unless styles.empty?
+    html_classes = "class=\"#{classes.join(" ")}\""
+    html_data = data.to_a.inject("") {|res, hash_key_val| res += "data-#{hash_key_val[0]}=\"#{hash_key_val[1]}\""}
+
+    raw("#{html_classes} #{html_styles} #{html_data}")
   end
 
   def render_shadows(post)

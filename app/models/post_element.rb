@@ -17,14 +17,15 @@ class PostElement < ActiveRecord::Base
     positions = position.split(";").map {|position| position.delete(" ")}
 
     if element_type == 'Sprite'
-      css_styles[:position] = animation_type || ["tiling", "cover"].include?(element.style) || positions.detect {|position| /(left|right|top|bottom|fluid)/.match(position) } ? "absolute" : "relative"
+      #css_styles[:position] = animation_type || ["tiling", "cover"].include?(element.style) || positions.detect {|position| /(left|right|top|bottom|fluid)/.match(position) } ? "absolute" : "relative"
+      css_styles[:position] = "absolute"
       x_val = '50%'
       y_val = '0%'
 
       positions.each do |css_attribute|
         case css_attribute
         when 'inline'
-          css_styles[:position] = 'relative'
+          css_styles[:position] = 'absolute'
         else
           #TODO: handle right and bottom px and %
           if match = /fixed-left:(\d*px)/.match(css_attribute)

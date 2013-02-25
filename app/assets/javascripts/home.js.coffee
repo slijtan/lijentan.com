@@ -299,8 +299,12 @@ setup_coffee_table_album = ->
                                                         -> $(this).css("z-index", "#{2 * count - parseInt($(this).data('zindex'))}"))
                                                         .addClass("flipped")
 
-setup_full_screen_posts = ->
-        $(".full-screen").css("height", $(window).height())
+setup_post_heights = ->
+        $("article[data-height]").each ->
+                height = $(this).data('height')
+                height = "100%" if height == 'full-screen'
+                height = (Number(height.replace('%', '')) * $(window).height() / 100) + "px" if height.search(/%/) > 0
+                $(this).css("min-height", height)
 
 setup_videos = ->
         #Replace video tags with iframes
@@ -486,16 +490,16 @@ setup_posts = ->
         setup_strip_albums()
         setup_fade_in()
         setup_coffee_table_album()
-        setup_full_screen_posts()
-        reposition_elements()
         setup_positions()
 
+
 setup_positions = ->
+        setup_post_heights()
         set_fluid_positions()
         set_fixed_grid_positions()
         set_fixed_positions()
+        reposition_elements() #LEGACY
         set_video_sizes()
-        setup_full_screen_posts()
 
 
 $ ->

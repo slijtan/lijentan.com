@@ -34,6 +34,12 @@ class PostElement < ActiveRecord::Base
           elsif match = /fixed-top:(\d*px)/.match(css_attribute)
             y_val = match[1]
 
+          elsif match = /fluid-h:(\d*%)/.match(css_attribute)
+            x_val = match[1]
+
+          elsif match = /fluid-v:(\d*%)/.match(css_attribute)
+            y_val = match[1]
+
           elsif match = /(fixed-(right|bottom)):(\d*)px/.match(css_attribute)
             attribute = match[1]
             value = match[3]
@@ -45,12 +51,6 @@ class PostElement < ActiveRecord::Base
             value = match[3]
             classes << attribute
             data[attribute.to_sym] = value
-
-          elsif match = /fluid-h:(\d*%)/.match(css_attribute)
-            x_val = match[1]
-
-          elsif match = /fluid-v:(\d*%)/.match(css_attribute)
-            y_val = match[1]
           end
         end
       end
@@ -65,10 +65,11 @@ class PostElement < ActiveRecord::Base
         when 'inline'
           css_styles[:position] = 'relative'
         else
-          if match = /fixed-(left|right|top|bottom):(\d*px)/.match(css_attribute)
+          if match = /(fixed-(left|right|top|bottom)):(\d*)px/.match(css_attribute)
             attribute = match[1]
-            value = match[2]
-            css_styles[attribute.to_sym] = value
+            value = match[3]
+            classes << attribute
+            data[attribute.to_sym] = value
 
           elsif match = /(fluid-h|fluid-v):(\d*)%/.match(css_attribute)
             attribute = match[1]

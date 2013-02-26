@@ -5,15 +5,19 @@ eof = null
 
 delay = (ms, func) -> setTimeout func, ms
 
+get_background_position_x = (element) ->
+        background_pos = element.css('background-position').split(" ")
+        background_pos[0]
+
+get_background_position_y = (element) ->
+        background_pos = element.css('background-position').split(" ")
+        background_pos[1]
+
 set_background_position_x = (element, x) ->
-        background_pos = element.css('background-position').split(" ");
-        y = background_pos[1]
-        element.css("background-position", x + " " + y)
+        element.css("background-position", x + " " + get_background_position_y(element))
 
 set_background_position_y = (element, y) ->
-        background_pos = element.css('background-position').split(" ");
-        x = background_pos[0]
-        element.css("background-position", x + " " + y)
+        element.css("background-position", get_background_position_x(element) + " " + y)
 
 articles_position_on_page = (article) ->
         div_height = article.innerHeight()
@@ -427,6 +431,11 @@ set_fixed_grid_positions = ->
                 set_background_position_x($(this),  (cartesian - sprite_width) + "px")
 
 set_fixed_positions = ->
+        $('.text-box.fixed-top').each -> $(this).css('top', $(this).data('fixed-top'))
+        $('.text-box.fixed-bottom').each -> $(this).css('bottom', $(this).data('fixed-bottom'))
+        $('.text-box.fixed-left').each -> $(this).css('left', $(this).data('fixed-left'))
+        $('.text-box.fixed-right').each -> $(this).css('right', $(this).data('fixed-right'))
+
         $('.sprite.fixed-right').each ->
                 full_width = $(this).outerWidth()
                 sprite_width = $(this).data('width')
@@ -445,6 +454,8 @@ set_fixed_positions = ->
                 y = (full_height - coordinate - sprite_height) + "px"
                 set_background_position_y($(this), y)
 
+initialize_three_phase_positions = -> $('.three-phase').each -> $(this).addClass($(this).data('animation-direction').split("-").shift())
+
 
 fluid_to_cartesian = (coordinate, length, full_length) ->
         (coordinate / 100) * (full_length - length)
@@ -458,13 +469,89 @@ fixed_grid_to_cartesian = (coordinate, column_width, gutter_width, edge = "left"
 
 update_three_phase_animation = (element) ->
         animation_types = element.data('animation-direction').split("-")
+        previous_phase = if element.data('phase') then Number(element.data('phase')) else null
         phase = detect_phase(element)
-        animation_type = animation_types[phase-1]
-        valid_animation_types = ["fixed", "roll"]
-        unless element.hasClass(animation_type)
-                element.removeClass(type) for type in valid_animation_types
-                element.addClass(animation_type)
-                set_fixed_positions()
+
+        #detect phase change
+        if previous_phase != phase
+                previous_animation_type = if previous_phase then animation_types[previous_phase-1] else null
+                animation_type = animation_types[phase-1]
+                valid_animation_types = ["fixed", "roll"]
+                element.data('phase', phase)
+
+                #changing animation types
+                if previous_animation_type != animation_type
+                        phase_shift = previous_phase * 10 + phase #phase 2 -> 3 is 23, etc
+                        if previous_animation_type == "fixed" #fixed to roll transition
+                                fixed_to_absolute(element, phase_shift)
+                        else if previous_animation_type == "roll" #roll to fixed transition
+                                absolute_to_fixed(element, phase_shift)
+
+                        element.removeClass(type) for type in valid_animation_types
+                        element.addClass(animation_type)
+
+# TRANSFORM PLANES
+# TODO: unhack this hackfest of a function...
+fixed_to_absolute = (element, phase_shift) ->
+        if element.hasClass('text-box')
+                top_css = element.css('top')
+                bottom_css = element.css('bottom')
+
+                if top_css.match(/px/) && (phase_shift == 23 || phase_shift == 32)
+                        element_top = Number(top_css.replace('px', ''))
+                        window_height = $(window).height()
+                        article_height = element.parent('article').outerHeight()
+                        new_top = (element_top + article_height - window_height) + "px"
+                        element.css("top", new_top)
+
+                else if bottom_css.match(/px/) && (phase_shift == 12 || phase_shift == 21)
+                        element_bottom = Number(bottom_css.replace('px', ''))
+                        window_height = $(window).height()
+                        article_height = element.parent('article').outerHeight()
+                        new_bottom = (element_bottom + article_height - window_height) + "px"
+                        element.css("bottom", new_bottom)
+
+        else if element.hasClass('sprite')
+                y = get_background_position_y(element)
+
+                if phase_shift == 23 || phase_shift == 32
+                        element_top = Number(y.replace('px', ''))
+                        window_height = $(window).height()
+                        article_height = element.parent('article').outerHeight()
+                        new_top = (element_top + article_height - window_height) + "px"
+                        set_background_position_y(element, new_top)
+
+
+
+
+absolute_to_fixed = (element, phase_shift) ->
+        if element.hasClass('text-box')
+                top_css = element.css('top')
+                bottom_css = element.css('bottom')
+
+                if top_css.match(/px/) && (phase_shift == 32 || phase_shift == 23)
+                        element_top = Number(top_css.replace('px', ''))
+                        window_height = $(window).height()
+                        article_height = element.parent('article').outerHeight()
+                        new_top = (element_top - article_height + window_height) + "px"
+                        element.css("top", new_top)
+
+                if bottom_css.match(/px/) && (phase_shift == 21 || phase_shift == 12)
+                        element_bottom = Number(bottom_css.replace('px', ''))
+                        window_height = $(window).height()
+                        article_height = element.parent('article').outerHeight()
+                        new_bottom = (element_bottom - article_height + window_height) + "px"
+                        element.css("bottom", new_bottom)
+
+        else if element.hasClass('sprite')
+                y = get_background_position_y(element)
+
+                if phase_shift == 32 || phase_shift == 23
+                        element_top = Number(y.replace('px', ''))
+                        window_height = $(window).height()
+                        article_height = element.parent('article').outerHeight()
+                        new_top = (element_top - article_height + window_height) + "px"
+                        set_background_position_y(element, new_top)
 
 
 detect_phase = (element) ->
@@ -495,6 +582,7 @@ setup_posts = ->
 
 setup_positions = ->
         setup_post_heights()
+        initialize_three_phase_positions()
         set_fluid_positions()
         set_fixed_grid_positions()
         set_fixed_positions()

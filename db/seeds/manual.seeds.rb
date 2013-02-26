@@ -742,7 +742,7 @@ p = Post.create(title: "Three Phase Animation System",
                 published: true,
                 show_header: false,
                 site: site,
-                height: "900px",
+                height: "1000px",
                 space: "background",
                 display_order: 44)
 
@@ -768,36 +768,85 @@ PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-grid-left
 
 tb = TextBox.create(style: 'skinny-column-text',
                     bg_color: '#555',
-                    text: 'position: "fixed-right:-7col;bottom:250px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll"')
-PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-grid-right:-7col;fixed-bottom:250px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+                    text: 'position: "fixed-grid-right:-7col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll"')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-grid-right:-7col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 tb = TextBox.create(style: 'skinny-column-text',
                     bg_color: '#555',
-                    text: 'position: "fixed-left:-6col;top:650px", animation_type: "three-phase", animation_direction: "fixed-roll-roll"')
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-left:-6col;fixed-top:650px", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
+                    text: 'position: "fixed-grid-right:-7col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll"')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-grid-right:-7col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 tb = TextBox.create(style: 'skinny-column-text',
                     bg_color: '#555',
-                    text: 'position: "fixed-left:-5col;top:450px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed"')
-PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-left:-5col;fixed-top:450px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
+                    text: 'position: "fixed-grid-left:-6col;fixed-top:50px", animation_type: "three-phase", animation_direction: "fixed-roll-roll"')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-left:-6col;fixed-top:50px", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
 
 tb = TextBox.create(style: 'skinny-column-text',
                     bg_color: '#555',
-                    text: 'position: "fixed-left:-4col;bottom:450px", animation_type: "three-phase", animation_direction: "roll-roll-fixed"')
-PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-4col;fixed-bottom:450px", animation_type: "three-phase", animation_direction: "roll-roll-fixed")
+                    text: 'position: "fixed-grid-left:-6col;fixed-bottom:50px", animation_type: "three-phase", animation_direction: "fixed-roll-roll"')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-left:-6col;fixed-bottom:50px", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-5col;fixed-top:150px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed')
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-left:-5col;fixed-top:150px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-5col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed')
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-left:-5col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-4col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "roll-roll-fixed')
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-4col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "roll-roll-fixed")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fixed-grid-left:-4col;fixed-top:150px", animation_type: "three-phase", animation_direction: "roll-roll-fixed"')
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-4col;fixed-top:150px", animation_type: "three-phase", animation_direction: "roll-roll-fixed")
+
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'position: "fixed-grid-left:-3col;fixed-bottom:200px", animation_type: "three-phase", animation_direction: "roll-fixed-roll"')
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-3col;fixed-bottom:200px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
+
+tb = TextBox.create(style: 'skinny-column-text',
+                    bg_color: '#555',
+                    text: 'fixed-grid-left:-3col;fixed-top:400px", animation_type: "three-phase", animation_direction: "fixed-roll-fixed')
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-2col;fixed-top:400px", animation_type: "three-phase", animation_direction: "fixed-roll-fixed")
 
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
-PostElement.create(post: p, element: s, sequence: 6, position: "fluid-h:10%;fixed-bottom:250px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+PostElement.create(post: p, element: s, sequence: 6, position: "fluid-h:10%;fixed-bottom:100px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
-PostElement.create(post: p, element: s, sequence: 7, position: "fixed-grid-left:-6col;fixed-top:650px", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
+PostElement.create(post: p, element: s, sequence: 6, position: "fluid-h:10%;fixed-top:100px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 7, position: "fixed-grid-left:-6col;fixed-bottom:100px", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 7, position: "fixed-grid-left:-6col;fixed-top:100px", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
 PostElement.create(post: p, element: s, sequence: 8, position: "fixed-grid-left:-5col;fixed-top:450px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
-PostElement.create(post: p, element: s, sequence: 9, position: "fixed-grid-left:-4col;fixed-bottom:450px", animation_type: "three-phase", animation_direction: "roll-roll-fixed")
+PostElement.create(post: p, element: s, sequence: 8, position: "fixed-grid-left:-5col;fixed-bottom:450px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 9, position: "fixed-grid-left:-4col;fixed-bottom:350px", animation_type: "three-phase", animation_direction: "roll-roll-fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 9, position: "fixed-grid-left:-4col;fixed-top:350px", animation_type: "three-phase", animation_direction: "roll-roll-fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 9, position: "fixed-grid-left:-3col;fixed-bottom:450px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/manual/small-square.png', style: 'image', width: 50, height: 50)
+PostElement.create(post: p, element: s, sequence: 9, position: "fixed-grid-left:-2col;fixed-top:450px", animation_type: "three-phase", animation_direction: "fixed-roll-fixed")
 
 
 

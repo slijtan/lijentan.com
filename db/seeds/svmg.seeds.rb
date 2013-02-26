@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 site_name = "SVMG"
 if site = Site.find_by_name(site_name)
   site.destroy
@@ -13,7 +14,7 @@ p = Post.create(title: "SVMG",
                 show_header: false,
                 site: site,
                 space: "background",
-                height: "full-screen",
+                height: "85%",
                 display_order: 1)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image')
@@ -39,15 +40,65 @@ p = Post.create(title: "Brand Representation",
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
-<h1 class="xlarge">Brand Representation</h1>
-
-Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that's what you see at a toy store. And you must think you're in a toy store, because you're here shopping for an infant named Jeb.
+<p class="grayLight xlarge">&#8595;</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-top:10px;fluid-h:50%")
+
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: %{
+<h1 class="massive orange">Stay Hungry.</h1>
+
+<h2 class="xlarge">Brand Representation</h2>
+
+<p class="grayLight large">SVMG works with amazing brands to take them to even greater heights</p>
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fluid-h:50%")
 
 
 ############# Brand Rep Brands #############
+p = Post.create(title: "MLBAM",
+                published: true,
+                show_header: false,
+                site: site,
+                height: "150%",
+                bg_color: '#003263',
+                space: "background",
+                depth: 3,
+                display_order: 3)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-mlb.jpg', style: 'cover')
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-right:0px;fluid-v:50%", animation_type: "fixed-scan", animation_direction: "right")
+
+tb = TextBox.create(style: 'full-margins',
+                    text: "<h1 class='massive'>&#149;</h1>")
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-bottom:0px", animation_type: "fixed-scan", animation_direction: "right")
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: %{
+<h1 class="huge">MLBAM</h1>
+
+<p class="grayLighter">MLBAM is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
+})
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-bottom:250px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+
+tb = TextBox.create(style: 'single-column-text',
+                    text: %{
+<h1 class="large grayLight right">Major League Baseball Advanced Media</h1>
+})
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-right:-1col;fixed-bottom:317px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
+
+=begin
+tb = TextBox.create(style: 'single-column-text',
+                    text: %{
+<p class="gray">Alex Pigeon, Vice President International – “I fucking love SVMG because they made me a ton of fucking money that I couldn’t before.”</p>
+})
+PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:85%;fixed-bottom:350px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
+=end
+
 p = Post.create(title: "UFC",
                 published: true,
                 show_header: false,
@@ -55,36 +106,10 @@ p = Post.create(title: "UFC",
                 height: "500px",
                 bg_color: '#000',
                 space: 'background',
-                display_order: 3)
+                display_order: 4)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logotype-ufc.jpg', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-left:0px;fluid-v:50%", animation_type: "scan", animation_direction: "right")
-
-
-p = Post.create(title: "MLBAM",
-                published: true,
-                show_header: false,
-                site: site,
-                height: "500px",
-                bg_color: '#003263',
-                space: "background",
-                depth: 3,
-                display_order: 4)
-
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-mlb.jpg', style: 'cover')
-PostElement.create(post: p, element: s, sequence: 1, position: "fixed-right:0px;fluid-v:50%", animation_type: "scan", animation_direction: "right")
-
-tb = TextBox.create(style: 'full-margins',
-                    text: "<h1 class='massive'>&#149;</h1>")
-PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-bottom:0px", animation_type: "scan", animation_direction: "right")
-
-tb = TextBox.create(style: 'single-column-text',
-                    text: %{
-#MLBAM
-
-Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
-})
-PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-h:15%;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 
 ############# CONSULTING  #############

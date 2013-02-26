@@ -406,8 +406,13 @@ set_fluid_positions = ->
                 $(this).css("left", fluid_to_cartesian(coordinate, width, full_width))
 
         $('.text-box.fluid-v, .video.fluid-h').each ->
+                if $(this).hasClass('fixed')
+                        full_height = $(window).height()
+                else
+                        full_height = $(this).parent('article').outerHeight()
+
+
                 height = $(this).outerHeight()
-                full_height = $(this).parent('article').outerHeight()
                 coordinate = $(this).data('fluid-v')
                 $(this).css("top", fluid_to_cartesian(coordinate, height, full_height))
 
@@ -467,13 +472,85 @@ fixed_grid_to_cartesian = (coordinate, column_width, gutter_width, edge = "left"
         else
                 center - ((gutter_width / 2) + coordinate * (column_width + gutter_width) + column_width)
 
+#returns number between 0 and 1
+phase_position = (phase, article) ->
+        switch phase
+                when 1
+                        element_top = article.offset().top
+                        screen_height = $(window).height()
+                        screen_top = $(window).scrollTop()
+
+                        return 1 - (element_top - screen_top) / screen_height
+                when 2
+                        element_top = article.offset().top
+                        element_height = article.outerHeight()
+                        screen_height = $(window).height()
+                        screen_top = $(window).scrollTop()
+
+                        return (screen_top - element_top)/(element_height - screen_height)
+                when 3
+                        element_top = article.offset().top
+                        element_height = article.outerHeight()
+                        element_bottom = element_top + element_height
+                        screen_height = $(window).height()
+                        screen_top = $(window).scrollTop()
+
+                        console.log("#{element_top} #{element_height} #{screen_height} #{screen_top}")
+                        return 1 - ((element_bottom - screen_top) / Math.min(element_height, screen_height))
+
+#TODO refactor 3 phase functions
+update_three_phase_effects = (element) ->
+        previous_phase = if element.data('phase') then Number(element.data('phase')) else null
+        phase = detect_phase(element)
+        article = element.parent()
+
+        effect_types = element.data('effects').split("-")
+        effect_durations = []
+
+        #TODO move this to a separate function when im not as lazy and have more time...
+        for effect_type, i in effect_types
+                continue if effect_durations[i]
+                count = 1
+                offset = i + 1
+
+                while effect_types[offset] == effect_type
+                        offset++
+                        count++
+
+                for j in [0...(count)]
+                        effect_durations[i+j] = count
+
+        effect_type = effect_types[phase-1]
+        effect_duration = effect_durations[phase-1]
+
+        switch effect_type
+                when 'scroll_fade_in'
+                        opacity = phase_position(phase, element.parent('article'))
+                        element.css({opacity: opacity})
+                when 'scroll_fade_out'
+                        opacity = 1 - phase_position(phase, element.parent('article'))
+                        element.css({opacity: opacity})
+                when 'hide'
+                        element.css({opacity: 0})
+                when 'show'
+                        element.css({opacity: 1})
+                when 'fade_in' #needs work...
+                        element.fadeIn()
+                when 'fade_out' #needs work...
+                        element.fadeOut()
+
+        element.data('phase', phase)
+
+
+
+
 update_three_phase_animation = (element) ->
-        animation_types = element.data('animation-direction').split("-")
         previous_phase = if element.data('phase') then Number(element.data('phase')) else null
         phase = detect_phase(element)
 
         #detect phase change
         if previous_phase != phase
+                animation_types = element.data('animation-direction').split("-")
                 previous_animation_type = if previous_phase then animation_types[previous_phase-1] else null
                 animation_type = animation_types[phase-1]
                 valid_animation_types = ["fixed", "roll"]
@@ -609,8 +686,9 @@ $ ->
                                 else
                                         adjust_scanning_div($(this))
 
-                $('div.three-phase:in-viewport').each ->
-                        update_three_phase_animation($(this))
+                $('div.three-phase:in-viewport').each -> update_three_phase_animation($(this))
+
+                $('div.three-phase-effects:in-viewport').each -> update_three_phase_effects($(this))
 
                 #hide fixed text if article isnt in view
                 $('.text-box.fixed, .text-box.fixed-scan').each ->

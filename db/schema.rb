@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224065649) do
+ActiveRecord::Schema.define(:version => 20130226111821) do
 
   create_table "album_elements", :force => true do |t|
     t.integer "album_id"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130224065649) do
     t.string  "animation_type"
     t.string  "animation_direction"
     t.integer "sequence"
+    t.string  "effects"
   end
 
   create_table "posts", :force => true do |t|

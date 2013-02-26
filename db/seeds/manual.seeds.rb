@@ -14,7 +14,7 @@ p = Post.create(title: "Instruction Manual",
                 show_header: false,
                 site: site,
                 space: "mid-to-foreground",
-                depth: 1,
+                depth: 3,
                 height: "full-screen",)
 
 tb = TextBox.create(style: 'full-margins',
@@ -850,6 +850,99 @@ PostElement.create(post: p, element: s, sequence: 9, position: "fixed-grid-left:
 
 
 
+######################################## EFFECTS
+p = Post.create(title: "Effects",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "mid-to-foreground",
+                height: "full-screen",
+                display_order: 45)
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
+<h1 class="xlarge">Effects</h1>
+
+<p class="grayLight">It has been said that something as small as the flutter of a butterfly&#146;s wing can ultimately cause a typhoon halfway around the world</p>
+},
+                    text_align: "center")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+
+p = Post.create(title: "Three Phase Fade Effects",
+                published: true,
+                show_header: true,
+                site: site,
+                height: "200%",
+                depth: 0,
+                display_order: 46)
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="huge">FADE IN</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-grid-left:-1col;fluid-v:60%", effects: 'scroll_fade_in-show-show', animation_type: 'fixed')
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="huge">FADE IN</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-grid-left:0col;fluid-v:50%", effects: 'hide-scroll_fade_in-show', animation_type: 'fixed')
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="huge">FADE IN</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-grid-left:1col;fluid-v:40%", effects: 'hide-hide-scroll_fade_in', animation_type: 'fixed')
+
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="huge orange right">FADE OUT</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-grid-right:-2col;fluid-v:40%", effects: 'scroll_fade_out-hide-hide', animation_type: 'fixed')
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="huge orange right">FADE OUT</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-grid-right:-1col;fluid-v:50%", effects: 'show-scroll_fade_out-hide', animation_type: 'fixed')
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="huge orange right">FADE OUT</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-grid-right:0col;fluid-v:60%", effects: 'show-show-scroll_fade_out', animation_type: 'fixed')
+
+
+=begin
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="medium blue">FADE IN ON CUE</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:10%;fluid-v:10%", effects: 'fade_in-show-show', animation_type: 'fixed')
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="medium blue">FADE IN ON CUE</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:10%;fluid-v:20%", effects: 'hide-fade_in-show', animation_type: 'fixed')
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="medium blue">FADE IN ON CUE</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:10%;fluid-v:30%", effects: 'hide-hide-fade_in', animation_type: 'fixed')
+
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="medium blue">FADE OUT ON CUE</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:90%;fluid-v:70%", effects: 'fade_out-hide-hide', animation_type: 'fixed')
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="medium blue">FADE OUT ON CUE</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:90%;fluid-v:80%", effects: 'show-fade_out-hide', animation_type: 'fixed')
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="medium blue">FADE OUT ON CUE</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:90%;fluid-v:90%", effects: 'show-show-fade_out', animation_type: 'fixed')
+
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="large">FADE IN SLOWLY</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:10%;fluid-v:10%", effects: 'scroll_fade_in-scroll_fade_in-none', animation_type: 'fixed')
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="large">FADE IN SLOWLY</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:90%;fluid-v:90%", effects: 'none-scroll_fade_in-scroll_fade_in', animation_type: 'fixed')
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text: '<h1 class="massive">FADE IN SLOWEST</h1>')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%", effects: 'scroll_fade_in-scroll_fade_in-scroll_fade_in')
+=end
+
+
 ######################################## Space
 
 p = Post.create(title: "Space",
@@ -867,7 +960,7 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLight">The final frontier</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-h:50%;fluid-v:50%", animation_type: "three-phase", animation_direction: "fixed-roll-roll")
 
 
 p = Post.create(title: "Background",

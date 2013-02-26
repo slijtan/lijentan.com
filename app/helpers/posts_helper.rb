@@ -118,6 +118,7 @@ module PostsHelper
     classes << text_box.style
     classes << post_element.animation_type if post_element.animation_type
     classes << post_element.three_phase_initial if post_element.animation_type == "three-phase"
+    classes << "three-phase-effects" if post_element.effects
     classes.concat(position_classes)
 
     styles = []
@@ -131,6 +132,7 @@ module PostsHelper
 
     data = {}
     data["animation-direction"] = post_element.animation_direction if post_element.animation_direction
+    data["effects"] = post_element.effects if post_element.effects
     data.merge!(position_data)
 
     html_id = "id=\"#{post_element.id}\""

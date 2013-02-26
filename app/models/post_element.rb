@@ -1,5 +1,5 @@
 class PostElement < ActiveRecord::Base
-  attr_accessible :animation_direction, :animation_type, :element_id, :element_type, :element, :position, :post_id, :sequence, :post
+  attr_accessible :animation_direction, :animation_type, :element_id, :element_type, :element, :position, :post_id, :sequence, :post, :effects
 
   belongs_to :element, polymorphic: true, dependent: :destroy
   belongs_to :post

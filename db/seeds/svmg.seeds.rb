@@ -44,7 +44,7 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLight xlarge">&#8595;</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-top:10px;fluid-h:50%", effects: 'scroll_fade_out-hide-hide', animation_type: 'three-phase', animation_direction: 'roll-fixed-fixed')
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-top:10px;fluid-h:50%", effects: 'fade_out-hide-hide', animation_type: 'three-phase', animation_direction: 'roll-fixed-fixed')
 
 
 tb = TextBox.create(style: 'full-no-margins',
@@ -161,7 +161,21 @@ tb = TextBox.create(style: 'single-column-text',
 })
 PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-grid-left:-1col;fixed-bottom:217px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
 
+p = Post.create(title: "Divider",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "50%",
+                display_order: 6)
 
+tb = TextBox.create(style: 'full-no-margins',
+                    text_align: "center",
+                    text: %{
+<h1 class="massive">DIVIDER</h1>
+})
+
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fluid-h:50%")
 
 ############# CONTACT  #############
 p = Post.create(title: "Contact",
@@ -171,7 +185,7 @@ p = Post.create(title: "Contact",
                 height: "100%",
                 space: nil,
                 depth: 2,
-                display_order: 6)
+                display_order: 7)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/eggshell.jpg', style: 'tiling')
 PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
@@ -191,7 +205,7 @@ p = Post.create(title: "Contact Info",
                 height: "100%",
                 space: nil,
                 depth: 1,
-                display_order: 7)
+                display_order: 8)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/eggshell.jpg', style: 'tiling')
 PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")

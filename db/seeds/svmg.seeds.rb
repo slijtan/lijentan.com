@@ -99,36 +99,27 @@ tb = TextBox.create(style: 'single-column-text',
 })
 PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-right:-1col;fixed-top:273px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
 
-=begin
-tb = TextBox.create(style: 'single-column-text',
-                    text: %{
-<p class="gray">Alex Pigeon, Vice President International – “I fucking love SVMG because they made me a ton of fucking money that I couldn’t before.”</p>
-})
-PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:85%;fixed-bottom:350px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
-=end
-
-
 p = Post.create(title: "Divider",
                 published: true,
                 show_header: false,
                 site: site,
                 space: "foreground",
-                height: "50%",
+                height: "200px",
                 display_order: 4)
 
 tb = TextBox.create(style: 'single-line-text',
                     text: %{
-<h2 class="center">“I fucking love SVMG because they made me a ton of fucking money that I couldn’t before.”</h1>
+<h2 class="center"><em>“I fucking love SVMG because they made me a ton of fucking money that I couldn’t before.”</em></h2>
 })
 
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:35%", animation_type: 'scan', animation_direction: 'right')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px", animation_type: 'scan', animation_direction: 'right')
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
-<h3 class="gray right">Alex Pigeon, Vice President International</h2>
+<h3 class="gray right">- Alex Pigeon, Vice President International</h3>
 })
 
-PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-v:60%", animation_type: 'scan', animation_direction: 'left')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:30px", animation_type: 'scan', animation_direction: 'left')
 
 
 p = Post.create(title: "UFC",
@@ -167,34 +158,28 @@ tb = TextBox.create(style: 'single-column-text',
 })
 PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-grid-left:-1col;fixed-bottom:217px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
 
-tb = TextBox.create(style: 'full-margins',
-                    text: %{
-<p class="grayLighter right"><em>“I fucking love SVMG because they made me a ton of fucking money that I couldn’t before.”</em><br />Mark Fischer, Managing Director UFC Asia</p>
-})
-PostElement.create(post: p, element: tb, sequence: 7, position: "fluid-v:15%;fixed-left:0px", animation_type: "fixed", effects: 'hide-fade_in-fade_out')
-
 
 p = Post.create(title: "Divider",
                 published: true,
                 show_header: false,
                 site: site,
                 space: "foreground",
-                height: "50%",
+                height: "200px",
                 display_order: 6)
 
 tb = TextBox.create(style: 'single-line-text',
                     text: %{
-<h2 class="center">“I fucking love SVMG because they made me a ton of fucking money that I couldn’t before.”</h1>
+<h2 class="center"><em>“I fucking love SVMG because they made me a ton of fucking money that I couldn’t before.”</em></h2>
 })
 
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:35%", animation_type: 'scan', animation_direction: 'left')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px", animation_type: 'scan', animation_direction: 'left')
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
-<h3 class="gray right">Mark Fischer, Managing Director UFC Asia</h2>
+<h3 class="gray right">- Mark Fischer, Managing Director UFC Asia</h3>
 })
 
-PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-v:60%", animation_type: 'scan', animation_direction: 'right')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:30px", animation_type: 'scan', animation_direction: 'right')
 
 
 ############# CONTACT  #############
@@ -230,15 +215,16 @@ p = Post.create(title: "Contact Info",
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/eggshell.jpg', style: 'tiling')
 PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
 
-tb = TextBox.create(style: 'full-margins',
+tb = TextBox.create(style: 'full-no-margins',
                     text: %{
+<p class="xlarge right">SVMG</p>
+})
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fixed-grid-right:-1col")
 
-<span class="xlarge">SVMG</span>
-<span class="large grayLight">
-Jinan Rd, Section 2, No. 33, 5F
-Taipei, TW
-09-83 500 111 | <a href="">nihao@svmg.com</a>
-</span>
-},
-                    text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%")
+tb = TextBox.create(style: 'full-no-margins',
+                    text: %{
+<p class="large grayLight left">
+Jinan Rd, Section 2, No. 33, 5F<br />Taipei, TW<br />09-83 500 111 | <a href="">nihao@svmg.com</a>
+</p>
+})
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fixed-grid-left:0col")

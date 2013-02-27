@@ -7,6 +7,7 @@ end
 site = Site.create(name: site_name, show_nav: false)
 site.domains.create(domain: "svmg.localhost")
 site.domains.create(domain: "svmg.lijentandotcom.herokuapp.com")
+site.domains.create(domain: "lijentandotcom.herokuapp.com")
 
 ############# SPLASH PAGE #############
 p = Post.create(title: "SVMG",
@@ -35,7 +36,7 @@ p = Post.create(title: "Brand Representation",
                 show_header: false,
                 site: site,
                 space: "mid-to-foreground",
-                height: "full-screen",
+                height: "180%",
                 display_order: 2)
 
 tb = TextBox.create(style: 'full-margins',
@@ -43,19 +44,26 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLight xlarge">&#8595;</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-top:10px;fluid-h:50%")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fixed-top:10px;fluid-h:50%", effects: 'scroll_fade_out-hide-hide', animation_type: 'three-phase', animation_direction: 'roll-fixed-fixed')
 
 
 tb = TextBox.create(style: 'full-no-margins',
+                    text_align: "center",
                     text: %{
 <h1 class="massive orange">Stay Hungry.</h1>
+})
 
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fluid-h:50%", effects: 'hide-scroll_fade_in-show', animation_type: 'three-phase', animation_direction: 'fixed-fixed-roll')
+
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text_align: "center",
+                    text: %{
 <h2 class="xlarge">Brand Representation</h2>
 
 <p class="grayLight large">SVMG works with amazing brands to take them to even greater heights</p>
-},
-                    text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fluid-h:50%")
+})
+PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-v:25%;fluid-h:50%")
 
 
 ############# Brand Rep Brands #############

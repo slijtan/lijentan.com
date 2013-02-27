@@ -536,10 +536,10 @@ update_three_phase_effects = (element) ->
                         element.css({opacity: 0})
                 when 'show'
                         element.css({opacity: 1})
-                when 'fade_in' #needs work...
-                        element.fadeIn()
-                when 'fade_out' #needs work...
-                        element.fadeOut()
+                when 'fade_in'
+                        element.stop().animate({opacity:1})
+                when 'fade_out'
+                        element.stop().animate({opacity:0})
 
         element.data('phase', phase)
 

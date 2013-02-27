@@ -459,7 +459,9 @@ set_fixed_positions = ->
                 y = (full_height - coordinate - sprite_height) + "px"
                 set_background_position_y($(this), y)
 
-initialize_three_phase_positions = -> $('.three-phase').each -> $(this).addClass($(this).data('animation-direction').split("-").shift())
+initialize_three_phase_positions = ->
+        $('.three-phase').each ->
+                $(this).addClass($(this).data('animation-direction').split("-").shift())
 
 
 fluid_to_cartesian = (coordinate, length, full_length) ->
@@ -674,6 +676,14 @@ $ ->
         #INITIALIZERS
         calculate_total_articles_on_page()
         setup_posts()
+
+        #TODO move/refactor this, it also appears in window.scroll
+        $('.text-box.fixed, .text-box.fixed-scan').each ->
+                if $(this).parent('article').overlaps($(this))
+                        $(this).css('visibility', 'visible')
+                else
+                        $(this).css('visibility', 'hidden')
+
 
         $(window).resize ->
                 setup_positions()

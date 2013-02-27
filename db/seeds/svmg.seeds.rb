@@ -86,18 +86,18 @@ PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-bottom:0p
 
 tb = TextBox.create(style: 'single-column-text',
                     text: %{
-<h1 class="huge">MLBAM</h1>
+<h1 class="huge right">MLBAM</h1>
 
 <p class="grayLighter">MLBAM is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
 })
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-bottom:250px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 
 tb = TextBox.create(style: 'single-column-text',
                     text: %{
 <h1 class="large grayLight right">Major League Baseball Advanced Media</h1>
 })
-PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-right:-1col;fixed-bottom:317px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-right:-1col;fixed-top:273px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
 
 =begin
 tb = TextBox.create(style: 'single-column-text',
@@ -107,54 +107,103 @@ tb = TextBox.create(style: 'single-column-text',
 PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:85%;fixed-bottom:350px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
 =end
 
+
+p = Post.create(title: "Divider",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "50%",
+                display_order: 4)
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text_align: "center",
+                    text: %{
+<h1 class="massive">DIVIDER</h1>
+})
+
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fluid-h:50%")
+
+
 p = Post.create(title: "UFC",
                 published: true,
                 show_header: false,
                 site: site,
-                height: "500px",
+                height: "150%",
                 bg_color: '#000',
                 space: 'background',
-                display_order: 4)
-
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logotype-ufc.jpg', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1, position: "fixed-left:0px;fluid-v:50%", animation_type: "scan", animation_direction: "right")
-
-
-############# CONSULTING  #############
-p = Post.create(title: "Consulting",
-                published: true,
-                show_header: false,
-                site: site,
-                space: "mid-to-foreground",
-                height: "full-screen",
-                depth: 2,
                 display_order: 5)
 
-tb = TextBox.create(style: 'full-margins',
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence.jpg', style: 'cover')
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-kick.png', style: 'full-height')
+PostElement.create(post: p, element: s, sequence: 2, position: "fluid-v:50%", animation_type: "fixed-scan", animation_direction: "right")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-block.png', style: 'full-height')
+PostElement.create(post: p, element: s, sequence: 3, position: "fluid-v:50%", animation_type: "fixed-scan", animation_direction: "left")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence-front.png', style: 'cover')
+PostElement.create(post: p, element: s, sequence: 4, position: "fixed-top:0px;fixed-left:0px", animation_type: "scan", animation_direction: "up")
+
+tb = TextBox.create(style: 'single-column-text',
                     text: %{
-<h1 class="xlarge">CONSULTING</h1>
+<h1 class="huge right">UFC</h1>
 
-Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they're actually proud of that shit.
-},
-                    text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+<p class="grayLighter">UFC is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
+})
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 
-############# SOCIAL MEDIA  #############
-p = Post.create(title: "Consulting",
+tb = TextBox.create(style: 'single-column-text',
+                    text: %{
+<h1 class="large grayLight right">Ultimate Fighting Championship</h1>
+})
+PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-grid-left:-1col;fixed-bottom:217px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
+
+
+
+############# CONTACT  #############
+p = Post.create(title: "Contact",
                 published: true,
                 show_header: false,
                 site: site,
-                space: "mid-to-foreground",
-                height: "full-screen",
-                depth: 1,
+                height: "100%",
+                space: nil,
+                depth: 2,
                 display_order: 6)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/eggshell.jpg', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
+
+tb = TextBox.create(style: 'full-no-margins',
+                    text_align: "center",
+                    text: %{
+<h1 class="massive orange">Get In Touch.</h1>
+})
+
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fluid-h:50%", effects: 'show-show-scroll_fade_out', animation_type: 'fixed')
+
+p = Post.create(title: "Contact Info",
+                published: true,
+                show_header: false,
+                site: site,
+                height: "100%",
+                space: nil,
+                depth: 1,
+                display_order: 7)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/eggshell.jpg', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
-<h1 class="xlarge">SOCIAL MEDIA</h1>
-
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+<span class="large">
+Jinan Rd, Section 2, No. 33, 5F
+Taipei, TW
+09-83-500- 111
+<a href="">nihao@svmg.com</a>
+</span>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fluid-h:50%")

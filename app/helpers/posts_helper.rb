@@ -128,6 +128,7 @@ module PostsHelper
     styles << "z-index: #{post_element.sequence}" if post_element.sequence
     styles << "background: url(#{text_box.background_image_url}) repeat" if text_box.background_image_url
     styles << "background-color: #{text_box.bg_color}" unless text_box.bg_color.blank?
+    styles << text_box.css if text_box.css
     styles.concat(position_css)
 
     data = {}

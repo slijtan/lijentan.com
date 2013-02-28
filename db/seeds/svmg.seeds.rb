@@ -85,10 +85,11 @@ tb = TextBox.create(style: 'full-margins',
 PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-bottom:0px", animation_type: "fixed-scan", animation_direction: "right")
 
 tb = TextBox.create(style: 'single-column-text',
+                    css: 'border-left:3px white solid',
                     text: %{
-<h1 class="huge right">MLBAM</h1>
+<h1 class="huge right" style="margin-top:-30px">MLBAM</h1>
 
-<p class="grayLighter">MLBAM is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
+<p class="grayLighter" style="margin-bottom:-5px">MLBAM is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
 })
 PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
@@ -97,7 +98,7 @@ tb = TextBox.create(style: 'single-column-text',
                     text: %{
 <h1 class="large grayLight right">Major League Baseball Advanced Media</h1>
 })
-PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-right:-1col;fixed-top:273px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-right:-1col;fixed-top:233px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
 
 p = Post.create(title: "Divider",
                 published: true,
@@ -144,10 +145,11 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence-front.png
 PostElement.create(post: p, element: s, sequence: 4, position: "fixed-top:0px;fixed-left:0px", animation_type: "scan", animation_direction: "up")
 
 tb = TextBox.create(style: 'single-column-text',
+                    css: 'border-right:3px white solid',
                     text: %{
-<h1 class="huge right">UFC</h1>
+<h1 class="huge right" style="margin-top:-30px">UFC</h1>
 
-<p class="grayLighter">UFC is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
+<p class="grayLighter" style="margin-bottom:-5px">UFC is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
 })
 PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
@@ -156,7 +158,7 @@ tb = TextBox.create(style: 'single-column-text',
                     text: %{
 <h1 class="large grayLight right">Ultimate Fighting Championship</h1>
 })
-PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-grid-left:-1col;fixed-bottom:217px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-grid-left:-1col;fixed-bottom:202px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
 
 
 p = Post.create(title: "Divider",
@@ -216,15 +218,20 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/eggshell.jpg', styl
 PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-no-margins',
+                    css: 'padding-right:0px',
                     text: %{
 <p class="xlarge right">SVMG</p>
 })
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fixed-grid-right:-1col")
 
 tb = TextBox.create(style: 'full-no-margins',
+                    css: 'padding-left:0px',
                     text: %{
-<p class="large grayLight left">
-Jinan Rd, Section 2, No. 33, 5F<br />Taipei, TW<br />09-83 500 111 | <a href="">nihao@svmg.com</a>
+
+<p class="grayLight left">
+Brand Representation. Consulting. Social Media.<br />
+Press: <a href="mailto:press@svmg.tw">press@svmg.com</a><br />
+Business: <a href="mailto:business@svmg.tw">business@svmg.com</a>
 </p>
 })
 PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fixed-grid-left:0col")

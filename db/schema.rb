@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226111821) do
+ActiveRecord::Schema.define(:version => 20130228105647) do
 
   create_table "album_elements", :force => true do |t|
     t.integer "album_id"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20130226111821) do
     t.string  "text_color"
     t.string  "text_align"
     t.string  "background_image_url"
+    t.string  "css"
   end
 
   create_table "videos", :force => true do |t|

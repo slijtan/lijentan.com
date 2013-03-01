@@ -8,7 +8,11 @@ class PostsController < ApplicationController
     offset = params[:offset] || 0
     @space_of_last_post = params[:space_of_last_post]
 
-    @posts = @site.posts.where(published: true).order('display_order ASC, date_published DESC').offset(offset).limit(items_per_page)
+    if @site.show_nav
+      @posts = @site.posts.where(published: true).order('display_order ASC, date_published DESC').offset(offset).limit(items_per_page)
+    else
+      @posts = @site.posts.where(published: true).order('display_order ASC, date_published DESC')
+    end
 
     respond_to do |format|
       format.html # index.html.erb

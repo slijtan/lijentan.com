@@ -9,10 +9,10 @@ site.domains.create(domain: "svmg.localhost")
 site.domains.create(domain: "svmg.lijentandotcom.herokuapp.com")
 site.domains.create(domain: "lijentandotcom.herokuapp.com")
 
-site.site_style.update_attributes(body_font_data: {
-                                    font_code: "<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>",
-                                    font_family: "'Lato', sans-serif"
-                                  })
+#site.site_style.update_attributes(body_font_data: {
+#                                    font_code: "<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>",
+#                                    font_family: "'Lato', sans-serif"
+#                                  })
 
 
 ############# SPLASH PAGE #############

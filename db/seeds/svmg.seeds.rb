@@ -9,6 +9,12 @@ site.domains.create(domain: "svmg.localhost")
 site.domains.create(domain: "svmg.lijentandotcom.herokuapp.com")
 site.domains.create(domain: "lijentandotcom.herokuapp.com")
 
+site.site_style.update_attributes(body_font_data: {
+                                    font_code: "<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>",
+                                    font_family: "'Lato', sans-serif"
+                                  })
+
+
 ############# SPLASH PAGE #############
 p = Post.create(title: "SVMG",
                 published: true,
@@ -50,7 +56,7 @@ p = Post.create(title: "Brand Representation",
 tb = TextBox.create(style: 'full-no-margins',
                     text_align: "center",
                     text: %{
-<h1 class="massive orange">Stay Hungry.</h1>
+<h1 class="huge orange">Stay Hungry.</h1>
 })
 
 PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fluid-h:50%", effects: 'hide-scroll_fade_in-show', animation_type: 'three-phase', animation_direction: 'fixed-fixed-roll')
@@ -77,28 +83,50 @@ p = Post.create(title: "MLBAM",
                 depth: 3,
                 display_order: 3)
 
+=begin
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-mlb.jpg', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-right:0px;fluid-v:50%", animation_type: "fixed-scan", animation_direction: "right")
 
 tb = TextBox.create(style: 'full-margins',
                     text: "<h1 class='massive'>&#149;</h1>")
 PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-bottom:0px", animation_type: "fixed-scan", animation_direction: "right")
+=end
+
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/mlb-pitcher.jpg', style: 'cover')
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed-scan", animation_direction: "left")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/mlb-baseball.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 2, position: "fluid-v:55%", animation_type: "fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/mlb-batter.png', style: 'full-height')
+PostElement.create(post: p, element: s, sequence: 3, position: "fluid-v:50%", animation_type: "fixed-scan", animation_direction: "left")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/mlb-ump.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 4, position: "fluid-h:100%;fluid-v:100%", animation_type: "fixed")
+
+
+
 
 tb = TextBox.create(style: 'single-column-text',
                     css: 'border-left:3px white solid',
                     text: %{
-<h1 class="huge right" style="margin-top:-30px">MLBAM</h1>
+<p class="right"><img src='http://dl.dropbox.com/u/4893047/svmg/mlb-logo.png' /></p>
 
-<p class="grayLighter" style="margin-bottom:-5px">MLBAM is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
+<h1 class="huge right" style="margin-top:0px;line-height:90px">MLBAM</h1>
+
+<h2 class="large grayLight right">Major League Baseball Advanced Media</h2>
+
+<p class="grayLighter" style="margin-bottom:0px">MLBAM is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
 })
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-right:-1col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 
 tb = TextBox.create(style: 'single-column-text',
                     text: %{
 <h1 class="large grayLight right">Major League Baseball Advanced Media</h1>
 })
-PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-right:-1col;fixed-top:233px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
+#PostElement.create(post: p, element: tb, sequence: 4, position: "fixed-grid-right:-1col;fixed-top:233px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
 
 p = Post.create(title: "Divider",
                 published: true,
@@ -133,7 +161,7 @@ p = Post.create(title: "UFC",
                 display_order: 5)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence.jpg', style: 'cover')
-PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed") #animation_type: "three-phase", animation_direction: "roll-fixed-fixed")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-kick.png', style: 'full-height')
 PostElement.create(post: p, element: s, sequence: 2, position: "fluid-v:50%", animation_type: "fixed-scan", animation_direction: "right")
@@ -147,9 +175,12 @@ PostElement.create(post: p, element: s, sequence: 4, position: "fixed-top:0px;fi
 tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:3px white solid',
                     text: %{
-<h1 class="huge right" style="margin-top:-30px">UFC</h1>
+<p class="right"><img src='http://dl.dropbox.com/u/4893047/svmg/ufc-logo.png' /></p>
+<h1 class="huge right" style="margin-top:0px;line-height:90px">UFC</h1>
 
-<p class="grayLighter" style="margin-bottom:-5px">UFC is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
+<h2 class="large grayLight right">Ultimate Fighting Championship</h2>
+
+<p class="grayLighter" style="margin-bottom:0px">UFC is the digital and interactive media arm of Major League Baseball.  They are frickin awesome blah blah blah oh and they’re also so awesome that blah blah blah blah</p>
 })
 PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
@@ -158,7 +189,7 @@ tb = TextBox.create(style: 'single-column-text',
                     text: %{
 <h1 class="large grayLight right">Ultimate Fighting Championship</h1>
 })
-PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-grid-left:-1col;fixed-bottom:202px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
+#PostElement.create(post: p, element: tb, sequence: 6, position: "fixed-grid-left:-1col;fixed-bottom:202px", animation_type: "three-phase", animation_direction: "roll-fixed-roll")
 
 
 p = Post.create(title: "Divider",
@@ -190,21 +221,26 @@ p = Post.create(title: "Contact",
                 show_header: false,
                 site: site,
                 height: "100%",
-                space: nil,
+                space: 'background',
                 depth: 2,
                 display_order: 7)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/eggshell.jpg', style: 'tiling')
-PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
+#PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/divider-background-top.png', style: 'repeat-x')
+#PostElement.create(post: p, element: s, sequence: 2, position: "fixed-top:0px")
+
 
 tb = TextBox.create(style: 'full-no-margins',
                     text_align: "center",
                     text: %{
-<h1 class="massive orange">Get In Touch.</h1>
+<h1 class="huge orange">Get In Touch.</h1>
 })
 
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fluid-h:50%", effects: 'show-show-scroll_fade_out', animation_type: 'fixed')
+#PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-v:50%;fluid-h:50%", effects: 'scroll_fade_out-hide-hide', animation_type: 'fixed')
 
+=begin
 p = Post.create(title: "Contact Info",
                 published: true,
                 show_header: false,
@@ -213,16 +249,17 @@ p = Post.create(title: "Contact Info",
                 space: nil,
                 depth: 1,
                 display_order: 8)
+=end
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/eggshell.jpg', style: 'tiling')
-PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
+#PostElement.create(post: p, element: s, sequence: 1, animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-no-margins',
                     css: 'padding-right:0px',
                     text: %{
 <p class="xlarge right">SVMG</p>
 })
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fixed-grid-right:-1col")
+PostElement.create(post: p, element: tb, sequence: 4, position: "fluid-v:50%;fixed-grid-right:-1col", animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-no-margins',
                     css: 'padding-left:0px',
@@ -234,4 +271,4 @@ Press: <a href="mailto:press@svmg.tw">press@svmg.com</a><br />
 Business: <a href="mailto:business@svmg.tw">business@svmg.com</a>
 </p>
 })
-PostElement.create(post: p, element: tb, sequence: 1, position: "fluid-v:50%;fixed-grid-left:0col")
+PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-v:50%;fixed-grid-left:0col", animation_type: "fixed")

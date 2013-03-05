@@ -5,7 +5,7 @@ end
 
 site = Site.create(name: site_name, show_nav: false)
 site.domains.create(domain: "smashing.localhost")
-site.domains.create(domain: "smashing.lijentandotcom.herokuapp.com")
+site.domains.create(domain: "smashing.lijentan.com")
 
 site.site_style.update_attributes(font_color_data: {
                                     font_color: "#fff",

@@ -4,9 +4,9 @@ if site = Site.find_by_name(site_name)
   site.destroy
 end
 
-site = Site.create(name: site_name, show_nav: true)
+site = Site.create(name: site_name, show_nav: false)
 site.domains.create(domain: "manual.localhost")
-site.domains.create(domain: "manual.lijentandotcom.herokuapp.com")
+site.domains.create(domain: "manual.lijentan.com")
 
 ######################################## SPLASH
 p = Post.create(title: "Instruction Manual",

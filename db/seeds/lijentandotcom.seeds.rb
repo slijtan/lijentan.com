@@ -10,7 +10,6 @@ site = Site.create(name: site_name,
 site.domains.create(domain: "lijentan.localhost")
 site.domains.create(domain: "lijentan.com")
 site.domains.create(domain: "www.lijentan.com")
-site.domains.create(domain: "blog.lijentandotcom.herokuapp.com")
 
 hp = Post.create(title: "Lijen's Blog",
                  published: false,

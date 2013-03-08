@@ -240,6 +240,37 @@ p = Post.create(title: "Taiwan Mobile",
                 depth: 1,
                 display_order: 11)
 
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-sky.jpg', style: 'cover')
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons1.png', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 2, animation_type: "fixed-scan", animation_direction: "up", position: "fixed-left:0px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons2.png', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 3, animation_type: "fixed-scan", animation_direction: "down", position: "fixed-left:0px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons3.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 4, position: "fluid-h:75%;fluid-v:15%")
+
+
+=begin
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloon-red.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 2, position: "fluid-h:10%", animation_type: "fixed-scan", animation_direction: "up")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloon-orange.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 4, position: "fluid-h:30%", animation_type: "fixed-scan", animation_direction: "up")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloon-yellow.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:50%", animation_type: "fixed-scan", animation_direction: "up")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloon-green.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 3, position: "fluid-h:80%", animation_type: "fixed-scan", animation_direction: "up")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloon-blue.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 6, position: "fluid-h:95%", animation_type: "fixed-scan", animation_direction: "up")
+=end
+
+=begin
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-background.jpg', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
 
@@ -251,13 +282,13 @@ PostElement.create(post: p, element: s, sequence: 3, animation_type: "fixed-scan
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-ball3.png', style: 'image')
 #PostElement.create(post: p, element: s, sequence: 4, position: "fluid-v:75%;fluid-h:85%")
-
+=end
 
 tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:3px white solid',
                     text: %{
-<h1 class="huge right" style="margin-top:20px;line-height:90px">Taiwan Mobile</h1>
-<h2 class="large grayLight right">Some Subtext Here</h2>
+<h1 class="huge right" style="margin-top:20px;line-height:90px"><img src='http://dl.dropbox.com/u/4893047/svmg/twm-logo.png' style='height:82px;margin-right:7px' />TWM</h1>
+<h2 class="large grayLight right">Taiwan Mobile</h2>
 <p class="grayLighter">
 MLBAM is the digital and interactive media arm of Major League Baseball. Considered the gold standard of online sports operations, it is the greatest Internet company that you&rsquo;ve never heard of.
 </p>
@@ -265,7 +296,7 @@ MLBAM is the digital and interactive media arm of Major League Baseball. Conside
 There&rsquo;s a reason why ESPN asked MLBAM to stream all of their content and why CBS needed them to handle all the online broadcasts of March Madness. Quite simply, nobody handles online content better than MLBAM.
 </p>
 })
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-grid-right:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 
 p = Post.create(title: "Divider",

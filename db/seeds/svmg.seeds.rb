@@ -235,7 +235,7 @@ p = Post.create(title: "Taiwan Mobile",
                 show_header: false,
                 site: site,
                 height: "150%",
-                bg_color: '#000',
+                bg_color: '#ff6f00',
                 space: 'background',
                 depth: 1,
                 display_order: 11)

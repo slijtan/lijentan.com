@@ -5,6 +5,7 @@
     margin: 0 auto;
     position: relative;
     padding: 0 $baseLineHeight;
+    max-width: 100%;
 
     &.full-margins {
         width: $gridRowWidth;

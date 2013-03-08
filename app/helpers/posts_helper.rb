@@ -44,6 +44,7 @@ module PostsHelper
     classes << "sprite"
     classes << sprite.style
     classes << post_element.animation_type if post_element.animation_type
+    classes << "desktop-only" if post_element.media_flag == 1
     classes.concat(position_classes)
 
     styles = []
@@ -119,6 +120,7 @@ module PostsHelper
     classes << post_element.animation_type if post_element.animation_type
     classes << post_element.three_phase_initial if post_element.animation_type == "three-phase"
     classes << "three-phase-effects" if post_element.effects
+    classes << "desktop-only" if post_element.media_flag == 1
     classes.concat(position_classes)
 
     styles = []

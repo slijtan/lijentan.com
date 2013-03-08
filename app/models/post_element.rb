@@ -1,11 +1,14 @@
 class PostElement < ActiveRecord::Base
-  attr_accessible :animation_direction, :animation_type, :element_id, :element_type, :element, :position, :post_id, :sequence, :post, :effects
+  attr_accessible :animation_direction, :animation_type, :element_id, :element_type, :element, :position, :post_id, :sequence, :post, :effects, :media_flag
 
   belongs_to :element, polymorphic: true, dependent: :destroy
   belongs_to :post
 
   validates_presence_of :element
   validates_inclusion_of :animation_type, in: %w[scan fixed fixed-scan three-phase], allow_nil: true
+  #TODO: make this a bitmask
+  #0 is all, 1 desktop-only, 2 is mobile-only
+  validates_inclusion_of :media_flag, in: [0, 1, 2]
 
   #position validation, examples are top: 2px; left; center; right; top; bottom; inline;
 

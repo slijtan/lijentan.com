@@ -38,9 +38,7 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLighter xlarge">&#8595;</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:10px;fluid-h:50%", effects: 'fade_out-fade_out-fade_out')
-
-
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:10px;fluid-h:50%", effects: 'fade_out-fade_out-fade_out', media_flag: 1)
 
 
 ############# Brand Rep #############
@@ -59,17 +57,15 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg-large.png
 
 tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:3px #999999 solid',
-                    text: %{<h1 class="xlarge right" style="margin-top:-27px;height:228px">SVMG</h2>
-})
+                    text: '<h1 class="xlarge right" style="margin-top:-27px;height:228px">SVMG</h2>')
+
 PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:40px;fixed-grid-right:-1col")
 
 tb = TextBox.create(style: 'single-column-text',
                     css: 'padding-left:0px',
-                    text: %{
-<p class="grayLight">Everyday more and more companies are facing the challenges of growing and adapting their business for new market entry and expansion plans.</p>
+                    text: %{<p class="grayLight">Everyday more and more companies are facing the challenges of growing and adapting their business for new market entry and expansion plans.</p>
 <p class="grayLight">Whether it’s leveraging our unique experiences and resources, advising on cultural issues and business protocols, or crafting a customized strategy, SVMG is committed to providing our clients with the tools they need in order to thrive in an ever-evolving globalized marketplace.</p>
-<p class="grayLight"><em>SVMG works with amazing brands to take them to even greater heights.</em></p>
-})
+<p class="grayLight"><em>SVMG works with amazing brands to take them to even greater heights.</em></p>})
 PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-top:40px;fixed-grid-left:0col") #, animation_type: 'scan', animation_direction: 'up')
 
 tb = TextBox.create(style: 'full-margins',
@@ -126,7 +122,7 @@ PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-bottom:0p
 tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:3px white solid',
                     text: %{
-<h1 class="huge right" style="margin-top:-6px;line-height:90px">MLBAM</h1>
+<h1 class="huge right" style="margin-top:20px;line-height:90px">MLBAM</h1>
 
 <h2 class="large grayLight right">Major League Baseball Advanced Media</h2>
 
@@ -138,7 +134,7 @@ MLBAM is the digital and interactive media arm of Major League Baseball. Conside
 There&rsquo;s a reason why ESPN asked MLBAM to stream all of their content and why CBS needed them to handle all the online broadcasts of March Madness. Quite simply, nobody handles online content better than MLBAM.
 </p>
 
-<p class="grayLighter" style="margin-bottom:0px">
+<p class="grayLighter" style="margin-bottom:26px">
 That&rsquo;s why when MLBAM reached out to SVMG to ask for help in growing their business, we couldn’t say yes fast enough.
 </p>
 })
@@ -157,10 +153,22 @@ p = Post.create(title: "Divider",
 tb = TextBox.create(style: 'single-line-text',
                     text: %{
 <h2 class="center"><em>&ldquo;With Taiwan having such a rich history of baseball, it only made sense for MLBAM to find a great partner to advise us on the ground. From deal sourcing to strategic planning, SVMG has exceeded our loftiest expectations.&rdquo;</em></h2>
+})
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px", animation_type: 'scan', animation_direction: 'right')
+
+tb = TextBox.create(style: 'full-margins',
+                    text: %{
 <h3 class="gray right">- Alex Pigeon, Vice President International</h3>
 })
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:30px", animation_type: 'scan', animation_direction: 'left')
 
-PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:35px;fluid-h:50%")
+
+tb = TextBox.create(style: 'single-line-text',
+                    text: %{
+<h2 class="center"><em>&ldquo;With Taiwan having such a rich history of baseball, it only made sense for MLBAM to find a great partner to advise us on the ground. From deal sourcing to strategic planning, SVMG has exceeded our loftiest expectations.&rdquo;</em></h2>
+<h3 class="gray right">- Alex Pigeon, Vice President International</h3>
+})
+#PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:35px;fluid-h:50%")
 
 p = Post.create(title: "UFC",
                 published: true,
@@ -187,7 +195,7 @@ PostElement.create(post: p, element: s, sequence: 4, position: "fixed-top:0px;fi
 tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:3px white solid',
                     text: %{
-<h1 class="huge right" style="margin-top:-6px;line-height:90px"><img src='http://dl.dropbox.com/u/4893047/svmg/ufc-logo.png' style='height:82px;margin-right:7px' />UFC</h1>
+<h1 class="huge right" style="margin-top:20px;line-height:90px"><img src='http://dl.dropbox.com/u/4893047/svmg/ufc-logo.png' style='height:82px;margin-right:7px' />UFC</h1>
 
 <h2 class="large grayLight right">Ultimate Fighting Championship</h2>
 
@@ -195,7 +203,7 @@ tb = TextBox.create(style: 'single-column-text',
 One year before signing its landmark deal with FOX in 2011 which catapulted the world&rsquo;s fastest growing sports organization into the mainstream, the UFC announced the launch of operations in Asia with the opening of its Beijing office.
 </p>
 
-<p class="grayLighter" style="margin-bottom:0px">
+<p class="grayLighter" style="margin-bottom:26px">
 Because of its dedication and commitment to growing the UFC brand across Asia, SVMG and the UFC were able to find each other quickly, creating one of the greatest one-two punch combinations in Mixed Martial Arts history.
 </p>
 })

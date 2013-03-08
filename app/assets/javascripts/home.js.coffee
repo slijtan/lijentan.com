@@ -670,6 +670,8 @@ setup_positions = ->
 
 
 $ ->
+        return if (document.documentElement.clientWidth <= 915) #kinda arbitrary, but where the svmg page breaks down...
+
         modal.setup()
         loading.setup()
 

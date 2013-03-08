@@ -226,6 +226,65 @@ capicola ribeye. Short loin spare ribs venison&rdquo;</em></h2>
 
 PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px;fluid-h:50%")
 
+
+
+############# Taiwan Mobile #############
+
+p = Post.create(title: "Taiwan Mobile",
+                published: true,
+                show_header: false,
+                site: site,
+                height: "150%",
+                bg_color: '#000',
+                space: 'background',
+                depth: 1,
+                display_order: 11)
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-background.jpg', style: 'cover')
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-ball1.png', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 2, animation_type: "fixed-scan", animation_direction: "down", position: "fixed-left:0px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-ball2.png', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 3, animation_type: "fixed-scan", animation_direction: "down", position: "fixed-left:0px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-ball3.png', style: 'image')
+#PostElement.create(post: p, element: s, sequence: 4, position: "fluid-v:75%;fluid-h:85%")
+
+
+tb = TextBox.create(style: 'single-column-text',
+                    css: 'border-right:3px white solid',
+                    text: %{
+<h1 class="huge right" style="margin-top:20px;line-height:90px">Taiwan Mobile</h1>
+<h2 class="large grayLight right">Some Subtext Here</h2>
+<p class="grayLighter">
+MLBAM is the digital and interactive media arm of Major League Baseball. Considered the gold standard of online sports operations, it is the greatest Internet company that you&rsquo;ve never heard of.
+</p>
+<p class="grayLighter">
+There&rsquo;s a reason why ESPN asked MLBAM to stream all of their content and why CBS needed them to handle all the online broadcasts of March Madness. Quite simply, nobody handles online content better than MLBAM.
+</p>
+})
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+
+p = Post.create(title: "Divider",
+                published: true,
+                show_header: false,
+                site: site,
+                space: "foreground",
+                height: "300px",
+                display_order: 12)
+
+tb = TextBox.create(style: 'single-line-text',
+                    text: %{
+<h2 class="center"><em>&ldquo;Bacon ipsum dolor sit amet pork loin ham hock tenderloin, pig chuck shoulder biltong ribeye short loin flank pancetta tongue ball tip. Turducken tongue tail
+capicola ribeye. Short loin spare ribs venison&rdquo;</em></h2>
+<h3 class="gray right">- Mark Fischer, Managing Director UFC Asia</h3>
+})
+
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px;fluid-h:50%")
+
 ############# CONTACT  #############
 p = Post.create(title: "Contact",
                 published: true,
@@ -233,7 +292,7 @@ p = Post.create(title: "Contact",
                 site: site,
                 space: "background",
                 height: "100%",
-                display_order: 11)
+                display_order: 13)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixed-top:250px;", animation_type: "fixed")

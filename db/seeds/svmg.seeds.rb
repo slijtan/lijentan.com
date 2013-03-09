@@ -325,6 +325,12 @@ p = Post.create(title: "Contact",
                 height: "100%",
                 display_order: 13)
 
+tb = TextBox.create(style: 'full-margins',
+                    text_align: "center",
+                    text: "<h2>We'd love to hear from you.</h2>")
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:100px;", animation_type: "fixed", effects: 'scroll_fade_in-show-show')
+
+
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixed-top:250px;", animation_type: "fixed")
 

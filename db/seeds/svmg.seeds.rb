@@ -124,7 +124,7 @@ tb = TextBox.create(style: 'single-column-text',
                     text: %{
 <h1 class="huge right" style="margin-top:20px;line-height:90px">MLBAM</h1>
 
-<h2 class="large grayLighter right">Major League Baseball Advanced Media</h2>
+<h2 class="large grayLight right">Major League Baseball Advanced Media</h2>
 
 <p class="grayLighter">
 MLBAM is the digital and interactive media arm of Major League Baseball. Considered the gold standard of online sports operations, it is the greatest Internet company that you&rsquo;ve never heard of.
@@ -180,7 +180,10 @@ p = Post.create(title: "UFC",
                 depth: 2,
                 display_order: 9)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence.jpg', style: 'cover')
+#s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence.jpg', style: 'cover')
+#PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence2.jpg', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fighter1.png', style: 'full-height')
@@ -197,7 +200,7 @@ tb = TextBox.create(style: 'single-column-text',
                     text: %{
 <h1 class="huge right" style="margin-top:20px;line-height:90px"><img src='http://dl.dropbox.com/u/4893047/svmg/ufc-logo.png' style='height:82px;margin-right:7px' />UFC</h1>
 
-<h2 class="large grayLighter right">Ultimate Fighting Championship</h2>
+<h2 class="large grayLight right">Ultimate Fighting Championship</h2>
 
 <p class="grayLighter">
 One year before signing its landmark deal with FOX in 2011 which catapulted the world&rsquo;s fastest growing sports organization into the mainstream, the UFC announced the launch of operations in Asia with the opening of its Beijing office.
@@ -291,7 +294,7 @@ tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:3px white solid',
                     text: %{
 <h1 class="huge right" style="margin-top:20px;line-height:90px"><img src='http://dl.dropbox.com/u/4893047/svmg/twm-logo.png' style='height:82px;margin-right:7px' />TWM</h1>
-<h2 class="large grayLighter right">Taiwan Mobile</h2>
+<h2 class="large grayLight right">Taiwan Mobile</h2>
 <p class="grayLighter">
 MLBAM is the digital and interactive media arm of Major League Baseball. Considered the gold standard of online sports operations, it is the greatest Internet company that you&rsquo;ve never heard of.
 </p>
@@ -340,6 +343,6 @@ PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixe
 tb = TextBox.create(style: 'full-margins',
                     text_align: "center",
                     text: %{
-<p class="large">Press: <a href="mailto:press@svmg.tw" style="color:#FFF">press@svmg.com</a><br />Business: <a href="mailto:business@svmg.tw" style="color:#FFF">business@svmg.com</a></p>
+<p class="large">Press Inqueries: <a href="mailto:press@svmg.tw" style="color:#FFF">press@svmg.com</a><br />Business Inqueries: <a href="mailto:business@svmg.tw" style="color:#FFF">business@svmg.com</a></p>
 })
 PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:450px;", animation_type: "fixed")

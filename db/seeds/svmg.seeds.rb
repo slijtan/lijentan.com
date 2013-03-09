@@ -124,7 +124,7 @@ tb = TextBox.create(style: 'single-column-text',
                     text: %{
 <h1 class="huge right" style="margin-top:20px;line-height:90px">MLBAM</h1>
 
-<h2 class="large grayLight right">Major League Baseball Advanced Media</h2>
+<h2 class="large grayLighter right">Major League Baseball Advanced Media</h2>
 
 <p class="grayLighter">
 MLBAM is the digital and interactive media arm of Major League Baseball. Considered the gold standard of online sports operations, it is the greatest Internet company that you&rsquo;ve never heard of.
@@ -197,7 +197,7 @@ tb = TextBox.create(style: 'single-column-text',
                     text: %{
 <h1 class="huge right" style="margin-top:20px;line-height:90px"><img src='http://dl.dropbox.com/u/4893047/svmg/ufc-logo.png' style='height:82px;margin-right:7px' />UFC</h1>
 
-<h2 class="large grayLight right">Ultimate Fighting Championship</h2>
+<h2 class="large grayLighter right">Ultimate Fighting Championship</h2>
 
 <p class="grayLighter">
 One year before signing its landmark deal with FOX in 2011 which catapulted the world&rsquo;s fastest growing sports organization into the mainstream, the UFC announced the launch of operations in Asia with the opening of its Beijing office.
@@ -243,14 +243,17 @@ p = Post.create(title: "Taiwan Mobile",
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-sky.jpg', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons1.png', style: 'tiling')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons0.png', style: 'tiling')
 PostElement.create(post: p, element: s, sequence: 2, animation_type: "fixed-scan", animation_direction: "up", position: "fixed-left:0px")
 
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons1.png', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 3, animation_type: "fixed-scan", animation_direction: "up", position: "fixed-left:0px")
+
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons2.png', style: 'tiling')
-PostElement.create(post: p, element: s, sequence: 3, animation_type: "fixed-scan", animation_direction: "down", position: "fixed-left:0px")
+PostElement.create(post: p, element: s, sequence: 4, animation_type: "fixed-scan", animation_direction: "down", position: "fixed-left:0px")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons3.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 4, position: "fluid-h:75%;fluid-v:15%")
+PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:75%;fluid-v:15%")
 
 
 =begin
@@ -288,7 +291,7 @@ tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:3px white solid',
                     text: %{
 <h1 class="huge right" style="margin-top:20px;line-height:90px"><img src='http://dl.dropbox.com/u/4893047/svmg/twm-logo.png' style='height:82px;margin-right:7px' />TWM</h1>
-<h2 class="large grayLight right">Taiwan Mobile</h2>
+<h2 class="large grayLighter right">Taiwan Mobile</h2>
 <p class="grayLighter">
 MLBAM is the digital and interactive media arm of Major League Baseball. Considered the gold standard of online sports operations, it is the greatest Internet company that you&rsquo;ve never heard of.
 </p>

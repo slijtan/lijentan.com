@@ -193,7 +193,7 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fighter2.png', 
 PostElement.create(post: p, element: s, sequence: 2, position: "fluid-v:50%", animation_type: "fixed-scan", animation_direction: "right")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence-front.png', style: 'cover')
-PostElement.create(post: p, element: s, sequence: 4, position: "fixed-top:0px;fixed-left:0px", animation_type: "scan", animation_direction: "up")
+PostElement.create(post: p, element: s, sequence: 4, position: "fixed-top:0px;fixed-left:0px")
 
 tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:3px white solid',

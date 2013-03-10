@@ -8,10 +8,10 @@ site = Site.create(name: site_name, show_nav: false)
 site.domains.create(domain: "svmg.localhost")
 site.domains.create(domain: "svmg.lijentan.com")
 
-#site.site_style.update_attributes(body_font_data: {
-#                                    font_code: "<link href='http://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>",
-#                                    font_family: "'Lato', sans-serif"
-#                                  })
+site.site_style.update_attributes(body_font_data: {
+                                    font_code: "<link href='http://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet' type='text/css'>",
+                                    font_family: "'Anaheim', sans-serif"
+                                  })
 
 
 ############# SPLASH PAGE #############

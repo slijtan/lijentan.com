@@ -298,12 +298,8 @@ tb = TextBox.create(style: 'single-column-text',
                     text: %{
 <h1 class="huge right" style="margin-top:20px;line-height:90px"><img src='http://dl.dropbox.com/u/4893047/svmg/twm-logo.png' style='height:82px;margin-right:7px' />TWM</h1>
 <h2 class="large grayLight right">Taiwan Mobile</h2>
-<p class="grayLighter">
-MLBAM is the digital and interactive media arm of Major League Baseball. Considered the gold standard of online sports operations, it is the greatest Internet company that you&rsquo;ve never heard of.
-</p>
-<p class="grayLighter">
-There&rsquo;s a reason why ESPN asked MLBAM to stream all of their content and why CBS needed them to handle all the online broadcasts of March Madness. Quite simply, nobody handles online content better than MLBAM.
-</p>
+<p class="grayLighter">Taiwan Mobile has long been one of the most respected companies not only in the telecom industry, but across all of Taiwan. In every field they’ve entered, they’ve been innovators as well as disruptors. This is no different for their most recent undertaking, the myVideo service.</p>
+<p class="grayLighter">It gives us distinct pride to work along side Taiwan Mobile advising on key elements of this market defining service. From content acquisition to technical implementation, SVMG is honored to be a part of this team.</p>
 })
 PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-grid-right:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 

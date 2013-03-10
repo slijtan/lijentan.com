@@ -8,9 +8,13 @@ site = Site.create(name: site_name, show_nav: false)
 site.domains.create(domain: "svmg.localhost")
 site.domains.create(domain: "svmg.lijentan.com")
 
-site.site_style.update_attributes(body_font_data: {
-                                    font_code: "<link href='http://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet' type='text/css'>",
-                                    font_family: "'Anaheim', sans-serif"
+site.site_style.update_attributes(header_font_data: {
+                                    font_code: "<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'>",
+                                    font_family: "'Archivo Narrow', sans-serif"
+                                  },
+                                  body_font_data: {
+                                    font_code: "<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>",
+                                    font_family: "'Muli', sans-serif"
                                   })
 
 
@@ -47,26 +51,25 @@ p = Post.create(title: "About SVMG",
                 show_header: false,
                 site: site,
                 space: 'foreground',
-                height: "300px",
+                height: "75%",
                 depth: 25,
                 display_order: 2)
 
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg-large.png', style: 'image')
-#PostElement.create(post: p, element: s, sequence: 1, position: "fluid-v:90%;fluid-h:80%")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg-outline-large.png', style: 'image', width: 450, height: 447)
+PostElement.create(post: p, element: s, sequence: 1, position: "fluid-v:50%;fixed-grid-right:-2col")
 
 tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:3px #999999 solid',
                     text: '<h1 class="xlarge right" style="margin-top:-27px;height:228px">SVMG</h2>')
-
-PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:40px;fixed-grid-right:-1col")
+#PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fixed-grid-right:-1col")
 
 tb = TextBox.create(style: 'single-column-text',
                     css: 'padding-left:0px',
                     text: %{<p class="grayLight">Everyday more and more companies are facing the challenges of growing and adapting their business for new market entry and expansion plans.</p>
 <p class="grayLight">Whether it’s leveraging our unique experiences and resources, advising on cultural issues and business protocols, or crafting a customized strategy, SVMG is committed to providing our clients with the tools they need in order to thrive in an ever-evolving globalized marketplace.</p>
 <p class="grayLight"><em>SVMG works with amazing brands to take them to even greater heights.</em></p>})
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-top:40px;fixed-grid-left:0col") #, animation_type: 'scan', animation_direction: 'up')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-v:50%;fixed-grid-left:0col") #, animation_type: 'scan', animation_direction: 'up')
 
 tb = TextBox.create(style: 'full-margins',
                     text: %{
@@ -217,7 +220,7 @@ p = Post.create(title: "Divider",
                 show_header: false,
                 site: site,
                 space: "foreground",
-                height: "300px",
+                height: "255px",
                 display_order: 10)
 
 tb = TextBox.create(style: 'single-line-text',
@@ -310,7 +313,7 @@ p = Post.create(title: "Divider",
                 show_header: false,
                 site: site,
                 space: "foreground",
-                height: "300px",
+                height: "255px",
                 display_order: 12)
 
 tb = TextBox.create(style: 'single-line-text',
@@ -333,8 +336,8 @@ p = Post.create(title: "Contact",
 
 tb = TextBox.create(style: 'full-margins',
                     text_align: "center",
-                    text: "<h2>We'd love to hear from you.</h2>")
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:100px;", animation_type: "fixed", effects: 'scroll_fade_in-show-show')
+                    text: "<p class='large'>We'd love to hear from you.</p>")
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:120px;", animation_type: "fixed", effects: 'scroll_fade_in-show-show')
 
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image')

@@ -358,6 +358,6 @@ tb = TextBox.create(style: 'full-margins',
                     text_align: "center",
                     css: 'text-shadow:none',
                     text: %{
-<p class="large" style="line-height:22px">Press Inqueries: <a href="mailto:press@svmg.tw" style="color:#FFF">press@svmg.com</a><br />Business Inqueries: <a href="mailto:business@svmg.tw" style="color:#FFF">business@svmg.com</a></p>
+<p class="large" style="line-height:22px">Press Inqueries: <a href="mailto:press@svmg.tw" style="color:#FFF">press@svmg.tw</a><br />Business Inqueries: <a href="mailto:business@svmg.tw" style="color:#FFF">business@svmg.tw</a></p>
 })
 PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:450px;", animation_type: "fixed")

@@ -136,7 +136,8 @@ There&rsquo;s a reason why ESPN asked MLBAM to stream all of their content and w
 That&rsquo;s why when MLBAM reached out to SVMG to ask for help in growing their business, we couldn’t say yes fast enough.
 </p>
 })
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+#PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-h:20%;fluid-v:15%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 
 
@@ -210,7 +211,8 @@ One year before signing its landmark deal with FOX in 2011 which catapulted the 
 Because of its dedication and commitment to growing the UFC brand across Asia, SVMG and the UFC were able to find each other quickly, creating one of the greatest one-two punch combinations in Mixed Martial Arts history.
 </p>
 })
-PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+#PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:80%;fluid-v:80%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 p = Post.create(title: "Divider",
                 published: true,
@@ -298,7 +300,8 @@ tb = TextBox.create(style: 'single-column-text',
 <p class="grayLighter">Taiwan Mobile has long been one of the most respected companies not only in the telecom industry, but across all of Taiwan. In every field they’ve entered, they’ve been innovators as well as disruptors. This is no different for their most recent undertaking, the myVideo service.</p>
 <p class="grayLighter">It gives us distinct pride to work along side Taiwan Mobile advising on key elements of this market defining service. From content acquisition to technical implementation, SVMG is honored to be a part of this team.</p>
 })
-PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-grid-right:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+#PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-grid-right:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 7, position: "fluid-h:20%;fluid-v:80%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 
 p = Post.create(title: "Divider",

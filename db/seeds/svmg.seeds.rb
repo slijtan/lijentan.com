@@ -8,11 +8,7 @@ site = Site.create(name: site_name, show_nav: false)
 site.domains.create(domain: "svmg.localhost")
 site.domains.create(domain: "svmg.lijentan.com")
 
-site.site_style.update_attributes(header_font_data: {
-                                    font_code: "<link href='http://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'>",
-                                    font_family: "'Archivo Narrow', sans-serif"
-                                  },
-                                  body_font_data: {
+site.site_style.update_attributes(body_font_data: {
                                     font_code: "<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>",
                                     font_family: "'Muli', sans-serif"
                                   })
@@ -31,6 +27,7 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', sty
 PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixed-top:250px;", animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-margins',
+                    css: 'text-shadow:none',
                     text: %{
 <p class="large">Brand Representation - Consulting - Social Media</p>
 },
@@ -42,8 +39,10 @@ tb = TextBox.create(style: 'full-margins',
 <p class="grayLighter xlarge">&#8595;</p>
 },
                     text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:10px;fluid-h:50%", effects: 'fade_out-fade_out-fade_out', media_flag: 1)
+#PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:10px;fluid-h:50%", effects: 'fade_out-fade_out-fade_out', media_flag: 1)
 
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/svmg-arrow.png', style: 'image', width: 21, height: 70)
+PostElement.create(post: p, element: s, sequence: 3, position: "fixed-bottom:10px;fluid-h:50%", effects: 'fade_out-fade_out-fade_out', media_flag: 1)
 
 ############# Brand Rep #############
 p = Post.create(title: "About SVMG",
@@ -51,21 +50,21 @@ p = Post.create(title: "About SVMG",
                 show_header: false,
                 site: site,
                 space: 'foreground',
-                height: "75%",
+                height: "100%",
                 depth: 25,
                 display_order: 2)
 
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg-outline-large.png', style: 'image', width: 450, height: 447)
-PostElement.create(post: p, element: s, sequence: 1, position: "fluid-v:50%;fixed-grid-right:-2col")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg-outline-large.png', style: 'image', width: 350, height: 350)
+PostElement.create(post: p, element: s, sequence: 1, position: "fluid-v:50%;fixed-grid-right:-1col")
 
 tb = TextBox.create(style: 'single-column-text',
-                    css: 'border-right:3px #999999 solid',
+                    css: 'border-right:2px #999999 solid',
                     text: '<h1 class="xlarge right" style="margin-top:-27px;height:228px">SVMG</h2>')
 #PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fixed-grid-right:-1col")
 
 tb = TextBox.create(style: 'single-column-text',
-                    css: 'padding-left:0px',
+                    css: 'padding-left:0px;text-shadow:none',
                     text: %{<p class="grayLight">Everyday more and more companies are facing the challenges of growing and adapting their business for new market entry and expansion plans.</p>
 <p class="grayLight">Whether it’s leveraging our unique experiences and resources, advising on cultural issues and business protocols, or crafting a customized strategy, SVMG is committed to providing our clients with the tools they need in order to thrive in an ever-evolving globalized marketplace.</p>
 <p class="grayLight"><em>SVMG works with amazing brands to take them to even greater heights.</em></p>})
@@ -123,20 +122,16 @@ tb = TextBox.create(style: 'full-margins',
 PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-bottom:0px", animation_type: "fixed-scan", animation_direction: "right")
 
 tb = TextBox.create(style: 'single-column-text',
-                    css: 'border-right:3px white solid',
+                    css: 'border-right:2px white solid;text-shadow:none',
                     text: %{
 <h1 class="huge right" style="margin-top:20px;line-height:90px">MLBAM</h1>
-
-<h2 class="large grayLight right">Major League Baseball Advanced Media</h2>
-
+<p class="large grayLight right">Major League Baseball Advanced Media</p>
 <p class="grayLighter">
 MLBAM is the digital and interactive media arm of Major League Baseball. Considered the gold standard of online sports operations, it is the greatest Internet company that you&rsquo;ve never heard of.
 </p>
-
 <p class="grayLighter">
 There&rsquo;s a reason why ESPN asked MLBAM to stream all of their content and why CBS needed them to handle all the online broadcasts of March Madness. Quite simply, nobody handles online content better than MLBAM.
 </p>
-
 <p class="grayLighter" style="margin-bottom:26px">
 That&rsquo;s why when MLBAM reached out to SVMG to ask for help in growing their business, we couldn’t say yes fast enough.
 </p>
@@ -150,20 +145,22 @@ p = Post.create(title: "Divider",
                 show_header: false,
                 site: site,
                 space: "foreground",
-                height: "300px",
+                height: "182px",
                 display_order: 5)
 
 tb = TextBox.create(style: 'single-line-text',
+                    css: 'text-shadow:none',
                     text: %{
-<h2 class="center"><em>&ldquo;With Taiwan having such a rich history of baseball, it only made sense for MLBAM to find a great partner to advise us on the ground. From deal sourcing to strategic planning, SVMG has exceeded our loftiest expectations.&rdquo;</em></h2>
+<p class="right" style="font-size:22px;line-height:28px"><em>&ldquo;With such a passionate following for baseball in Taiwan, it was extremely important that MLBAM find the right partner to advise us on the ground. From deal sourcing to strategic planning, SVMG has exceeded our loftiest expectations.&rdquo;</em></p>
 })
-PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px", animation_type: 'scan', animation_direction: 'right')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px;fluid-h:50%") #, animation_type: 'scan', animation_direction: 'right')
 
 tb = TextBox.create(style: 'full-margins',
+                    css: 'text-shadow:none',
                     text: %{
-<h3 class="gray right">- Alex Pigeon, Vice President International</h3>
+<p class="gray right" style="font-size:20px">- Alex Pigeon, Vice President International</p>
 })
-PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:30px", animation_type: 'scan', animation_direction: 'left')
+PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:30px;fluid-h:50%") #, animation_type: 'scan', animation_direction: 'left')
 
 
 tb = TextBox.create(style: 'single-line-text',
@@ -199,11 +196,11 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence-front.png
 PostElement.create(post: p, element: s, sequence: 4, position: "fixed-top:0px;fixed-left:0px")
 
 tb = TextBox.create(style: 'single-column-text',
-                    css: 'border-right:3px white solid',
+                    css: 'border-right:2px white solid;text-shadow:none',
                     text: %{
 <h1 class="huge right" style="margin-top:20px;line-height:90px"><img src='http://dl.dropbox.com/u/4893047/svmg/ufc-logo.png' style='height:82px;margin-right:7px' />UFC</h1>
 
-<h2 class="large grayLight right">Ultimate Fighting Championship</h2>
+<p class="large grayLight right">Ultimate Fighting Championship</p>
 
 <p class="grayLighter">
 One year before signing its landmark deal with FOX in 2011 which catapulted the world&rsquo;s fastest growing sports organization into the mainstream, the UFC announced the launch of operations in Asia with the opening of its Beijing office.
@@ -220,14 +217,14 @@ p = Post.create(title: "Divider",
                 show_header: false,
                 site: site,
                 space: "foreground",
-                height: "255px",
+                height: "182px",
                 display_order: 10)
 
 tb = TextBox.create(style: 'single-line-text',
+                    css: 'text-shadow:none',
                     text: %{
-<h2 class="center"><em>&ldquo;Bacon ipsum dolor sit amet pork loin ham hock tenderloin, pig chuck shoulder biltong ribeye short loin flank pancetta tongue ball tip. Turducken tongue tail
-capicola ribeye. Short loin spare ribs venison&rdquo;</em></h2>
-<h3 class="gray right">- Mark Fischer, Managing Director UFC Asia</h3>
+<p class="right" style="font-size:22px;line-height:28px"><em>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque adipiscing tincidunt nisl in lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.&rdquo;</em></p>
+<p class="gray right" style="font-size:20px">- Mark Fischer, Managing Director UFC Asia</p>
 })
 
 PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px;fluid-h:50%")
@@ -294,10 +291,10 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-ball3.png', styl
 =end
 
 tb = TextBox.create(style: 'single-column-text',
-                    css: 'border-right:3px white solid',
+                    css: 'border-right:2px white solid;text-shadow:none',
                     text: %{
 <h1 class="huge right" style="margin-top:20px;line-height:90px"><img src='http://dl.dropbox.com/u/4893047/svmg/twm-logo.png' style='height:82px;margin-right:7px' />TWM</h1>
-<h2 class="large grayLight right">Taiwan Mobile</h2>
+<p class="large grayLight right">Taiwan Mobile</p>
 <p class="grayLighter">Taiwan Mobile has long been one of the most respected companies not only in the telecom industry, but across all of Taiwan. In every field they’ve entered, they’ve been innovators as well as disruptors. This is no different for their most recent undertaking, the myVideo service.</p>
 <p class="grayLighter">It gives us distinct pride to work along side Taiwan Mobile advising on key elements of this market defining service. From content acquisition to technical implementation, SVMG is honored to be a part of this team.</p>
 })
@@ -309,14 +306,14 @@ p = Post.create(title: "Divider",
                 show_header: false,
                 site: site,
                 space: "foreground",
-                height: "255px",
+                height: "182px",
                 display_order: 12)
 
 tb = TextBox.create(style: 'single-line-text',
+                    css: 'text-shadow:none',
                     text: %{
-<h2 class="center"><em>&ldquo;Bacon ipsum dolor sit amet pork loin ham hock tenderloin, pig chuck shoulder biltong ribeye short loin flank pancetta tongue ball tip. Turducken tongue tail
-capicola ribeye. Short loin spare ribs venison&rdquo;</em></h2>
-<h3 class="gray right">- Mark Fischer, Managing Director UFC Asia</h3>
+<p class="right" style="font-size:22px;line-height:28px"><em>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque adipiscing tincidunt nisl in lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.&rdquo;</em></p>
+<p class="gray right" style="font-size:20px">- Scylla Tsai, Manager of President's Office</p>
 })
 
 PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px;fluid-h:50%")
@@ -332,6 +329,7 @@ p = Post.create(title: "Contact",
 
 tb = TextBox.create(style: 'full-margins',
                     text_align: "center",
+                    css: 'text-shadow:none',
                     text: "<p class='large'>We'd love to hear from you.</p>")
 PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:120px;", animation_type: "fixed", effects: 'scroll_fade_in-show-show')
 
@@ -341,7 +339,8 @@ PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixe
 
 tb = TextBox.create(style: 'full-margins',
                     text_align: "center",
+                    css: 'text-shadow:none',
                     text: %{
-<p class="large">Press Inqueries: <a href="mailto:press@svmg.tw" style="color:#FFF">press@svmg.com</a><br />Business Inqueries: <a href="mailto:business@svmg.tw" style="color:#FFF">business@svmg.com</a></p>
+<p class="large" style="line-height:22px">Press Inqueries: <a href="mailto:press@svmg.tw" style="color:#FFF">press@svmg.com</a><br />Business Inqueries: <a href="mailto:business@svmg.tw" style="color:#FFF">business@svmg.com</a></p>
 })
 PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:450px;", animation_type: "fixed")

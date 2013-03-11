@@ -42,7 +42,7 @@ tb = TextBox.create(style: 'full-margins',
 #PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:10px;fluid-h:50%", effects: 'fade_out-fade_out-fade_out', media_flag: 1)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/svmg-arrow.png', style: 'image', width: 21, height: 70)
-PostElement.create(post: p, element: s, sequence: 3, position: "fixed-bottom:10px;fluid-h:50%", effects: 'fade_out-fade_out-fade_out', media_flag: 1)
+PostElement.create(post: p, element: s, sequence: 3, position: "fixed-bottom:15px;fluid-h:50%", effects: 'fade_out-fade_out-fade_out', media_flag: 1)
 
 ############# Brand Rep #############
 p = Post.create(title: "About SVMG",

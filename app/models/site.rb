@@ -1,5 +1,5 @@
 class Site < ActiveRecord::Base
-  attr_accessible :name, :show_nav, :header_post
+  attr_accessible :name, :show_nav, :header_post, :ga
   attr_reader :col_width, :gutter_width
 
   validates_presence_of :name

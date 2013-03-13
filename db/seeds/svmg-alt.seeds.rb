@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-site_name = "SVMG"
+site_name = "SVMG Alt"
 if site = Site.find_by_name(site_name)
   site.destroy
 end
@@ -19,8 +19,8 @@ site = Site.create(name: site_name, show_nav: false, ga: %{
 
 </script>
 })
-site.domains.create(domain: "svmg.localhost")
-site.domains.create(domain: "svmg.lijentan.com")
+site.domains.create(domain: "svmg-alt.localhost")
+site.domains.create(domain: "svmg-alt.lijentan.com")
 
 site.site_style.update_attributes(body_font_data: {
                                     font_code: "<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>",
@@ -259,7 +259,7 @@ p = Post.create(title: "Taiwan Mobile",
                 space: 'background',
                 depth: 1,
                 display_order: 11)
-
+=begin
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-sky.jpg', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
 
@@ -273,10 +273,10 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons2.png',
 PostElement.create(post: p, element: s, sequence: 4, animation_type: "fixed-scan", animation_direction: "down", position: "fixed-left:0px")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons3.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:20%;fluid-v:15%")
+PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:75%;fluid-v:15%")
 
 
-=begin
+
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloon-red.png', style: 'image')
 PostElement.create(post: p, element: s, sequence: 2, position: "fluid-h:10%", animation_type: "fixed-scan", animation_direction: "up")
 
@@ -293,19 +293,20 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloon-blue.pn
 PostElement.create(post: p, element: s, sequence: 6, position: "fluid-h:95%", animation_type: "fixed-scan", animation_direction: "up")
 =end
 
-=begin
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-background.jpg', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-ball1.png', style: 'tiling')
-PostElement.create(post: p, element: s, sequence: 2, animation_type: "fixed-scan", animation_direction: "down", position: "fixed-left:0px")
+PostElement.create(post: p, element: s, sequence: 2, animation_type: "fixed-scan", animation_direction: "up", position: "fluid-h:50%")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-ball2.png', style: 'tiling')
-PostElement.create(post: p, element: s, sequence: 3, animation_type: "fixed-scan", animation_direction: "down", position: "fixed-left:0px")
+PostElement.create(post: p, element: s, sequence: 3, animation_type: "fixed-scan", animation_direction: "up", position: "fluid-h:50%")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-ball3.png', style: 'image')
-#PostElement.create(post: p, element: s, sequence: 4, position: "fluid-v:75%;fluid-h:85%")
-=end
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-ball3.png', style: 'tiling')
+PostElement.create(post: p, element: s, sequence: 4, animation_type: "fixed-scan", animation_direction: "down", position: "fixed-left:0px")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/tm-ball4.png', style: 'image')
+#PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:20%;fluid-v:15%")
 
 tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:2px white solid;text-shadow:none',
@@ -316,6 +317,7 @@ tb = TextBox.create(style: 'single-column-text',
 <p class="grayLighter">It gives us distinct pride to work along side Taiwan Mobile advising on key elements of this market defining service. From content acquisition to technical implementation, SVMG is honored to be a part of this team.</p>
 })
 #PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-grid-right:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+#PostElement.create(post: p, element: tb, sequence: 7, position: "fluid-h:20%;fluid-v:80%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:80%;fluid-v:80%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 

@@ -17,6 +17,12 @@
     <%= raw @site.ga if @site.ga %>
 
     <%= yield :head %>
+
+<!-- Pulled from http://code.google.com/p/html5shiv/ -->
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
   </head>
 
   <%= content_tag :body, data: {site_id: @site.id, col_width: Site::COL_WIDTH, gutter_width: Site::GUTTER_WIDTH} do || %>

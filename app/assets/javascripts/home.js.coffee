@@ -11,7 +11,10 @@ get_background_position_x = (element) ->
 
 get_background_position_y = (element) ->
 	background_pos = element.css('background-position').split(" ")
-	background_pos[1]
+	if background_pos.length > 1
+		background_pos[1]
+	else
+		background_pos[0] #ie10
 
 set_background_position_x = (element, x) ->
 	element.css("background-position", x + " " + get_background_position_y(element))
@@ -500,7 +503,6 @@ phase_position = (phase, article) ->
 			screen_height = $(window).height()
 			screen_top = $(window).scrollTop()
 
-			console.log("#{element_top} #{element_height} #{screen_height} #{screen_top}")
 			return 1 - ((element_bottom - screen_top) / Math.min(element_height, screen_height))
 
 #TODO refactor 3 phase functions

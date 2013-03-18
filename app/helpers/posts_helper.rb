@@ -51,10 +51,6 @@ module PostsHelper
     styles = []
     styles << "background: url(#{ asset_path(sprite.url) })"
     styles << "z-index: #{post_element.sequence}" if post_element.sequence
-    if sprite.style == "cover" #ie7,ie8 cover compatibility
-      styles << "filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{ asset_path(sprite.url) }', sizingMethod='scale')"
-      styles << "-ms-filter: \"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='#{ asset_path(sprite.url) }', sizingMethod='scale')\""
-    end
     styles.concat(position_css)
 
     data = {}

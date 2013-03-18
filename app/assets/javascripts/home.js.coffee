@@ -660,6 +660,15 @@ detect_phase = (element) ->
 	else
 		return 3
 
+ie7_8_cover_fix = ->
+	if $.browser.msie && parseInt($.browser.version) < 9
+		$('.sprite.cover').each ->
+			bg_url = $(this).css('background-image')
+			bg_url = bg_url.replace(/"/g,"").replace(/url\(|\)$/ig, "")
+			$(this).css('filter', "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"#{bg_url}\", sizingMethod='scale')")
+			$(this).css('-ms-filter', "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"#{bg_url}\", sizingMethod='scale')")
+
+
 setup_posts = ->
 	setup_nav()
 	setup_videos()
@@ -678,6 +687,7 @@ setup_positions = ->
 	set_fixed_positions()
 	reposition_elements() #LEGACY
 	set_video_sizes()
+	ie7_8_cover_fix()
 
 
 $ ->

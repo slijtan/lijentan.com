@@ -312,7 +312,6 @@ setup_post_heights = ->
 			height = "100%" if height == 'full-screen'
 			height = (Number(height.replace('%', '')) * $(window).height() / 100) + "px" if height.search(/%/) > 0
 			$(this).css("height", height)
-#			console.log("setting height of this article to #{height}")
 
 setup_videos = ->
 	#Replace video tags with iframes

@@ -17,10 +17,16 @@ get_background_position_y = (element) ->
 		background_pos[0] #ie10
 
 set_background_position_x = (element, x) ->
-	element.css("background-position", x + " " + get_background_position_y(element))
+	if $.browser.msie && $.browser.version.substring(0, 2) == "9."
+		element.css("background-position-x", x)
+	else
+		element.css("background-position", x + " " + get_background_position_y(element))
 
 set_background_position_y = (element, y) ->
-	element.css("background-position", get_background_position_x(element) + " " + y)
+	if $.browser.msie && $.browser.version.substring(0, 2) == "9."
+		element.css("background-position-y", y)
+	else
+		element.css("background-position", get_background_position_x(element) + " " + y)
 
 articles_position_on_page = (article) ->
 	div_height = article.innerHeight()

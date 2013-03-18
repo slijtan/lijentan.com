@@ -62,9 +62,9 @@ adjust_scanning_div = (element) ->
 	bottom_position = top_position + screen_height
 
 	width = $(element).outerWidth()
-	full_width = $(element).parent('article').outerWidth()
+	full_width = $(element).parent('div.post').outerWidth()
 	height = $(element).outerHeight()
-	full_height = $(element).parent('article').outerHeight()
+	full_height = $(element).parent('div.post').outerHeight()
 
 	if top_position <= bottom_height && bottom_position >= top_height
 		animation_direction = element.data("animation-direction")
@@ -190,7 +190,7 @@ animate_nav_post_loading = ->
 	setTimeout(animate_nav_post_loading, 1000) if loading_more_posts
 
 calculate_total_articles_on_page = ->
-	total_articles_on_page = $('article').length
+	total_articles_on_page = $('div.post').length
 
 setup_nav = ->
 	$('nav a.bullet').hover(
@@ -305,13 +305,14 @@ setup_coffee_table_album = ->
 
 setup_post_heights = ->
 #	$("article[data-height]").each ->
-	$("article").each ->
+#	$("article").each ->
+	$("div.post").each ->
 		if $(this).data('height')
 			height = $(this).data('height')
 			height = "100%" if height == 'full-screen'
 			height = (Number(height.replace('%', '')) * $(window).height() / 100) + "px" if height.search(/%/) > 0
 			$(this).css("height", height)
-			console.log("setting height of this article to #{height}")
+#			console.log("setting height of this article to #{height}")
 
 setup_videos = ->
 	#Replace video tags with iframes
@@ -404,7 +405,7 @@ reposition_elements = ->
 set_fluid_positions = ->
 	$('.text-box.fluid-h, .video.fluid-h').each ->
 		width = $(this).outerWidth()
-		full_width = $(this).parent('article').outerWidth()
+		full_width = $(this).parent('div.post').outerWidth()
 		coordinate = $(this).data('fluid-h')
 		$(this).css("left", fluid_to_cartesian(coordinate, width, full_width))
 
@@ -412,7 +413,7 @@ set_fluid_positions = ->
 		if $(this).hasClass('fixed')
 			full_height = $(window).height()
 		else
-			full_height = $(this).parent('article').outerHeight()
+			full_height = $(this).parent('div.post').outerHeight()
 
 
 		height = $(this).outerHeight()
@@ -530,10 +531,10 @@ update_three_phase_effects = (element) ->
 
 	switch effect_type
 		when 'scroll_fade_in'
-			opacity = phase_position(phase, element.parent('article'))
+			opacity = phase_position(phase, element.parent('div.post'))
 			element.css({opacity: opacity})
 		when 'scroll_fade_out'
-			opacity = 1 - phase_position(phase, element.parent('article'))
+			opacity = 1 - phase_position(phase, element.parent('div.post'))
 			element.css({opacity: opacity})
 		when 'hide'
 			element.css({opacity: 0})
@@ -582,14 +583,14 @@ fixed_to_absolute = (element, phase_shift) ->
 		if top_css.match(/px/) && (phase_shift == 23 || phase_shift == 32)
 			element_top = Number(top_css.replace('px', ''))
 			window_height = $(window).height()
-			article_height = element.parent('article').outerHeight()
+			article_height = element.parent('div.post').outerHeight()
 			new_top = (element_top + article_height - window_height) + "px"
 			element.css("top", new_top)
 
 		else if bottom_css.match(/px/) && (phase_shift == 12 || phase_shift == 21)
 			element_bottom = Number(bottom_css.replace('px', ''))
 			window_height = $(window).height()
-			article_height = element.parent('article').outerHeight()
+			article_height = element.parent('div.post').outerHeight()
 			new_bottom = (element_bottom + article_height - window_height) + "px"
 			element.css("bottom", new_bottom)
 
@@ -599,7 +600,7 @@ fixed_to_absolute = (element, phase_shift) ->
 		if phase_shift == 23 || phase_shift == 32
 			element_top = Number(y.replace('px', ''))
 			window_height = $(window).height()
-			article_height = element.parent('article').outerHeight()
+			article_height = element.parent('div.post').outerHeight()
 			new_top = (element_top + article_height - window_height) + "px"
 			set_background_position_y(element, new_top)
 
@@ -614,14 +615,14 @@ absolute_to_fixed = (element, phase_shift) ->
 		if top_css.match(/px/) && (phase_shift == 32 || phase_shift == 23)
 			element_top = Number(top_css.replace('px', ''))
 			window_height = $(window).height()
-			article_height = element.parent('article').outerHeight()
+			article_height = element.parent('div.post').outerHeight()
 			new_top = (element_top - article_height + window_height) + "px"
 			element.css("top", new_top)
 
 		if bottom_css.match(/px/) && (phase_shift == 21 || phase_shift == 12)
 			element_bottom = Number(bottom_css.replace('px', ''))
 			window_height = $(window).height()
-			article_height = element.parent('article').outerHeight()
+			article_height = element.parent('div.post').outerHeight()
 			new_bottom = (element_bottom - article_height + window_height) + "px"
 			element.css("bottom", new_bottom)
 
@@ -631,13 +632,13 @@ absolute_to_fixed = (element, phase_shift) ->
 		if phase_shift == 32 || phase_shift == 23
 			element_top = Number(y.replace('px', ''))
 			window_height = $(window).height()
-			article_height = element.parent('article').outerHeight()
+			article_height = element.parent('div.post').outerHeight()
 			new_top = (element_top - article_height + window_height) + "px"
 			set_background_position_y(element, new_top)
 
 
 detect_phase = (element) ->
-	article = element.parent('article')
+	article = element.parent('div.post')
 
 	article_height = article.innerHeight()
 	article_top = article.offset().top
@@ -683,7 +684,7 @@ $ ->
 
 	#TODO move/refactor this, it also appears in window.scroll
 	$('.text-box.fixed, .text-box.fixed-scan').each ->
-		if $(this).parent('article').overlaps($(this))
+		if $(this).parent('div.post').overlaps($(this))
 			$(this).css('visibility', 'visible')
 		else
 			$(this).css('visibility', 'hidden')
@@ -693,7 +694,7 @@ $ ->
 		setup_positions()
 
 	$(window).scroll ->
-		$('article:in-viewport').each ->
+		$('div.post:in-viewport').each ->
 			$(this).find('div.scan, div.fixed-scan').each ->
 				if $(this).hasClass('sprite')
 					adjust_scanning_background($(this))
@@ -706,12 +707,12 @@ $ ->
 
 		#hide fixed text if article isnt in view
 		$('.text-box.fixed, .text-box.fixed-scan').each ->
-			if $(this).parent('article').overlaps($(this))
+			if $(this).parent('div.post').overlaps($(this))
 				$(this).css('visibility', 'visible')
 			else
 				$(this).css('visibility', 'hidden')
 
-		$('article[class*=fade-in]').each -> adjust_fade_in($(this))
+		$('div.post[class*=fade-in]').each -> adjust_fade_in($(this))
 
 		if $('nav').length > 0 #only do nav functions if nav exists
 			update_nav_with_focused_article()

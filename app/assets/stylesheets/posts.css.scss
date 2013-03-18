@@ -1,84 +1,85 @@
 /* ----------------------
    Global Post Format
    -------------------------*/
-article.post {
+div.post {
+//article.post {
     margin: 0 auto;
     width: 100%;
     position: relative;
     overflow: hidden;
 
     header {
-        text-align: center;
-        margin: 0 auto;
-        width: $gridRowWidth;
-        position: relative;
-        padding-bottom: $paddingSmall;
-        z-index: $zIndexPostHeader;
+	text-align: center;
+	margin: 0 auto;
+	width: $gridRowWidth;
+	position: relative;
+	padding-bottom: $paddingSmall;
+	z-index: $zIndexPostHeader;
 
-        time {
-            display: block;
-            text-align: right;
-            border-top: solid 1px $hrBorder;
-        }
+	time {
+	    display: block;
+	    text-align: right;
+	    border-top: solid 1px $hrBorder;
+	}
     }
 
     &.foreground, &.mid-to-foreground {
-        background: $foregroundBg;
-        color: $foregroundTxt;
-        text-shadow: 1px 1px 0.1em $foregroundTxtShadow;
+	background: $foregroundBg;
+	color: $foregroundTxt;
+	text-shadow: 1px 1px 0.1em $foregroundTxtShadow;
 
-        time {
-            color: $foregroundTxtLight;
-            border-color: $foregroundBgDark;
-        }
+	time {
+	    color: $foregroundTxtLight;
+	    border-color: $foregroundBgDark;
+	}
 
-        a { color: $foregroundTxtLink;}
+	a { color: $foregroundTxtLink;}
     }
 
     &.midground, &.back-to-midground {
-        background: $midgroundBg;
-        color: $midgroundTxt;
-        text-shadow: 1px 1px 0.1em $midgroundTxtShadow;
+	background: $midgroundBg;
+	color: $midgroundTxt;
+	text-shadow: 1px 1px 0.1em $midgroundTxtShadow;
 
-        time {
-            color: $midgroundTxtLight;
-            border-color: $midgroundBgDark;
-        }
+	time {
+	    color: $midgroundTxtLight;
+	    border-color: $midgroundBgDark;
+	}
 
-        a { color: $midgroundTxtLink;}
+	a { color: $midgroundTxtLink;}
     }
 
     &.background {
-        background: $backgroundBg;
-        color: $backgroundTxt;
-        text-shadow: 1px 1px 0.1em $backgroundTxtShadow;
+	background: $backgroundBg;
+	color: $backgroundTxt;
+	text-shadow: 1px 1px 0.1em $backgroundTxtShadow;
 
-        time {
-            color: $backgroundTxtLight;
-            border-color: $backgroundBgDark;
-        }
+	time {
+	    color: $backgroundTxtLight;
+	    border-color: $backgroundBgDark;
+	}
 
-        a { color: $backgroundTxtLink;}
+	a { color: $backgroundTxtLink;}
     }
 
     &.foreground {
-        z-index: $zIndexForeground;
+	z-index: $zIndexForeground;
     }
 
     &.mid-to-foreground {
-        z-index: $zIndexMidToForeground;
+	z-index: $zIndexMidToForeground;
     }
 
     &.midground {
-        z-index: $zIndexMidground;
+	z-index: $zIndexMidground;
     }
 
     &.back-to-midground {
-        z-index: $zIndexBackToMidground;
+	z-index: $zIndexBackToMidground;
     }
 
     &.background {
-        z-index: $zIndexBackground;
+	z-index: $zIndexBackground;
     }
 }
 

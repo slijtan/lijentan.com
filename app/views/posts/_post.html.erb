@@ -1,4 +1,4 @@
-<article id="post-<%= post.id %>" <%= post_attributes(post) %>>
+<div id="post-<%= post.id %>" <%= post_attributes(post) %>>
   <% if post.show_header %>
   <header>
     <h1><%= post.title %></h1>
@@ -13,4 +13,4 @@
   <% end %>
 
   <%= render_shadows(post) %>
-</article>
+</div>

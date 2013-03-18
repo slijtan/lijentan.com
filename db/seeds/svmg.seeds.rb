@@ -202,10 +202,10 @@ s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence2.jpg', st
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fighter1.png', style: 'full-height')
-PostElement.create(post: p, element: s, sequence: 3, position: "fluid-v:50%", animation_type: "fixed-scan", animation_direction: "right")
+PostElement.create(post: p, element: s, sequence: 3, position: "fluid-v:100%;", animation_type: "fixed-scan", animation_direction: "right")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fighter2.png', style: 'full-height')
-PostElement.create(post: p, element: s, sequence: 2, position: "fluid-v:50%", animation_type: "fixed-scan", animation_direction: "right")
+PostElement.create(post: p, element: s, sequence: 2, position: "fluid-v:100%", animation_type: "fixed-scan", animation_direction: "right")
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence-front.png', style: 'cover')
 PostElement.create(post: p, element: s, sequence: 4, position: "fixed-top:0px;fixed-left:0px")

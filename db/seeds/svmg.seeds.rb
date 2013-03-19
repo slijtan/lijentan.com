@@ -37,7 +37,7 @@ p = Post.create(title: "SVMG",
 		height: "100%",
 		display_order: 1)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image', width: 172, height: 171)
 #PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixed-top:250px;", animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-margins',
@@ -131,8 +131,8 @@ p = Post.create(title: "MLBAM",
 		depth: 3,
 		display_order: 4)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-mlb.jpg', style: 'cover')
-PostElement.create(post: p, element: s, sequence: 1, position: "fixed-right:0px;fluid-v:50%", animation_type: "fixed-scan", animation_direction: "right")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-mlb.jpg', style: 'cover', width: 1784, height: 500)
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-right:0px;fluid-v:50%", animation_type: "fixed-scan", animation_direction: "left")
 
 tb = TextBox.create(style: 'full-margins',
 		    text: "<h1 class='massive'>&#149;</h1>")
@@ -201,16 +201,16 @@ p = Post.create(title: "UFC",
 #s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence.jpg', style: 'cover')
 #PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence2.jpg', style: 'cover')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence2.jpg', style: 'cover', width: 700, height: 467)
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fighter1.png', style: 'full-height')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fighter1.png', style: 'full-height', width: 750, height: 490)
 PostElement.create(post: p, element: s, sequence: 3, position: "fluid-v:100%;", animation_type: "fixed-scan", animation_direction: "right")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fighter2.png', style: 'full-height')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fighter2.png', style: 'full-height', width: 605, height: 568)
 PostElement.create(post: p, element: s, sequence: 2, position: "fluid-v:100%", animation_type: "fixed-scan", animation_direction: "right")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence-front.png', style: 'cover')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/ufc-fence-front.png', style: 'cover', width:400 , height: 319)
 PostElement.create(post: p, element: s, sequence: 4, position: "fixed-top:0px;fixed-left:0px")
 
 tb = TextBox.create(style: 'single-column-text',
@@ -262,19 +262,19 @@ p = Post.create(title: "Taiwan Mobile",
 		depth: 1,
 		display_order: 11)
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-sky.jpg', style: 'cover')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-sky.jpg', style: 'cover', width: 700, height: 382)
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons0.png', style: 'tiling')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons0.png', style: 'tiling', width: 476, height: 700)
 PostElement.create(post: p, element: s, sequence: 2, animation_type: "fixed-scan", animation_direction: "up", position: "fixed-left:0px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons1.png', style: 'tiling')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons1.png', style: 'tiling', width: 800, height: 600)
 PostElement.create(post: p, element: s, sequence: 3, animation_type: "fixed-scan", animation_direction: "up", position: "fixed-left:0px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons2.png', style: 'tiling')
-PostElement.create(post: p, element: s, sequence: 4, animation_type: "fixed-scan", animation_direction: "down", position: "fixed-left:0px")
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons2.png', style: 'tiling', width: 1000, height: 1424)
+PostElement.create(post: p, element: s, sequence: 4, animation_type: "fixed-scan", animation_direction: "up", position: "fixed-left:0px")
 
-s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons3.png', style: 'image')
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/twm-balloons3.png', style: 'image', width: 400, height: 520)
 PostElement.create(post: p, element: s, sequence: 5, position: "fluid-h:80%;fluid-v:15%")
 
 

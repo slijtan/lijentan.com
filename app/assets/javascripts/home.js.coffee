@@ -39,6 +39,22 @@ articles_position_on_page = (article) ->
 	(bottom_position - top_height) * 100 / (div_height + screen_height)
 
 
+handle_reverse_background_position = (element, animation_direction) ->
+	if (animation_direction == "up" || animation_direction == "down") && height = element.data('height')
+		if height > $(window).height()
+			return if animation_direction == "up" then "down" else "up"
+		else
+			return animation_direction
+
+	else if (animation_direction == "left" || animation_direction == "right") && width = element.data('width')
+		if width > $(window).width()
+			return if animation_direction == "left" then "right" else "left"
+		else
+			return animation_direction
+
+	else
+		return animation_direction
+
 adjust_scanning_background = (element) ->
 	div_height = element.innerHeight()
 	screen_height = $(window).height()
@@ -49,6 +65,8 @@ adjust_scanning_background = (element) ->
 
 	if top_position <= bottom_height && bottom_position >= top_height
 		animation_direction = element.data("animation-direction")
+		animation_direction = handle_reverse_background_position(element, animation_direction)
+
 		article_y = articles_position_on_page(element)
 
 		switch animation_direction
@@ -77,6 +95,7 @@ adjust_scanning_div = (element) ->
 
 	if top_position <= bottom_height && bottom_position >= top_height
 		animation_direction = element.data("animation-direction")
+		animation_direction = handle_reverse_background_position(element, animation_direction)
 		article_y = articles_position_on_page(article)
 
 		new_top = new_left = 0
@@ -668,6 +687,16 @@ ie7_8_cover_fix = ->
 			$(this).css('filter', "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"#{bg_url}\", sizingMethod='scale')")
 			$(this).css('-ms-filter', "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=\"#{bg_url}\", sizingMethod='scale')")
 
+update_full_height_data = ->
+	$('.full-height').each ->
+		old_height = $(this).data('height')
+		old_width = $(this).data('width')
+
+		if old_height && old_width
+			new_height  = $(window).height()
+			new_width = new_height * (old_width / old_height)
+			$(this).data('height', new_height)
+			$(this).data('width', new_width)
 
 setup_posts = ->
 	setup_nav()
@@ -688,6 +717,7 @@ setup_positions = ->
 	reposition_elements() #LEGACY
 	set_video_sizes()
 	ie7_8_cover_fix()
+	update_full_height_data()
 
 is_mobile_version = ->
 	if (document.documentElement.clientWidth <= 915) || (document.documentElement.clientHeight <= 400) then true else false #kinda arbitrary, but where the svmg page breaks down...

@@ -83,7 +83,8 @@ tb = TextBox.create(style: 'single-column-text',
 		    css: 'padding-left:0px;text-shadow:none',
 		    text: %{<p class="grayLight">Everyday more and more companies are facing the challenges of growing and adapting their business for new market entry and expansion plans.</p>
 <p class="grayLight">Whether it’s leveraging our unique experiences and resources, advising on cultural issues and business protocols, or crafting a customized strategy, SVMG is committed to providing our clients with the tools they need in order to thrive in an ever-evolving globalized marketplace.</p>
-<p class="grayLight"><em>SVMG works with amazing brands to take them to even greater heights.</em></p>})
+<em class="grayLight">Here are some of the amazing brands that we've worked with.</em>
+})
 PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-v:50%;fixed-grid-left:0col") #, animation_type: 'scan', animation_direction: 'up')
 
 tb = TextBox.create(style: 'full-margins',
@@ -168,14 +169,14 @@ p = Post.create(title: "Divider",
 tb = TextBox.create(style: 'single-line-text',
 		    css: 'text-shadow:none',
 		    text: %{
-<p class="right" style="font-size:22px;line-height:28px"><em>&ldquo;With such a passionate following for baseball in Taiwan, it was extremely important that MLBAM find the right partner to advise us on the ground. From deal sourcing to strategic planning, SVMG has exceeded our loftiest expectations.&rdquo;</em></p>
+<p class="right grayDark" style="font-size:22px;line-height:28px"><em>&ldquo;With such a passionate following for baseball in Taiwan, it was extremely important that MLBAM find the right partner to advise us on the ground. From deal sourcing to strategic planning, SVMG has exceeded our loftiest expectations.&rdquo;</em></p>
 })
 PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px;fluid-h:50%") #, animation_type: 'scan', animation_direction: 'right')
 
 tb = TextBox.create(style: 'full-margins',
 		    css: 'text-shadow:none',
 		    text: %{
-<p class="gray right" style="font-size:20px">- Alex Pigeon, Vice President International</p>
+<p class="grayLight right" style="font-size:20px">- Alex Pigeon, Vice President International</p>
 })
 PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-bottom:30px;fluid-h:50%") #, animation_type: 'scan', animation_direction: 'left')
 
@@ -241,8 +242,8 @@ p = Post.create(title: "Divider",
 tb = TextBox.create(style: 'single-line-text',
 		    css: 'text-shadow:none',
 		    text: %{
-<p class="right" style="font-size:22px;line-height:28px"><em>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque adipiscing tincidunt nisl in lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.&rdquo;</em></p>
-<p class="gray right" style="font-size:20px">- Mark Fischer, Managing Director UFC Asia</p>
+<p class="right grayDark" style="font-size:22px;line-height:28px"><em>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque adipiscing tincidunt nisl in lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.&rdquo;</em></p>
+<p class="grayLight right" style="font-size:20px">- Mark Fischer, Managing Director UFC Asia</p>
 })
 
 PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px;fluid-h:50%")
@@ -331,11 +332,9 @@ p = Post.create(title: "Divider",
 tb = TextBox.create(style: 'single-line-text',
 		    css: 'text-shadow:none',
 		    text: %{
-<p class="right" style="font-size:22px;line-height:28px"><em>&ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque adipiscing tincidunt nisl in lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.&rdquo;</em></p>
-<p class="gray right" style="font-size:20px">- Scylla Tsai, Manager of President's Office</p>
+<p class="grayDark center" style="font-size:26px;line-height:28px"><em>SVMG works with amazing brands to take them to even greater heights.</em></p>
 })
-
-PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-top:30px;fluid-h:50%")
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-v:50%;fluid-h:50%")
 
 ############# CONTACT  #############
 p = Post.create(title: "Contact",
@@ -350,7 +349,7 @@ tb = TextBox.create(style: 'full-margins',
 		    text_align: "center",
 		    css: 'text-shadow:none',
 		    text: "<p class='large'>We'd love to hear from you.</p>")
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fluid-v:10%;", animation_type: "fixed", effects: 'scroll_fade_in-show-show')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fluid-v:18%;", animation_type: "fixed", effects: 'scroll_fade_in-show-show')
 
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image')

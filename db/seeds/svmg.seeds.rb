@@ -38,15 +38,17 @@ p = Post.create(title: "SVMG",
 		display_order: 1)
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixed-top:250px;", animation_type: "fixed")
+#PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixed-top:250px;", animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-margins',
 		    css: 'text-shadow:none',
 		    text: %{
+<p style="margin-bottom:25px;"><img src="http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png" /></p>
 <p class="large">Brand Representation - Consulting - Social Media</p>
 },
 		    text_align: "center")
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:450px;", animation_type: "fixed")
+#PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:450px;", animation_type: "fixed")
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fluid-v:50%;", animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-margins',
 		    text: %{
@@ -314,8 +316,8 @@ tb = TextBox.create(style: 'single-column-text',
 <p class="grayLighter">Taiwan Mobile has long been one of the most respected companies not only in the telecom industry, but across all of Taiwan. In every field they’ve entered, they’ve been innovators as well as disruptors. This is no different for their most recent undertaking, the myVideo service.</p>
 <p class="grayLighter">It gives us distinct pride to work along side Taiwan Mobile advising on key elements of this market defining service. From content acquisition to technical implementation, SVMG is honored to be a part of this team.</p>
 })
-PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-grid-right:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
-#PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:80%;fluid-v:80%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+#PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-grid-right:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:20%;fluid-v:80%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
 
 p = Post.create(title: "Divider",
@@ -348,16 +350,18 @@ tb = TextBox.create(style: 'full-margins',
 		    text_align: "center",
 		    css: 'text-shadow:none',
 		    text: "<p class='large'>We'd love to hear from you.</p>")
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:120px;", animation_type: "fixed", effects: 'scroll_fade_in-show-show')
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fluid-v:10%;", animation_type: "fixed", effects: 'scroll_fade_in-show-show')
 
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png', style: 'image')
-PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixed-top:250px;", animation_type: "fixed")
+#PostElement.create(post: p, element: s, sequence: 1, position: "fluid-h:50%;fixed-top:250px;", animation_type: "fixed")
 
 tb = TextBox.create(style: 'full-margins',
 		    text_align: "center",
 		    css: 'text-shadow:none',
 		    text: %{
+<p style="margin-bottom:25px;"><img src="http://dl.dropbox.com/u/4893047/svmg/logo-svmg.png" /></p>
 <p class="large" style="line-height:22px">Press Inqueries: <a href="mailto:press@svmg.tw" style="color:#FFF">press@svmg.tw</a><br />Business Inqueries: <a href="mailto:business@svmg.tw" style="color:#FFF">business@svmg.tw</a></p>
 })
-PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:450px;", animation_type: "fixed")
+#PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fixed-top:450px;", animation_type: "fixed")
+PostElement.create(post: p, element: tb, sequence: 2, position: "fluid-h:50%;fluid-v:50%;", animation_type: "fixed")

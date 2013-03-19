@@ -689,9 +689,16 @@ setup_positions = ->
 	set_video_sizes()
 	ie7_8_cover_fix()
 
+is_mobile_version = ->
+	if (document.documentElement.clientWidth <= 915) || (document.documentElement.clientHeight <= 400) then true else false #kinda arbitrary, but where the svmg page breaks down...
+
+#reposition for divs that contain images
+$(window).load ->
+	return if is_mobile_version()
+	setup_positions()
 
 $ ->
-	return if (document.documentElement.clientWidth <= 915) #kinda arbitrary, but where the svmg page breaks down...
+	return if is_mobile_version()
 	modal.setup()
 	loading.setup()
 

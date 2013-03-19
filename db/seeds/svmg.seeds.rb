@@ -156,6 +156,9 @@ That&rsquo;s why when MLBAM reached out to SVMG to ask for help in growing their
 #PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-h:20%;fluid-v:15%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg-small.png', style: 'image', width: 75, height: 75)
+PostElement.create(post: p, element: s, sequence: 4, position: "fixed-left:50px;fixed-bottom:50px;", animation_type: "fixed")
+
 
 
 p = Post.create(title: "Divider",
@@ -230,6 +233,10 @@ Because of its dedication and commitment to growing the UFC brand across Asia, S
 })
 #PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:80%;fluid-v:80%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg-small.png', style: 'image', width: 75, height: 75)
+PostElement.create(post: p, element: s, sequence: 4, position: "fixed-left:50px;fixed-bottom:50px;", animation_type: "fixed")
+
 
 p = Post.create(title: "Divider",
 		published: true,
@@ -319,6 +326,10 @@ tb = TextBox.create(style: 'single-column-text',
 })
 #PostElement.create(post: p, element: tb, sequence: 7, position: "fixed-grid-right:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:20%;fluid-v:80%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg-small.png', style: 'image', width: 75, height: 75)
+PostElement.create(post: p, element: s, sequence: 4, position: "fixed-left:50px;fixed-bottom:50px;", animation_type: "fixed")
+
 
 
 p = Post.create(title: "Divider",

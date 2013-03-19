@@ -727,7 +727,7 @@ hide_fixed_text_boxes = ->
 			$(this).css('visibility', 'hidden')
 
 display_nonoptimal_browser_message = ->
-	content = $("<div class='center modal-message'><p>For best experience, please view on a desktop version of a modern browser.</p><p class='center'>Click Anywhere To Continue</p></div>")
+	content = $("<div class='modal-message'><p class='center'>For best experience, please view on a desktop version of a modern browser.</p><p class='center'>Click Anywhere To Continue</p></div>")
 	modal.open_content(content)
 
 is_mobile_version = ->

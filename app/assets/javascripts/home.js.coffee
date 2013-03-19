@@ -230,7 +230,7 @@ setup_nav = ->
 			hide_nav_items()
 		)
 
-	$('nav a.bullet').click ->
+	$('nav a.bullet').click (event) ->
 		event.preventDefault()
 		scroll_to_post($(this.hash))
 
@@ -377,7 +377,7 @@ modal =
 
 		modal_obj = this
 
-		@overlay.click ->
+		@overlay.click (event) ->
 			event.preventDefault()
 			modal_obj.close()
 
@@ -392,6 +392,21 @@ modal =
 		left = Math.max($(window).width() - @modal.outerWidth(), 0) / 2
 
 		@modal.css(top:top + $(window).scrollTop(), left:left + $(window).scrollLeft())
+
+	open_content: (content) ->
+		loading.start()
+
+		@modal.empty().append(content)
+
+		@center()
+
+		@modal.fadeIn(600)
+		@overlay.fadeIn(300)
+
+		$(window).bind('resize.modal', @center)
+		$('body').css({ overflow: 'hidden' })
+
+		loading.stop()
 
 	open_image: (event_obj) ->
 		loading.start()
@@ -711,6 +726,15 @@ hide_fixed_text_boxes = ->
 		else
 			$(this).css('visibility', 'hidden')
 
+display_nonoptimal_browser_message = ->
+	content = $("<div class='modal-message'><p>For best viewing experience, please view on a desktop version of a modern browser.</p><p class='center'>Click Anywhere To Continue</p></div>")
+	modal.open_content(content)
+
+is_mobile_version = ->
+	if (document.documentElement.clientWidth <= 915) || (document.documentElement.clientHeight <= 400) then true else false #kinda arbitrary, but where the svmg page breaks down...
+
+is_unsupported_browser = ->
+	$.browser.msie && parseInt($.browser.version) <= 8
 
 setup_posts = ->
 	setup_nav()
@@ -734,18 +758,21 @@ setup_positions = ->
 	update_full_height_data()
 	hide_fixed_text_boxes()
 
-is_mobile_version = ->
-	if (document.documentElement.clientWidth <= 915) || (document.documentElement.clientHeight <= 400) then true else false #kinda arbitrary, but where the svmg page breaks down...
-
 #reposition for divs that contain images
 $(window).load ->
 	return if is_mobile_version()
 	setup_positions()
 
 $ ->
-	return if is_mobile_version()
 	modal.setup()
 	loading.setup()
+
+	if is_mobile_version()
+		display_nonoptimal_browser_message()
+		return
+
+	if is_unsupported_browser()
+		display_nonoptimal_browser_message()
 
 	#INITIALIZERS
 	calculate_total_articles_on_page()

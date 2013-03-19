@@ -580,24 +580,30 @@ update_three_phase_animation = (element) ->
 	previous_phase = if element.data('phase') then Number(element.data('phase')) else null
 	phase = detect_phase(element)
 
-	#detect phase change
-	if previous_phase != phase
-		animation_types = element.data('animation-direction').split("-")
-		previous_animation_type = if previous_phase then animation_types[previous_phase-1] else null
-		animation_type = animation_types[phase-1]
-		valid_animation_types = ["fixed", "roll"]
-		element.data('phase', phase)
+	#detect phase change and do it stepwise in case we skip a phase from scrolling too fast
+	if previous_phase < phase
+		transition_to_phase(element, previous_phase, ++previous_phase) while previous_phase < phase
+	else
+		transition_to_phase(element, previous_phase, --previous_phase) while previous_phase > phase
 
-		#changing animation types
-		if previous_animation_type != animation_type
-			phase_shift = previous_phase * 10 + phase #phase 2 -> 3 is 23, etc
-			if previous_animation_type == "fixed" #fixed to roll transition
-				fixed_to_absolute(element, phase_shift)
-			else if previous_animation_type == "roll" #roll to fixed transition
-				absolute_to_fixed(element, phase_shift)
+transition_to_phase = (element, previous_phase, phase) ->
+	animation_types = element.data('animation-direction').split("-")
+	previous_animation_type = if previous_phase then animation_types[previous_phase-1] else null
+	animation_type = animation_types[phase-1]
+	valid_animation_types = ["fixed", "roll"]
+	element.data('phase', phase)
 
-			element.removeClass(type) for type in valid_animation_types
-			element.addClass(animation_type)
+	#changing animation types
+	if previous_animation_type != animation_type
+		phase_shift = previous_phase * 10 + phase #phase 2 -> 3 is 23, etc
+		if previous_animation_type == "fixed" #fixed to roll transition
+			fixed_to_absolute(element, phase_shift)
+		else if previous_animation_type == "roll" #roll to fixed transition
+			absolute_to_fixed(element, phase_shift)
+
+		element.removeClass(type) for type in valid_animation_types
+		element.addClass(animation_type)
+
 
 # TRANSFORM PLANES
 # TODO: unhack this hackfest of a function...

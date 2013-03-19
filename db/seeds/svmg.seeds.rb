@@ -343,6 +343,7 @@ p = Post.create(title: "Contact",
 		site: site,
 		space: "background",
 		height: "100%",
+		depth: 0,
 		display_order: 13)
 
 tb = TextBox.create(style: 'full-margins',

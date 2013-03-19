@@ -704,6 +704,14 @@ update_full_height_data = ->
 			$(this).data('height', new_height)
 			$(this).data('width', new_width)
 
+hide_fixed_text_boxes = ->
+	$('.text-box.fixed, .text-box.fixed-scan').each ->
+		if $(this).parent('div.post').overlaps($(this))
+			$(this).css('visibility', 'visible')
+		else
+			$(this).css('visibility', 'hidden')
+
+
 setup_posts = ->
 	setup_nav()
 	setup_videos()
@@ -724,6 +732,7 @@ setup_positions = ->
 	set_video_sizes()
 	ie7_8_cover_fix()
 	update_full_height_data()
+	hide_fixed_text_boxes()
 
 is_mobile_version = ->
 	if (document.documentElement.clientWidth <= 915) || (document.documentElement.clientHeight <= 400) then true else false #kinda arbitrary, but where the svmg page breaks down...
@@ -742,14 +751,6 @@ $ ->
 	calculate_total_articles_on_page()
 	setup_posts()
 
-	#TODO move/refactor this, it also appears in window.scroll
-	$('.text-box.fixed, .text-box.fixed-scan').each ->
-		if $(this).parent('div.post').overlaps($(this))
-			$(this).css('visibility', 'visible')
-		else
-			$(this).css('visibility', 'hidden')
-
-
 	$(window).resize ->
 		setup_positions()
 
@@ -765,12 +766,7 @@ $ ->
 
 		$('div.three-phase-effects:in-viewport').each -> update_three_phase_effects($(this))
 
-		#hide fixed text if article isnt in view
-		$('.text-box.fixed, .text-box.fixed-scan').each ->
-			if $(this).parent('div.post').overlaps($(this))
-				$(this).css('visibility', 'visible')
-			else
-				$(this).css('visibility', 'hidden')
+		hide_fixed_text_boxes()
 
 		$('div.post[class*=fade-in]').each -> adjust_fade_in($(this))
 

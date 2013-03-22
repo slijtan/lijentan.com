@@ -234,8 +234,15 @@ With both UFC and SVMG recognizing the tremendous growth potential of the UFC in
 #PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-grid-left:-1col;fixed-bottom:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 PostElement.create(post: p, element: tb, sequence: 5, position: "fluid-h:80%;fluid-v:80%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 
+tb = TextBox.create(
+style: 'single-column-text',
+                    text: %{
+<p class="small grayLight right">Photo courtesy of Getty Images</p>
+})
+PostElement.create(post: p, element: tb, sequence: 5, position: "fixed-right:5px;fixed-bottom:5px", animation_type: "fixed", media_flag: 1)
+
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg-small.png', style: 'image', width: 75, height: 75)
-PostElement.create(post: p, element: s, sequence: 4, position: "fixed-left:50px;fixed-bottom:50px;", animation_type: "fixed")
+PostElement.create(post: p, element: s, sequence: 6, position: "fixed-left:50px;fixed-bottom:50px;", animation_type: "fixed")
 
 
 p = Post.create(title: "Divider",

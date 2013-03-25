@@ -131,12 +131,25 @@ p = Post.create(title: "MLBAM",
                 depth: 3,
                 display_order: 4)
 
+
+=begin
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-mlb.jpg', style: 'cover', width: 1784, height: 500)
 PostElement.create(post: p, element: s, sequence: 1, position: "fixed-right:0px;fluid-v:50%", animation_type: "fixed-scan", animation_direction: "left")
 
 tb = TextBox.create(style: 'full-margins',
                     text: "<h1 class='massive'>&#149;</h1>")
 PostElement.create(post: p, element: tb, sequence: 2, position: "fixed-bottom:0px", animation_type: "fixed-scan", animation_direction: "right")
+=end
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/mlb-pitcher.jpg', style: 'cover')
+PostElement.create(post: p, element: s, sequence: 1, position: "fixed-top:0px", animation_type: "fixed-scan", animation_direction: "left")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/mlb-baseball.png', style: 'image')
+PostElement.create(post: p, element: s, sequence: 2, position: "fluid-v:55%", animation_type: "fixed")
+
+s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/mlb-batter.png', style: 'full-height')
+PostElement.create(post: p, element: s, sequence: 3, position: "fluid-v:50%", animation_type: "fixed-scan", animation_direction: "left")
+
 
 tb = TextBox.create(style: 'single-column-text',
                     css: 'border-right:2px white solid;text-shadow:none',
@@ -153,8 +166,9 @@ There&rsquo;s a reason why ESPN asked MLBAM to stream all of their content and w
 That&rsquo;s why when MLBAM reached out to SVMG to ask for help in growing their business, we couldn’t say yes fast enough.
 </p>
 })
-#PostElement.create(post: p, element: tb, sequence: 3, position: "fixed-grid-right:-1col;fixed-top:150px", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
 PostElement.create(post: p, element: tb, sequence: 3, position: "fluid-h:20%;fluid-v:15%", animation_type: "three-phase", animation_direction: "fixed-fixed-roll")
+
+
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/svmg/logo-svmg-small.png', style: 'image', width: 75, height: 75)
 PostElement.create(post: p, element: s, sequence: 4, position: "fixed-left:50px;fixed-bottom:50px;", animation_type: "fixed")

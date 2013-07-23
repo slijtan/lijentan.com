@@ -215,7 +215,7 @@ tb = TextBox.create(text: 'Life is short.',
 
 PostElement.create(post_id: p.id,
                    element: tb,
-                   position: 'top:20%;left:20%;',
+                   position: 'fluid-h:20%;fluid-v:20%;',
                    sequence: 2)
 
 p = Post.create(title: "The Happy Secret to Better Work",
@@ -411,7 +411,7 @@ p = Post.create(title: 'Playing With Backgrounds',
                 published: true,
                 site: site,
                 show_header: false,
-                height: "750px",
+                height: "1450px",
                 date_published: DateTime.new(2012, 10, 31, 18, 6))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/hex/BG-small-hex-2.png', style: 'tiling')
@@ -1016,7 +1016,7 @@ p = Post.create(
             date_published: DateTime.new(2012, 10, 8, 16, 9))
 
 s = Sprite.create(url: 'http://dl.dropbox.com/u/4893047/posts/blue-angels/blue-angels-bg.png', style: 'image')
-PostElement.create(post: p, element: s, position: 'left', animation_type: 'scan', animation_direction: 'up', sequence: 1)
+PostElement.create(post: p, element: s, position: 'fluid-h:10%;', animation_type: 'scan', animation_direction: 'up', sequence: 1)
 
 tb = TextBox.create(style: 'quote-big', text: '"Multiply the best roller coaster you can imagine by 100" - Navy Lt. C.J. Simonsen')
 PostElement.create(post: p, element: tb, sequence: 2)

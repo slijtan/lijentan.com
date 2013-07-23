@@ -215,7 +215,7 @@ tb = TextBox.create(text: 'Life is short.',
 
 PostElement.create(post_id: p.id,
                    element: tb,
-                   position: 'top:10%;left:10%;',
+                   position: 'top:20%;left:20%;',
                    sequence: 2)
 
 p = Post.create(title: "The Happy Secret to Better Work",
